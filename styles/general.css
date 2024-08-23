@@ -1,0 +1,16 @@
+* {
+  margin: 0;
+  padding: 0;
+  --royal-blue: #3366cc;
+  --burgundy: #800020;
+
+  box-sizing: border-box;
+  font-family: "Alegreya SC", serif;
+}
+
+body {
+  background-color: black;
+  font-family: "Alegreya SC", serif;
+  height: 100vh;
+  width: 100%;
+}
