@@ -31,7 +31,7 @@
 
 .church-title {
   font-family: "Anton SC", sans-serif;
-  margin-bottom: 200px;
+  margin-bottom: 50px;
   color: rgb(255, 244, 192);
   font-size: 68px;
   font-weight: 900;
@@ -47,6 +47,26 @@
   font-size: 68px;
   font-weight: 900;
   letter-spacing: 5px;
+}
+
+.next-section a {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.down-arrow {
+  width: 40px;
+  height: auto;
+  cursor: pointer;
+  filter: brightness(0) invert(1); /* Makes the image white */
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.down-arrow:hover {
+  transform: translateY(5px) scale(1.1); /* Move the arrow down and slightly increase size */
+  filter: brightness(1) invert(0.8); /* Slightly decrease brightness and inversion to give a subtle glow effect */
 }
 
 @media (max-width: 768px) {
