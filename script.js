@@ -12,3 +12,30 @@ document.querySelectorAll("right-nav").forEach((n) =>
     rightNav.classList.remove("active");
   })
 );
+
+// JavaScript: js/script.js
+
+document.addEventListener("DOMContentLoaded", () => {
+  const dots = document.querySelectorAll(".dot");
+  const slides = document.querySelectorAll(".slider img");
+
+  dots.forEach((dot) => {
+    dot.addEventListener("click", () => {
+      const slideId = dot.getAttribute("data-slide");
+      const targetSlide = document.getElementById(slideId);
+
+      if (targetSlide) {
+        targetSlide.scrollIntoView({ behavior: "smooth" });
+
+        // Update active dot
+        dots.forEach((d) => d.classList.remove("active"));
+        dot.classList.add("active");
+      }
+    });
+  });
+
+  // Optional: Highlight the first dot as active on page load
+  if (dots.length > 0) {
+    dots[0].classList.add("active");
+  }
+});

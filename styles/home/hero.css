@@ -1,0 +1,61 @@
+.hero-section {
+  position: relative;
+  height: 100vh;
+  background-color: #00000086;
+}
+
+.hero-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  text-align: center;
+}
+
+.video-container {
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.ctc-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(90%);
+  opacity: 0.8;
+}
+
+.church-title {
+  font-family: "Anton SC", sans-serif;
+  margin-bottom: 200px;
+  color: rgb(255, 244, 192);
+  font-size: 68px;
+  font-weight: 900;
+  letter-spacing: 5px;
+  text-align: center;
+  z-index: 2;
+  width: 900px;
+}
+
+.ctc {
+  font-family: "Anton SC", sans-serif;
+  color: var(--burgundy);
+  font-size: 68px;
+  font-weight: 900;
+  letter-spacing: 5px;
+}
+
+@media (max-width: 768px) {
+  .church-title {
+    font-size: 42px;
+    width: 400px;
+  }
+
+  .ctc {
+    font-size: 42px;
+  }
+}

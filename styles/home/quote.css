@@ -1,0 +1,40 @@
+.quote-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: wheat;
+  padding: 200px 70px;
+  text-align: center;
+}
+
+.pastor-quote {
+  font-family: "Anton SC", Arial, Helvetica, sans-serif;
+  font-size: 48px;
+  font-weight: 500;
+  font-style: oblique;
+  cursor: pointer;
+}
+
+.pastor-quote:hover {
+  color: royalblue;
+}
+
+.location {
+  margin-top: 100px;
+}
+
+.map {
+  width: 600px;
+  height: 450px;
+}
+
+@media (max-width: 768px) {
+  .quote-container {
+    padding: 100px 60px;
+  }
+  .map {
+    width: 400px;
+    height: 300px;
+  }
+}
