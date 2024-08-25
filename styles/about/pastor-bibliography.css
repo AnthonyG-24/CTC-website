@@ -1,0 +1,135 @@
+.pastor-bibliography-section {
+  background-color: #f5f5dc;
+  padding: 40px 20px;
+}
+
+.bibliography-container {
+  display: flex;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.left-side {
+  flex: 0.4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-color: #3698a3;
+  border-right: 2px solid #ddd;
+}
+
+.right-side {
+  flex: 0.6;
+  padding: 20px;
+  background-color: rgba(65, 105, 225, 0.047);
+
+}
+
+.left-side img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.scrollable-book {
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+.TITLE {
+  color: #800020;
+  font-size: 24px;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.SUBTITLE {
+  color: #800020;
+  font-size: 20px;
+  margin: 20px 0;
+}
+
+.HIGHLIGHT1 {
+  color: #800020;
+  font-weight: bold;
+}
+
+.ENDING {
+  color: #800020;
+  font-size: 28px;
+  text-transform: uppercase;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+.ENDING:hover {
+  color: #3366cc;
+  cursor: pointer;
+}
+
+.scrollable-book p {
+  margin: 16px 0;
+  font-size: 18px;
+  line-height: 1.6;
+  font-family: "Georgia", serif;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .bibliography-container {
+    flex-direction: column;
+  }
+
+  .left-side,
+  .right-side {
+    flex: 1; 
+    padding: 10px; 
+  }
+
+  .left-side img {
+    max-width: 100%; 
+  }
+
+  .TITLE {
+    font-size: 20px; 
+    margin-bottom: 10px; 
+  }
+
+  .SUBTITLE {
+    font-size: 18px; 
+    margin: 15px 0; 
+  }
+
+  .ENDING {
+    font-size: 24px; 
+    margin-top: 15px; /
+  }
+
+  .scrollable-book p {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .TITLE {
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+
+  .SUBTITLE {
+    font-size: 16px; 
+    margin: 10px 0; 
+  }
+
+  .ENDING {
+    font-size: 20px;
+    margin-top: 10px; 
+  }
+
+  .scrollable-book p {
+    font-size: 14px; 
+  }
+}

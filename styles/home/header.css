@@ -3,57 +3,8 @@
   position: absolute;
   background: rgba(0, 0, 0, 0.1);
   border-bottom: 1px solid #ffffff24;
-
   padding: 10px 0;
   z-index: 1;
-}
-
-.menu {
-  display: none;
-  position: fixed;
-  top: -100px; /* Start hidden above the viewport */
-  right: 0;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 200px;
-  background-color: #333;
-  color: #fff;
-  padding: 20px;
-  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
-  z-index: 1000;
-  transition: transform 0.3s ease; /* Smooth slide-down effect */
-}
-
-.menu.active {
-  display: block;
-  transform: translateY(100px); /* Slide down from the top */
-}
-
-.menu ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-.menu li {
-  margin: 15px 0;
-}
-
-.menu a {
-  color: #fff;
-  text-decoration: none;
-  font-size: 18px;
-}
-
-.menu .close-menu {
-  font-size: 24px;
-  border: none;
-  background: none;
-  color: #fff;
-  cursor: pointer;
-  position: absolute;
-  top: 20px;
-  right: 20px;
 }
 
 .navbar {
@@ -103,7 +54,63 @@
   color: hsl(196, 100%, 50%);
 }
 
+.menu {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 300px;
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  transition: transform 0.3s ease;
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+.menu.active {
+  display: block;
+  transform: translateY(100px);
+  opacity: 1;
+}
+
+.menu ul {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  text-align: center;
+}
+
+.menu li {
+  margin: 15px 0;
+}
+
+.menu a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.menu .close-menu {
+  font-size: 24px;
+  border: none;
+  background: none;
+  color: #fff;
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
 @media (max-width: 768px) {
+  .header-section {
+    margin: 0;
+  }
   .right-nav {
     position: fixed;
     left: -100%;
@@ -121,8 +128,7 @@
   }
 
   .right-nav ul {
-    display: flex;
-    flex-direction: row;
+    visibility: hidden;
   }
 
   .right-nav.active {

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="/styles/general.css" />
+    <link rel="stylesheet" href="/styles/livestream/liveNav.css" />
+
+    <title>CTC</title>
+  </head>
+  <body>
+    <!-- Live navbar section -->
+    <header class="live-navbar-section">
+      <nav class="live-navbar">
+        <div class="left-nav">
+          <div class="img-area">
+            <a href="/home">
+              <img
+                class="church-logo"
+                src="../assets/ctcooljc-noBG.png"
+                alt="church-logo"
+              />
+            </a>
+          </div>
+        </div>
+
+        <div class="right-nav">
+          <ul>
+            <li><a href="/home">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/events">Events</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="hamburger">
+          <button id="bTn">
+            <img
+              class="hamburger-icon"
+              src="/assets/icons/hamburger.png"
+              alt="hamburger-icon"
+            />
+          </button>
+        </div>
+
+        <div id="menu" class="menu">
+          <button id="closeMenu" class="close-menu">&times;</button>
+          <ul>
+            <li><a href="/home">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/events">Events</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <script>
+      document.getElementById("bTn").addEventListener("click", function () {
+        document.getElementById("menu").classList.toggle("active");
+      });
+
+      document.addEventListener("click", function (event) {
+        const menu = document.getElementById("menu");
+        const menuButton = document.getElementById("bTn");
+
+        if (
+          !menu.contains(event.target) &&
+          !menuButton.contains(event.target)
+        ) {
+          menu.classList.remove("active");
+        }
+      });
+
+      document
+        .getElementById("closeMenu")
+        .addEventListener("click", function () {
+          document.getElementById("menu").classList.remove("active");
+        });
+    </script>
+
+    <!--Live video(s) section-->
+    <section class="live-section">
+      <div class="join-us">
+        <h1>Join Us Live Every Sunday At 11:30 a.m</h1>
+      </div>
+
+      <div class="video(s)-area">
+        <div class="video-container"></div>
+      </div>
+    </section>
+  </body>
+</html>

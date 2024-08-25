@@ -1,8 +1,8 @@
-.about-header-section {
-  background-color: black;
+.live-navbar-section {
+  background-color: rgb(170, 121, 30);
 }
 
-.about-navbar {
+.live-navbar {
   display: flex;
   align-items: center;
 }
