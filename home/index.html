@@ -4,11 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="styles/general.css" />
-    <link rel="stylesheet" href="styles//home/extraHeader.css" />
-    <link rel="stylesheet" href="styles//home/header.css" />
-    <link rel="stylesheet" href="styles//home/hero.css" />
-    <link rel="stylesheet" href="styles//home/quote.css" />
+    <link rel="stylesheet" href="/styles/general.css" />
+    <link rel="stylesheet" href="/styles/home/extraHeader.css" />
+    <link rel="stylesheet" href="/styles/home/header.css" />
+    <link rel="stylesheet" href="/styles/home/hero.css" />
+    <link rel="stylesheet" href="/styles/home/orderOfService.css" />
+    <link rel="stylesheet" href="/styles/home/footer.css" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -36,7 +37,7 @@
         >
           <img
             class="social-media-icons"
-            src="assets//social_media_icons/facebook.svg"
+            src="/assets//social_media_icons/facebook.svg"
             alt="Facebook"
           />
         </a>
@@ -48,7 +49,7 @@
         >
           <img
             class="social-media-icons"
-            src="assets//social_media_icons/youtube.svg"
+            src="/assets//social_media_icons/youtube.svg"
             alt="YouTube"
           />
         </a>
@@ -60,10 +61,10 @@
       <nav class="navbar">
         <div class="left-nav">
           <div class="img-area">
-            <a href="#home">
+            <a href="/home">
               <img
                 class="church-logo"
-                src="assets/ctcooljc-noBG.png"
+                src="/assets/ctcooljc-noBG.png"
                 alt="church-logo"
               />
             </a>
@@ -72,7 +73,8 @@
 
         <div class="right-nav">
           <ul>
-            <li><a href="about.html">About</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="#live">Live</a></li>
             <li><a href="#events">Events</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
@@ -82,13 +84,49 @@
           <button id="bTn">
             <img
               class="hamburger-icon"
-              src="assets//icons/hamburger.png"
+              src="/assets/icons/hamburger.png"
               alt="hamburger-icon"
             />
           </button>
         </div>
+
+        <div id="menu" class="menu">
+          <button id="closeMenu" class="close-menu">&times;</button>
+          <ul>
+            <li><a href="/about">About</a></li>
+            <li><a href="#live">Live</a></li>
+            <li><a href="#events">Events</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
       </nav>
     </header>
+    <script>
+      document.getElementById("bTn").addEventListener("click", function () {
+        document.getElementById("menu").classList.toggle("active");
+      });
+
+      // Close the menu when clicking outside of it
+      document.addEventListener("click", function (event) {
+        const menu = document.getElementById("menu");
+        const menuButton = document.getElementById("bTn");
+
+        // Check if the click was outside the menu and the menu button
+        if (
+          !menu.contains(event.target) &&
+          !menuButton.contains(event.target)
+        ) {
+          menu.classList.remove("active");
+        }
+      });
+
+      // Close the menu when clicking the close button
+      document
+        .getElementById("closeMenu")
+        .addEventListener("click", function () {
+          document.getElementById("menu").classList.remove("active");
+        });
+    </script>
 
     <!-- Hero section -->
     <section>
@@ -103,7 +141,7 @@
               class="background-video"
             >
               <source
-                src="assets/videos/CTC-background-vid.mp4"
+                src="/assets/videos/CTC-background-vid.mp4"
                 type="video/mp4"
               />
               Your browser does not support the video tag.
@@ -121,7 +159,7 @@
             <a href="#next">
               <img
                 class="down-arrow"
-                src="assets/icons/down-arrow.svg"
+                src="/assets/icons/down-arrow.svg"
                 alt="down arrow to move down to next section"
               />
             </a>
@@ -130,13 +168,19 @@
       </div>
     </section>
 
-    <!-- Quote section -->
-    <section class="quote-container" id="next">
-      <div class="pastor-quote">
-        <p>
-          " Our mission is to bring you closer to the Lord into the knowledge of
-          Jesus Christ."
-        </p>
+    <!-- Order of service section -->
+    <section class="order-of-service-section" id="next">
+      <div class="order-of-service">
+        <p>Order Of Service:</p>
+        <ul>
+          <li>- Monday night Prayer and Tarry at 7:00 p.m.</li>
+
+          <li>- Wednesday night Prayer/Bible Study at 6:30 p.m. - 8:00 p.m.</li>
+
+          <li>- Sunday School at 10:30 a.m.</li>
+
+          <li>- Sunday Morning Worship at 11:35 a.m.</li>
+        </ul>
       </div>
 
       <div class="location">
@@ -150,6 +194,22 @@
         ></iframe>
       </div>
     </section>
+
+    <!--Footer section-->
+    <footer>
+      <div class="footer-container">
+        <p>
+          C.T.C.O.O.L.J.C <span class="footer-year" id="footer-year"></span>
+        </p>
+      </div>
+    </footer>
+    <script>
+      // Get the current year
+      const currentYear = new Date().getFullYear();
+
+      // Insert the current year into the span with the id "footer-year"
+      document.getElementById("footer-year").textContent = currentYear;
+    </script>
 
     <!-- <section class="church-mothers-section">
       <div class="slider-wrapper">

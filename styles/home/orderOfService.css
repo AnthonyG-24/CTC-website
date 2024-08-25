@@ -1,0 +1,53 @@
+.order-of-service-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: wheat;
+  padding: 80px 40px;
+  text-align: center;
+}
+
+.order-of-service p {
+  color: var(--burgundy);
+  font-size: 42px;
+  text-decoration: underline;
+}
+
+.order-of-service ul {
+  list-style-type: none;
+  margin-bottom: 60px;
+}
+
+.order-of-service li {
+  font-size: 39px;
+  font-weight: 300;
+  font-style: oblique;
+  margin: 10px 0;
+}
+
+.map {
+  width: 600px;
+  height: 450px;
+}
+
+@media (max-width: 768px) {
+  .order-of-service-section {
+    padding: 60px 20px;
+  }
+
+  .order-of-service p {
+    font-size: 24px;
+  }
+
+  .order-of-service li {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .map {
+    width: 400px;
+    height: 300px;
+  }
+}

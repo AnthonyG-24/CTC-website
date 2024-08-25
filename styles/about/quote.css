@@ -1,0 +1,40 @@
+.quote-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f5f5dc;
+  padding: 80px 40px;
+  text-align: center;
+}
+
+.pastor-quote {
+  font-family: "Anton SC", Arial, Helvetica, sans-serif;
+  font-size: 36px;
+  font-weight: 500;
+  font-style: oblique;
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.3s ease;
+  line-height: 1.4; /* For better readability */
+}
+
+.pastor-quote span {
+  color: var(--burgundy);
+  display: block;
+  margin-top: 10px;
+}
+
+.pastor-quote:hover {
+  color: royalblue;
+  transform: scale(1.05) translateY(-3px);
+}
+
+@media (max-width: 768px) {
+  .quote-container {
+    padding: 60px 20px;
+  }
+
+  .pastor-quote {
+    font-size: 28px;
+  }
+}

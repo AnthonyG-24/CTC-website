@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="/styles/general.css" />
+    <link rel="stylesheet" href="/styles/about/aboutNav.css" />
+    <link rel="stylesheet" href="/styles/about/about.css" />
+    <link rel="stylesheet" href="/styles/about/quote.css" />
+    <link rel="stylesheet" href="/styles/about/church-family.css" />
+
+    <title>CTC</title>
+  </head>
+  <body>
+    <!-- About navbar section -->
+    <header class="about-header-section">
+      <nav class="about-navbar">
+        <div class="left-nav">
+          <div class="img-area">
+            <a href="/home">
+              <img
+                class="church-logo"
+                src="../assets/ctcooljc-noBG.png"
+                alt="church-logo"
+              />
+            </a>
+          </div>
+        </div>
+
+        <div class="right-nav">
+          <ul>
+            <li><a href="/home">home</a></li>
+            <li><a href="#live">Live</a></li>
+            <li><a href="#events">Events</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="hamburger">
+          <button id="bTn">
+            <img
+              class="hamburger-icon"
+              src="/assets/icons/hamburger.png"
+              alt="hamburger-icon"
+            />
+          </button>
+        </div>
+
+        <div id="menu" class="menu">
+          <button id="closeMenu" class="close-menu">&times;</button>
+          <ul>
+            <li><a href="/home">Home</a></li>
+            <li><a href="#live">Live</a></li>
+            <li><a href="#events">Events</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <script>
+      document.getElementById("bTn").addEventListener("click", function () {
+        document.getElementById("menu").classList.toggle("active");
+      });
+
+      document.addEventListener("click", function (event) {
+        const menu = document.getElementById("menu");
+        const menuButton = document.getElementById("bTn");
+
+        if (
+          !menu.contains(event.target) &&
+          !menuButton.contains(event.target)
+        ) {
+          menu.classList.remove("active");
+        }
+      });
+
+      document
+        .getElementById("closeMenu")
+        .addEventListener("click", function () {
+          document.getElementById("menu").classList.remove("active");
+        });
+    </script>
+
+    <!--About background-->
+    <section class="about-section">
+      <div class="background-img-container">
+        <img
+          class="background-about-img"
+          src="/assets/background-about-img.png"
+          alt="background church image"
+        />
+      </div>
+    </section>
+
+    <!-- Quote section -->
+    <section class="quote-container" id="next">
+      <div class="pastor-quote">
+        <p>
+          " Our mission is to bring you closer to the Lord into the knowledge of
+          Jesus Christ."
+        </p>
+        <span> - Pastor Donald Anthony Gillard</span>
+      </div>
+    </section>
+
+    <!--Church Family Photo Section-->
+    <div class="church-family-section">
+      <h1>Church Family</h1>
+      <div class="img-container">
+        <div class="images">
+          <img src="/assets/churchfamily/churchfam3.jpg" alt="" />
+          <img src="/assets/churchfamily/churchfam1.jpg" alt="" />
+          <img src="/assets/churchfamily/ChurchFamily.jpg" alt="" />
+          <img src="/assets/churchfamily/churchfam2.jpg" alt="" />
+          <img src="/assets/churchfamily/ChurchLeaders.jpg" alt="" />
+          <img src="/assets/churchfamily/Pastor-FirstLady.jpg" alt="" />
+          <img src="/assets/churchfamily/churchfam4.jpg" alt="" />
+          <img src="/assets/churchfamily/church-family-miller.jpg" alt="" />
+          <img src="/assets/churchfamily/church-fam-juju-grad.jpg" alt="" />
+          <img src="/assets/churchfamily/church-fam-shermin-grad.jpg" alt="" />
+          <img src="/assets/churchfamily/church-fam-ny.jpg" alt="" />
+          <img src="/assets/churchfamily/church-mothers-collage.jpg" alt="" />
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

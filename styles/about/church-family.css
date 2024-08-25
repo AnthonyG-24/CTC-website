@@ -1,0 +1,65 @@
+.church-family-section {
+  padding: 50px 20px;
+  text-align: center;
+  background-color: #80002096; /* burgundy */
+}
+
+.church-family-section h1 {
+  font-size: 40px;
+  color: #fff;
+  text-decoration: none;
+  border-bottom: 3px solid #ffcc00;
+  display: inline-block;
+  margin-bottom: 50px;
+  padding-bottom: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.img-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+.images {
+  overflow: hidden; /* Ensures the image stays within bounds unless hovered */
+  border-radius: 10px;
+}
+
+.images img {
+  width: 100%;
+  max-width: 300px;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+  filter: grayscale(80%);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.images img:hover {
+  transform: scale(
+    1.2
+  ); /* Enlarges the image on hover to create the "pop out" effect */
+  filter: grayscale(0%);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+  object-fit: contain;
+}
+
+@media (max-width: 768px) {
+  .images img {
+    max-width: 200px;
+    height: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  .images img {
+    max-width: 150px;
+    height: 100px;
+  }
+}
