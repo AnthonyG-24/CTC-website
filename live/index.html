@@ -6,6 +6,7 @@
 
     <link rel="stylesheet" href="/styles/general.css" />
     <link rel="stylesheet" href="/styles/livestream/liveNav.css" />
+    <link rel="stylesheet" href="/styles/livestream/video.css" />
 
     <title>CTC</title>
   </head>
@@ -81,12 +82,24 @@
 
     <!--Live video(s) section-->
     <section class="live-section">
-      <div class="join-us">
-        <h1>Join Us Live Every Sunday At 11:30 a.m</h1>
+      <div class="recent">
+        <h1>Recent Church Video</h1>
       </div>
 
-      <div class="video(s)-area">
-        <div class="video-container"></div>
+      <div class="videos-area">
+        <!--Facebook embeded videos-->
+        <div class="video-container">
+          <iframe
+            class="vid"
+            src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2F100092501479032%2Fvideos%2F1258320098665439%2F&show_text=true&width=560&t=0"
+            style="border: none; overflow: hidden"
+            scrolling="no"
+            frameborder="0"
+            allowfullscreen="true"
+            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+            allowfullscreen="true"
+          ></iframe>
+        </div>
       </div>
     </section>
   </body>
