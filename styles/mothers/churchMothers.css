@@ -9,11 +9,6 @@
   text-align: center;
 }
 
-.cloud {
-  /*   filter: blur(10px) grayscale(10%) brightness(50%) sepia(10%);
- */
-}
-
 .mothers-banner::before {
   content: "";
   position: absolute;

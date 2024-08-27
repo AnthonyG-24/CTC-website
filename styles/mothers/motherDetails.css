@@ -1,0 +1,106 @@
+.church-mothers-section {
+  padding: 40px;
+  text-align: center;
+  background-color: #f1c40f;
+  border-top: 40px solid royalblue;
+  border-bottom: 40px solid royalblue;
+}
+
+.church-mothers-section h2 {
+  margin-bottom: 20px;
+  color: #333;
+  font-size: 32px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 1s ease-out;
+}
+
+.details-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 50px;
+
+  justify-content: center;
+}
+
+.mother-wrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mother-info {
+  position: relative;
+}
+
+.info-image {
+  width: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.mother-wrapper:hover .info-image,
+.mother-wrapper:focus-within .info-image {
+  transform: scale(1.05);
+  filter: brightness(0.8) blur(10px);
+}
+
+.info-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  padding: 15px;
+  border-top: 2px solid #f1c40f;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  transform: translateY(100%);
+  text-align: left;
+}
+
+.mother-wrapper:hover .info-overlay,
+.mother-wrapper:focus-within .info-overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.info-overlay h3 {
+  font-size: 24px;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #f1c40f;
+}
+
+.info-overlay p {
+  margin: 5px 0;
+  font-size: 38px;
+  color: #ddd;
+}
+
+.info-overlay .poem {
+  margin-top: 10px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #ccc;
+  font-style: italic;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .info-overlay {
+    height: 550px;
+  }
+}
