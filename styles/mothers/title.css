@@ -1,0 +1,32 @@
+.title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  background-color: rgb(167, 189, 254);
+}
+
+.title-container {
+  text-align: center;
+}
+
+.title-container p {
+  font-size: 42px;
+  color: #333;
+  margin: 0;
+  line-height: 1.2;
+  font-weight: bold;
+}
+
+.title-container p span {
+  font-size: 42px;
+  color: #800020;
+}
+@media (max-width: 768px) {
+  .title-container p {
+    font-size: 38px;
+  }
+  .title-container p span {
+    font-size: 38px;
+  }
+}

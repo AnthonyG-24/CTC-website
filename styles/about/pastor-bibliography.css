@@ -1,6 +1,8 @@
 .pastor-bibliography-section {
   background-color: #f5f5dc;
   padding: 40px 20px;
+  border-bottom: 50px solid gold;
+  border-top: 50px solid gold;
 }
 
 .bibliography-container {
@@ -16,7 +18,7 @@
   align-items: center;
   justify-content: center;
   padding: 20px;
-  background-color: #3698a3;
+  background-color: royalblue;
   border-right: 2px solid #ddd;
 }
 
@@ -24,13 +26,6 @@
   flex: 0.6;
   padding: 20px;
   background-color: rgba(65, 105, 225, 0.047);
-
-}
-
-.left-side img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px;
 }
 
 .scrollable-book {
@@ -74,7 +69,7 @@
   margin: 16px 0;
   font-size: 18px;
   line-height: 1.6;
-  font-family: "Georgia", serif;
+  font-family: "Times New Roman", Times, serif;
 }
 
 /* Responsive styles */
@@ -85,27 +80,27 @@
 
   .left-side,
   .right-side {
-    flex: 1; 
-    padding: 10px; 
+    flex: 1;
+    padding: 10px;
   }
 
   .left-side img {
-    max-width: 100%; 
+    max-width: 100%;
   }
 
   .TITLE {
-    font-size: 20px; 
-    margin-bottom: 10px; 
+    font-size: 20px;
+    margin-bottom: 10px;
   }
 
   .SUBTITLE {
-    font-size: 18px; 
-    margin: 15px 0; 
+    font-size: 18px;
+    margin: 15px 0;
   }
 
   .ENDING {
-    font-size: 24px; 
-    margin-top: 15px; /
+    font-size: 24px;
+    margin-top: 15px;
   }
 
   .scrollable-book p {
@@ -120,16 +115,16 @@
   }
 
   .SUBTITLE {
-    font-size: 16px; 
-    margin: 10px 0; 
+    font-size: 16px;
+    margin: 10px 0;
   }
 
   .ENDING {
     font-size: 20px;
-    margin-top: 10px; 
+    margin-top: 10px;
   }
 
   .scrollable-book p {
-    font-size: 14px; 
+    font-size: 14px;
   }
 }

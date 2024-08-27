@@ -1,0 +1,123 @@
+.mothers-banner {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.cloud {
+  /*   filter: blur(10px) grayscale(10%) brightness(50%) sepia(10%);
+ */
+}
+
+.mothers-banner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  filter: brightness(90%);
+}
+
+.slider {
+  position: absolute;
+  width: 200px;
+  height: 250px;
+  top: 10%;
+  left: calc(50% - 100px);
+  transform-style: preserve-3d;
+  transform: perspective(1000px);
+  animation: autoRun 20s linear infinite;
+  z-index: 2;
+}
+
+@keyframes autoRun {
+  from {
+    transform: perspective(1000px) rotateX(-16deg) rotateY(0deg);
+  }
+  to {
+    transform: perspective(1000px) rotateX(-16deg) rotateY(360deg);
+  }
+}
+
+.slider-item {
+  position: absolute;
+  inset: 0;
+  transform: rotateY(
+      calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg)
+    )
+    translateZ(550px);
+}
+
+.slider-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background-color: gold;
+}
+
+.pfp {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 600px;
+  height: 600px;
+  transform: translate(-50%, -50%);
+  border-radius: 100%;
+}
+
+.title-mothers {
+  text-align: center;
+  width: 100%;
+}
+
+@media (max-width: 1024px) {
+  .slider {
+    width: 160px;
+    height: 200px;
+    left: calc(50% - 80px);
+  }
+
+  .slider-item {
+    transform: rotateY(
+        calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg)
+      )
+      translateZ(300px);
+  }
+
+  .pfp {
+    width: 550px;
+    height: 600px;
+    background-color: transparent;
+  }
+}
+
+@media (max-width: 768px) {
+  .mothers-banner {
+    height: 600px;
+  }
+  .slider {
+    margin-bottom: 50px;
+    width: 100px;
+    height: 150px;
+    left: calc(50% - 50px);
+  }
+
+  .slider-item {
+    transform: rotateY(
+        calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg)
+      )
+      translateZ(180px);
+  }
+
+  .pfp {
+    width: 350px;
+    height: 400px;
+    background-color: transparent;
+  }
+}

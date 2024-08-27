@@ -6,6 +6,7 @@
 
     <link rel="stylesheet" href="/styles/general.css" />
     <link rel="stylesheet" href="/styles/events/eventsNav.css" />
+    <link rel="stylesheet" href="/styles/events/calander.css" />
 
     <title>CTC</title>
   </head>
@@ -30,6 +31,7 @@
             <li><a href="/home">Home</a></li>
             <li><a href="/about">About</a></li>
             <li><a href="/mothers">Mothers</a></li>
+            <li><a href="/live">Live</a></li>
             <li><a href="/contact">Contact</a></li>
           </ul>
         </div>
@@ -78,5 +80,44 @@
           document.getElementById("menu").classList.remove("active");
         });
     </script>
+
+    <!--Calander section-->
+    <section class="calander-section">
+      <div class="full-calander-container">
+        <iframe
+          class="cal"
+          src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FNew_York&bgcolor=%234285F4&title=CTC%202024&src=NmJiY2RhYTJjNDk4MDFhOGY2ZGM5NThmZjdlZWQ5ZGQ1MzFjMjFlYjE1ZTcyZjJhZTE2OWU1Zjc0MjQ5MThjZUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=ZW4udXNhI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&color=%238E24AA&color=%230B8043"
+          style="border: solid 1px #777"
+          frameborder="0"
+          scrolling="no"
+        ></iframe>
+      </div>
+      <div class="upcoming-events-calendar">
+        <h2>Upcoming Events</h2>
+        <ul class="events-list">
+          <li class="event-item">
+            <strong>Event 1:</strong> Description and details here
+            <span class="event-time">1:00 p.m</span>
+          </li>
+          <li class="event-item">
+            <strong>Event 2:</strong> Description and details here
+            <span class="event-time">1:00 p.m</span>
+          </li>
+          <li class="event-item">
+            <strong>Event 3:</strong> Description and details here
+            <span class="event-time">1:00 p.m</span>
+          </li>
+          <li class="event-item">
+            <strong>Event 4:</strong> Description and details here
+            <span class="event-time">1:00 p.m</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!--Extra event stuff-->
+    <section class="extra-event-stuff">
+      <div class="flyer-container"></div>
+    </section>
   </body>
 </html>

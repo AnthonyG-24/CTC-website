@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="/styles/about/quote.css" />
     <link rel="stylesheet" href="/styles/about/church-family.css" />
     <link rel="stylesheet" href="/styles/about/pastor-bibliography.css" />
+    <link rel="stylesheet" href="/styles/footer.css" />
 
     <title>CTC</title>
   </head>
@@ -85,91 +86,12 @@
         });
     </script>
 
-    <!--About background-->
-    <section class="about-section">
-      <div class="background-img-container">
-        <img
-          class="background-about-img"
-          src="/assets/background-about-img.png"
-          alt="background church image"
-        />
-      </div>
-    </section>
-
-    <!-- Quote section -->
-    <section class="quote-container" id="next">
-      <div class="pastor-quote">
-        <p>
-          " Our mission is to bring you closer to the Lord into the knowledge of
-          Jesus Christ."
-        </p>
-        <span> - Pastor Donald Anthony Gillard</span>
-      </div>
-    </section>
-
-    <!--Church Family Photo Section-->
-    <div class="church-family-section">
-      <h1>Church Family</h1>
-      <div class="img-container">
-        <div class="images">
-          <img
-            src="/assets/churchfamily/churchfam3.jpg"
-            alt="Group photo of church family"
-          />
-          <img
-            src="/assets/churchfamily/churchfam1.jpg"
-            alt="Church family gathering"
-          />
-          <img
-            src="/assets/churchfamily/ChurchFamily.jpg"
-            alt="Church family portrait"
-          />
-          <img
-            src="/assets/churchfamily/churchfam2.jpg"
-            alt="Members of the church family"
-          />
-          <img
-            src="/assets/churchfamily/ChurchLeaders.jpg"
-            alt="Church leaders posing for a photo"
-          />
-          <img
-            src="/assets/churchfamily/Pastor-FirstLady.jpg"
-            alt="Pastor and First Lady of the church"
-          />
-          <img
-            src="/assets/churchfamily/churchfam4.jpg"
-            alt="Another group photo of church family"
-          />
-          <img
-            src="/assets/churchfamily/church-family-miller.jpg"
-            alt="Church family - Miller family"
-          />
-          <img
-            src="/assets/churchfamily/church-fam-juju-grad.jpg"
-            alt="Church family celebrating Juju's graduation"
-          />
-          <img
-            src="/assets/churchfamily/church-fam-shermin-grad.jpg"
-            alt="Church family celebrating Shermin's graduation"
-          />
-          <img
-            src="/assets/churchfamily/church-fam-ny.jpg"
-            alt="Church family visit to New York"
-          />
-          <img
-            src="/assets/churchfamily/church-mothers-collage.jpg"
-            alt="Collage of church mothers"
-          />
-        </div>
-      </div>
-    </div>
-
     <!--Pastor bibliography section-->
     <section class="pastor-bibliography-section">
       <div class="bibliography-container">
         <div class="left-side">
           <img
-            src="/assets/CTChurch_PFP-No-BG.png"
+            src="/assets/another-pfp-removebg.png"
             alt="CT Church profile picture with no background"
           />
         </div>
@@ -337,5 +259,107 @@
         </div>
       </div>
     </section>
+
+    <!--About background-->
+    <section class="about-section">
+      <div class="background-img-container">
+        <img
+          class="background-about-img"
+          src="/assets/church-background-edited.png"
+          alt="background church image"
+        />
+      </div>
+    </section>
+
+    <!-- Quote section -->
+    <section class="quote-container" id="next">
+      <div class="pastor-quote">
+        <p>
+          " Our mission is to bring you closer to the Lord into the knowledge of
+          Jesus Christ."
+        </p>
+        <span> - Pastor Donald Anthony Gillard</span>
+      </div>
+    </section>
+
+    <!--Church Family Photo Section-->
+    <div class="church-family-section">
+      <h1>Church Family</h1>
+      <div class="img-container">
+        <div class="images">
+          <img
+            src="/assets/churchfamily/churchfam3.jpg"
+            alt="Group photo of church family"
+          />
+          <img
+            src="/assets/churchfamily/churchfam1.jpg"
+            alt="Church family gathering"
+          />
+          <img
+            src="/assets/churchfamily/ChurchFamily.jpg"
+            alt="Church family portrait"
+          />
+          <img
+            src="/assets/churchfamily/churchfam2.jpg"
+            alt="Members of the church family"
+          />
+          <img
+            src="/assets/churchfamily/ChurchLeaders.jpg"
+            alt="Church leaders posing for a photo"
+          />
+          <img
+            src="/assets/churchfamily/Pastor-FirstLady.jpg"
+            alt="Pastor and First Lady of the church"
+          />
+          <img
+            src="/assets/churchfamily/churchfam4.jpg"
+            alt="Another group photo of church family"
+          />
+          <img
+            src="/assets/churchfamily/church-family-miller.jpg"
+            alt="Church family - Miller family"
+          />
+          <img
+            src="/assets/churchfamily/church-fam-juju-grad.jpg"
+            alt="Church family celebrating Juju's graduation"
+          />
+          <img
+            src="/assets/churchfamily/church-fam-shermin-grad.jpg"
+            alt="Church family celebrating Shermin's graduation"
+          />
+          <img
+            src="/assets/churchfamily/church-fam-ny.jpg"
+            alt="Church family visit to New York"
+          />
+          <img
+            src="/assets/churchfamily/church-mothers-collage.jpg"
+            alt="Collage of church mothers"
+          />
+
+          <img src="/assets/churchfamily/church-fam-uncle-ken.jpg" alt="" />
+          <img src="/assets/churchfamily/church-fam-cathey.jpg" alt="" />
+          <img src="/assets/churchfamily/church-fam-layla.jpg" alt="" />
+          <img src="/assets/churchfamily/church-fam-lil-cousins.jpg" alt="" />
+          <img src="/assets/churchfamily/church-fam-uncle-steve.jpg" alt="" />
+          <img src="/assets/churchfamily/church-fam-tiwan-royal.jpg" alt="" />
+        </div>
+      </div>
+    </div>
+
+    <!--Footer section-->
+    <footer>
+      <div class="footer-container">
+        <p>
+          C.T.C.O.O.L.J.C <span class="footer-year" id="footer-year"></span>
+        </p>
+      </div>
+    </footer>
+    <script>
+      // Get the current year
+      const currentYear = new Date().getFullYear();
+
+      // Insert the current year into the span with the id "footer-year"
+      document.getElementById("footer-year").textContent = currentYear;
+    </script>
   </body>
 </html>

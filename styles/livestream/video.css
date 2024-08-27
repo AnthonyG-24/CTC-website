@@ -1,7 +1,6 @@
 /* Live video(s) section */
 .live-section {
-  background: linear-gradient(135deg, #1a1a2e, #596da7, #22599d);
-  background-size: 400% 400%;
+  background-color: #ffd700;
   animation: gradientAnimation 15s ease infinite;
   padding: 60px 30px;
   text-align: center;
@@ -27,7 +26,7 @@
   position: relative;
   display: inline-block;
   padding-bottom: 10px;
-  background: linear-gradient(to right, #ff8a00, #e52e71);
+  background: linear-gradient(to right, #b53939, #00d9ff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }

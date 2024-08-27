@@ -1,0 +1,130 @@
+.calander-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  background: linear-gradient(135deg, #f5f5f5, #e0e0e0);
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.full-calander-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  background: royalblue;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.cal {
+  width: 600px;
+  height: 400px;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.full-calander-container:hover .cal {
+  transform: scale(1.02);
+}
+
+.upcoming-events-calendar {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.upcoming-events-calendar h2 {
+  margin-bottom: 15px;
+  font-size: 24px;
+  color: #333;
+  font-family: "Roboto", sans-serif;
+  border-bottom: 2px solid #3366cc;
+  padding-bottom: 8px;
+}
+
+.events-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.event-item {
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 16px; /* Adjusted for smaller screens */
+  color: #444;
+  font-family: "Roboto", sans-serif;
+  transition: background-color 0.3s ease;
+}
+
+.event-item:hover {
+  background-color: #f0f8ff;
+}
+
+.event-item strong {
+  color: #3366cc;
+  font-weight: 600;
+}
+
+.event-time {
+  font-style: italic;
+  color: #888;
+  display: block;
+  margin-top: 4px;
+}
+
+@media (max-width: 768px) {
+  .calander-section {
+    padding: 15px;
+  }
+
+  .full-calander-container {
+    padding: 5px;
+  }
+
+  .cal {
+    height: 300px;
+  }
+
+  .upcoming-events-calendar {
+    padding: 15px;
+  }
+
+  .upcoming-events-calendar h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  .event-item {
+    font-size: 14px;
+    padding: 8px 0;
+  }
+
+  .event-time {
+    margin-top: 3px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cal {
+    height: 250px;
+  }
+
+  .upcoming-events-calendar h2 {
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+
+  .event-item {
+    font-size: 12px;
+    padding: 6px 0;
+  }
+
+  .event-time {
+    margin-top: 2px;
+  }
+}

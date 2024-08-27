@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="/styles/general.css" />
+    <link rel="stylesheet" href="/styles/mothers/mothersNav.css" />
+    <link rel="stylesheet" href="/styles/mothers/churchMothers.css" />
+    <link rel="stylesheet" href="/styles/mothers/title.css" />
+    <link rel="stylesheet" href="/styles/footer.css" />
+
+    <title>CTC</title>
+  </head>
+  <body>
+    <!-- Mothers navbar section -->
+    <header class="mothers-navbar-section">
+      <nav class="mothers-navbar">
+        <div class="left-nav">
+          <div class="img-area">
+            <a href="/home">
+              <img
+                class="church-logo"
+                src="../assets/ctcooljc-noBG.png"
+                alt="church-logo"
+              />
+            </a>
+          </div>
+        </div>
+
+        <div class="right-nav">
+          <ul>
+            <li><a href="/home">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/live">Live</a></li>
+            <li><a href="/events">Events</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="hamburger">
+          <button id="bTn">
+            <img
+              class="hamburger-icon"
+              src="/assets/icons/hamburger.png"
+              alt="hamburger-icon"
+            />
+          </button>
+        </div>
+
+        <div id="menu" class="menu">
+          <button id="closeMenu" class="close-menu">&times;</button>
+          <ul>
+            <li><a href="/home">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/live">Live</a></li>
+            <li><a href="/events">Events</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <script>
+      document.getElementById("bTn").addEventListener("click", function () {
+        document.getElementById("menu").classList.toggle("active");
+      });
+
+      document.addEventListener("click", function (event) {
+        const menu = document.getElementById("menu");
+        const menuButton = document.getElementById("bTn");
+
+        if (
+          !menu.contains(event.target) &&
+          !menuButton.contains(event.target)
+        ) {
+          menu.classList.remove("active");
+        }
+      });
+
+      document
+        .getElementById("closeMenu")
+        .addEventListener("click", function () {
+          document.getElementById("menu").classList.remove("active");
+        });
+    </script>
+
+    <div class="title">
+      <div class="title-container">
+        <p>Community Temple Church <span>Mother's</span></p>
+      </div>
+    </div>
+
+    <section class="mothers-banner">
+      <!--   <img
+        class="praying"
+        src="/assets/praying.jpg"
+        alt="honoring church mothers"
+      /> -->
+
+      <div class="slider" style="--quantity: 7">
+        <!-- Slider items for images -->
+        <div class="slider-item" style="--position: 1">
+          <img src="/assets/mothers/Mother-Pearl.png" alt="Mother Pearl" />
+        </div>
+        <div class="slider-item" style="--position: 2">
+          <img src="/assets/mothers/Mother-Duke.png" alt="Mother Duke" />
+        </div>
+        <div class="slider-item" style="--position: 3">
+          <img
+            src="/assets/mothers/Mother-Jacqueline.png"
+            alt="Mother Jacqueline"
+          />
+        </div>
+        <div class="slider-item" style="--position: 4">
+          <img src="/assets/mothers/Mother-Ruth.png" alt="Mother Ruth" />
+        </div>
+        <div class="slider-item" style="--position: 5">
+          <img src="/assets/mothers/Mother-Maryann.png" alt="Mother Maryann" />
+        </div>
+        <div class="slider-item" style="--position: 6">
+          <img
+            src="/assets/mothers/Mother-Josephine.png"
+            alt="Mother Josephine"
+          />
+        </div>
+        <div class="slider-item" style="--position: 7">
+          <img
+            src="/assets/mothers/Mother-CarrieMae.png"
+            alt="Mother Carrie Mae"
+          />
+        </div>
+      </div>
+
+      <img
+        class="pfp"
+        src="/assets/CTChurch_PFP-No-BG.png"
+        alt="Community Temple Church"
+      />
+
+      <div class="background-vid">
+        <video class="cloud background-video" autoplay muted loop>
+          <source src="/assets/clouds-video.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </section>
+
+    <section>
+      <div class="church-mothers-details">
+        <div class="details-container"></div>
+      </div>
+    </section>
+  </body>
+</html>
