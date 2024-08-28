@@ -1,0 +1,37 @@
+.instructions {
+  padding: 20px;
+  background: #f4f4f4;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 800px;
+  margin: 20px auto;
+}
+
+.instructions p {
+  font-size: 28px;
+  color: #333;
+  margin: 0;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .instructions {
+    padding: 15px;
+  }
+
+  .instructions p {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .instructions {
+    padding: 10px;
+  }
+
+  .instructions p {
+    font-size: 14px;
+  }
+}

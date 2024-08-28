@@ -33,9 +33,4 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
-
-  // Optional: Highlight the first dot as active on page load
-  if (dots.length > 0) {
-    dots[0].classList.add("active");
-  }
 });

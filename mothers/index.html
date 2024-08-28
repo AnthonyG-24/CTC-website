@@ -4,16 +4,28 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="/styles/general.css" />
+    <link rel="stylesheet" href="/styles/mothers/generalMother.css" />
     <link rel="stylesheet" href="/styles/mothers/mothersNav.css" />
     <link rel="stylesheet" href="/styles/mothers/churchMothers.css" />
     <link rel="stylesheet" href="/styles/mothers/title.css" />
     <link rel="stylesheet" href="/styles/mothers/motherDetails.css" />
+    <link rel="stylesheet" href="/styles/mothers/instruction.css" />
+    <link rel="stylesheet" href="/styles/mothers/motherBackground.css" />
     <link rel="stylesheet" href="/styles/footer.css" />
 
     <title>CTC</title>
   </head>
   <body>
+    <body>
+      <div class="background-vid">
+        <video class="background-video" autoplay muted loop>
+          <source src="/assets/videos/clouds-vid.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <!-- Other content goes here -->
+    </body>
+
     <!-- Mothers navbar section -->
     <header class="mothers-navbar-section">
       <nav class="mothers-navbar">
@@ -22,7 +34,7 @@
             <a href="/home">
               <img
                 class="church-logo"
-                src="../assets/ctcooljc-noBG.png"
+                src="/assets/ctcooljc-noBG.png"
                 alt="church-logo"
               />
             </a>
@@ -85,49 +97,73 @@
         });
     </script>
 
+    <!--Title section-->
     <div class="title">
       <div class="title-container">
         <p>Community Temple Church <span>Mother's</span></p>
+
+        <div class="more-details">
+          <p>
+            "These are the fallen mothers of Community Temple Church who held a
+            very important position in the ministry. Words can't express the
+            gratitude of Community Temple Church for our fallen mothers, who
+            will always be remembered and never be forgotten."
+            <span>Hall of faith Service (Oct. 27th, 2024)</span>
+          </p>
+        </div>
       </div>
     </div>
 
+    <!-- Honoring Church Mother's  (Mother's Banner) -->
     <section class="mothers-banner">
-      <!--   <img
-        class="praying"
-        src="/assets/praying.jpg"
-        alt="honoring church mothers"
-      /> -->
-
       <div class="slider" style="--quantity: 7">
-        <!-- Slider items for images -->
         <div class="slider-item" style="--position: 1">
-          <img src="/assets/mothers/Mother-Pearl.png" alt="Mother Pearl" />
+          <img
+            src="/assets/mothers/Mother-Pearl.png"
+            alt="Mother Pearl"
+            data-mother="pearl"
+          />
         </div>
         <div class="slider-item" style="--position: 2">
-          <img src="/assets/mothers/Mother-Duke.png" alt="Mother Duke" />
+          <img
+            src="/assets/mothers/Mother-Duke.png"
+            alt="Mother Duke"
+            data-mother="duke"
+          />
         </div>
         <div class="slider-item" style="--position: 3">
           <img
             src="/assets/mothers/Mother-Jacqueline.png"
             alt="Mother Jacqueline"
+            data-mother="jacqueline"
           />
         </div>
         <div class="slider-item" style="--position: 4">
-          <img src="/assets/mothers/Mother-Ruth.png" alt="Mother Ruth" />
+          <img
+            src="/assets/mothers/Mother-Ruth.png"
+            alt="Mother Ruth"
+            data-mother="ruth"
+          />
         </div>
         <div class="slider-item" style="--position: 5">
-          <img src="/assets/mothers/Mother-Maryann.png" alt="Mother Maryann" />
+          <img
+            src="/assets/mothers/Mother-Maryann.png"
+            alt="Mother Maryann"
+            data-mother="maryann"
+          />
         </div>
         <div class="slider-item" style="--position: 6">
           <img
             src="/assets/mothers/Mother-Josephine.png"
             alt="Mother Josephine"
+            data-mother="josephine"
           />
         </div>
         <div class="slider-item" style="--position: 7">
           <img
             src="/assets/mothers/Mother-CarrieMae.png"
             alt="Mother Carrie Mae"
+            data-mother="carriemae"
           />
         </div>
       </div>
@@ -138,114 +174,168 @@
         alt="Community Temple Church"
       />
 
-      <div class="background-vid">
+      <!--  <div class="background-vid">
         <video class="cloud background-video" autoplay muted loop>
           <source src="/assets/videos/clouds-vid.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
-      </div>
+      </div> -->
     </section>
 
-    <section>
-      <div class="church-mothers-section">
-        <h2>Honoring Our Church Mothers</h2>
-        <div class="details-container">
-          <div class="mother-wrapper">
-            <div class="mother-info">
-              <img
-                src="/assets/mothers/pamphlets/mother-joe-pam.jpg"
-                alt="Mother Joe Pamphlet"
-                class="info-image"
-              />
-              <img
-                src="/assets/mothers/pamphlets/mother-joe-pam-poem.jpg"
-                alt="Mother Joe Poem"
-                class="info-image"
-              />
-              <div class="info-overlay">
-                <h3>Mother Joe</h3>
-                <p>Alpha: June 4, 1932 - Omega: October 17, 2023</p>
-                <p class="poem">
-                  Until We became much older, Mom, There was just no way We
-                  could know, The sacrifices you must have made, As you watched
-                  your children grow, We didn't consider how tired you were, At
-                  the end of every long day, Or appreciate the meals you
-                  cooked... We were clueless, We guess you could say. We never
-                  thought of the time you spent, Tending to all of our needs,
-                  Putting us first each step of the way.. And that's how your
-                  life story reads. Now, without question, We understand, A
-                  phrase that still rings in my ear, "There's a special place in
-                  heaven for Moms?" Looking back... it makes it all the more
-                  clear!
-                </p>
-              </div>
-            </div>
-          </div>
+    <!-- Section to Display Selected Mother's Image and Information -->
+    <section
+      class="selected-mother-info"
+      id="selected-mother-info"
+      style="display: none"
+    >
+      <img id="selected-mother-image" src="" alt="Selected Mother" />
+      <div id="selected-mother-details"></div>
+    </section>
 
-          <div class="mother-wrapper">
-            <div class="mother-info">
-              <img
-                src="/assets/mothers/pamphlets/mother-brand-pam.jpg"
-                alt="Mother Brand Pamphlet"
-                class="info-image"
-              />
-              <img
-                src="/assets/mothers/pamphlets/mother-brand-pam-poem.jpg"
-                alt="Mother Brand Poem"
-                class="info-image"
-              />
-              <div class="info-overlay">
-                <h3>Mary Ann Brand</h3>
-                <p>July 9, 1954 - Sunset: April 3, 2017</p>
-                <p class="poem">
-                  These are words that you will never hear. These are words
-                  whisper low and clear. You told us you were tired, But yet
-                  still strong. You told us don't worry, For worrying is wrong.
-                  Coming home was one thing you mentioned, And we waited for
-                  that day. But the coming home we looked for, We didn't know it
-                  was this way. We wish you were here and going to miss you so
-                  dear, But God loves you better, And with Him We know you have
-                  no more fear.
-                  <br />
-                  ~ Your Loving Children
-                </p>
-              </div>
-            </div>
-          </div>
+    <!-- Hidden Section for Storing Mother's Information -->
+    <section class="mother-info-section" style="display: none">
+      <div id="pearl" class="mother-info">
+        <h3>Mother Pearl</h3>
+        <p>Sunrise: October 13th, 1940 - Sunset: July 22, 2005</p>
+        <p class="poem">
+          We thought that you would like to know that all our thoughts go where
+          you go because of you being the ~Mom~ we wanted you to be; may God
+          forever be close to thee. ~ Your Loving Children
+        </p>
+      </div>
 
-          <div class="mother-wrapper">
-            <div class="mother-info">
-              <img
-                src="/assets/mothers/pamphlets/mother-ruth-pam.jpg"
-                alt="Mother Ruth Pamphlet"
-                class="info-image"
-              />
-              <img
-                src="/assets/mothers/pamphlets/mother-ruth-pam-poem.jpg"
-                alt="Mother Ruth Poem"
-                class="info-image"
-              />
-              <div class="info-overlay">
-                <h3>Mother Ruth</h3>
-                <p>Earthly Arrival: September 18, 1953</p>
-                <p>Heavenly Departure: October 19, 2013</p>
-                <p class="poem">
-                  You can only have one mother, patient kind and true; No other
-                  friend in the world, will be the same to you. When other
-                  friends forsake you, to mother you will return, For all her
-                  loving kindness, she asks nothing in return. As we look upon
-                  her picture, sweet memories we recall Of a face so full of
-                  sunshine, and a smile for one and all. Sweet Jesus take this
-                  message, to our dear mother up above; Tell her how we miss
-                  her, and give her all our love.
-                  <br />
-                  ~ Love Your Children
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div id="duke" class="mother-info">
+        <h3>Mother Duke</h3>
+        <p>
+          Earthly Arrival: September 18, 1953 - Heavenly Departure: October 19,
+          2013
+        </p>
+        <p class="poem">
+          You can only have one mother, patient, kind, and true; No other friend
+          in the world will be the same to you. When other friends forsake you,
+          to mother you will return, For all her loving kindness, she asks
+          nothing in return. As we look upon her picture, sweet memories we
+          recall Of a face so full of sunshine, and a smile for one and all.
+          Sweet Jesus take this message to our dear mother up above; Tell her
+          how we miss her, and give her all our love. ~ Love Your Children ~
+        </p>
+      </div>
+
+      <div id="jacqueline" class="mother-info">
+        <h3>Mother Jacqueline</h3>
+        <p>Sunrise: placeholder, June 4th, 1932 - Sunset: 2010</p>
+        <p class="poem"></p>
+      </div>
+
+      <div id="ruth" class="mother-info">
+        <h3>Mother Ruth</h3>
+        <p>
+          Earthly Arrival: September 18, 1953 - Heavenly Departure: October 19,
+          2013
+        </p>
+        <p class="poem">
+          You can only have one mother, patient, kind, and true; No other friend
+          in the world will be the same to you. When other friends forsake you,
+          to mother you will return, For all her loving kindness, she asks
+          nothing in return. As we look upon her picture, sweet memories we
+          recall Of a face so full of sunshine, and a smile for one and all.
+          Sweet Jesus take this message to our dear mother up above; Tell her
+          how we miss her, and give her all our love. ~ Love Your Children ~
+        </p>
+      </div>
+
+      <div id="maryann" class="mother-info">
+        <h3>Mother Maryann</h3>
+        <p>July 9, 1954 - April 3, 2017</p>
+        <p class="poem">
+          To Our Mother These are words that you will never hear. These are
+          words whispered low and clear. You told us you were tired, but yet
+          still strong. You told us don't worry, for worrying is wrong. Coming
+          home was one thing you mentioned, And we waited for that day. But the
+          coming home we looked for, We didn't know it was this way. We wish you
+          were here and going to miss you so dear, But God loves you better, And
+          with Him, we know you have no more fear. ~ Your Loving Children ~
+        </p>
+      </div>
+
+      <div id="josephine" class="mother-info">
+        <h3>Mother Josephine</h3>
+        <p>Alpha: June 4, 1932 - Omega: October 17, 2023</p>
+        <p class="poem">
+          Until we became much older, Mom, There was just no way we could know,
+          The sacrifices you must have made, As you watched your children grow.
+          We didn't consider how tired you were, At the end of every long day,
+          Or appreciate the meals you cooked... We were clueless, we guess you
+          could say. We never thought of the time you spent, Tending to all of
+          our needs, Putting us first each step of the way... And that's how
+          your life story reads. Now, without question, we understand, A phase
+          that still rings in my ear, "There's a special place in heaven for
+          Moms?" Looking back makes it all the more clear!
+        </p>
+      </div>
+
+      <div id="carriemae" class="mother-info">
+        <h3>Mother Carrie Mae</h3>
+        <p>Details Not Available</p>
+        <p class="poem">Poem Not Available</p>
       </div>
     </section>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const motherImages = document.querySelectorAll(".slider-item img");
+        const selectedImage = document.getElementById("selected-mother-image");
+        const selectedDetails = document.getElementById(
+          "selected-mother-details"
+        );
+
+        motherImages.forEach((img) => {
+          img.addEventListener("click", function () {
+            // Update the image source and alt text
+            selectedImage.src = this.src;
+            selectedImage.alt = this.alt;
+
+            // Update the mother details dynamically
+            const motherId = this.getAttribute("data-mother");
+            const motherInfo = document.getElementById(motherId).innerHTML;
+            selectedDetails.innerHTML = motherInfo;
+
+            // Display the selected mother info section
+            document.getElementById("selected-mother-info").style.display =
+              "block";
+          });
+        });
+      });
+    </script>
+
+    <section class="instructions">
+      <p>To view more information about each mother click on their image.</p>
+    </section>
+
+    <!--Mothers background-->
+    <!--  <section class="mother-section">
+      <div class="background-img-container">
+        <img
+          class="background-about-img"
+          src="/assets/background-mothers.png"
+          alt="background church image"
+        />
+      </div>
+    </section> -->
+
+    <!--Footer section-->
+    <footer>
+      <div class="footer-container">
+        <p>
+          C.T.C.O.O.L.J.C <span class="footer-year" id="footer-year"></span>
+        </p>
+      </div>
+    </footer>
+    <script>
+      // Get the current year
+      const currentYear = new Date().getFullYear();
+
+      // Insert the current year into the span with the id "footer-year"
+      document.getElementById("footer-year").textContent = currentYear;
+    </script>
   </body>
 </html>
