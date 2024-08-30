@@ -50,4 +50,11 @@
     width: 400px;
     height: 300px;
   }
+
+  @media only screen and (width: 390px) and (height: 844px) and (-webkit-device-pixel-ratio: 3) {
+  }
+  .map {
+    width: 300px;
+    height: 200px;
+  }
 }

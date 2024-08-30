@@ -96,12 +96,12 @@
 #selected-mother-details p {
   font-size: 22px;
   line-height: 28px;
-  color: #555;
+  color: #000000;
 }
 
 #selected-mother-details .poem {
   font-style: italic;
-  color: #888;
+  color: #000000;
   margin-top: 15px;
 }
 

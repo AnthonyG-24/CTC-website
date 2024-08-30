@@ -13,16 +13,22 @@
     <link rel="stylesheet" href="/styles/mothers/instruction.css" />
     <link rel="stylesheet" href="/styles/mothers/motherBackground.css" />
     <link rel="stylesheet" href="/styles/footer.css" />
+
+    <link
+      rel="preload"
+      href="/assets/clouds-vid.mp4"
+      as="video"
+      type="video/mp4"
+    />
   </head>
   <body>
     <body>
       <div class="background-vid">
-        <video class="background-video" autoplay muted loop>
-          <source src="/assets/videos/clouds-vid.mp4" type="video/mp4" />
+        <video class="background-video" autoplay muted loop playsinline>
+          <source src="/assets/clouds-vid.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
       </div>
-      <!-- Other content goes here -->
     </body>
 
     <!-- Mothers navbar section -->
@@ -172,13 +178,6 @@
         src="/assets/CTChurch_PFP-No-BG.png"
         alt="Community Temple Church"
       />
-
-      <!--  <div class="background-vid">
-        <video class="cloud background-video" autoplay muted loop>
-          <source src="/assets/videos/clouds-vid.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-      </div> -->
     </section>
 
     <!-- Section to Display Selected Mother's Image and Information -->
@@ -329,12 +328,7 @@
         </p>
       </div>
     </footer>
-    <script>
-      // Get the current year
-      const currentYear = new Date().getFullYear();
 
-      // Insert the current year into the span with the id "footer-year"
-      document.getElementById("footer-year").textContent = currentYear;
-    </script>
+    <script src="js/script.js" type="module"></script>
   </body>
 </html>

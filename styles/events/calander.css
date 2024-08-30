@@ -34,6 +34,7 @@
   background: #fff;
   padding: 20px;
   border-radius: 12px;
+  width: 100%;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -79,19 +80,19 @@
 
 @media (max-width: 768px) {
   .calander-section {
-    padding: 15px;
+    align-items: center;
+    height: 600px;
   }
 
   .full-calander-container {
-    padding: 5px;
+    justify-content: center;
+    align-items: center;
   }
 
   .cal {
     height: 300px;
-  }
-
-  .upcoming-events-calendar {
-    padding: 15px;
+    width: 100%;
+    max-width: 100%;
   }
 
   .upcoming-events-calendar h2 {
@@ -110,13 +111,36 @@
 }
 
 @media (max-width: 480px) {
+  .calander-section {
+    padding: 10px;
+    align-items: center;
+  }
+
+  .full-calander-container {
+    padding: 5px;
+    justify-content: center;
+    align-items: center;
+  }
+
   .cal {
     height: 250px;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .upcoming-events-calendar {
+    padding: 10px;
+    text-align: center;
   }
 
   .upcoming-events-calendar h2 {
     font-size: 18px;
     margin-bottom: 8px;
+    margin: 0 auto;
+  }
+
+  .events-list {
+    text-align: left;
   }
 
   .event-item {

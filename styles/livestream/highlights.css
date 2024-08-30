@@ -4,7 +4,6 @@
   padding: 40px 60px;
   max-width: 100%;
   text-align: center;
-  border-radius: 15px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
@@ -106,55 +105,67 @@
   }
 }
 
-/* Responsive Adjustments */
-@media (max-width: 1200) {
-  .videos-container {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    width: calc(100% - 40px);
-  }
-}
-
 @media (max-width: 768px) {
   .church-highlights {
-    padding: 30px 40px;
+    padding: 30px 20px;
+    text-align: center;
   }
 
   .church-highlights h1 {
-    font-size: 2.5em;
+    font-size: 32px;
+    margin: 0 auto;
   }
 
   .media-container {
     padding: 20px;
+    text-align: center;
   }
 
   .videos-container {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 20px;
-    width: calc(100% - 40px);
+    width: 100%;
+    justify-content: center;
+    align-items: center;
   }
 
   .photo-box img {
     width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    display: block;
   }
 }
 
 @media (max-width: 480px) {
   .church-highlights {
-    padding: 20px 20px;
+    padding: 20px 15px;
+    text-align: center;
   }
 
   .church-highlights h1 {
-    font-size: 2em;
+    font-size: 24px;
+    margin: 0 auto;
+  }
+
+  .media-container {
+    padding: 15px;
+    text-align: center;
   }
 
   .photo-box img {
+    width: 100%;
     margin-bottom: 20px;
+    max-width: 100%;
+    margin: 0 auto;
+    display: block;
   }
 
   .videos-container {
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    gap: 20px;
-    width: calc(100% - 40px);
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
   }
 }

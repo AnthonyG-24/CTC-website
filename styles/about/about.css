@@ -19,3 +19,32 @@
 .background-about-img:hover {
   filter: grayscale(50%) brightness(80%) contrast(120%) saturate(140%) blur(0);
 }
+
+@media (max-width: 768px) {
+  .about-section {
+    height: 290px;
+  }
+  .background-img-container {
+    height: 300px;
+  }
+
+  .background-about-img {
+    height: 300px;
+    object-fit: cover;
+    filter: grayscale(80%) brightness(60%) contrast(100%) saturate(110%)
+      blur(1px);
+  }
+}
+
+@media only screen and (width: 390px) and (height: 844px) and (-webkit-device-pixel-ratio: 3) {
+  .background-img-container {
+    height: 250px;
+  }
+
+  .background-about-img {
+    height: 250px;
+    object-fit: cover;
+    filter: grayscale(70%) brightness(70%) contrast(105%) saturate(115%)
+      blur(1px);
+  }
+}

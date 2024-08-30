@@ -24,6 +24,13 @@
       href="https://fonts.googleapis.com/css2?family=Alegreya+SC:ital,wght@0,400;0,500;0,700;0,800;0,900;1,400;1,500;1,700;1,800;1,900&display=swap"
       rel="stylesheet"
     />
+
+    <link
+      rel="preload"
+      href="assets/CTC-background-vid.mp4"
+      as="video"
+      type="video/mp4"
+    />
   </head>
   <body>
     <!--Extra Nav (Social Media Icons)-->
@@ -95,7 +102,7 @@
           <button id="closeMenu" class="close-menu">&times;</button>
           <ul>
             <li><a href="about.html">About</a></li>
-            <li><a href="mother.html">Mothers</a></li>
+            <li><a href="mothers.html">Mothers</a></li>
             <li><a href="live.html">Live</a></li>
             <li><a href="events.html">Events</a></li>
             <li><a href="contact.html">Contact</a></li>
@@ -135,11 +142,8 @@
       <div class="hero-section">
         <div class="hero-content">
           <div class="video-container">
-            <video class="ctc-video" autoplay muted loop>
-              <source
-                src="assets/videos/CTC-background-vid.mp4"
-                type="video/mp4"
-              />
+            <video class="ctc-video" autoplay muted loop playsinline>
+              <source src="assets/CTC-background-vid.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
           </div>
@@ -199,14 +203,6 @@
         </p>
       </div>
     </footer>
-    <script>
-      // Get the current year
-      const currentYear = new Date().getFullYear();
-
-      // Insert the current year into the span with the id "footer-year"
-      document.getElementById("footer-year").textContent = currentYear;
-    </script>
-
     <script src="js/script.js" type="module"></script>
   </body>
 </html>
