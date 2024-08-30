@@ -72,7 +72,6 @@
   font-family: "Times New Roman", Times, serif;
 }
 
-/* Responsive styles */
 @media (max-width: 768px) {
   .bibliography-container {
     flex-direction: column;
