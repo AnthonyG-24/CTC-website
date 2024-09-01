@@ -10,7 +10,6 @@
   color: #fff;
   text-decoration: none;
   border-bottom: 3px solid #ffcc00;
-  display: inline-block;
   margin-bottom: 50px;
   padding-bottom: 10px;
   font-weight: 700;
@@ -44,7 +43,6 @@
   overflow: visible;
   border-radius: 10px;
   position: relative;
-  z-index: 0;
 }
 
 .images img {
@@ -60,7 +58,7 @@
   z-index: 0;
 }
 
-.images img:hover {
+.images img:active {
   transform: scale(1.8);
   filter: grayscale(0%);
   z-index: 10;
@@ -74,8 +72,8 @@
     height: 150px;
   }
 
-  .image img:hover {
-    transform: scale(2.8);
+  .images img:active {
+    transform: scale(1.9);
   }
 }
 
@@ -84,4 +82,23 @@
     max-width: 150px;
     height: 100px;
   }
+
+  .images img:active {
+    transform: scale(2.5);
+  }
+}
+
+.enlarge-image {
+  display: inline-block;
+}
+
+.enlarge-image img:hover,
+.enlarge-image img:focus,
+.enlarge-image img:active {
+  transform: scale(1.8);
+  filter: grayscale(0%);
+  z-index: 10;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+  object-fit: contain;
+  position: relative;
 }

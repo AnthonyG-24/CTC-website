@@ -4,10 +4,25 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CTC</title>
+    <link rel="icon" type="image/jpg" href="assets/ctcooljc-noBG.png" />
 
     <link rel="stylesheet" href="/styles/general.css" />
     <link rel="stylesheet" href="/styles/events/eventsNav.css" />
     <link rel="stylesheet" href="/styles/events/calander.css" />
+    <link rel="stylesheet" href="/styles/footer.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton+SC&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alegreya+SC:ital,wght@0,400;0,500;0,700;0,800;0,900;1,400;1,500;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <!-- Events navbar section -->
@@ -86,39 +101,58 @@
       <div class="full-calander-container">
         <iframe
           class="cal"
-          src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FNew_York&bgcolor=%234285F4&title=CTC%202024&src=NmJiY2RhYTJjNDk4MDFhOGY2ZGM5NThmZjdlZWQ5ZGQ1MzFjMjFlYjE1ZTcyZjJhZTE2OWU1Zjc0MjQ5MThjZUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=ZW4udXNhI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&color=%238E24AA&color=%230B8043"
+          src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FNew_York&bgcolor=%23039BE5&showCalendars=0&showTabs=0&showTitle=0&src=NmJiY2RhYTJjNDk4MDFhOGY2ZGM5NThmZjdlZWQ5ZGQ1MzFjMjFlYjE1ZTcyZjJhZTE2OWU1Zjc0MjQ5MThjZUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%238E24AA"
           style="border: solid 1px #777"
           frameborder="0"
-          scrolling="no"
+          scrolling="yes"
         ></iframe>
       </div>
       <div class="upcoming-events-calendar">
         <h2>Upcoming Events</h2>
         <ul class="events-list">
+          <li class="event-item"></li>
+
           <li class="event-item">
-            <strong>Church Anniversary:</strong>
+            <strong>Hall Of Faith Service (Prayer and Baptism):</strong>
             <p>
-              Sun, Sept 15, 2024<br />
-              Guest: Pastor Frankie Fulmore<br />
-              Theme: "Built on a Solid Rock" (Matt 7:24-25)<br />
-              St. Paul AME, Cades, SC
+              Fri, October 25th, 2024<br />
+              Celebrating Our Church Mothers
             </p>
-            <span class="event-time">3:00 – 5:30 PM</span>
+            <span class="event-time">6:30 PM - 7:00 AM</span>
+          </li>
+
+          <li class="event-item">
+            <strong>Hall Of Faith Service (FREE Breakfast):</strong>
+            <p>
+              Sat, October 26th, 2024<br />
+              Celebrating Our Church Mothers
+            </p>
+            <span class="event-time">9:00 AM - 11:30 AM</span>
           </li>
 
           <li class="event-item">
             <strong>Hall Of Faith Service:</strong>
-            Celebrating Our Church Mothers<br />
-            <span class="event-time">10:30 AM – 1:15 PM</span>
+            <p>
+              Sun, October 27th, 2024<br />
+              Celebrating Our Church Mothers
+            </p>
+            <span class="event-time">10:30 AM</span>
           </li>
 
           <li class="event-item">
-            <strong>Event 3:</strong> Description and details here
-            <span class="event-time">1:00 p.m</span>
+            <strong>Pastor Appreciation Service:</strong>
+            <p>Sun, Dec 1st, 2024</p>
+            <p>Celebrating the Pastor</p>
+            <span class="event-time">11:30 AM</span>
           </li>
+
           <li class="event-item">
-            <strong>Event 4:</strong> Description and details here
-            <span class="event-time">1:00 p.m</span>
+            <strong>Watch Night Service:</strong>
+            <p>
+              Tue, Dec 31st, 2024<br />
+              Bringing in the New Year!
+            </p>
+            <span class="event-time">9:00 PM</span>
           </li>
         </ul>
       </div>
@@ -128,5 +162,16 @@
     <section class="extra-event-stuff">
       <div class="flyer-container"></div>
     </section>
+
+    <!--Footer section-->
+    <footer>
+      <div class="footer-container">
+        <p>
+          C.T.C.O.O.L.J.C <span class="footer-year" id="footer-year"></span>
+        </p>
+      </div>
+    </footer>
+
+    <script src="script.js" type="module"></script>
   </body>
 </html>

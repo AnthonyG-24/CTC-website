@@ -3,17 +3,15 @@
   padding: 0;
   --royal-blue: #3366cc;
   --burgundy: #800020;
-
   box-sizing: border-box;
   font-family: "Alegreya SC", serif;
 }
 
 body {
   background-color: rgba(34, 34, 34, 0.384);
-  font-family: "Alegreya SC", serif;
   height: 100vh;
 }
 
 html {
-  scroll-behavior: smooth; /* Enables smooth scrolling for anchor links */
+  scroll-behavior: smooth;
 }
