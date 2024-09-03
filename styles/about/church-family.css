@@ -2,13 +2,11 @@
   padding: 50px 20px;
   text-align: center;
   background-color: #80002096;
-  overflow: visible;
 }
 
 .church-family-section h1 {
   font-size: 40px;
   color: #fff;
-  text-decoration: none;
   border-bottom: 3px solid #ffcc00;
   margin-bottom: 50px;
   padding-bottom: 10px;
@@ -35,12 +33,9 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 15px;
-  position: relative;
-  overflow: visible;
 }
 
 .images {
-  overflow: visible;
   border-radius: 10px;
   position: relative;
 }
@@ -88,10 +83,6 @@
   }
 }
 
-.enlarge-image {
-  display: inline-block;
-}
-
 .enlarge-image img:hover,
 .enlarge-image img:focus,
 .enlarge-image img:active {
@@ -100,5 +91,4 @@
   z-index: 10;
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
   object-fit: contain;
-  position: relative;
 }

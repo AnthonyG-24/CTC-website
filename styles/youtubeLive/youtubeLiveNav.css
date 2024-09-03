@@ -1,8 +1,8 @@
-.about-header-section {
-  background-color: black;
+.youtube-live-navbar-section {
+  background-color: #800020;
 }
 
-.about-navbar {
+.youtube-live-navbar {
   display: flex;
   align-items: center;
 }

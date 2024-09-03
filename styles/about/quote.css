@@ -17,7 +17,7 @@
   font-style: oblique;
   cursor: pointer;
   transition: color 0.3s ease, transform 0.3s ease;
-  line-height: 1.4; /* For better readability */
+  line-height: 1.4;
 }
 
 .pastor-quote span {

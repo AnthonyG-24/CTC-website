@@ -4,7 +4,8 @@
 }
 
 .img-area {
-  max-width: 80px;
+  width: 80px;
+  margin-right: 50px;
 }
 
 .left-nav {
@@ -38,7 +39,7 @@
   font-size: 14px;
   letter-spacing: 5px;
   text-transform: uppercase;
-  color: black;
+  color: #fff;
   text-decoration: none;
 }
 

@@ -1,5 +1,5 @@
 .events-navbar-section {
-  background-color: rgb(200, 45, 45);
+  background-color: var(--burgundy);
 }
 
 .events-navbar {
@@ -8,7 +8,8 @@
 }
 
 .img-area {
-  max-width: 80px;
+  width: 80px;
+  margin-right: 50px;
 }
 
 .left-nav {

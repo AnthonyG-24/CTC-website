@@ -12,7 +12,7 @@
   overflow: hidden;
 }
 
-.left-side {
+.bib-left-side {
   flex: 0.4;
   display: flex;
   align-items: center;
@@ -22,13 +22,13 @@
   border-right: 2px solid #ddd;
 }
 
-.left-side img {
+.bib-left-side img {
   width: 100%;
   height: 600px;
   object-fit: contain;
 }
 
-.right-side {
+.bib-right-side {
   flex: 0.6;
   padding: 20px;
   background-color: rgba(65, 105, 225, 0.047);
@@ -83,8 +83,8 @@
     flex-direction: column;
   }
 
-  .left-side,
-  .right-side {
+  .bib-left-side,
+  .bib-right-side {
     flex: 1;
     padding: 10px;
   }

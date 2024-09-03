@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CTC</title>
+    <link rel="icon" type="image/jpg" href="assets/ctcooljc-noBG.png" />
+
+    <link rel="stylesheet" href="styles/general.css" />
+    <link rel="stylesheet" href="styles/youtubeLive/youtubeLiveNav.css" />
+    <link rel="stylesheet" href="styles/youtubeLive/nowLive.css" />
+
+    <link
+      rel="preload"
+      href="https://www.youtube.com/embed/cd1jnSkummo?si=ljVs-yWaCm1NGegt"
+      as="document"
+    />
+    <link
+      rel="preload"
+      href="https://www.youtube.com/live_chat?v=cd1jnSkummo&embed_domain=127.0.0.1"
+      as="document"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton+SC&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alegreya+SC:ital,wght@0,400;0,500;0,700;0,800;0,900;1,400;1,500;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Live navbar section -->
+    <header class="youtube-live-navbar-section">
+      <nav class="youtube-live-navbar">
+        <div class="left-nav">
+          <div class="img-area">
+            <a href="index.html">
+              <img
+                class="church-logo"
+                src="/assets/ctcooljc-noBG.png"
+                alt="church-logo"
+              />
+            </a>
+          </div>
+        </div>
+
+        <div class="right-nav">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="mothers.html">Mothers</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="hamburger">
+          <button id="bTn">
+            <img
+              class="hamburger-icon"
+              src="/assets/icons/hamburger.png"
+              alt="hamburger-icon"
+            />
+          </button>
+        </div>
+
+        <div id="menu" class="menu">
+          <button id="closeMenu" class="close-menu">&times;</button>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="mothers.html">Mothers</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <script>
+      document.getElementById("bTn").addEventListener("click", function () {
+        document.getElementById("menu").classList.toggle("active");
+      });
+
+      document.addEventListener("click", function (event) {
+        const menu = document.getElementById("menu");
+        const menuButton = document.getElementById("bTn");
+
+        if (
+          !menu.contains(event.target) &&
+          !menuButton.contains(event.target)
+        ) {
+          menu.classList.remove("active");
+        }
+      });
+
+      document
+        .getElementById("closeMenu")
+        .addEventListener("click", function () {
+          document.getElementById("menu").classList.remove("active");
+        });
+    </script>
+
+    <!--Live youtube section-->
+    <section class="youtube-live-section">
+      <a href="live.html">
+        <button>Back to recent videos</button>
+      </a>
+      <h1>Live Now On Youtube!</h1>
+      <div class="youtube-live-container">
+        <div class="youtube-live">
+          <iframe
+            src="https://www.youtube.com/embed/cd1jnSkummo?si=ljVs-yWaCm1NGegt"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
+        </div>
+
+        <div class="live-chat">
+          <iframe
+            src="https://www.youtube.com/live_chat?v=cd1jnSkummo&embed_domain=127.0.0.1"
+            frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

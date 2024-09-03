@@ -71,7 +71,6 @@
 }
 
 .social-link {
-  display: inline-block;
   transition: transform 0.3s ease-in-out;
 }
 
@@ -102,8 +101,7 @@
   }
 }
 
-/* Media Queries for Smaller Screens */
-@media screen and (max-width: 768px) {
+@media (max-width: 768px) {
   .contact-info-container {
     flex-direction: column;
     text-align: center;
@@ -117,6 +115,7 @@
 
   .contact-shannon-info {
     margin-top: 15px;
+    margin-left: 0;
   }
 
   .contact-shannon-info span {
@@ -141,7 +140,7 @@
   }
 }
 
-@media screen and (max-width: 480px) {
+@media (max-width: 480px) {
   .contact-info-section {
     padding: 15px;
   }

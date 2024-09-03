@@ -56,7 +56,7 @@
 .event-item {
   padding: 10px 0;
   border-bottom: 1px solid #eee;
-  font-size: 16px; /* Adjusted for smaller screens */
+  font-size: 16px;
   color: #444;
   font-family: "Roboto", sans-serif;
   transition: background-color 0.3s ease;
@@ -81,18 +81,13 @@
 @media (max-width: 768px) {
   .calander-section {
     align-items: center;
-    height: 600px;
-  }
-
-  .full-calander-container {
-    justify-content: center;
-    align-items: center;
+    height: auto;
+    padding: 15px;
   }
 
   .cal {
     height: 300px;
     width: 100%;
-    max-width: 100%;
   }
 
   .upcoming-events-calendar h2 {
@@ -118,14 +113,11 @@
 
   .full-calander-container {
     padding: 5px;
-    justify-content: center;
-    align-items: center;
   }
 
   .cal {
     height: 250px;
     width: 100%;
-    max-width: 100%;
   }
 
   .upcoming-events-calendar {
@@ -136,7 +128,6 @@
   .upcoming-events-calendar h2 {
     font-size: 18px;
     margin-bottom: 8px;
-    margin: 0 auto;
   }
 
   .events-list {
