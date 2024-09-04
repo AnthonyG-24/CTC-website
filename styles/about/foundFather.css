@@ -8,8 +8,15 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5), inset 0 0 15px rgba(0, 0, 0, 0.3);
   border: 40px solid royalblue;
+  border-radius: 15px;
+  transform: perspective(1000px) rotateX(5deg) rotateY(-5deg);
+  transition: transform 0.3s ease-in-out;
+}
+
+.obituary-section:hover {
+  transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1.05);
 }
 
 .obituary-section::before {
