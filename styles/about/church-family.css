@@ -74,7 +74,7 @@
 
 @media (max-width: 480px) {
   .images img {
-    max-width: 150px;
+    max-width: 120px;
     height: 100px;
   }
 

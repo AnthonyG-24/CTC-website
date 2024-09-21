@@ -81,6 +81,9 @@
   height: 100%;
   justify-content: center;
   text-align: center;
+  flex-direction: column;
+  justify-content: center; /* Centering items within the container */
+  align-items: center;
 }
 
 .menu li {

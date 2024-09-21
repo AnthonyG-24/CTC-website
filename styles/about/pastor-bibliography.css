@@ -1,8 +1,6 @@
 .pastor-bibliography-section {
   background-color: #f5f5dc;
   padding: 40px 20px;
-  border-bottom: 50px solid gold;
-  border-top: 50px solid gold;
 }
 
 .bibliography-container {
@@ -18,7 +16,6 @@
   align-items: center;
   justify-content: center;
   padding: 20px;
-  background-color: var(--burgundy);
   border-right: 2px solid #ddd;
 }
 

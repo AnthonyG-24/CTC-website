@@ -1,0 +1,122 @@
+.pastor-bio-section {
+  display: flex;
+  justify-content: center;
+  padding: 50px 20px;
+  background-color: #f9f9f9;
+}
+
+.bio-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  width: 100%;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.bio-image-container {
+  flex: 1;
+  min-width: 300px;
+  max-width: 400px;
+  background-color: #ececec;
+}
+
+.bio-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 12px 0 0 12px;
+}
+
+.bio-content-container {
+  flex: 2;
+  padding: 30px;
+}
+
+.bio-title {
+  font-family: "Georgia", serif;
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.bio-text p {
+  font-family: "Arial", sans-serif;
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.bio-subtitle {
+  font-family: "Georgia", serif;
+  font-size: 1.5rem;
+  color: #444;
+  margin: 25px 0 15px;
+}
+
+.bio-ending {
+  font-family: "Georgia", serif;
+  font-size: 1.2rem;
+  color: #333;
+  margin-top: 40px;
+}
+
+/* Read More Button */
+.read-more {
+  font-weight: bold;
+  color: #0066cc;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.read-more:hover {
+  color: #003366;
+}
+
+/* Full Bio (Hidden By Default) */
+.full-bio {
+  margin-top: 20px;
+  animation: fadeIn 0.5s ease;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+  .bio-wrapper {
+    flex-direction: column;
+  }
+
+  .bio-image-container {
+    max-width: 100%;
+    border-radius: 12px 12px 0 0;
+  }
+
+  .bio-content-container {
+    padding: 20px;
+  }
+
+  .bio-title {
+    font-size: 1.8rem;
+  }
+
+  .bio-subtitle {
+    font-size: 1.3rem;
+  }
+
+  .bio-text p {
+    font-size: 0.9rem;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

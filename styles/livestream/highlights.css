@@ -37,11 +37,9 @@
   transform-origin: left;
 }
 
-/* Media Container */
 .media-container {
   display: flex;
   flex-direction: column;
-  border: 20px outset #e52e71;
   padding: 20px 40px;
   border-bottom: 20px solid gold;
 }

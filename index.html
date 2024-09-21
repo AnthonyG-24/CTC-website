@@ -35,36 +35,6 @@
     />
   </head>
   <body>
-    <!--Extra Nav (Social Media Icons)-->
-    <header class="extra-nav" id="home">
-      <div class="social-links">
-        <a
-          href="https://www.facebook.com/profile.php?id=100092501479032"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="social-link"
-        >
-          <img
-            class="social-media-icons"
-            src="/assets//social_media_icons/facebook.svg"
-            alt="Facebook"
-          />
-        </a>
-        <a
-          href="https://www.youtube.com/channel/UCc6508gRYgLCAFpzK3C6gzg"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="social-link"
-        >
-          <img
-            class="social-media-icons"
-            src="/assets//social_media_icons/youtube.svg"
-            alt="YouTube"
-          />
-        </a>
-      </div>
-    </header>
-
     <!-- Navbar section -->
     <header class="header-section">
       <nav class="navbar">
@@ -117,12 +87,10 @@
         document.getElementById("menu").classList.toggle("active");
       });
 
-      // Close the menu when clicking outside of it
       document.addEventListener("click", function (event) {
         const menu = document.getElementById("menu");
         const menuButton = document.getElementById("bTn");
 
-        // Check if the click was outside the menu and the menu button
         if (
           !menu.contains(event.target) &&
           !menuButton.contains(event.target)
@@ -131,7 +99,6 @@
         }
       });
 
-      // Close the menu when clicking the close button
       document
         .getElementById("closeMenu")
         .addEventListener("click", function () {
@@ -209,11 +176,22 @@
     <!--Footer section-->
     <footer>
       <div class="footer-container">
-        <p>
-          C.T.C.O.O.L.J.C <span class="footer-year" id="footer-year"></span>
-        </p>
+        <div class="footer-content">
+          <p>
+            C.T.C.O.O.L.J.C
+            <span class="footer-year" id="footer-year"></span>
+          </p>
+          <div class="contact-info">
+            <p>
+              Secretary Sister Shannon Singletary Contact Information:
+              843-372-5839
+            </p>
+            <p>385 McClam Rd, Cades, SC 29518</p>
+          </div>
+        </div>
       </div>
     </footer>
-    <script src="script.js" type="module"></script>
+
+    <script src="js/script.js" type="module"></script>
   </body>
 </html>

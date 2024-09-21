@@ -123,6 +123,10 @@
     left: 0;
   }
 
+  .right-nav ul {
+    visibility: hidden;
+  }
+
   .hamburger {
     visibility: visible;
     margin-right: 20px;

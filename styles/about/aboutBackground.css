@@ -1,0 +1,46 @@
+.about-background-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.background-img-container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.background-about-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about-background-section p {
+  font-size: 20px;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .about-background-section {
+    height: auto;
+  }
+
+  .background-about-img {
+    height: auto;
+  }
+
+  .about-background-section h1 {
+    font-size: 36px;
+  }
+
+  .about-background-section p {
+    font-size: 18px;
+  }
+}

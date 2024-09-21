@@ -1,5 +1,5 @@
 .about-header-section {
-  background-color: black;
+  background-color: var(--burgundy);
 }
 
 .about-navbar {

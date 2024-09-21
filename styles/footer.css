@@ -1,20 +1,28 @@
 .footer-container {
-  background-color: rgb(38, 38, 38);
-  padding: 20px;
+  background-color: royalblue;
+  padding: 30px 20px;
   text-align: center;
-  border-top: 10px solid rgb(234, 70, 70);
+  border-top: 8px solid gold;
 }
 
-.footer-container p {
-  font-size: 18px;
+.footer-content {
+  color: white;
+  font-size: 22px;
   font-weight: 500;
-  color: #fff;
-  line-height: 1.5;
 }
 
-.footer-container span {
+.footer-year {
   font-weight: bold;
   font-size: 24px;
-  margin-left: 12px;
-  color: #ffd700;
+  color: wheat;
+}
+
+.contact-info {
+  margin-top: 10px;
+}
+
+.contact-info p {
+  color: wheat;
+  font-size: 18px;
+  margin: 5px 0;
 }

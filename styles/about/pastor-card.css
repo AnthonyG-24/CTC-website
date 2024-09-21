@@ -1,0 +1,97 @@
+.pastor-card-section {
+  background: linear-gradient(
+    45deg,
+    #f2c14e,
+    #e6ac00,
+    #d4af37,
+    #ffdb58,
+    #b8860b
+  );
+  background-size: 400% 400%;
+  animation: gradientAnimation 3s ease infinite;
+  overflow: hidden;
+  padding: 50px;
+  height: 600px;
+  width: 100%;
+}
+
+.pastor-card {
+  position: relative;
+  width: 100vh;
+  margin-left: 100px;
+}
+
+.pastor-card-img {
+  margin-left: 100px;
+}
+
+.pastor-card-img img {
+  height: 600px;
+  object-fit: cover;
+}
+
+.pastor-card-text {
+  position: absolute;
+  left: 0px;
+  bottom: 60px;
+  color: #ffffff;
+}
+
+.pastor-card-text h1 {
+  font-size: 100px;
+  line-height: 1;
+  text-shadow: 6px 6px 12px rgba(0, 0, 0, 0.6);
+}
+
+@media (max-width: 768px) {
+  .pastor-card-section {
+    padding: 0;
+    height: auto;
+  }
+
+  .pastor-card {
+    margin: 20px auto;
+    width: 90vw; /* Scale to viewport width */
+  }
+
+  .pastor-card-img img {
+    width: auto;
+    max-width: 100%;
+    max-height: 800px; /* Sets a maximum height but maintains aspect ratio */
+    height: auto; /* Adjust height based on width to maintain aspect ratio */
+  }
+
+  .pastor-card-text {
+    bottom: 5%; /* Position text closer to the bottom */
+    padding: 0 5px; /* Reduced padding */
+  }
+}
+
+@media (max-width: 480px) {
+  .pastor-card-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .pastor-card-text h1 {
+    font-size: 50px;
+  }
+
+  .pastor-card-text {
+    bottom: 30px;
+    padding: 0 5px;
+  }
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
