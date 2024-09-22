@@ -97,13 +97,13 @@
   cursor: pointer;
   position: absolute;
   top: 20px;
-  right: 20px;
+  right: 50px;
 }
 
 @media (max-width: 768px) {
   .right-nav {
     position: fixed;
-    left: -100%;
+    left: 100%;
     top: 70px;
     gap: 0;
     flex-direction: column;
@@ -115,6 +115,10 @@
 
   .right-nav li {
     margin: 16px;
+  }
+
+  .menu a {
+    margin-right: 70px;
   }
 
   .right-nav ul {

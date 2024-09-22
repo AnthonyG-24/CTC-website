@@ -109,9 +109,6 @@
 }
 
 @media (max-width: 768px) {
-  .header-section {
-    margin: 0;
-  }
   .right-nav {
     position: fixed;
     left: -100%;
@@ -134,6 +131,10 @@
 
   .right-nav.active {
     left: 0;
+  }
+
+  .menu.active {
+    top: -100px;
   }
 
   .img-area {
