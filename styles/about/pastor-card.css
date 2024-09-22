@@ -1,87 +1,9 @@
 .pastor-card-section {
-  background: linear-gradient(
-    45deg,
-    #f2c14e,
-    #e6ac00,
-    #d4af37,
-    #ffdb58,
-    #b8860b
-  );
+  background: linear-gradient(45deg, #f5c542, #2588e5, #d4af37, #b8922e);
   background-size: 400% 400%;
   animation: gradientAnimation 3s ease infinite;
-  overflow: hidden;
-  padding: 50px;
-  height: 600px;
-  width: 100%;
-}
-
-.pastor-card {
-  position: relative;
-  width: 100vh;
-  margin-left: 100px;
-}
-
-.pastor-card-img {
-  margin-left: 100px;
-}
-
-.pastor-card-img img {
-  height: 600px;
-  object-fit: cover;
-}
-
-.pastor-card-text {
-  position: absolute;
-  left: 0px;
-  bottom: 60px;
-  color: #ffffff;
-}
-
-.pastor-card-text h1 {
-  font-size: 100px;
-  line-height: 1;
-  text-shadow: 6px 6px 12px rgba(0, 0, 0, 0.6);
-}
-
-@media (max-width: 768px) {
-  .pastor-card-section {
-    padding: 0;
-    height: auto;
-  }
-
-  .pastor-card {
-    margin: 20px auto;
-    width: 90vw; /* Scale to viewport width */
-  }
-
-  .pastor-card-img img {
-    width: auto;
-    max-width: 100%;
-    max-height: 800px; /* Sets a maximum height but maintains aspect ratio */
-    height: auto; /* Adjust height based on width to maintain aspect ratio */
-  }
-
-  .pastor-card-text {
-    bottom: 5%; /* Position text closer to the bottom */
-    padding: 0 5px; /* Reduced padding */
-  }
-}
-
-@media (max-width: 480px) {
-  .pastor-card-img {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .pastor-card-text h1 {
-    font-size: 50px;
-  }
-
-  .pastor-card-text {
-    bottom: 30px;
-    padding: 0 5px;
-  }
+  border-bottom: 10px solid royalblue;
+  overflow-x: hidden;
 }
 
 @keyframes gradientAnimation {
@@ -93,5 +15,112 @@
   }
   100% {
     background-position: 0% 50%;
+  }
+}
+
+.card-container {
+  display: flex;
+  padding: 30px;
+  gap: 200px;
+  flex-wrap: wrap;
+}
+
+.pastor-card,
+.elect-lady-card {
+  flex: 1;
+  position: relative;
+  margin-left: 100px;
+  height: 100%;
+}
+
+.pastor-card {
+  box-shadow: 50px 100px 20px rgba(0, 0, 0, 0.6);
+}
+
+.elect-lady-card {
+  box-shadow: -50px 100px 20px rgba(0, 0, 0, 0.6); /* Left side */
+}
+
+.pastor-photo {
+  width: 300px;
+  margin-left: 150px;
+  object-fit: contain;
+  border: 10px solid burlywood;
+}
+
+.elect-lady-photo {
+  width: 300px;
+  border: 10px solid burlywood;
+}
+
+.pastor-card-text {
+  position: absolute;
+  bottom: 80px;
+  left: 0;
+  color: #ffffff;
+  font-size: 52px;
+  line-height: 1.2;
+  text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.2), 6px 6px 0px rgba(0, 0, 0, 0.3),
+    9px 9px 0px rgba(0, 0, 0, 0.4), 12px 12px 0px rgba(0, 0, 0, 0.5);
+}
+
+.elect-lady-card-text {
+  position: absolute;
+  bottom: 80px;
+  left: -100px;
+  color: #ffffff;
+  font-size: 52px;
+  line-height: 1.2;
+  text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.2), 6px 6px 0px rgba(0, 0, 0, 0.3),
+    9px 9px 0px rgba(0, 0, 0, 0.4), 12px 12px 0px rgba(0, 0, 0, 0.5);
+}
+
+.pastor-card-text h1,
+.elect-lady-card-text h1 {
+  font-family: "Poppins", "Montserrat", sans-serif;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .card-container {
+    gap: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .card-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+  }
+
+  .pastor-card {
+    margin-left: 70px;
+  }
+
+  .elect-lady-card {
+    left: -140px;
+  }
+
+  .pastor-photo,
+  .elect-lady-photo {
+    width: 250px;
+    margin-left: 0;
+  }
+
+  .pastor-card-text {
+    left: -60px;
+    bottom: 30px;
+  }
+
+  .elect-lady-card-text {
+    left: 130px;
+  }
+
+  .pastor-card-text,
+  .elect-lady-card-text {
+    position: absolute;
+    font-size: 32px;
+    line-height: 1.3;
   }
 }
