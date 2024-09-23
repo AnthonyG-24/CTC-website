@@ -1,0 +1,78 @@
+/* General Styles */
+body {
+  font-family: "Arial", sans-serif;
+  line-height: 1.6;
+  background-color: #f8f9fa;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+/* Donation Section Styles */
+.donation-section {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  text-align: center;
+}
+
+.donation-section h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #2c3e50;
+}
+
+.donation-section p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  color: #7f8c8d;
+}
+
+/* Stripe Donation Styles */
+.donation-stripe {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  border-top: 1px solid #e1e1e1;
+}
+
+.stripe__icon {
+  width: 80px;
+  height: auto;
+  margin-bottom: 15px;
+}
+
+.donation-stripe h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #2980b9;
+}
+
+/* Donation Button */
+.donations__button {
+  display: inline-block;
+  padding: 12px 25px;
+  font-size: 1rem;
+  color: #ffffff;
+  background-color: #3498db;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.donations__button:hover {
+  background-color: #2980b9;
+}
+
+/* Primary Donation Button */
+.primary-donation-button {
+  background-color: #e74c3c;
+}
+
+.primary-donation-button:hover {
+  background-color: #c0392b;
+}
