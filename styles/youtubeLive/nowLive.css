@@ -23,7 +23,7 @@ a button:active {
 
 .youtube-live-section {
   text-align: center;
-  background-color: gold;
+  background-color: white;
   padding: 40px;
 }
 
@@ -61,12 +61,39 @@ a button:active {
   border-radius: 10px;
 }
 
-/* Responsive Adjustments */
+.bible-toggle-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #f1c40f;
+  color: white;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.full-bible {
+  display: none;
+  position: fixed;
+  bottom: 100px;
+  right: 20px;
+  z-index: 999;
+}
+
 @media (max-width: 768px) {
   a button {
     font-size: 24px;
     padding: 20px 32px;
     margin-bottom: 30px;
+  }
+
+  .full-bible,
+  .bible-toggle-btn {
+    display: none;
   }
 
   .youtube-live-section {

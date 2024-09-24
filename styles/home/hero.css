@@ -58,6 +58,7 @@
 
 .down-arrow {
   width: 40px;
+  margin-left: 60px;
   height: auto;
   cursor: pointer;
   filter: brightness(0) invert(1);

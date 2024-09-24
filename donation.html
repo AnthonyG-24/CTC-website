@@ -85,13 +85,32 @@
         });
     </script>
 
-    <!-- Donation section-->
+    <!-- Donation Section -->
     <section class="donation-section">
+      <!-- Scripture Section -->
+      <div class="scripture-section">
+        <div class="box-for-bible">
+          <img
+            src="assets/donation-assets/bible-photo.jpg"
+            alt="photo of bible"
+          />
+        </div>
+        <div class="rest-of-scripture-content">
+          <h2>Scripture Inspiration</h2>
+          <p class="scripture-text">
+            “Give, and it will be given to you. A good measure, pressed down,
+            shaken together and running over, will be poured into your lap. For
+            with the measure you use, it will be measured to you.”
+          </p>
+          <p class="scripture-reference"><em>– Luke 6:38</em></p>
+        </div>
+      </div>
       <h2>Ways to Donate</h2>
       <p>
-        You can donate directly to the church by simply enter your payment
-        information, such as your card number, and choose your desired donation
-        amount using Stripe.
+        You can donate directly to the church by entering your credit card
+        information and selecting your desired donation amount through Stripe.
+        Additionally, you can use Cash App, connected through Stripe, to make
+        your donation.
       </p>
 
       <div class="donation-stripe">
@@ -100,14 +119,13 @@
           alt="Stripe"
           class="stripe__icon"
         />
-        <h3>Stripe</h3>
-        <a
-          href="https://donate.stripe.com/cN23fP1qE4vUfLO8ww"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="donations__button primary-donation-button"
-          >Donate via Stripe</a
+        <script async src="https://js.stripe.com/v3/buy-button.js"></script>
+
+        <stripe-buy-button
+          buy-button-id="buy_btn_1Q2Ki0082kQ12Z337aVa9YLA"
+          publishable-key="pk_live_51Q219a082kQ12Z33i1Z1P8m6Y1S0Xhn2z3aByLld137A9iYFPiwvoqrWx10Qz9opds4wFWO823bZXr4Itm8kcX4g00sDDspjYr"
         >
+        </stripe-buy-button>
       </div>
     </section>
 

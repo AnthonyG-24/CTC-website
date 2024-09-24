@@ -9,17 +9,8 @@
     <link rel="stylesheet" href="styles/general.css" />
     <link rel="stylesheet" href="styles/youtubeLive/youtubeLiveNav.css" />
     <link rel="stylesheet" href="styles/youtubeLive/nowLive.css" />
+    <link rel="stylesheet" href="styles/footer.css" />
 
-    <link
-      rel="preload"
-      href="https://www.youtube.com/embed/cd1jnSkummo?si=ljVs-yWaCm1NGegt"
-      as="document"
-    />
-    <link
-      rel="preload"
-      href="https://www.youtube.com/live_chat?v=cd1jnSkummo&embed_domain=127.0.0.1"
-      as="document"
-    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -134,6 +125,52 @@
           ></iframe>
         </div>
       </div>
+
+      <!-- Circular Button to Toggle Bible -->
+      <button class="bible-toggle-btn" onclick="toggleBible()">📖</button>
+
+      <!-- Hidden Bible Container -->
+      <div class="full-bible" id="fullBible">
+        <iframe
+          src="https://www.bible.com/en-GB/embed/verse_of_the_day?version_id=1&v=kjv"
+          width="300"
+          height="400"
+          frameborder="0"
+        ></iframe>
+      </div>
     </section>
+
+    <script>
+      function toggleBible() {
+        const bibleContainer = document.getElementById("fullBible");
+        if (
+          bibleContainer.style.display === "none" ||
+          bibleContainer.style.display === ""
+        ) {
+          bibleContainer.style.display = "block";
+        } else {
+          bibleContainer.style.display = "none";
+        }
+      }
+    </script>
+
+    <!--Footer section-->
+    <footer>
+      <div class="footer-container">
+        <div class="footer-content">
+          <p>
+            C.T.C.O.O.L.J.C
+            <span class="footer-year" id="footer-year"></span>
+          </p>
+          <div class="contact-info">
+            <p>
+              Secretary Sister Shannon Singletary Contact Information:
+              843-372-5839
+            </p>
+            <p>Address: 385 McClam Rd, Cades, SC 29518</p>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

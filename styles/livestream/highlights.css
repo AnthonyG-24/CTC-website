@@ -1,4 +1,3 @@
-/* General Section Styling */
 .church-highlights {
   background-color: var(--burgundy);
   padding: 40px 60px;
@@ -18,7 +17,6 @@
   padding-bottom: 10px;
 }
 
-/* Underline Animation */
 .church-highlights h1::before {
   content: "";
   position: absolute;
@@ -48,7 +46,6 @@
   border-bottom: 20px solid gold;
 }
 
-/* Image Styling */
 .photo-box img {
   max-width: 450px;
   height: auto;
@@ -63,17 +60,11 @@
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
 }
 
-/* Videos Container Styling */
 .videos-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   gap: 20px;
-  width: calc(
-    100% - 40px
-  ); /* Account for padding on both sides */ /*   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
- */
-  gap: 20px;
-  width: 100%;
+  width: calc(100% - 40px);
   padding: 20px 0;
 }
 
@@ -91,7 +82,6 @@
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
 }
 
-/* Animations */
 @keyframes fadeIn {
   0% {
     opacity: 0;
@@ -160,10 +150,16 @@
   }
 
   .videos-container {
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
     gap: 15px;
+  }
+
+  .videos-container iframe {
     width: 100%;
-    justify-content: center;
-    align-items: center;
+    margin-bottom: 10px;
+    height: 200px;
+    border-radius: 10px;
   }
 }

@@ -1,4 +1,5 @@
-.calander-section {
+/* General styles for the calendar section */
+.calendar-section {
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -8,8 +9,7 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.full-calander-container {
-  flex: 1;
+.full-calendar-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -26,7 +26,7 @@
   transition: transform 0.3s ease;
 }
 
-.full-calander-container:hover .cal {
+.full-calendar-container:hover .cal {
   transform: scale(1.02);
 }
 
@@ -78,10 +78,9 @@
   margin-top: 4px;
 }
 
+/* Media Queries for Responsive Design */
 @media (max-width: 768px) {
-  .calander-section {
-    align-items: center;
-    height: auto;
+  .calendar-section {
     padding: 15px;
   }
 
@@ -106,12 +105,11 @@
 }
 
 @media (max-width: 480px) {
-  .calander-section {
+  .calendar-section {
     padding: 10px;
-    align-items: center;
   }
 
-  .full-calander-container {
+  .full-calendar-container {
     padding: 5px;
   }
 

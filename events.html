@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/styles/general.css" />
     <link rel="stylesheet" href="/styles/events/eventsNav.css" />
     <link rel="stylesheet" href="/styles/events/calander.css" />
+    <link rel="stylesheet" href="/styles/events/countdown.css" />
     <link rel="stylesheet" href="/styles/footer.css" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -98,9 +99,66 @@
         });
     </script>
 
-    <!--Calander section-->
-    <section class="calander-section">
-      <div class="full-calander-container">
+    <!--Countdown clock background-->
+    <div class="event-image-container">
+      <img
+        src="assets/event-assets/worship-event.jpg"
+        alt="join our church evnts photo"
+      />
+
+      <div class="countdown-container">
+        <h2>Hall Of Faith Finale:</h2>
+        <div class="countdown-clock">
+          <div class="time-box">
+            <span id="days" class="time">00</span>
+            <span class="label">Days</span>
+          </div>
+          <div class="time-box">
+            <span id="hours" class="time">00</span>
+            <span class="label">Hours</span>
+          </div>
+          <div class="time-box">
+            <span id="minutes" class="time">00</span>
+            <span class="label">Minutes</span>
+          </div>
+          <div class="time-box">
+            <span id="seconds" class="time">00</span>
+            <span class="label">Seconds</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const countdown = () => {
+          const countDate = new Date("October 27, 2024 10:30:00").getTime();
+          const now = new Date().getTime();
+          const gap = countDate - now;
+
+          const second = 1000;
+          const minute = second * 60;
+          const hour = minute * 60;
+          const day = hour * 24;
+
+          const days = Math.floor(gap / day);
+          const hours = Math.floor((gap % day) / hour);
+          const minutes = Math.floor((gap % hour) / minute);
+          const seconds = Math.floor((gap % minute) / second);
+
+          document.getElementById("days").innerText = days;
+          document.getElementById("hours").innerText = hours;
+          document.getElementById("minutes").innerText = minutes;
+          document.getElementById("seconds").innerText = seconds;
+        };
+
+        setInterval(countdown, 1000);
+        countdown(); // Initial call to populate the countdown immediately
+      });
+    </script>
+
+    <!-- Calendar/Event/section -->
+    <section class="calendar-section">
+      <div class="full-calendar-container">
         <iframe
           class="cal"
           src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FNew_York&bgcolor=%23039BE5&showCalendars=0&showTabs=0&showTitle=0&src=NmJiY2RhYTJjNDk4MDFhOGY2ZGM5NThmZjdlZWQ5ZGQ1MzFjMjFlYjE1ZTcyZjJhZTE2OWU1Zjc0MjQ5MThjZUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%238E24AA"
@@ -109,54 +167,54 @@
           scrolling="yes"
         ></iframe>
       </div>
-      <div class="upcoming-events-calendar">
-        <h2>Upcoming Events</h2>
-        <ul class="events-list">
-          <li class="event-item"></li>
+      <div class="all-event-content">
+        <div class="upcoming-events-calendar">
+          <h2>Upcoming Events</h2>
+          <ul class="events-list">
+            <li class="event-item">
+              <strong>Hall Of Faith Service (Prayer and Baptism):</strong>
+              <p>
+                Fri, October 25th, 2024<br />
+                Celebrating Our Church Mothers
+              </p>
+              <span class="event-time">6:30 PM - 7:00 AM</span>
+            </li>
 
-          <li class="event-item">
-            <strong>Hall Of Faith Service (Prayer and Baptism):</strong>
-            <p>
-              Fri, October 25th, 2024<br />
-              Celebrating Our Church Mothers
-            </p>
-            <span class="event-time">6:30 PM - 7:00 AM</span>
-          </li>
+            <li class="event-item">
+              <strong>Hall Of Faith Service (FREE Breakfast):</strong>
+              <p>
+                Sat, October 26th, 2024<br />
+                Celebrating Our Church Mothers
+              </p>
+              <span class="event-time">9:00 AM - 11:30 AM</span>
+            </li>
 
-          <li class="event-item">
-            <strong>Hall Of Faith Service (FREE Breakfast):</strong>
-            <p>
-              Sat, October 26th, 2024<br />
-              Celebrating Our Church Mothers
-            </p>
-            <span class="event-time">9:00 AM - 11:30 AM</span>
-          </li>
+            <li class="event-item">
+              <strong>Hall Of Faith Service:</strong>
+              <p>
+                Sun, October 27th, 2024<br />
+                Celebrating Our Church Mothers
+              </p>
+              <span class="event-time">10:30 AM</span>
+            </li>
 
-          <li class="event-item">
-            <strong>Hall Of Faith Service:</strong>
-            <p>
-              Sun, October 27th, 2024<br />
-              Celebrating Our Church Mothers
-            </p>
-            <span class="event-time">10:30 AM</span>
-          </li>
+            <li class="event-item">
+              <strong>Pastor Appreciation Service:</strong>
+              <p>Sun, Dec 1st, 2024</p>
+              <p>Celebrating the Pastor</p>
+              <span class="event-time">11:30 AM</span>
+            </li>
 
-          <li class="event-item">
-            <strong>Pastor Appreciation Service:</strong>
-            <p>Sun, Dec 1st, 2024</p>
-            <p>Celebrating the Pastor</p>
-            <span class="event-time">11:30 AM</span>
-          </li>
-
-          <li class="event-item">
-            <strong>Watch Night Service:</strong>
-            <p>
-              Tue, Dec 31st, 2024<br />
-              Bringing in the New Year!
-            </p>
-            <span class="event-time">9:00 PM</span>
-          </li>
-        </ul>
+            <li class="event-item">
+              <strong>Watch Night Service:</strong>
+              <p>
+                Tue, Dec 31st, 2024<br />
+                Bringing in the New Year!
+              </p>
+              <span class="event-time">9:00 PM</span>
+            </li>
+          </ul>
+        </div>
       </div>
     </section>
 

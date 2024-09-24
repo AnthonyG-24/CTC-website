@@ -1,78 +1,140 @@
-/* General Styles */
+/* Global Styles */
 body {
-  font-family: "Arial", sans-serif;
-  line-height: 1.6;
-  background-color: #f8f9fa;
+  background-image: url(../bible-photo.jpg);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
   color: #333;
-  margin: 0;
-  padding: 0;
 }
 
-/* Donation Section Styles */
-.donation-section {
-  max-width: 800px;
-  margin: 40px auto;
+h2 {
+  font-family: "Georgia", serif;
+}
+
+p {
+  line-height: 1.6;
+}
+
+.scripture-section {
+  display: flex;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.85);
+  border-radius: 12px;
   padding: 20px;
-  background-color: #ffffff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 40px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.scripture-section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.box-for-bible img {
+  max-width: 150px;
   border-radius: 8px;
+  margin-right: 20px;
+  transition: transform 0.3s ease;
+}
+
+.box-for-bible img:hover {
+  transform: rotate(-3deg) scale(1.05);
+}
+
+.rest-of-scripture-content {
+  max-width: 600px;
+}
+
+.rest-of-scripture-content h2 {
+  font-size: 26px;
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+.scripture-text {
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 10px;
+  font-style: italic;
+  line-height: 1.6;
+  border-left: 4px solid #34495e;
+  padding-left: 15px;
+}
+
+.scripture-reference {
+  font-size: 16px;
+  color: #777;
+  font-style: italic;
+  text-align: right;
+}
+
+.donation-section {
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 50px;
+  border-radius: 12px;
+  max-width: 800px;
+  margin: 0 auto;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
   text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.donation-section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .donation-section h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
+  font-size: 28px;
   color: #2c3e50;
+  margin-bottom: 20px;
 }
 
 .donation-section p {
-  font-size: 1.1rem;
-  margin-bottom: 20px;
-  color: #7f8c8d;
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 30px;
 }
 
-/* Stripe Donation Styles */
 .donation-stripe {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
-  border-top: 1px solid #e1e1e1;
+  gap: 20px;
 }
 
 .stripe__icon {
-  width: 80px;
-  height: auto;
-  margin-bottom: 15px;
+  max-width: 200px;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease, filter 0.3s ease;
 }
 
-.donation-stripe h3 {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
-  color: #2980b9;
+.stripe__icon:hover {
+  transform: scale(1.05);
+  filter: brightness(1.2);
 }
 
-/* Donation Button */
-.donations__button {
-  display: inline-block;
-  padding: 12px 25px;
-  font-size: 1rem;
-  color: #ffffff;
-  background-color: #3498db;
-  border-radius: 5px;
-  text-decoration: none;
-  transition: background-color 0.3s ease;
-}
+@media (max-width: 768px) {
+  .scripture-section {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
 
-.donations__button:hover {
-  background-color: #2980b9;
-}
+  .box-for-bible img {
+    margin-bottom: 20px;
+  }
 
-/* Primary Donation Button */
-.primary-donation-button {
-  background-color: #e74c3c;
-}
+  .donation-section {
+    padding: 30px;
+  }
 
-.primary-donation-button:hover {
-  background-color: #c0392b;
+  .donation-section h2 {
+    font-size: 24px;
+  }
+
+  .donation-section p {
+    font-size: 14px;
+  }
 }

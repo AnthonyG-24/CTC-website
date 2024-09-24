@@ -126,31 +126,63 @@
     <section class="tribute-section" id="next">
       <div class="tribute-header">
         <h1>In Loving Memory of Pastor Sheppard</h1>
-        <p>Inspirational Leader, Faithful Servant, Loving Shepherd</p>
+        <p>Inspirational Leader, Faithful Servant</p>
       </div>
       <div class="tribute-content">
         <div class="tribute-image">
           <img
-            src="assets/about-assets/pastor-s-photo-1.jpg"
+            id="pastor-photo"
+            src="assets/about-assets/pastor-s-opbituary-photo.jpg"
             alt="Pastor Sheppard"
           />
         </div>
-        <div class="tribute-text">
-          <p>
-            Bishop James Sheppard was a beloved spiritual father, and mentor.
-            His teachings of the gospel, his wisdom, and his compassion touched
-            countless lives.
-          </p>
-          <p>
-            To the late Mother Dolores Sheppard, she was a strong mother, firm
-            to the teaching and doctrine of the gospel. They will always be in
-            my heart forever... LOVE
-          </p>
-          <p>
-            Let us honor his memory by continuing his mission of faith, love,
-            and service.
-          </p>
-        </div>
+      </div>
+
+      <script>
+        // Array of image paths
+        const images = [
+          "assets/about-assets/pastor-s-photo-1.jpg",
+          "assets/about-assets/pastor-s-photo-2.jpg",
+          "assets/about-assets/pastor-s-opbituary-photo.jpg",
+        ];
+
+        // Starting index for the images array
+        let currentImageIndex = 0;
+
+        // Function to change the image
+        function changeImage() {
+          const imgElement = document.getElementById("pastor-photo");
+          currentImageIndex = (currentImageIndex + 1) % images.length;
+          imgElement.src = images[currentImageIndex];
+        }
+
+        // Change image every 5 seconds (5000 milliseconds)
+        setInterval(changeImage, 5000);
+      </script>
+
+      <style>
+        .tribute-image img {
+          width: 100%;
+          height: auto;
+          transition: opacity 3s ease-in-out;
+        }
+      </style>
+
+      <div class="tribute-text">
+        <p>
+          Bishop James Sheppard was a beloved spiritual father, and mentor. His
+          teachings of the gospel, his wisdom, and his compassion touched
+          countless lives.
+        </p>
+        <p>
+          To the late Mother Dolores Sheppard, she was a strong mother, firm to
+          the teaching and doctrine of the gospel. They will always be in my
+          heart forever... LOVE
+        </p>
+        <p>
+          Let us honor his memory by continuing his mission of faith, love, and
+          service.
+        </p>
       </div>
       <div class="tribute-quote">
         <blockquote>

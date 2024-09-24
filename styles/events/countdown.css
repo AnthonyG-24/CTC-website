@@ -1,0 +1,146 @@
+.event-image-container {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.event-image-container img {
+  width: 100%;
+  height: auto;
+  filter: brightness(50%);
+}
+
+.countdown-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.5);
+  padding: 30px;
+  border-radius: 10px;
+}
+
+h2 {
+  margin-bottom: 20px;
+  font-size: 28px;
+  font-family: "Helvetica Neue", sans-serif;
+  letter-spacing: 1px;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.countdown-clock {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.time-box {
+  background: transparent;
+  border: 2px solid white;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.time {
+  font-size: 32px;
+  font-weight: 600;
+  font-family: "Helvetica Neue", sans-serif;
+  color: white;
+}
+
+.label {
+  margin-top: 5px;
+  font-size: 14px;
+  text-transform: uppercase;
+  font-family: "Helvetica Neue", sans-serif;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .countdown-container {
+    padding: 15px;
+  }
+
+  .time-box {
+    width: 70px;
+    height: 70px;
+    padding: 15px;
+  }
+
+  .time {
+    font-size: 24px;
+  }
+
+  .label {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .countdown-container {
+    padding: 10px;
+    width: 90%;
+  }
+
+  h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+
+  .countdown-clock {
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .time-box {
+    width: 60px;
+    height: 60px;
+    padding: 10px;
+    margin: 5px 0;
+  }
+
+  .time {
+    font-size: 10px;
+  }
+
+  .label {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 335px) {
+  .countdown-container {
+    padding: 5px;
+    width: 90%;
+  }
+
+  h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+
+  .countdown-clock {
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .time-box {
+    width: 60px;
+    height: 60px;
+    padding: 10px;
+    margin: 5px 0;
+  }
+
+  .time {
+    font-size: 10px;
+  }
+
+  .label {
+    font-size: 10px;
+  }
+}
