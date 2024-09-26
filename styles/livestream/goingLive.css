@@ -23,6 +23,7 @@ body {
   transition: opacity 0.5s ease-in-out;
 }
 
+.going-live-section.touch-active::before,
 .going-live-section:hover::before {
   opacity: 1;
 }
@@ -77,11 +78,13 @@ body {
   transition: filter 0.5s ease-in-out;
 }
 
+.going-live-image.touch-active,
 .going-live-image:hover {
   transform: scale(1.05);
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
 }
 
+.going-live-image.touch-active img,
 .going-live-image:hover img {
   filter: none;
 }
@@ -98,6 +101,7 @@ body {
   transition: transform 0.3s ease-in-out;
 }
 
+.going-live-content p.touch-active,
 .going-live-content p:hover {
   transform: translateX(10px);
 }
@@ -117,6 +121,7 @@ body {
   transition: background-color 0.3s, color 0.3s, transform 0.3s;
 }
 
+.going-live-content button.touch-active,
 .going-live-content button:hover {
   background-color: rgb(30, 60, 180);
   color: #fff;
@@ -130,8 +135,11 @@ body {
 
   .going-live-left-container,
   .going-live-right-container {
-    margin: 20px 0;
     padding: 0;
+  }
+
+  .going-live-left-container {
+    margin-bottom: -50px;
   }
 
   .going-live-content p {
@@ -148,6 +156,10 @@ body {
 @media (max-width: 480px) {
   .going-live-section {
     padding: 40px 15px;
+  }
+
+  .going-live-image img {
+    width: 300px;
   }
 
   .going-live-container {
@@ -180,5 +192,9 @@ body {
 
   .going-live-image img {
     object-fit: contain;
+  }
+
+  .going-live-left-container {
+    margin-bottom: -50px;
   }
 }

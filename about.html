@@ -39,7 +39,7 @@
             <li><a href="live.html">Live</a></li>
             <li><a href="events.html">Events</a></li>
             <li><a href="contact.html">Contact</a></li>
-            <li><a href="donation.html">Donation</a></li>
+            <li><a href="donation.html">Donate</a></li>
           </ul>
         </div>
 
@@ -61,7 +61,7 @@
             <li><a href="live.html">Live</a></li>
             <li><a href="events.html">Events</a></li>
             <li><a href="contact.html">Contact</a></li>
-            <li><a href="donation.html">Donation</a></li>
+            <li><a href="donation.html">Donate</a></li>
           </ul>
         </div>
       </nav>
@@ -103,11 +103,6 @@
         <img
           class="background-about-img"
           src="/assets/about-assets/church-background-edited.png"
-          srcset="
-            /assets/about-assets/about-bg-mobile.jpg          480w,
-            /assets/about-assets/church-background-edited.png 768w
-          "
-          sizes="(max-width: 480px) 100vw, 100vw"
           alt="background church image"
         />
       </div>
@@ -139,14 +134,12 @@
       </div>
 
       <script>
-        // Array of image paths
         const images = [
           "assets/about-assets/pastor-s-photo-1.jpg",
           "assets/about-assets/pastor-s-photo-2.jpg",
           "assets/about-assets/pastor-s-opbituary-photo.jpg",
         ];
 
-        // Starting index for the images array
         let currentImageIndex = 0;
 
         // Function to change the image
@@ -406,9 +399,24 @@
         <span> - Pastor Donald Gillard</span>
       </div>
     </section>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var quoteElement = document.querySelector(".pastor-quote");
+
+        // Add touchstart event listener for mobile devices
+        quoteElement.addEventListener("touchstart", function () {
+          quoteElement.classList.add("touch-active");
+        });
+
+        // Remove the effect after the touch ends
+        quoteElement.addEventListener("touchend", function () {
+          quoteElement.classList.remove("touch-active");
+        });
+      });
+    </script>
 
     <!--Church family photos-->
-    <section class="church-family-section">
+    <section class="church-family-section" id="church-family-section">
       <h1>Church Family</h1>
       <p>Press the image to make it larger</p>
       <div class="img-container">

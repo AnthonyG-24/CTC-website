@@ -1,8 +1,10 @@
+body {
+  overflow-x: hidden;
+}
+
 .hero-section {
   position: relative;
   height: 100vh;
-  background-color: #00000086;
-  border-bottom: 20px solid rgb(234, 70, 70);
 }
 
 .hero-content {
@@ -29,10 +31,11 @@
 }
 
 .church-title {
+  margin-top: 100px;
   font-family: "Anton SC", sans-serif;
   margin-bottom: 50px;
-  color: rgb(255, 244, 192);
-  font-size: 68px;
+  color: white;
+  font-size: 80px;
   font-weight: 900;
   letter-spacing: 5px;
   text-align: center;
@@ -41,10 +44,9 @@
 }
 
 .ctc {
-  font-family: "Anton SC", sans-serif;
-  color: var(--burgundy);
-  font-size: 68px;
-  font-weight: 900;
+  font-family: "Rampart One", sans-serif;
+  color: royalblue;
+  font-size: 90px;
   letter-spacing: 5px;
 }
 
@@ -100,5 +102,14 @@
 
   .next-section a {
     margin-bottom: 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  .church-title {
+    margin-top: 20px;
+    font-size: 28px;
+    width: 400px;
+    z-index: 0;
   }
 }

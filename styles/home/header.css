@@ -120,6 +120,10 @@
     margin-top: 50px;
   }
 
+  .left-nav {
+    flex: 0.9;
+  }
+
   .right-nav li {
     margin: 16px;
   }

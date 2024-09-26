@@ -1,7 +1,5 @@
 .pastor-card-section {
-  background: linear-gradient(45deg, #f5c542, #2588e5, #d4af37, #b8922e);
-  background-size: 400% 400%;
-  animation: gradientAnimation 3s ease infinite;
+  background-color: white;
   border-bottom: 10px solid royalblue;
   overflow-x: hidden;
 }
@@ -33,24 +31,16 @@
   height: 100%;
 }
 
-.pastor-card {
-  box-shadow: 50px 100px 20px rgba(0, 0, 0, 0.6);
-}
-
-.elect-lady-card {
-  box-shadow: -50px 100px 20px rgba(0, 0, 0, 0.6); /* Left side */
-}
-
 .pastor-photo {
   width: 300px;
   margin-left: 150px;
   object-fit: contain;
-  border: 10px solid burlywood;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
 }
 
 .elect-lady-photo {
   width: 300px;
-  border: 10px solid burlywood;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
 }
 
 .pastor-card-text {

@@ -49,7 +49,7 @@
             <li><a href="mothers.html">Mothers</a></li>
             <li><a href="events.html">Events</a></li>
             <li><a href="contact.html">Contact</a></li>
-            <li><a href="donation.html">Donation</a></li>
+            <li><a href="donation.html">Donate</a></li>
           </ul>
         </div>
 
@@ -71,7 +71,7 @@
             <li><a href="mothers.html">Mothers</a></li>
             <li><a href="events.html">Events</a></li>
             <li><a href="contact.html">Contact</a></li>
-            <li><a href="donation.html">Donation</a></li>
+            <li><a href="donation.html">Donate</a></li>
           </ul>
         </div>
       </nav>
@@ -100,6 +100,7 @@
         });
     </script>
 
+    <!--Going live section-->
     <section class="going-live-section">
       <h1>Praise The Lord</h1>
       <div class="going-live-container">
@@ -128,6 +129,46 @@
         </div>
       </div>
     </section>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var liveSection = document.querySelector(".going-live-section");
+        var liveImage = document.querySelector(".going-live-image");
+        var liveContentP = document.querySelector(".going-live-content p");
+        var liveButton = document.querySelector(".going-live-content button");
+
+        liveSection.addEventListener("touchstart", function () {
+          liveSection.classList.add("touch-active");
+        });
+
+        liveImage.addEventListener("touchstart", function () {
+          liveImage.classList.add("touch-active");
+        });
+
+        liveContentP.addEventListener("touchstart", function () {
+          liveContentP.classList.add("touch-active");
+        });
+
+        liveButton.addEventListener("touchstart", function () {
+          liveButton.classList.add("touch-active");
+        });
+
+        liveSection.addEventListener("touchend", function () {
+          liveSection.classList.remove("touch-active");
+        });
+
+        liveImage.addEventListener("touchend", function () {
+          liveImage.classList.remove("touch-active");
+        });
+
+        liveContentP.addEventListener("touchend", function () {
+          liveContentP.classList.remove("touch-active");
+        });
+
+        liveButton.addEventListener("touchend", function () {
+          liveButton.classList.remove("touch-active");
+        });
+      });
+    </script>
 
     <!--Recent Live video(s) section-->
     <section class="live-section">
@@ -161,6 +202,7 @@
       </div>
     </section>
 
+    <!--Church highlights section-->
     <section class="church-highlights">
       <h1>Church Highlights</h1>
       <div class="media-container">

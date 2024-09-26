@@ -1,136 +1,87 @@
 .pastor-bibliography-section {
-  background-color: #f5f5dc;
-  padding: 40px 20px;
+  margin-top: 200px;
+  margin-bottom: 100px;
+  position: relative;
+  padding: 10px;
+  background-color: white;
 }
 
 .bibliography-container {
   display: flex;
-  border: 2px solid #ddd;
-  border-radius: 8px;
-  overflow: hidden;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  justify-content: center;
+  position: relative;
 }
 
-.bib-left-side {
-  flex: 0.4;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  border-right: 2px solid #ddd;
+.church-logo {
+  width: 100%;
+  max-width: 300px;
+  transform: translateY(-20%);
+  z-index: 2;
+  position: relative;
 }
 
 .bib-left-side img {
-  width: 100%;
-  height: 600px;
-  object-fit: contain;
-}
-
-.bib-right-side {
-  flex: 0.6;
-  padding: 20px;
-  background-color: rgba(65, 105, 225, 0.047);
+  width: 300px;
 }
 
 .scrollable-book {
-  max-height: 600px;
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
   overflow-y: auto;
-}
-
-.TITLE {
-  color: #800020;
-  font-size: 24px;
-  margin-bottom: 15px;
-  text-transform: uppercase;
-  font-weight: bold;
-}
-
-.SUBTITLE {
-  color: #800020;
-  font-size: 20px;
-  margin: 20px 0;
-}
-
-.HIGHLIGHT1 {
-  color: #800020;
-  font-weight: bold;
-}
-
-.ENDING {
-  color: #800020;
-  font-size: 28px;
-  text-transform: uppercase;
-  margin-top: 20px;
-  font-weight: bold;
-}
-
-.ENDING:hover {
-  color: #3366cc;
-  cursor: pointer;
+  max-height: 600px;
+  z-index: 2;
+  position: relative;
 }
 
 .scrollable-book p {
-  margin: 16px 0;
-  font-size: 18px;
-  line-height: 1.6;
-  font-family: "Times New Roman", Times, serif;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.TITLE {
+  font-family: "Merriweather", serif;
+  font-size: 32px;
+  margin-bottom: 10px;
+  text-decoration: underline;
+  color: #a55533;
+}
+
+.SUBTITLE {
+  font-family: "Merriweather", serif;
+  font-size: 24px;
+  color: #a55533;
+  margin-bottom: 5px;
+}
+
+.ENDING {
+  font-family: "Merriweather", serif;
+  font-size: 24px;
+  margin-top: 40px;
+  color: #a55533;
+  text-transform: uppercase;
 }
 
 @media (max-width: 768px) {
+  .pastor-bibliography-section {
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
   .bibliography-container {
     flex-direction: column;
+    align-items: center;
   }
 
-  .bib-left-side,
-  .bib-right-side {
-    flex: 1;
-    padding: 10px;
+  .church-logo {
+    transform: translateY(0);
   }
 
-  .left-side img {
-    max-width: 100%;
-  }
-
-  .TITLE {
-    font-size: 20px;
-    margin-bottom: 10px;
-  }
-
-  .SUBTITLE {
-    font-size: 18px;
-    margin: 15px 0;
-  }
-
-  .ENDING {
-    font-size: 24px;
-    margin-top: 15px;
-  }
-
-  .scrollable-book p {
-    font-size: 16px;
-  }
-}
-
-@media (max-width: 480px) {
-  .bib-left-side img {
-    height: 200px;
-  }
-
-  .TITLE {
-    font-size: 18px;
-    margin-bottom: 8px;
-  }
-
-  .SUBTITLE {
-    font-size: 16px;
-    margin: 10px 0;
-  }
-
-  .ENDING {
-    font-size: 20px;
-    margin-top: 10px;
-  }
-
-  .scrollable-book p {
-    font-size: 14px;
+  .scrollable-book {
+    max-width: 90%;
+    max-height: 400px;
   }
 }
