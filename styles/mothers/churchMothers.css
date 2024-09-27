@@ -135,6 +135,12 @@ body {
   }
 }
 
+@media (max-width: 1444px) {
+  .selected-mother-info {
+    margin-top: 0px;
+  }
+}
+
 @media (max-width: 768px) {
   .mothers-banner {
     height: 600px;

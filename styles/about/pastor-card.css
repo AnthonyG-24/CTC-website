@@ -71,6 +71,14 @@
   font-weight: bold;
 }
 
+@media (max-width: 1444px) {
+  .card-container {
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+  }
+}
+
 @media (max-width: 768px) {
   .card-container {
     gap: 100px;

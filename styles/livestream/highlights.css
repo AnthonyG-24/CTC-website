@@ -121,6 +121,12 @@
   }
 }
 
+@media (max-width: 1444px) {
+  .videos-container {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+}
+
 @media (max-width: 768px) {
   .church-highlights {
     padding: 30px 20px;

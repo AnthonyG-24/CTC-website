@@ -23,7 +23,7 @@
 }
 
 .church-logo {
-  max-width: 90%;
+  width: 90%;
   margin-top: 20px;
   object-fit: contain;
 }
@@ -105,6 +105,16 @@
   position: absolute;
   top: 20px;
   right: 20px;
+}
+
+@media (max-width: 1444px) {
+  .img-area {
+    width: 100%;
+  }
+
+  .right-nav a {
+    font-size: 26px;
+  }
 }
 
 @media (max-width: 768px) {

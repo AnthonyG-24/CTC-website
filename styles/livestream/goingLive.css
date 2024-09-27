@@ -128,9 +128,19 @@ body {
   transform: translateY(-5px);
 }
 
+@media (max-width: 1024px) {
+  .going-live-image img {
+    width: 700px;
+  }
+}
+
 @media (max-width: 768px) {
   .going-live-container {
     flex-direction: column;
+  }
+
+  .going-live-image img {
+    width: 500px;
   }
 
   .going-live-left-container,
@@ -196,5 +206,19 @@ body {
 
   .going-live-left-container {
     margin-bottom: -50px;
+  }
+}
+
+@media (max-width: 376px) {
+  .going-live-image img {
+    width: 350px;
+    margin-left: -25px;
+  }
+}
+
+@media (max-width: 320px) {
+  .going-live-image img {
+    width: 300px;
+    margin-left: -20px;
   }
 }

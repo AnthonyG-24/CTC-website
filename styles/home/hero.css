@@ -89,6 +89,31 @@ body {
   filter: brightness(1) invert(0.8);
 }
 
+@media (max-width: 1440px) {
+  .church-title {
+    font-size: 120px;
+  }
+
+  .ctc {
+    font-size: 130px;
+  }
+
+  .down-arrow {
+    width: 80px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .church-title {
+    margin-top: 200px;
+    font-size: 90px;
+  }
+
+  .ctc {
+    font-size: 100px;
+  }
+}
+
 @media (max-width: 768px) {
   .church-title {
     font-size: 42px;
@@ -102,6 +127,10 @@ body {
 
   .next-section a {
     margin-bottom: 60px;
+  }
+
+  .down-arrow {
+    width: 40px;
   }
 }
 
