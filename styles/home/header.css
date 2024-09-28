@@ -23,7 +23,7 @@
 }
 
 .church-logo {
-  width: 90%;
+  max-width: 90%;
   margin-top: 20px;
   object-fit: contain;
 }
@@ -107,43 +107,19 @@
   right: 20px;
 }
 
-@media (max-width: 1444px) {
-  .img-area {
-    width: 100%;
-  }
-
-  .right-nav a {
-    font-size: 26px;
-  }
-}
-
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .right-nav {
     position: fixed;
     left: -100%;
     top: 70px;
-    gap: 0;
-    flex-direction: column;
-    width: 100%;
-    text-align: center;
-    transition: 0.3s;
-    margin-top: 50px;
   }
 
   .left-nav {
-    flex: 0.9;
-  }
-
-  .right-nav li {
-    margin: 16px;
+    flex: 0.96;
   }
 
   .right-nav ul {
     visibility: hidden;
-  }
-
-  .right-nav.active {
-    left: 0;
   }
 
   .menu.active {
@@ -156,12 +132,17 @@
 
   .hamburger {
     visibility: visible;
-    margin-right: 20px;
   }
 
   .hamburger-icon {
     max-width: 30px;
     background-color: black;
     cursor: pointer;
+  }
+}
+
+@media (max-width: 480px) {
+  .left-nav {
+    flex: 0.8;
   }
 }

@@ -36,6 +36,26 @@
   height: 600px;
 }
 
+@media (max-width: 1024px) {
+  .order-of-service-section {
+    padding: 10px;
+  }
+
+  .order-of-service p {
+    font-size: 24px;
+  }
+
+  .order-of-service li {
+    font-size: 22px;
+    font-weight: 500;
+  }
+
+  .map {
+    width: 60%;
+    height: 400px;
+  }
+}
+
 @media (max-width: 768px) {
   .order-of-service-section {
     padding: 20px;

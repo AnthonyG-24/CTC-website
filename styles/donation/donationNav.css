@@ -110,41 +110,25 @@
   .right-nav a {
     font-size: 23px;
   }
+
+  .left-nav {
+    flex: 0;
+  }
 }
 
 @media (max-width: 1024px) {
-  .right-nav a {
-    font-size: 13px;
-  }
-}
-
-@media (max-width: 768px) {
   .right-nav {
     position: fixed;
-    left: -100%;
+    left: 1-00%;
     top: 70px;
-    gap: 0;
-    flex-direction: column;
-    width: 100%;
-    text-align: center;
-    transition: 0.3s;
-    margin-top: 50px;
   }
 
   .left-nav {
-    flex: 0.9;
-  }
-
-  .right-nav li {
-    margin: 16px;
+    flex: 0.96;
   }
 
   .right-nav ul {
     visibility: hidden;
-  }
-
-  .right-nav.active {
-    left: 0;
   }
 
   .img-area {
@@ -153,12 +137,17 @@
 
   .hamburger {
     visibility: visible;
-    margin-right: 20px;
   }
 
   .hamburger-icon {
     max-width: 30px;
     background-color: black;
     cursor: pointer;
+  }
+}
+
+@media (max-width: 480px) {
+  .left-nav {
+    flex: 0.8;
   }
 }
