@@ -1,0 +1,253 @@
+.past-events-section {
+  padding: 50px 20px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  max-width: 1000px;
+  margin: 0 auto;
+  color: #333;
+  background: linear-gradient(135deg, #f5f5f5, #e0e0e0);
+  text-align: center;
+}
+
+.past-events-section h3 {
+  font-family: "Rampart One", sans-serif;
+  font-size: 36px;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: royalblue;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
+}
+
+.past-events-section h3:hover {
+  color: #d35400;
+  text-shadow: 3px 3px 7px rgba(0, 0, 0, 0.2);
+}
+
+.past-events-container {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.resurrection-play-container,
+.pastor-birthday-bash-container {
+  background: #ffffff;
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 25px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+}
+
+.resurrection-play-container:hover,
+.pastor-birthday-bash-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.resurrection-play-container h1,
+.pastor-birthday-bash-container h3 {
+  font-family: "Rampart One", sans-serif;
+  font-size: 28px;
+  color: #2c3e50;
+  margin-bottom: 15px;
+  text-transform: capitalize;
+  text-align: center;
+  background: linear-gradient(to right, #f39c12, #d35400);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: background-position 0.3s ease-in-out;
+  background-size: 200%;
+}
+
+.resurrection-play-container h1:hover,
+.pastor-birthday-bash-container h3:hover {
+  background-position: right center;
+}
+
+.past-event-date {
+  font-family: "Rampart One", sans-serif;
+  font-weight: bold;
+  color: #3498db;
+  font-size: 18px;
+  margin-bottom: 10px;
+  display: block;
+  text-align: center;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+  transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
+}
+
+.past-event-date:hover {
+  color: #2980b9;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+aside p {
+  font-size: 16px;
+  color: #373636;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  text-align: justify;
+  transition: color 0.3s ease-in-out;
+}
+
+aside p:hover {
+  color: #2c3e50;
+}
+
+.past-event-media-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  justify-content: center;
+  align-items: center;
+}
+
+.facebook-past-events {
+  width: 100%;
+  height: 520px;
+}
+
+.youtube-past-events {
+  width: 100%;
+  height: auto;
+}
+
+.past-event-media-container img,
+.past-event-media-container iframe {
+  max-width: 100%;
+  border-radius: 5px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.past-event-media-container img:hover,
+.past-event-media-container iframe:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 1440px) {
+  .past-events-section {
+    padding: 40px 20px;
+  }
+
+  .past-events-section h3 {
+    font-size: 32px;
+  }
+
+  .resurrection-play-container h1,
+  .pastor-birthday-bash-container h3 {
+    font-size: 26px;
+  }
+
+  .past-event-date {
+    font-size: 23px;
+  }
+
+  aside p {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 768px) {
+  .past-events-section {
+    padding: 30px 15px;
+  }
+
+  .past-event-media-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .past-events-section h3 {
+    font-size: 28px;
+  }
+
+  .resurrection-play-container h1,
+  .pastor-birthday-bash-container h3 {
+    font-size: 24px;
+  }
+
+  .past-event-date {
+    font-size: 20px;
+  }
+
+  aside p {
+    font-size: 18px;
+  }
+
+  .past-event-media-container {
+    grid-template-columns: 1fr;
+  }
+
+  .past-event-media-container img {
+    width: 60%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+
+  .youtube-past-events {
+    width: 60%;
+    height: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .past-events-section {
+    padding: 20px 10px;
+  }
+
+  .past-events-section h3 {
+    font-size: 24px;
+  }
+
+  .resurrection-play-container h1,
+  .pastor-birthday-bash-container h3 {
+    font-size: 22px;
+  }
+
+  .past-event-date {
+    font-size: 16px;
+  }
+
+  aside p {
+    font-size: 18px;
+  }
+
+  .youtube-past-events {
+    width: 300px;
+    height: auto;
+  }
+
+  .past-event-media-container img {
+    width: 100%;
+  }
+}
+
+@media (max-width: 320px) {
+  .past-events-section {
+    padding: 15px 5px;
+  }
+
+  .past-events-section h3 {
+    font-size: 20px;
+  }
+
+  .resurrection-play-container h1,
+  .pastor-birthday-bash-container h3 {
+    font-size: 22px;
+  }
+
+  .past-event-date {
+    font-size: 14px;
+  }
+
+  aside p {
+    font-size: 16px;
+  }
+}
