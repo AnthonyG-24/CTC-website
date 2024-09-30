@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="/styles/about/aboutNav.css" />
     <link rel="stylesheet" href="/styles/about/aboutBackground.css" />
     <link rel="stylesheet" href="/styles/about/pastor-card.css" />
+    <link rel="stylesheet" href="/styles/about/our-beliefs.css" />
     <link rel="stylesheet" href="/styles/about/quote.css" />
     <link rel="stylesheet" href="/styles/about/tribute.css" />
     <link rel="stylesheet" href="/styles/about/pastor-bibliography.css" />
@@ -18,11 +19,11 @@
   </head>
   <body>
     <!-- About navbar section -->
-    <header class="about-header-section">
+    <header class="about-navbar-section">
       <nav class="about-navbar">
         <div class="left-nav">
           <div class="img-area">
-            <a href="index.html">
+            <a href="home.html">
               <img
                 class="church-logo"
                 src="/assets/ctcooljc-noBG.png"
@@ -34,12 +35,12 @@
 
         <div class="right-nav">
           <ul>
-            <li><a href="index.html">Home</a></li>
+            <li><a href="home.html">Home</a></li>
             <li><a href="mothers.html">Mothers</a></li>
-            <li><a href="live.html">Live</a></li>
+            <li><a href="live.html">Services</a></li>
             <li><a href="events.html">Events</a></li>
             <li><a href="contact.html">Contact</a></li>
-            <li><a href="donation.html">Donation</a></li>
+            <li><a href="donation.html">Donate</a></li>
           </ul>
         </div>
 
@@ -56,12 +57,12 @@
         <div id="menu" class="menu">
           <button id="closeMenu" class="close-menu">&times;</button>
           <ul>
-            <li><a href="index.html">Home</a></li>
+            <li><a href="home.html">Home</a></li>
             <li><a href="mothers.html">Mothers</a></li>
-            <li><a href="live.html">Live</a></li>
+            <li><a href="live.html">Services</a></li>
             <li><a href="events.html">Events</a></li>
             <li><a href="contact.html">Contact</a></li>
-            <li><a href="donation.html">Donation</a></li>
+            <li><a href="donation.html">Donate</a></li>
           </ul>
         </div>
       </nav>
@@ -103,11 +104,6 @@
         <img
           class="background-about-img"
           src="/assets/about-assets/church-background-edited.png"
-          srcset="
-            /assets/about-assets/about-bg-mobile.jpg          480w,
-            /assets/about-assets/church-background-edited.png 768w
-          "
-          sizes="(max-width: 480px) 100vw, 100vw"
           alt="background church image"
         />
       </div>
@@ -139,14 +135,12 @@
       </div>
 
       <script>
-        // Array of image paths
         const images = [
           "assets/about-assets/pastor-s-photo-1.jpg",
           "assets/about-assets/pastor-s-photo-2.jpg",
           "assets/about-assets/pastor-s-opbituary-photo.jpg",
         ];
 
-        // Starting index for the images array
         let currentImageIndex = 0;
 
         // Function to change the image
@@ -156,8 +150,8 @@
           imgElement.src = images[currentImageIndex];
         }
 
-        // Change image every 5 seconds (5000 milliseconds)
-        setInterval(changeImage, 5000);
+        // Change image every 5 seconds
+        setInterval(changeImage, 4000);
       </script>
 
       <style>
@@ -372,7 +366,7 @@
           <div class="pastor-card-img">
             <img
               class="pastor-photo"
-              src="assets/churchfamily/churchfam3.jpg"
+              src="assets/about-assets/pastorG.jpg"
               alt="Pastor Donald Gillard"
             />
           </div>
@@ -406,124 +400,278 @@
         <span> - Pastor Donald Gillard</span>
       </div>
     </section>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var quoteElement = document.querySelector(".pastor-quote");
+
+        // Add touchstart event listener for mobile devices
+        quoteElement.addEventListener("touchstart", function () {
+          quoteElement.classList.add("touch-active");
+        });
+
+        // Remove the effect after the touch ends
+        quoteElement.addEventListener("touchend", function () {
+          quoteElement.classList.remove("touch-active");
+        });
+      });
+    </script>
+
+    <!--Our Beliefs section-->
+    <section class="our-beliefs-section">
+      <div class="beliefs">
+        <h1 class="beliefs-title">Our Beliefs</h1>
+
+        <p class="beliefs-paragraph">
+          We believe in being baptized in the name of Jesus Christ and receiving
+          the Holy Spirit, with the evidence of speaking in tongues. This is
+          based on the teachings in the Book of Acts, and we hold that this is
+          the biblical plan of salvation.
+        </p>
+
+        <p class="beliefs-paragraph">
+          We believe that Jesus Christ is God manifest in the flesh, fulfilling
+          the role of both the Father and the Son. This understanding is drawn
+          from scriptures such as 1 Timothy 3:16 (KJV), which reveals the
+          mystery of godliness, and Colossians 2:9 (KJV), which confirms that
+          all the fullness of the Godhead dwells in Jesus Christ.
+        </p>
+
+        <h2 class="scripture-title">1 Timothy 3:16 (KJV):</h2>
+        <blockquote class="scripture-quote">
+          “And without controversy great is the mystery of godliness: God was
+          manifest in the flesh, justified in the Spirit, seen of angels,
+          preached unto the Gentiles, believed on in the world, received up into
+          glory.”
+        </blockquote>
+
+        <h2 class="scripture-title">Colossians 2:9 (KJV):</h2>
+        <blockquote class="scripture-quote">
+          “For in him dwelleth all the fulness of the Godhead bodily.”
+        </blockquote>
+
+        <p class="beliefs-paragraph">
+          We believe in the necessity of baptism in the name of Jesus Christ for
+          the remission of sins and receiving the Holy Spirit, as demonstrated
+          in the early church through <em>Acts 2:38.</em>
+        </p>
+
+        <h2 class="scripture-title">Acts 2:38 (KJV):</h2>
+        <blockquote class="scripture-quote">
+          “Then Peter said unto them, Repent, and be baptized every one of you
+          in the name of Jesus Christ for the remission of sins, and ye shall
+          receive the gift of the Holy Ghost.”
+        </blockquote>
+
+        <p class="beliefs-paragraph">
+          In addition to salvation, we are called to live a life of holiness,
+          set apart for God. Scripture commands that we pursue holiness in all
+          areas of life, because without holiness, no one will see the Lord.
+          Living holy means striving to reflect God's righteousness and obey His
+          commandments. This is rooted in scriptures such as Luke 1:75 and
+          Hebrews 12:14 (KJV), which emphasize living in holiness and
+          righteousness all our days.
+        </p>
+
+        <h2 class="scripture-title">Luke 1:75 (KJV):</h2>
+        <blockquote class="scripture-quote">
+          “In holiness and righteousness before him, all the days of our life.”
+        </blockquote>
+
+        <h2 class="scripture-title">Hebrews 12:14 (KJV):</h2>
+        <blockquote class="scripture-quote">
+          “Follow peace with all men, and holiness, without which no man shall
+          see the Lord.”
+        </blockquote>
+
+        <p class="beliefs-paragraph">
+          We also hold to the belief that God is one, and this oneness is
+          revealed in Jesus Christ. He is both the Father and the Son, as stated
+          in John 10:30 (KJV) and Isaiah 9:6 (KJV), showing that Jesus is the
+          everlasting Father and the Prince of Peace. This doctrine of the
+          oneness of God is central to our faith.
+        </p>
+
+        <h2 class="scripture-title">John 10:30 (KJV):</h2>
+        <blockquote class="scripture-quote">
+          “I and my Father are one.”
+        </blockquote>
+
+        <h2 class="scripture-title">Isaiah 9:6 (KJV):</h2>
+        <blockquote class="scripture-quote">
+          “For unto us a child is born, unto us a son is given: and the
+          government shall be upon his shoulder: and his name shall be called
+          Wonderful, Counsellor, The mighty God, The everlasting Father, The
+          Prince of Peace.”
+        </blockquote>
+
+        <p class="beliefs-paragraph">
+          Furthermore, we believe that speaking in tongues is the initial
+          evidence of receiving the Holy Spirit, as seen in Acts 2:4, Acts
+          10:44-46, and Acts 19:6. Speaking in tongues is a sign that
+          accompanies the outpouring of the Spirit in a believer’s life.
+        </p>
+
+        <h2 class="scripture-title">Acts 2:4 (KJV):</h2>
+        <blockquote class="scripture-quote">
+          “And they were all filled with the Holy Ghost, and began to speak with
+          other tongues, as the Spirit gave them utterance.”
+        </blockquote>
+
+        <h2 class="scripture-title">Acts 10:44-46 (KJV):</h2>
+        <blockquote class="scripture-quote">
+          “While Peter yet spake these words, the Holy Ghost fell on all them
+          which heard the word. And they of the circumcision which believed were
+          astonished, as many as came with Peter, because that on the Gentiles
+          also was poured out the gift of the Holy Ghost. For they heard them
+          speak with tongues, and magnify God.”
+        </blockquote>
+
+        <h2 class="scripture-title">Acts 19:6 (KJV):</h2>
+        <blockquote class="scripture-quote">
+          “And when Paul had laid his hands upon them, the Holy Ghost came on
+          them; and they spake with tongues, and prophesied.”
+        </blockquote>
+      </div>
+    </section>
 
     <!--Church family photos-->
-    <section class="church-family-section">
+    <section class="church-family-section" id="church-family-section">
       <h1>Church Family</h1>
       <p>Press the image to make it larger</p>
       <div class="img-container">
         <div class="images">
-          <a href="/assets/churchfamily/churchfam3.jpg" class="enlarge-image">
+          <a
+            href="/assets/about-assets/churchfamily/churchfam3.jpg"
+            class="enlarge-image"
+          >
             <img
-              src="/assets/churchfamily/churchfam3.jpg"
+              src="/assets/about-assets/churchfamily/churchfam3.jpg"
               alt="Group photo of church family"
             />
           </a>
           <a
-            href="/assets/churchfamily/church-fam-only-first-lady.jpg"
+            href="/assets/about-assets/churchfamily/church-fam-only-first-lady.jpg"
             class="enlarge-image"
           >
             <img
-              src="/assets/churchfamily/church-fam-only-first-lady.jpg"
+              src="/assets/about-assets/churchfamily/church-fam-only-first-lady.jpg"
               alt="Church family gathering"
             />
           </a>
-          <a href="/assets/churchfamily/ChurchFamily.jpg" class="enlarge-image">
+          <a
+            href="/assets/about-assets/churchfamily/ChurchFamily.jpg"
+            class="enlarge-image"
+          >
             <img
-              src="/assets/churchfamily/ChurchFamily.jpg"
+              src="/assets/about-assets/churchfamily/ChurchFamily.jpg"
               alt="Church family portrait"
             />
           </a>
-          <a href="/assets/churchfamily/churchfam2.jpg" class="enlarge-image">
+          <a
+            href="/assets/about-assets/churchfamily/churchfam2.jpg"
+            class="enlarge-image"
+          >
             <img
-              src="/assets/churchfamily/churchfam2.jpg"
+              src="/assets/about-assets/churchfamily/churchfam2.jpg"
               alt="Members of the church family"
             />
           </a>
           <a
-            href="/assets/churchfamily/ChurchLeaders.jpg"
+            href="/assets/about-assets/churchfamily/ChurchLeaders.jpg"
             class="enlarge-image"
           >
             <img
-              src="/assets/churchfamily/ChurchLeaders.jpg"
+              src="/assets/about-assets/churchfamily/ChurchLeaders.jpg"
               alt="Church leaders posing for a photo"
             />
           </a>
           <a
-            href="/assets/churchfamily/Pastor-FirstLady.jpg"
+            href="/assets/about-assets/churchfamily/church-fam-ushers.jpg"
             class="enlarge-image"
           >
             <img
-              src="/assets/churchfamily/Pastor-FirstLady.jpg"
+              src="/assets/about-assets/churchfamily/church-fam-ushers.jpg"
+              alt="Group photo of church family"
+            />
+          </a>
+          <a
+            href="/assets/about-assets/churchfamily/Pastor-FirstLady.jpg"
+            class="enlarge-image"
+          >
+            <img
+              src="/assets/about-assets/churchfamily/Pastor-FirstLady.jpg"
               alt="Pastor and First Lady of the church"
             />
           </a>
-          <a href="/assets/churchfamily/churchfam4.jpg" class="enlarge-image">
+          <a
+            href="/assets/about-assets/churchfamily/churchfam4.jpg"
+            class="enlarge-image"
+          >
             <img
-              src="/assets/churchfamily/churchfam4.jpg"
+              src="/assets/about-assets/churchfamily/churchfam4.jpg"
               alt="Another group photo of church family"
             />
           </a>
           <a
-            href="/assets/churchfamily/church-family-miller.jpg"
+            href="/assets/about-assets/churchfamily/church-family-miller.jpg"
             class="enlarge-image"
           >
             <img
-              src="/assets/churchfamily/church-family-miller.jpg"
+              src="/assets/about-assets/churchfamily/church-family-miller.jpg"
               alt="Church family - Miller family"
             />
           </a>
           <a
-            href="/assets/churchfamily/church-fam-juju-grad.jpg"
+            href="/assets/about-assets/churchfamily/church-fam-juju-grad.jpg"
             class="enlarge-image"
           >
             <img
-              src="/assets/churchfamily/church-fam-juju-grad.jpg"
+              src="/assets/about-assets/churchfamily/church-fam-juju-grad.jpg"
               alt="Church family celebrating Juju's graduation"
             />
           </a>
           <a
-            href="/assets/churchfamily/church-fam-shermin-grad.jpg"
+            href="/assets/about-assets/churchfamily/church-fam-shermin-grad.jpg"
             class="enlarge-image"
           >
             <img
-              src="/assets/churchfamily/church-fam-shermin-grad.jpg"
+              src="/assets/about-assets/churchfamily/church-fam-shermin-grad.jpg"
               alt="Church family celebrating Shermin's graduation"
             />
           </a>
           <a
-            href="/assets/churchfamily/church-fam-ny.jpg"
+            href="/assets/about-assets/churchfamily/church-fam-ny.jpg"
             class="enlarge-image"
           >
             <img
-              src="/assets/churchfamily/church-fam-ny.jpg"
+              src="/assets/about-assets/churchfamily/church-fam-ny.jpg"
               alt="Church family visit to New York"
             />
           </a>
           <a
-            href="/assets/churchfamily/church-mothers-collage.jpg"
+            href="/assets/about-assets/churchfamily/church-mothers-collage.jpg"
             class="enlarge-image"
           >
             <img
-              src="/assets/churchfamily/church-mothers-collage.jpg"
+              src="/assets/about-assets/churchfamily/church-mothers-collage.jpg"
               alt="Collage of church mothers"
             />
           </a>
           <a
-            href="/assets/churchfamily/church-fam-uncle-ken.jpg"
+            href="/assets/about-assets/churchfamily/church-fam-uncle-ken.jpg"
             class="enlarge-image"
           >
             <img
-              src="/assets/churchfamily/church-fam-uncle-ken.jpg"
+              src="/assets/about-assets/churchfamily/church-fam-uncle-ken.jpg"
               alt="Uncle Ken with church family"
             />
           </a>
           <a
-            href="/assets/churchfamily/church-fam-cathey.jpg"
+            href="/assets/about-assets/churchfamily/church-fam-cathey.jpg"
             class="enlarge-image"
           >
             <img
-              src="/assets/churchfamily/church-fam-cathey.jpg"
+              src="/assets/about-assets/churchfamily/church-fam-cathey.jpg"
               alt="Church family - Cathey family"
             />
           </a>
@@ -532,67 +680,70 @@
             class="enlarge-image"
           >
             <img
-              src="/assets/churchfamily/church-fam-layla.jpg"
+              src="/assets/about-assets/churchfamily/church-fam-layla.jpg"
               alt="Church family - Layla"
             />
           </a>
           <a
-            href="/assets/churchfamily/church-fam-lil-cousins.jpg"
+            href="/assets/about-assets/churchfamily/church-fam-lil-cousins.jpg"
             class="enlarge-image"
           >
             <img
-              src="/assets/churchfamily/church-fam-lil-cousins.jpg"
+              src="/assets/about-assets/churchfamily/church-fam-lil-cousins.jpg"
               alt="Church family - Little cousins"
             />
           </a>
           <a
-            href="/assets/churchfamily/church-fam-uncle-steve.jpg"
+            href="/assets/about-assets/churchfamily/church-fam-uncle-steve.jpg"
             class="enlarge-image"
           >
             <img
-              src="/assets/churchfamily/church-fam-uncle-steve.jpg"
+              src="/assets/about-assets/churchfamily/church-fam-uncle-steve.jpg"
               alt="Uncle Steve with church family"
             />
           </a>
           <a
-            href="/assets/churchfamily/church-fam-tiwan-royal.jpg"
+            href="/assets/about-assets/churchfamily/church-fam-tiwan-royal.jpg"
             class="enlarge-image"
           >
             <img
-              src="/assets/churchfamily/church-fam-tiwan-royal.jpg"
+              src="/assets/about-assets/churchfamily/church-fam-tiwan-royal.jpg"
               alt="Church family - Tiwan and Royal"
             />
           </a>
           <a
-            href="/assets/churchfamily/church-fam-birthday-bash.jpg"
+            href="/assets/about-assets/churchfamily/church-fam-birthday-bash.jpg"
             class="enlarge-image"
           >
             <img
-              src="/assets/churchfamily/church-fam-birthday-bash.jpg"
+              src="/assets/about-assets/churchfamily/church-fam-birthday-bash.jpg"
               alt="Church family - The singing"
             />
           </a>
           <a
-            href="/assets/churchfamily/church-fam-boys.jpg"
+            href="/assets/about-assets/churchfamily/church-fam-boys.jpg"
             class="enlarge-image"
           >
             <img
-              src="/assets/churchfamily/church-fam-boys.jpg"
+              src="/assets/about-assets/churchfamily/church-fam-boys.jpg"
               alt="Church family - The men hanging out in the yard"
             />
           </a>
           <a
-            href="/assets/churchfamily/2017-photo-old.jpg"
+            href="/assets/about-assets/churchfamily/2017-photo-old.jpg"
             class="enlarge-image"
           >
             <img
-              src="/assets/churchfamily/2017-photo-old.jpg"
+              src="/assets/about-assets/churchfamily/2017-photo-old.jpg"
               alt="Church family gathering"
             />
           </a>
-          <a href="/assets/churchfamily/2017-photo.jpg" class="enlarge-image">
+          <a
+            href="/assets/about-assets/churchfamily/2017-photo.jpg"
+            class="enlarge-image"
+          >
             <img
-              src="/assets/churchfamily/2017-photo.jpg"
+              src="/assets/about-assets/churchfamily/2017-photo.jpg"
               alt="Church family gathering"
             />
           </a>

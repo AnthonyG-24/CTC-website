@@ -3,190 +3,155 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Beautiful Loading Screen</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
 
-    <title>CTC</title>
-    <link rel="icon" type="image/jpg" href="assets/ctcooljc-noBG.png" />
+      #loader {
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        background: linear-gradient(45deg, royalblue, gold, #800020, white);
+        background-size: 400% 400%;
+        animation: backgroundAnimation 8s ease infinite;
+      }
 
-    <link rel="stylesheet" href="styles/general.css" />
-    <link rel="stylesheet" href="/styles/home/scripture.css" />
-    <link rel="stylesheet" href="styles/home/header.css" />
-    <link rel="stylesheet" href="styles/home/hero.css" />
-    <link rel="stylesheet" href="styles/home/orderOfService.css" />
-    <link rel="stylesheet" href="styles/footer.css" />
+      #loader img {
+        width: 200px;
+        animation: fadeInOut 6s ease infinite;
+      }
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Anton+SC&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Alegreya+SC:ital,wght@0,400;0,500;0,700;0,800;0,900;1,400;1,500;1,700;1,800;1,900&display=swap"
-      rel="stylesheet"
-    />
+      #loader p {
+        font-size: 24px;
+        color: white;
+        margin-top: 20px;
+        animation: fadeInOut 6s ease infinite;
+      }
+
+      #loader.hidden {
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.5s ease, visibility 0.5s ease;
+      }
+
+      @keyframes backgroundAnimation {
+        0% {
+          background-position: 0% 50%;
+        }
+        25% {
+          background-position: 100% 50%;
+        }
+        50% {
+          background-position: 100% 100%;
+        }
+        75% {
+          background-position: 0% 100%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      @keyframes fadeInOut {
+        0%,
+        100% {
+          opacity: 0;
+        }
+        50% {
+          opacity: 1;
+        }
+      }
+    </style>
   </head>
   <body>
-    <!-- Navbar section -->
-    <header class="header-section">
-      <nav class="navbar">
-        <div class="left-nav">
-          <div class="img-area">
-            <a href="index.html">
-              <img
-                class="church-logo"
-                src="/assets/ctcooljc-noBG.png"
-                alt="church-logo"
-              />
-            </a>
-          </div>
-        </div>
+    <!-- Loading screen with logo -->
+    <div id="loader">
+      <img src="assets/ctcooljc-noBG.png" alt="Website Logo" />
+      <p>CTC</p>
+    </div>
 
-        <div class="right-nav">
-          <ul>
-            <li><a href="about.html">About</a></li>
-            <li><a href="mothers.html">Mothers</a></li>
-            <li><a href="live.html">Live</a></li>
-            <li><a href="events.html">Events</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="donation.html">Donation</a></li>
-          </ul>
-        </div>
-
-        <div class="hamburger">
-          <button id="bTn">
-            <img
-              class="hamburger-icon"
-              src="/assets/icons/hamburger.png"
-              alt="hamburger-icon"
-            />
-          </button>
-        </div>
-
-        <div id="menu" class="menu">
-          <button id="closeMenu" class="close-menu">&times;</button>
-          <ul>
-            <li><a href="about.html">About</a></li>
-            <li><a href="mothers.html">Mothers</a></li>
-            <li><a href="live.html">Live</a></li>
-            <li><a href="events.html">Events</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="donation.html">Donation</a></li>
-          </ul>
-        </div>
-      </nav>
-    </header>
     <script>
-      document.getElementById("bTn").addEventListener("click", function () {
-        document.getElementById("menu").classList.toggle("active");
-      });
+      // Function to preload video and image resources
+      function preloadAssets() {
+        return new Promise((resolve, reject) => {
+          let loaded = 0; // Counter for loaded items
+          const totalAssets = 3; // Two videos + one image
 
-      document.addEventListener("click", function (event) {
-        const menu = document.getElementById("menu");
-        const menuButton = document.getElementById("bTn");
+          // Preload desktop video
+          const desktopVideo = document.createElement("video");
+          desktopVideo.src = "assets/videos/CTC-largeScreens-homeBG.mp4";
+          desktopVideo.muted = true;
+          desktopVideo.playsinline = true;
+          desktopVideo.autoplay = true;
+          desktopVideo.oncanplaythrough = () => {
+            loaded++;
+            checkIfAllLoaded();
+          };
 
-        if (
-          !menu.contains(event.target) &&
-          !menuButton.contains(event.target)
-        ) {
-          menu.classList.remove("active");
-        }
-      });
+          // Preload mobile video
+          const mobileVideo = document.createElement("video");
+          mobileVideo.src = "assets/videos/CTC-mobile.mp4";
+          mobileVideo.muted = true;
+          mobileVideo.playsinline = true;
+          mobileVideo.autoplay = true;
+          mobileVideo.oncanplaythrough = () => {
+            loaded++;
+            checkIfAllLoaded();
+          };
 
-      document
-        .getElementById("closeMenu")
-        .addEventListener("click", function () {
-          document.getElementById("menu").classList.remove("active");
+          // Preload image
+          const img = new Image();
+          img.src = "assets/CTChurch_PFP.jpg";
+          img.onload = () => {
+            loaded++;
+            checkIfAllLoaded();
+          };
+
+          // Check if all assets are loaded
+          function checkIfAllLoaded() {
+            if (loaded === totalAssets) {
+              resolve(); // All assets are loaded
+            }
+          }
+
+          // Add a timeout in case of network issues
+          setTimeout(() => {
+            if (loaded < totalAssets) {
+              resolve(); // Proceed even if not all are fully loaded
+            }
+          }, 5000); // 5-second timeout for slow networks
         });
+      }
+
+      // Function to wait for at least 5 seconds
+      function waitFiveSeconds() {
+        return new Promise((resolve) => {
+          setTimeout(resolve, 5000); // Wait for 5 seconds
+        });
+      }
+
+      // Wait for both the assets to preload and 5 seconds to pass
+      window.addEventListener("load", function () {
+        Promise.all([preloadAssets(), waitFiveSeconds()]).then(() => {
+          // Hide the loader after both the 5 seconds and assets are preloaded
+          document.getElementById("loader").classList.add("hidden");
+
+          // Redirect to the home page
+          window.location.href = "home.html"; // Replace with actual home page URL
+        });
+      });
     </script>
-
-    <!-- Hero section -->
-    <section>
-      <div class="hero-section">
-        <div class="hero-content">
-          <div class="video-container">
-            <video class="ctc-video" autoplay muted loop playsinline>
-              <source
-                src="assets/videos/CTC-1080p.mp4"
-                type="video/mp4"
-                media="(min-width: 768px)"
-              />
-              <source
-                src="assets/videos/CTC-background-mobile.mp4"
-                type="video/mp4"
-                media="(max-width: 480px)"
-              />
-              Your browser does not support the video tag.
-            </video>
-          </div>
-
-          <div class="church-title">
-            <span class="ctc">C</span>ommunity <span class="ctc">T</span>emple
-            <span class="ctc">C</span>hurch <span class="ctc">O</span>f
-            <span class="ctc">O</span>ur <span class="ctc">L</span>ord
-            <span class="ctc">J</span>esus <span class="ctc">C</span>hrist
-          </div>
-
-          <div class="next-section">
-            <a href="#next">
-              <img
-                class="down-arrow"
-                src="/assets/icons/down-arrow.svg"
-                alt="down arrow to move down to next section"
-              />
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Order of service section -->
-    <section class="order-of-service-section" id="next">
-      <div class="order-of-service">
-        <p>Order Of Service:</p>
-        <ul>
-          <li>- Monday night Prayer and Tarry at 7:00 p.m.</li>
-
-          <li>- Wednesday night Prayer/Bible Study at 6:30 p.m. - 8:00 p.m.</li>
-
-          <li>- Sunday School at 10:30 a.m.</li>
-
-          <li>- Sunday Morning Worship at 11:35 a.m.</li>
-        </ul>
-      </div>
-
-      <div class="location">
-        <iframe
-          class="map"
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d829.4977835417031!2d-79.89359014384412!3d33.73504538129549!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88ffbd61027013b7%3A0xf82b3435ec8503a3!2s385%20McClam%20Rd%2C%20Cades%2C%20SC%2029518!5e0!3m2!1sen!2sus!4v1724470055824!5m2!1sen!2sus"
-          style="border: 0"
-          allowfullscreen=""
-          loading="eager"
-          referrerpolicy="no-referrer-when-downgrade"
-        ></iframe>
-      </div>
-    </section>
-
-    <!--Footer section-->
-    <footer>
-      <div class="footer-container">
-        <div class="footer-content">
-          <p>
-            C.T.C.O.O.L.J.C
-            <span class="footer-year" id="footer-year"></span>
-          </p>
-          <div class="contact-info">
-            <p>
-              Secretary Sister Shannon Singletary Contact Information:
-              843-372-5839
-            </p>
-            <p>385 McClam Rd, Cades, SC 29518</p>
-          </div>
-        </div>
-      </div>
-    </footer>
-
-    <script src="js/script.js" type="module"></script>
   </body>
 </html>

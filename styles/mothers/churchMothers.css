@@ -118,7 +118,7 @@ body {
     transform: rotateY(
         calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg)
       )
-      translateZ(300px);
+      translateZ(450px);
   }
 
   .pfp {
@@ -126,12 +126,26 @@ body {
     height: 600px;
     background-color: transparent;
   }
+
+  .selected-mother-info {
+    max-width: 100%;
+    padding: 15px;
+    border-radius: 0;
+    margin-top: -120px;
+  }
+}
+
+@media (max-width: 1444px) {
+  .selected-mother-info {
+    margin-top: 0px;
+  }
 }
 
 @media (max-width: 768px) {
   .mothers-banner {
     height: 600px;
   }
+
   .slider {
     margin-bottom: 50px;
     width: 100px;
@@ -143,12 +157,13 @@ body {
     transform: rotateY(
         calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg)
       )
-      translateZ(180px);
+      translateZ(280px);
   }
 
   .pfp {
     width: 350px;
     height: 400px;
+    object-fit: contain;
     background-color: transparent;
   }
 
@@ -170,6 +185,7 @@ body {
     max-width: 100%;
     padding: 15px;
     border-radius: 0;
+    margin-top: -120px;
   }
 }
 
@@ -184,5 +200,12 @@ body {
   #selected-mother-details p {
     font-size: 18px;
     line-height: 28px;
+  }
+
+  .slider-item {
+    transform: rotateY(
+        calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg)
+      )
+      translateZ(180px);
   }
 }

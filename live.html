@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="/styles/livestream/goingLive.css" />
     <link rel="stylesheet" href="/styles/livestream/recentLive.css" />
     <link rel="stylesheet" href="/styles/livestream/highlights.css" />
+    <link rel="stylesheet" href="/styles/livestream/baptisms.css" />
     <link rel="stylesheet" href="/styles/footer.css" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -32,7 +33,7 @@
       <nav class="live-navbar">
         <div class="left-nav">
           <div class="img-area">
-            <a href="index.html">
+            <a href="home.html">
               <img
                 class="church-logo"
                 src="/assets/ctcooljc-noBG.png"
@@ -44,12 +45,12 @@
 
         <div class="right-nav">
           <ul>
-            <li><a href="index.html">Home</a></li>
+            <li><a href="home.html">Home</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="mothers.html">Mothers</a></li>
             <li><a href="events.html">Events</a></li>
             <li><a href="contact.html">Contact</a></li>
-            <li><a href="donation.html">Donation</a></li>
+            <li><a href="donation.html">Donate</a></li>
           </ul>
         </div>
 
@@ -66,12 +67,12 @@
         <div id="menu" class="menu">
           <button id="closeMenu" class="close-menu">&times;</button>
           <ul>
-            <li><a href="index.html">Home</a></li>
+            <li><a href="home.html">Home</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="mothers.html">Mothers</a></li>
             <li><a href="events.html">Events</a></li>
             <li><a href="contact.html">Contact</a></li>
-            <li><a href="donation.html">Donation</a></li>
+            <li><a href="donation.html">Donate</a></li>
           </ul>
         </div>
       </nav>
@@ -100,6 +101,7 @@
         });
     </script>
 
+    <!--Going live section-->
     <section class="going-live-section">
       <h1>Praise The Lord</h1>
       <div class="going-live-container">
@@ -128,6 +130,46 @@
         </div>
       </div>
     </section>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var liveSection = document.querySelector(".going-live-section");
+        var liveImage = document.querySelector(".going-live-image");
+        var liveContentP = document.querySelector(".going-live-content p");
+        var liveButton = document.querySelector(".going-live-content button");
+
+        liveSection.addEventListener("touchstart", function () {
+          liveSection.classList.add("touch-active");
+        });
+
+        liveImage.addEventListener("touchstart", function () {
+          liveImage.classList.add("touch-active");
+        });
+
+        liveContentP.addEventListener("touchstart", function () {
+          liveContentP.classList.add("touch-active");
+        });
+
+        liveButton.addEventListener("touchstart", function () {
+          liveButton.classList.add("touch-active");
+        });
+
+        liveSection.addEventListener("touchend", function () {
+          liveSection.classList.remove("touch-active");
+        });
+
+        liveImage.addEventListener("touchend", function () {
+          liveImage.classList.remove("touch-active");
+        });
+
+        liveContentP.addEventListener("touchend", function () {
+          liveContentP.classList.remove("touch-active");
+        });
+
+        liveButton.addEventListener("touchend", function () {
+          liveButton.classList.remove("touch-active");
+        });
+      });
+    </script>
 
     <!--Recent Live video(s) section-->
     <section class="live-section">
@@ -161,6 +203,79 @@
       </div>
     </section>
 
+    <!-- Baptism section -->
+    <section class="baptism-section">
+      <img
+        src="assets/live-assets/baptisms/cross-on-water.png"
+        alt="cross floating on water"
+      />
+      <h3 class="section-title">Community Temple Church Baptisms</h3>
+
+      <div class="baptism-scripture-card">
+        <div class="baptism-scripture-img">
+          <img
+            src="assets/live-assets/baptisms/bible-baptism.jpg"
+            alt="Open Bible image"
+          />
+        </div>
+        <h2 class="baptism-scripture-title">Scripture Inspiration</h2>
+        <blockquote class="baptism-scripture-text">
+          “Then Peter said unto them, Repent, and be baptized every one of you
+          in the name of Jesus Christ for the remission of sins, and ye shall
+          receive the gift of the Holy Ghost”
+        </blockquote>
+        <p class="baptism-scripture-reference">– Acts 2:38</p>
+      </div>
+
+      <div class="baptism-container">
+        <div class="baptism-card" id="card-1">
+          <h1>Baptism Of Michael (TJ)</h1>
+          <p>May 19, 2024</p>
+          <img
+            src="assets/live-assets/baptisms/Micheal(TJ)-Baptism.jpg"
+            alt="Baptism of Michael (TJ)"
+          />
+        </div>
+
+        <div class="baptism-card" id="card-2">
+          <h1>Baptism Of Collet Brown</h1>
+          <p>May 26, 2024</p>
+          <img
+            src="assets/live-assets/baptisms/C-Baptism.jpg"
+            alt="Baptism of Collet Brown"
+          />
+        </div>
+
+        <div class="baptism-card" id="card-3">
+          <h1>Baptism Of Kylie Brown and Eric Brand</h1>
+          <p>June 2, 2024</p>
+          <img
+            src="assets/live-assets/baptisms/K-E-Baptism.jpg"
+            alt="Baptism of Kylie Brown and Eric Brand"
+          />
+        </div>
+
+        <div class="baptism-card" id="card-4">
+          <h1>Baptism Of Lorenza Miller</h1>
+          <p>June 16, 2024</p>
+          <img
+            src="assets/live-assets/baptisms/LM-Baptism.jpg"
+            alt="Baptism of Lorenza Miller"
+          />
+        </div>
+
+        <div class="baptism-card" id="card-5">
+          <h1>Baptism Of Jerome Gunn</h1>
+          <p>September 15, 2024</p>
+          <img
+            src="assets/live-assets/baptisms/JG-Baptism.jpg"
+            alt="Baptism of Jerome Gunn"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!--Church highlights section-->
     <section class="church-highlights">
       <h1>Church Highlights</h1>
       <div class="media-container">
@@ -171,30 +286,6 @@
           />
         </div>
         <div class="videos-container">
-          <iframe
-            width="560"
-            height="315"
-            data-src="https://www.youtube.com/embed/Td-uQtUTnyA?si=aQ2cv_U9U-YrAw_r"
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen
-            class="lazy-iframe"
-          ></iframe>
-
-          <iframe
-            width="560"
-            height="315"
-            data-src="https://www.youtube.com/embed/qXkik8oNXzQ?si=CDeV2LThcOHWQafp"
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen
-            class="lazy-iframe"
-          ></iframe>
-
           <iframe
             width="560"
             height="315"
@@ -234,7 +325,91 @@
           <iframe
             width="560"
             height="315"
+            data-src="https://www.youtube.com/embed/1V-6JqDE8Jw?si=RmUxRLlw6GinzAvL"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+            class="lazy-iframe"
+          ></iframe>
+
+          <iframe
+            width="560"
+            height="315"
+            data-src="https://www.youtube.com/embed/xYlBVXMpDQg?si=i9BOUXygYqDNsoAn"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+            class="lazy-iframe"
+          ></iframe>
+
+          <iframe
+            width="560"
+            height="315"
+            data-src="https://www.youtube.com/embed/Td-uQtUTnyA?si=aQ2cv_U9U-YrAw_r"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+            class="lazy-iframe"
+          ></iframe>
+
+          <iframe
+            width="560"
+            height="315"
+            data-src="https://www.youtube.com/embed/qXkik8oNXzQ?si=CDeV2LThcOHWQafp"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+            class="lazy-iframe"
+          ></iframe>
+
+          <iframe
+            width="560"
+            height="315"
+            data-src="https://www.youtube.com/embed/SK1uhC8Coq0?si=n4IikowehkYWJTA4"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+            class="lazy-iframe"
+          ></iframe>
+
+          <iframe
+            width="560"
+            height="315"
             data-src="https://www.youtube.com/embed/l_xxqrWyfNA?si=ozx3WKSRGWyO7gq_"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+            class="lazy-iframe"
+          ></iframe>
+
+          <iframe
+            width="560"
+            height="315"
+            data-src="https://www.youtube.com/embed/4eTtLG6INeg?si=2WUpByuHthemT8rW"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+            class="lazy-iframe"
+          ></iframe>
+
+          <iframe
+            width="560"
+            height="315"
+            data-src="https://www.youtube.com/embed/JDOjRJ1TomI?si=lC56CL53cqKU3doV"
             title="YouTube video player"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -258,7 +433,7 @@
           <iframe
             width="560"
             height="315"
-            data-src="https://www.youtube.com/embed/oZt9M2678_c?si=gdafVw4TCfmhg6GV"
+            data-src="https://www.youtube.com/embed/5DNNwE7r3tU?si=0pTdYfxQGBJPavMo"
             title="YouTube video player"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -270,7 +445,19 @@
           <iframe
             width="560"
             height="315"
-            data-src="https://www.youtube.com/embed/5DNNwE7r3tU?si=0pTdYfxQGBJPavMo"
+            data-src="https://www.youtube.com/embed/K9VTLOlPHIM?si=I5GuknaRqQ1z9zEX"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+            class="lazy-iframe"
+          ></iframe>
+
+          <iframe
+            width="560"
+            height="315"
+            data-src="https://www.youtube.com/embed/JLbzbqykfEE?si=awhbuwcD-uYj3_w5"
             title="YouTube video player"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

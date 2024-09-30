@@ -1,0 +1,104 @@
+.our-beliefs-section {
+  padding: 40px;
+  background: linear-gradient(135deg, #f3f4f6, #e0e7ff);
+}
+
+.beliefs {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.beliefs-title {
+  font-size: 36px;
+  text-align: center;
+  margin-bottom: 20px;
+  color: royalblue;
+  text-decoration: underline;
+}
+
+.beliefs-paragraph {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.scripture-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  color: var(--burgundy);
+}
+
+.scripture-quote {
+  font-size: 20px;
+  font-style: italic;
+  height: auto;
+  padding-left: 20px;
+  border-left: 10px solid wheat;
+  margin-bottom: 30px;
+}
+
+@media (max-width: 1440px) {
+  .beliefs-title {
+    font-size: 34px;
+  }
+
+  .beliefs-paragraph,
+  .scripture-quote {
+    font-size: 17px;
+  }
+
+  .scripture-title {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .beliefs-title {
+    font-size: 32px;
+  }
+
+  .beliefs-paragraph,
+  .scripture-quote {
+    font-size: 16px;
+  }
+
+  .scripture-title {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .beliefs-title {
+    font-size: 28px;
+  }
+
+  .beliefs-paragraph,
+  .scripture-quote {
+    font-size: 15px;
+  }
+
+  .scripture-title {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .beliefs-title {
+    font-size: 24px;
+  }
+
+  .beliefs-paragraph,
+  .scripture-quote {
+    font-size: 14px;
+  }
+
+  .scripture-title {
+    font-size: 16px;
+  }
+
+  .our-beliefs-section {
+    padding: 20px;
+  }
+}

@@ -75,6 +75,8 @@
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   aspect-ratio: 16 / 9;
+  z-index: 1;
+  position: relative;
 }
 
 .videos-container iframe:hover {
@@ -93,10 +95,15 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1440px) {
+  .videos-container {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+}
+
+@media (max-width: 1024px) {
   .church-highlights {
     padding: 30px 20px;
-    text-align: center;
   }
 
   .church-highlights h1 {
@@ -110,7 +117,7 @@
   }
 
   .videos-container {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
     width: 100%;
     justify-content: center;
@@ -119,9 +126,36 @@
 
   .photo-box img {
     width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .church-highlights {
+    padding: 30px 20px;
+  }
+
+  .church-highlights h1 {
+    font-size: 32px;
+    margin: 0 auto;
+  }
+
+  .media-container {
+    padding: 20px;
+    text-align: center;
+  }
+
+  .videos-container {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .photo-box img {
+    width: 60%;
     max-width: 100%;
     margin: 0 auto;
-    display: block;
   }
 }
 
