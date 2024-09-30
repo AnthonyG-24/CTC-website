@@ -7,8 +7,7 @@
   font-family: "Alegreya SC", serif;
 }
 
-body,
-html {
+body {
   background-color: #f4f4f9;
   height: 100vh;
   overflow-x: hidden;
@@ -17,4 +16,5 @@ html {
 html {
   scroll-behavior: smooth;
   width: auto;
+  height: 100vh;
 }
