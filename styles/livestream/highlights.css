@@ -1,7 +1,7 @@
 .church-highlights {
   background-color: var(--burgundy);
   padding: 40px 60px;
-  max-width: 100%;
+  width: 100%;
   text-align: center;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }

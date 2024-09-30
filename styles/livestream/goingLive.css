@@ -209,7 +209,7 @@ body {
   }
 }
 
-@media (max-width: 376px) {
+@media (max-width: 480px) {
   .going-live-image img {
     width: 350px;
     margin-left: -25px;
@@ -217,6 +217,13 @@ body {
 }
 
 @media (max-width: 320px) {
+  .going-live-image img {
+    width: 300px;
+    margin-left: -20px;
+  }
+}
+
+@media (max-width: 270px) {
   .going-live-image img {
     width: 300px;
     margin-left: -20px;
