@@ -228,9 +228,10 @@
     <div class="past-events-section">
       <h2>Past Events</h2>
 
+      <!-- Event 1 -->
       <div class="event-card">
         <div class="event-header">
-          <h3>Pentecost Celebrtation</h3>
+          <h3>Pentecost Celebration</h3>
           <span class="event-date">May 18, 2024</span>
           <p>
             The Pentecost Celebration, held on May 18, 2024, was a day filled
@@ -240,15 +241,14 @@
           </p>
         </div>
         <div class="event-media">
-          <video controls>
+          <video controls class="dynamic-video">
             <source
               src="assets/event-assets/pentecost-may-2024/pt-1.mp4"
               type="video/mp4"
             />
             Your browser does not support the video tag.
           </video>
-
-          <video controls>
+          <video controls class="dynamic-video">
             <source
               src="assets/event-assets/pentecost-may-2024/pt-2.mp4"
               type="video/mp4"
@@ -258,6 +258,7 @@
         </div>
       </div>
 
+      <!-- Event 2 -->
       <div class="event-card">
         <div class="event-header">
           <h3>Pastor Gillard Birthday Bash</h3>
@@ -270,28 +271,28 @@
           </p>
         </div>
         <div class="event-media">
-          <video controls>
+          <video controls class="dynamic-video">
             <source
               src="assets/event-assets/pastor-bithday-bash-2024/bp-2.mp4"
               type="video/mp4"
             />
             Your browser does not support the video tag.
           </video>
-          <video controls>
+          <video controls class="dynamic-video">
             <source
               src="assets/event-assets/pastor-bithday-bash-2024/bp-3.mp4"
               type="video/mp4"
             />
             Your browser does not support the video tag.
           </video>
-          <video controls>
+          <video controls class="dynamic-video">
             <source
               src="assets/event-assets/pastor-bithday-bash-2024/bp-5.mp4"
               type="video/mp4"
             />
             Your browser does not support the video tag.
           </video>
-          <video controls>
+          <video controls class="dynamic-video">
             <source
               src="assets/event-assets/pastor-bithday-bash-2024/bp-4.mp4"
               type="video/mp4"
@@ -299,7 +300,7 @@
             Your browser does not support the video tag.
           </video>
 
-          <video controls>
+          <video controls class="dynamic-video">
             <source
               src="assets/event-assets/pastor-bithday-bash-2024/bp-6.mp4"
               type="video/mp4"
@@ -307,7 +308,7 @@
             Your browser does not support the video tag.
           </video>
 
-          <video controls>
+          <video controls class="dynamic-video">
             <source
               src="assets/event-assets/pastor-bithday-bash-2024/bp-7.mp4"
               type="video/mp4"
@@ -317,6 +318,7 @@
         </div>
       </div>
 
+      <!-- Event 3 -->
       <div class="event-card">
         <div class="event-header">
           <h3>Resurrection Play</h3>
@@ -332,15 +334,7 @@
             src="assets/event-assets/resurrection_play_2023/res_1.jpg"
             alt="Jesus Carrying The Cross - Resurrection Play 2023"
           />
-          <img
-            src="assets/event-assets/resurrection_play_2023/res_2.jpg"
-            alt="Jesus Nailed To The Cross - Resurrection Play 2023"
-          />
-          <img
-            src="assets/event-assets/resurrection_play_2023/res_3.jpg"
-            alt="Jesus On The Cross - Resurrection Play 2023"
-          />
-          <video controls>
+          <video controls class="dynamic-video">
             <source
               src="assets/event-assets/resurrection_play_2023/res_play_2023.mp4"
               type="video/mp4"
@@ -350,6 +344,40 @@
         </div>
       </div>
     </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var videos = document.querySelectorAll(".dynamic-video"); // Select all video elements
+
+        videos.forEach(function (video) {
+          var canvas = document.createElement("canvas");
+          var context = canvas.getContext("2d");
+
+          video.addEventListener("loadeddata", function () {
+            video.currentTime = 1; // Capture at 1 second mark
+
+            video.addEventListener("timeupdate", function captureFrame() {
+              if (video.currentTime >= 1) {
+                // Set canvas dimensions to match the video
+                canvas.width = video.videoWidth;
+                canvas.height = video.videoHeight;
+
+                // Draw the video frame on the canvas
+                context.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+                // Convert canvas to a thumbnail and set it as poster
+                var thumbnail = canvas.toDataURL("image/jpeg");
+                video.setAttribute("poster", thumbnail);
+
+                // Stop capturing further frames
+                video.removeEventListener("timeupdate", captureFrame);
+                video.currentTime = 0; // Reset the video to the beginning
+                video.pause();
+              }
+            });
+          });
+        });
+      });
+    </script>
 
     <!--Footer section-->
     <footer>

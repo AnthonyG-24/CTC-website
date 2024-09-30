@@ -47,22 +47,22 @@
         Your browser does not support the video tag.
       </video>
 
-      <img
-        src="/assets/gifs/clouds-background-mobile.mp4"
-        alt="Clouds Background Mobile"
-        class="background-gif"
-      />
+      <video
+        class="background-video"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="auto"
+      >
+        <source
+          src="/assets/videos/clouds-bg-mobile.mp4"
+          type="video/mp4"
+          media="(max-width: 480px)"
+        />
+        Your browser does not support the video tag.
+      </video>
     </div>
-
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        var video = document.querySelector(".background-video");
-        video.addEventListener("ended", function () {
-          video.currentTime = 0; // Restart the video instantly when it ends
-          video.play(); // Play the video without delay
-        });
-      });
-    </script>
 
     <!-- Mothers navbar section -->
     <header class="mothers-navbar-section">
