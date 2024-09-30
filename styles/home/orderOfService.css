@@ -1,28 +1,71 @@
 .order-of-service-section {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: wheat;
-  padding: 80px 40px;
+  background-color: #f5f7fa;
+  padding: 40px;
   text-align: center;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.order-of-service {
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 .order-of-service p {
-  color: var(--burgundy);
-  font-size: 42px;
-  text-decoration: underline;
+  font-family: "Playfair Display", serif;
+  font-size: 24px;
+  color: #2c3e50;
+  margin-bottom: 20px;
+  font-weight: bold;
+  letter-spacing: 1.2px;
 }
 
 .order-of-service ul {
-  list-style-type: none;
+  list-style: none;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  color: #34495e;
 }
 
 .order-of-service li {
-  font-size: 39px;
-  font-weight: 300;
-  font-style: oblique;
-  margin: 10px 0;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #fff;
+  border-left: 4px solid #2980b9;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.order-of-service li:before {
+  content: "⏰";
+  font-size: 18px;
+  margin-right: 10px;
+  color: #2980b9;
+}
+
+.order-of-service li:nth-child(1):before {
+  content: "🙏";
+}
+
+.order-of-service li:nth-child(2):before {
+  content: "📖";
+}
+
+.order-of-service li:nth-child(3):before {
+  content: "🎓";
+}
+
+.order-of-service li:nth-child(4):before {
+  content: "🎤";
+}
+
+.order-of-service li:hover {
+  background-color: #eaf2f8;
+  border-left-color: #3498db;
 }
 
 .location {
@@ -31,6 +74,7 @@
   background-color: white;
   padding: 20px;
 }
+
 .map {
   width: 70%;
   height: 600px;
@@ -74,19 +118,19 @@
     width: 80%;
     height: 400px;
   }
+}
 
-  @media (max-width: 480px) {
-    .map {
-      width: 90%;
-      height: 300px;
-    }
+@media (max-width: 480px) {
+  .map {
+    width: 90%;
+    height: 300px;
+  }
 
-    .order-of-service p {
-      font-size: 26px;
-    }
+  .order-of-service p {
+    font-size: 26px;
+  }
 
-    .order-of-service li {
-      font-size: 18px;
-    }
+  .order-of-service li {
+    font-size: 18px;
   }
 }

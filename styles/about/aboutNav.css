@@ -107,20 +107,9 @@
   right: 20px;
 }
 
-@media (max-width: 1444px) {
-  .right-nav a {
-    font-size: 23px;
-  }
-
-  .left-nav {
-    flex: 0;
-  }
-}
-
 @media (max-width: 1024px) {
   .right-nav {
     position: fixed;
-    left: 1-00%;
     top: 70px;
   }
 
@@ -147,8 +136,12 @@
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
   .left-nav {
-    flex: 0.8;
+    flex: 0.93;
+  }
+
+  .church-logo {
+    margin-top: -10px;
   }
 }

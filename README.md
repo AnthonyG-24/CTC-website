@@ -5,7 +5,6 @@ The CTC website is designed to serve the needs of our congregation and visitors.
 # Features
 
 - `Live YouTube Streaming:` Integration of live YouTube streams directly on the website.
-- `Tribute Section:` A dedicated section to honor and remember important figures within the church.
 - `Contact Information:` Easy access to contact details and church location.
 - `Responsive Design:` Optimized for viewing on devices, from desktops to mobile phones.
 
@@ -14,4 +13,4 @@ The CTC website is designed to serve the needs of our congregation and visitors.
 `HTML`: For structuring the website content.
 `CSS`: For styling the website with a focus on responsiveness and modern design principles.
 `JavaScript`: For adding interactivity, such as image slideshows and dynamic content toggling.
-`YouTube API`: For embedding live streams and chats.
+`YouTube`: For embedding live streams and chats.

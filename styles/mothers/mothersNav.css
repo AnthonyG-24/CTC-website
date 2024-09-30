@@ -101,16 +101,6 @@
   right: 50px;
 }
 
-@media (max-width: 1444px) {
-  .right-nav a {
-    font-size: 23px;
-  }
-
-  .left-nav {
-    flex: 0;
-  }
-}
-
 @media (max-width: 1024px) {
   .right-nav {
     position: fixed;
