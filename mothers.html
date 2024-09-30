@@ -38,6 +38,16 @@
         Your browser does not support the video tag.
       </video>
     </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var video = document.querySelector(".background-video");
+        if (video) {
+          video.play().catch(function () {
+            console.log("Autoplay was prevented.");
+          });
+        }
+      });
+    </script>
 
     <!-- Mothers navbar section -->
     <header class="mothers-navbar-section">
