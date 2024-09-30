@@ -30,22 +30,37 @@
   </head>
   <body>
     <div class="background-vid">
-      <video class="background-video" autoplay muted loop playsinline>
+      <!-- Video for larger screens -->
+      <video
+        class="background-video"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="auto"
+      >
         <source
           src="/assets/videos/Cloud Heaven Copyrights Free Video.mp4"
           type="video/mp4"
+          media="(min-width: 768px)"
         />
         Your browser does not support the video tag.
       </video>
+
+      <img
+        src="/assets/gifs/clouds-background-mobile.mp4"
+        alt="Clouds Background Mobile"
+        class="background-gif"
+      />
     </div>
+
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         var video = document.querySelector(".background-video");
-        if (video) {
-          video.play().catch(function () {
-            console.log("Autoplay was prevented.");
-          });
-        }
+        video.addEventListener("ended", function () {
+          video.currentTime = 0; // Restart the video instantly when it ends
+          video.play(); // Play the video without delay
+        });
       });
     </script>
 
