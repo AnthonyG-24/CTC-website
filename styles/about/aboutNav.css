@@ -20,7 +20,7 @@
 
 .church-logo {
   max-width: 90%;
-  margin-top: 20px;
+  margin-top: 0px;
   object-fit: contain;
 }
 
@@ -138,10 +138,16 @@
 
 @media (max-width: 768px) {
   .left-nav {
-    flex: 0.93;
+    flex: 0.9;
   }
 
   .church-logo {
     margin-top: -10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .left-nav {
+    flex: 0.8;
   }
 }

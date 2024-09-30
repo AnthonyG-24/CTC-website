@@ -75,6 +75,8 @@
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   aspect-ratio: 16 / 9;
+  z-index: 1;
+  position: relative;
 }
 
 .videos-container iframe:hover {
@@ -90,6 +92,12 @@
   100% {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@media (max-width: 1440px) {
+  .videos-container {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   }
 }
 
@@ -118,12 +126,6 @@
 
   .photo-box img {
     width: 100%;
-  }
-}
-
-@media (max-width: 1444px) {
-  .videos-container {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   }
 }
 
