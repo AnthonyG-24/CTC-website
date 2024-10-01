@@ -177,6 +177,30 @@
         }
       }
 
+      // Function to control autoplay based on video visibility
+      function handleVideoVisibility(entries) {
+        entries.forEach((entry) => {
+          const videoElement = entry.target;
+          if (entry.isIntersecting) {
+            // Play video when it's in view
+            videoElement.play();
+          } else {
+            // Pause video when it's out of view
+            videoElement.pause();
+          }
+        });
+      }
+
+      // Set up IntersectionObserver to detect when the video is in view
+      const observer = new IntersectionObserver(handleVideoVisibility, {
+        threshold: 0.5, // Trigger when 50% of the video is visible
+      });
+
+      // Start observing the video element
+      const videoElement = document.getElementById("heroVideo");
+      observer.observe(videoElement);
+
+      // Update video source on load and resize
       window.addEventListener("load", updateVideoSource);
       window.addEventListener("resize", updateVideoSource);
     </script>

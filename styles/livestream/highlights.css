@@ -1,3 +1,7 @@
+.body {
+  overflow-x: hidden;
+}
+
 .church-highlights {
   background-color: var(--burgundy);
   padding: 40px 60px;
