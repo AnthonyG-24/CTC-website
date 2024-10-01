@@ -91,3 +91,22 @@
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
   object-fit: contain;
 }
+
+@media only screen and (min-device-width: 390px) and (max-device-width: 430px) and (orientation: portrait) {
+  .images img {
+    max-width: 350px;
+    height: 200px;
+  }
+
+  .images img:active {
+    transform: scale(2.2);
+  }
+
+  .church-family-section h1 {
+    font-size: 34px;
+  }
+
+  .church-family-section p {
+    font-size: 16px;
+  }
+}
