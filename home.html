@@ -127,7 +127,6 @@
               preload="auto"
               poster="assets/CTChurch_PFP.jpg"
             >
-              <!-- Video sources -->
               <source
                 src="assets/videos/CTC-largeScreens-homeBG.mp4"
                 type="video/mp4"
@@ -179,8 +178,12 @@
         if (currentVideoSource !== newSource) {
           videoSource.src = newSource;
           videoElement.load(); // Load the new video source
-          videoElement.play(); // Ensure video plays immediately after load
-          currentVideoSource = newSource; // Update the current source to the new one
+          videoElement.play().catch(() => {
+            console.log(
+              "Autoplay failed, attempting to play the video programmatically."
+            );
+          });
+          currentVideoSource = newSource;
           localStorage.setItem("currentVideoSource", newSource); // Save the source in localStorage
         }
       }
@@ -206,8 +209,14 @@
         observer.observe(videoElement);
       }
 
-      // Update video source on page load and when the window is resized, but only for major resizes
       window.addEventListener("load", () => {
+        const videoElement = document.getElementById("heroVideo");
+        videoElement.muted = true; // Ensure the video is muted
+        videoElement.play().catch(() => {
+          console.log(
+            "Autoplay failed, attempting to play the video programmatically."
+          );
+        });
         updateVideoSource();
         handleVisibility();
       });
@@ -215,7 +224,7 @@
       window.addEventListener("resize", () => {
         // Add a debounce to prevent constant firing on minor window adjustments
         clearTimeout(window.resizeTimeout);
-        window.resizeTimeout = setTimeout(updateVideoSource, 200); // Adjust delay as necessary
+        window.resizeTimeout = setTimeout(updateVideoSource, 200);
       });
     </script>
 
