@@ -171,6 +171,7 @@ body {
 
   .going-live-image img {
     width: 300px;
+    margin-left: -25px; /* Move margin-left into this query */
   }
 
   .going-live-container {
@@ -208,17 +209,13 @@ body {
   .going-live-left-container {
     margin-bottom: -50px;
   }
-}
-
-@media (max-width: 480px) {
-  .going-live-image img {
-    width: 350px;
-    margin-left: -25px;
-  }
 
   body {
-    background-image: none;
     background-color: wheat;
+    background-image: url(../live-section-bg-mobile.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
   }
 }
 

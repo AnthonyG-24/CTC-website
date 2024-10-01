@@ -172,16 +172,42 @@
     </script>
 
     <!--Recent Live video(s) section-->
-    <section class="live-section">
-      <div class="recent">
-        <h1>Recent Church Video</h1>
+    <section class="video-section">
+      <h1>Church Video Archive: Services, Funerals, Bible Study & Events</h1>
+      <!-- Category Tabs -->
+      <div class="video-categories">
+        <button class="category-tab active" data-category="church-services">
+          Church Services
+        </button>
+        <button class="category-tab" data-category="funerals">Funerals</button>
+        <button class="category-tab" data-category="bible-study">
+          Bible Study
+        </button>
+        <button class="category-tab" data-category="events">Events</button>
       </div>
-      <div class="videos-area">
-        <!--Facebook embeded video-->
-        <div class="video-container">
+
+      <!-- Video Display Area -->
+      <div class="video-display">
+        <!-- Church Service Category -->
+        <div class="video-category-content video-grid" id="church-services">
+          <h2>Church Services</h2>
+          <p class="church-service-date">9-29-24</p>
+          <iframe
+            src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2F100092501479032%2Fvideos%2F1448449152479747%2F&show_text=false&width=560&t=0"
+            class="vid"
+            scrolling="no"
+            frameborder="0"
+            allowfullscreen="true"
+            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+          ></iframe>
+        </div>
+
+        <!-- Funerals Category -->
+        <div class="video-category-content video-grid" id="funerals">
+          <h2>Funerals</h2>
           <iframe
             class="vid"
-            src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2F100092501479032%2Fvideos%2F1258320098665439%2F&show_text=true&width=560&t=0"
+            src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2F100092501479032%2Fvideos%2F7283583941733351%2F&show_text=false&width=560&t=0"
             style="border: none; overflow: hidden"
             scrolling="no"
             frameborder="0"
@@ -189,19 +215,112 @@
             allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
             allowfullscreen="true"
           ></iframe>
+          <iframe
+            class="vid"
+            src="https://www.youtube.com/embed/8a4rLjrGpmk?si=sTyyJfAPFf_qsX6G"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
         </div>
 
-        <footer class="streaming-footer">
-          <a
-            href="https://www.youtube.com/watch?v=v7ixHcXt46Q&list=PLKI4ojWoZlTfVLfDOjpcJPukiesXCLP13"
-            class="all-streams-link"
-            target="_blank"
-            rel="noopener"
-            >Press Here To View Our Past Videos</a
-          >
-        </footer>
+        <!-- Bible Study Category -->
+        <div class="video-category-content video-grid" id="bible-study">
+          <h2>Bible Study</h2>
+          <iframe
+            class="vid"
+            src="https://www.youtube.com/embed/VqPn2qMhVqg?si=s5GgBlkBpTK24Qch"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
+        </div>
+
+        <!-- Events Category -->
+        <div class="video-category-content video-grid" id="events">
+          <h2>Events</h2>
+          <iframe
+            class="vid"
+            src="https://www.youtube.com/embed/o5kTw3h7Qqo?si=d0ATEO2jsBvhl9vn"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
+          <iframe
+            class="vid"
+            src="https://www.youtube.com/embed/vXTuLb3US8E?si=JT9eZaEwtVDzdpre"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
+          <iframe
+            class="vid"
+            src="https://www.youtube.com/embed/XIpe6p3adxo?si=-gb6HdlrwOLQdFwR"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
+          <iframe
+            class="vid"
+            src="https://www.youtube.com/embed/o_yfjngI3C0?si=d9d1Rv0YBoSYanNp"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
+          <iframe
+            class="vid"
+            src="https://www.youtube.com/embed/dyn88VVQ4xw?si=tJ1WkIyY7upSijWD"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
+        </div>
       </div>
     </section>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const tabs = document.querySelectorAll(".category-tab");
+        const categories = document.querySelectorAll(".video-category-content");
+
+        function hideAllCategories() {
+          categories.forEach((category) => {
+            category.classList.remove("active");
+            category.style.display = "none";
+          });
+          tabs.forEach((tab) => {
+            tab.classList.remove("active");
+          });
+        }
+
+        function showDefaultCategory() {
+          hideAllCategories();
+          const defaultCategory = document.getElementById("church-services");
+          defaultCategory.style.display = "block";
+          defaultCategory.classList.add("active");
+          tabs[0].classList.add("active");
+        }
+
+        tabs.forEach((tab) => {
+          tab.addEventListener("click", () => {
+            hideAllCategories();
+            const categoryId = tab.getAttribute("data-category");
+            const activeCategory = document.getElementById(categoryId);
+            activeCategory.style.display = "block";
+            activeCategory.classList.add("active");
+            tab.classList.add("active");
+          });
+        });
+
+        showDefaultCategory();
+      });
+    </script>
 
     <!-- Baptism section -->
     <section class="baptism-section">
