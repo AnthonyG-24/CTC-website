@@ -130,7 +130,7 @@
         Promise.all([preloadVideoAssets(), waitForDelay(2000)]).then(() => {
           document.getElementById("loader").classList.add("hidden"); // Hide loader
           // Redirect to homepage or continue further actions
-          window.location.href = "home.html";
+          window.location.href = "/home";
         });
       });
     </script>
