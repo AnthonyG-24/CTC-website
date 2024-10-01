@@ -125,13 +125,9 @@
               loop
               playsinline
               preload="auto"
-              poster="images/poster.jpg"
+              poster="assets/CTChurch_PFP.jpg"
             >
-              <source
-                src="videos/large-screen.mp4"
-                type="video/mp4"
-                id="videoSource"
-              />
+              <source src="videos/" type="video/mp4" id="videoSource" />
               Your browser does not support the video tag.
             </video>
           </div>
@@ -162,9 +158,9 @@
 
         // Use different video sources based on screen size
         if (window.innerWidth <= 480) {
-          videoSource.src = "videos/small-screen.mp4"; // Mobile video
+          videoSource.src = "assets/videos/CTC-Mobile-optimized.mp4"; // Mobile video
         } else {
-          videoSource.src = "videos/large-screen.mp4"; // Desktop video
+          videoSource.src = "assets/videos/CTC-largeScreens-homeBG.mp4"; // Desktop video
         }
 
         videoElement.load(); // Reload the video source
