@@ -75,6 +75,21 @@ body {
   animation: bounce 2s infinite;
 }
 
+#videoFallback {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+
+.fallback-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
 @keyframes bounce {
   0%,
   20%,
@@ -157,5 +172,17 @@ body {
     font-size: 28px;
     width: 400px;
     z-index: 0;
+  }
+}
+
+@media only screen and (min-device-width: 390px) and (max-device-width: 430px) {
+  #videoFallback {
+    height: 100vh;
+  }
+
+  .fallback-img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
   }
 }

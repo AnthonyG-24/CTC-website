@@ -117,7 +117,6 @@
       <div class="hero-section">
         <div class="hero-content">
           <div class="video-container">
-            <!-- Video element -->
             <video
               id="video-background"
               class="ctc-video"
@@ -137,8 +136,15 @@
             </video>
 
             <!-- Fallback image (poster) -->
-            <div id="videoFallback" style="display: none">
-              <img src="assets/CTChurch_PFP.jpg" alt="Fallback image" />
+            <div
+              id="videoFallback"
+              style="display: none; width: 100%; height: 100vh"
+            >
+              <img
+                src="assets/CTChurch_PFP.jpg"
+                alt="Fallback image"
+                class="fallback-img"
+              />
             </div>
           </div>
 
