@@ -95,7 +95,7 @@
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (min-width: 768px) and (max-width: 1024px) {
   .past-events-section {
     width: 90%;
   }
@@ -116,48 +116,25 @@
     font-size: 28px;
   }
 
+  .event-media {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-top: 20px;
+  }
+
   .event-media iframe {
     width: 100%;
-    max-width: 100%; /* Full width for videos on smaller screens */
+    height: 300px;
+    max-width: 100%;
   }
 
-  .event-media img {
-    width: 45%; /* Slightly wider images on smaller screens */
-  }
-
-  .event-media {
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 20px;
-    margin-top: 20px;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .event-media iframe,
   .event-media img {
     width: 100%;
   }
-
-  .event-header h3 {
-    font-size: 22px;
-  }
-
-  .event-date {
-    font-size: 16px;
-  }
-
-  .event-header p {
-    font-size: 15px;
-  }
-
-  .event-media {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    margin-top: 20px;
-  }
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 767px) {
   .past-events-section {
     width: 95%;
   }
@@ -175,12 +152,19 @@
   }
 
   .event-header p {
-    font-size: 14px;
+    font-size: 15px;
+  }
+
+  .event-media {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-top: 20px;
   }
 
   .event-media iframe,
   .event-media img {
-    width: 100%; /* Full width for smaller screens */
+    width: 100%;
   }
 
   .event-media iframe {

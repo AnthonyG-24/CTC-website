@@ -3,6 +3,7 @@
   padding: 30px 20px;
   text-align: center;
   border-top: 8px solid gold;
+  min-height: 20vh;
 }
 
 .footer-content {
