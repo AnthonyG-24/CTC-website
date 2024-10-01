@@ -129,7 +129,7 @@
             >
               <!-- Default video -->
               <source
-                src="assets/videos/CTC-Mobile-optimized.mp4"
+                src="assets/videos/CTC-largeScreens-homeBG.mp4"
                 type="video/mp4"
                 id="videoSource"
               />
@@ -165,7 +165,7 @@
         let newSource;
 
         // Determine which video to use based on screen width
-        if (window.innerWidth <= 767) {
+        if (window.innerWidth <= 480) {
           newSource = "assets/videos/CTC-Mobile-optimized.mp4"; // Mobile video
         } else {
           newSource = "assets/videos/CTC-largeScreens-homeBG.mp4"; // Desktop video
