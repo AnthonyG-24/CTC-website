@@ -2,7 +2,7 @@
   max-width: 1200px;
   margin: 40px auto;
   padding: 20px;
-  background-color: #ffffff;
+  background-color: gold;
   border-radius: 12px;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
   text-align: center;
@@ -123,7 +123,7 @@
   }
 
   .vid {
-    max-width: 100%; /* One video per row on smaller screens */
+    max-width: 100%;
     height: auto;
   }
 

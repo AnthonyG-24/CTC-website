@@ -125,6 +125,7 @@
               loop
               playsinline
               preload="auto"
+              poster="assets/CTChurch_PFP.jpg"
             >
               <source
                 src="assets/videos/CTC-largeScreens-homeBG.mp4"
@@ -211,11 +212,18 @@
       window.addEventListener("load", () => {
         const videoElement = document.getElementById("heroVideo");
         videoElement.muted = true; // Ensure the video is muted
-        videoElement.play().catch(() => {
-          console.log(
-            "Autoplay failed, attempting to play the video programmatically."
-          );
+
+        // Try to autoplay the video programmatically, with fallback if necessary
+        videoElement.play().catch((error) => {
+          console.log("Autoplay failed: ", error);
+          // If autoplay fails, add a small delay and retry
+          setTimeout(() => {
+            videoElement.play().catch((error) => {
+              console.log("Autoplay still blocked: ", error);
+            });
+          }, 500); // Add a small delay before retrying
         });
+
         updateVideoSource();
         handleVisibility();
       });
@@ -223,7 +231,7 @@
       window.addEventListener("resize", () => {
         // Add a debounce to prevent constant firing on minor window adjustments
         clearTimeout(window.resizeTimeout);
-        window.resizeTimeout = setTimeout(updateVideoSource, 200);
+        window.resizeTimeout = setTimeout(updateVideoSource, 200); // Adjust delay as necessary
       });
     </script>
 
