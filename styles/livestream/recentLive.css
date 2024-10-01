@@ -91,7 +91,7 @@
 
 @media (max-width: 480px) {
   .live-section {
-    width: 100%;
+    width: 90%;
     padding: 20px;
     margin: 0 auto !important;
     opacity: 1;
