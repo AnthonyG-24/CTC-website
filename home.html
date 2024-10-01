@@ -157,7 +157,7 @@
       </div>
     </section>
     <script>
-      let currentVideoSource = "";
+      let currentVideoSource = localStorage.getItem("currentVideoSource") || "";
 
       function updateVideoSource() {
         const videoElement = document.getElementById("heroVideo");
@@ -177,11 +177,37 @@
           videoElement.load(); // Load the new video source
           videoElement.play(); // Ensure video plays immediately after load
           currentVideoSource = newSource; // Update the current source to the new one
+          localStorage.setItem("currentVideoSource", newSource); // Save the source in localStorage
         }
       }
 
+      // Use IntersectionObserver to only play the video when it's in view
+      function handleVisibility() {
+        const videoElement = document.getElementById("heroVideo");
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                if (videoElement.paused) {
+                  videoElement.play(); // Play video if in view
+                }
+              } else {
+                videoElement.pause(); // Pause video if out of view
+              }
+            });
+          },
+          { threshold: 0.5 }
+        ); // Adjust the threshold as needed
+
+        observer.observe(videoElement);
+      }
+
       // Update video source on page load and when the window is resized, but only for major resizes
-      window.addEventListener("load", updateVideoSource);
+      window.addEventListener("load", () => {
+        updateVideoSource();
+        handleVisibility();
+      });
+
       window.addEventListener("resize", () => {
         // Add a debounce to prevent constant firing on minor window adjustments
         clearTimeout(window.resizeTimeout);
