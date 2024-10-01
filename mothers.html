@@ -35,26 +35,37 @@
         muted
         loop
         playsinline
-        preload="none"
+        preload="auto"
         id="cloudVideo"
       >
-        <!-- For larger screens (768px and above, tablets and desktops) -->
-        <source
-          src="/assets/videos/Cloud-Heaven-HD.mp4"
-          type="video/mp4"
-          media="(min-width: 768px)"
-        />
-
-        <!-- For smaller screens (480px and below, mobile devices) -->
-        <source
-          src="/assets/videos/Clouds-Bg-Mobile-optimized.mp4"
-          type="video/mp4"
-          media="(max-width: 480px)"
-        />
-
         Your browser does not support the video tag.
       </video>
     </div>
+
+    <script>
+      function updateVideoSource() {
+        const videoElement = document.getElementById("cloudVideo");
+        let videoSource;
+
+        // Check screen width to determine the appropriate video source
+        if (window.innerWidth <= 480) {
+          videoSource = "/assets/videos/Clouds-Bg-Mobile-optimized.mp4"; // Mobile video
+        } else {
+          videoSource = "/assets/videos/Cloud Heaven Copyrights Free Video.mp4"; // Desktop video
+        }
+
+        // Check if the source needs to be updated to prevent redundant loading
+        if (videoElement.getAttribute("src") !== videoSource) {
+          videoElement.setAttribute("src", videoSource);
+          videoElement.load(); // Reload the video with the new source
+          videoElement.play(); // Autoplay the video
+        }
+      }
+
+      // Call the function on page load and when the window is resized
+      window.addEventListener("load", updateVideoSource);
+      window.addEventListener("resize", updateVideoSource);
+    </script>
 
     <!-- Mothers navbar section -->
     <header class="mothers-navbar-section">

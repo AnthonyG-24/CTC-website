@@ -87,59 +87,50 @@
       function preloadVideoAssets() {
         return new Promise((resolve, reject) => {
           let videoToPreload;
-          const isMobile = window.innerWidth <= 480; // Detect if the screen width is mobile-sized
+          const isMobile = window.innerWidth <= 480;
 
-          if (isMobile) {
-            // Preload mobile video for screens 480px and below
-            videoToPreload = "assets/videos/CTC-Mobile-optimized.mp4";
-          } else {
-            // Preload desktop video for larger screens
-            videoToPreload = "assets/videos/CTC-largeScreens-homeBG.mp4";
-          }
+          // Select appropriate video for mobile or desktop
+          videoToPreload = isMobile
+            ? "assets/videos/CTC-Mobile-optimized.mp4"
+            : "assets/videos/CTC-largeScreens-homeBG.mp4";
 
-          // Create video element and set attributes
           const video = document.createElement("video");
           video.src = videoToPreload;
-          video.preload = "auto"; // Preload the video
+          video.preload = "auto";
           video.muted = true;
-          video.playsinline = true; // For iOS Safari compatibility
+          video.playsinline = true;
 
-          // Event listener for when the video is fully buffered and can play
+          // Preload video and resolve the promise when ready
           video.oncanplaythrough = () => {
-            resolve(); // Video has been preloaded
+            resolve(); // Video has preloaded successfully
           };
 
           video.onerror = () => {
-            console.error("Failed to preload video", videoToPreload);
-            resolve(); // Proceed even if video fails to load
+            console.error("Failed to preload video:", videoToPreload);
+            resolve(); // Resolve even on error to avoid blocking
           };
 
-          // Add a timeout to prevent long waiting times
+          // Fallback timeout for network delays
           setTimeout(() => {
             console.warn(
-              "Proceeding even though video may not be fully preloaded"
+              "Proceeding even though video may not be fully preloaded."
             );
-            resolve(); // Proceed regardless of preloading status after timeout
-          }, 3000); // Shorter 3-second timeout for network issues
+            resolve();
+          }, 3000); // Proceed if video isn't ready after 3 seconds
         });
       }
 
-      // Optional function to add a delay (e.g., for showing a loader for a set period)
+      // Function to ensure minimum wait time (e.g., for loaders)
       function waitForDelay(delay) {
-        return new Promise((resolve) => {
-          setTimeout(resolve, delay); // Wait for the specified time in milliseconds
-        });
+        return new Promise((resolve) => setTimeout(resolve, delay));
       }
 
-      // Function to preload videos and ensure a minimum wait time before hiding the loader
+      // Preload videos and show loader for at least 2 seconds for smoother UX
       window.addEventListener("load", function () {
-        // Wait for both the video to preload and a minimum of 5 seconds
-        Promise.all([preloadVideoAssets(), waitForDelay(5000)]).then(() => {
-          // Hide the loader after preloading and delay
-          document.getElementById("loader").classList.add("hidden");
-
-          // Redirect or perform other actions (if necessary)
-          window.location.href = "home.html"; // Replace with actual URL if needed
+        Promise.all([preloadVideoAssets(), waitForDelay(2000)]).then(() => {
+          document.getElementById("loader").classList.add("hidden"); // Hide loader
+          // Redirect to homepage or continue further actions
+          window.location.href = "home.html";
         });
       });
     </script>
