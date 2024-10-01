@@ -124,17 +124,14 @@
               muted
               loop
               playsinline
-              preload="metadata"
+              preload="auto"
+              poster="assets/CTChurch_PFP.jpg"
             >
-              <source
-                src="assets/videos/CTC-largeScreens-homeBG.mp4"
-                type="video/mp4"
-                media="(min-width: 768px)"
-              />
+              <!-- Mobile video as the default fallback -->
               <source
                 src="assets/videos/CTC-Mobile-optimized.mp4"
                 type="video/mp4"
-                media="(max-width: 767px)"
+                id="videoSource"
               />
               Your browser does not support the video tag.
             </video>
@@ -162,45 +159,30 @@
     <script>
       function updateVideoSource() {
         const videoElement = document.getElementById("heroVideo");
-        let videoSource;
+        const videoSource = document.getElementById("videoSource");
+        let newSource;
 
+        // Determine which video to use based on screen width
         if (window.innerWidth <= 767) {
-          videoSource = "assets/videos/CTC-Mobile-optimized.mp4";
+          newSource = "assets/videos/CTC-Mobile-optimized.mp4"; // Mobile video
         } else {
-          videoSource = "assets/videos/CTC-largeScreens-homeBG.mp4";
+          newSource = "assets/videos/CTC-largeScreens-homeBG.mp4"; // Desktop video
         }
 
-        if (videoElement.currentSrc !== videoSource) {
-          videoElement.setAttribute("src", videoSource);
-          videoElement.load();
-          videoElement.play();
+        // Only update if the source is different to avoid unnecessary reloads
+        if (videoSource.src !== newSource) {
+          videoSource.src = newSource;
+          videoElement.load(); // Load the new video source
+          videoElement.play(); // Ensure video plays immediately after load
         }
+
+        // Handle video load errors
+        videoElement.onerror = () => {
+          videoElement.poster = "assets/CTChurch_PFP.jpg"; // Fallback to the poster image if video fails to load
+        };
       }
 
-      // Function to control autoplay based on video visibility
-      function handleVideoVisibility(entries) {
-        entries.forEach((entry) => {
-          const videoElement = entry.target;
-          if (entry.isIntersecting) {
-            // Play video when it's in view
-            videoElement.play();
-          } else {
-            // Pause video when it's out of view
-            videoElement.pause();
-          }
-        });
-      }
-
-      // Set up IntersectionObserver to detect when the video is in view
-      const observer = new IntersectionObserver(handleVideoVisibility, {
-        threshold: 0.5, // Trigger when 50% of the video is visible
-      });
-
-      // Start observing the video element
-      const videoElement = document.getElementById("heroVideo");
-      observer.observe(videoElement);
-
-      // Update video source on load and resize
+      // Update video source on page load and when the window is resized
       window.addEventListener("load", updateVideoSource);
       window.addEventListener("resize", updateVideoSource);
     </script>
