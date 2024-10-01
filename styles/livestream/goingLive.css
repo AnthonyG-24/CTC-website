@@ -216,7 +216,8 @@ body {
   }
 
   body {
-    background-image: url(../live-section-bg-mobile.jpg); /* Mobile optimized image */
+    background-image: none;
+    background-color: wheat;
   }
 }
 
