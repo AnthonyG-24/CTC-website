@@ -118,6 +118,7 @@
         <div class="hero-content">
           <div class="video-container">
             <video
+              id="heroVideo"
               class="ctc-video"
               autoplay
               muted
@@ -125,14 +126,11 @@
               playsinline
               preload="auto"
             >
-              id="heroVideo"
-              <!-- For larger screens (Desktop) -->
               <source
                 src="assets/videos/CTC-largeScreens-homeBG.mp4"
                 type="video/mp4"
                 media="(min-width: 768px)"
               />
-              <!-- For smaller screens (Mobile) -->
               <source
                 src="assets/videos/CTC-Mobile-optimized.mp4"
                 type="video/mp4"
@@ -161,6 +159,27 @@
         </div>
       </div>
     </section>
+    <script>
+      function updateVideoSource() {
+        const videoElement = document.getElementById("heroVideo");
+        let videoSource;
+
+        if (window.innerWidth <= 767) {
+          videoSource = "assets/videos/CTC-Mobile-optimized.mp4";
+        } else {
+          videoSource = "assets/videos/CTC-largeScreens-homeBG.mp4";
+        }
+
+        if (videoElement.currentSrc !== videoSource) {
+          videoElement.setAttribute("src", videoSource);
+          videoElement.load();
+          videoElement.play();
+        }
+      }
+
+      window.addEventListener("load", updateVideoSource);
+      window.addEventListener("resize", updateVideoSource);
+    </script>
 
     <!-- Order of service section -->
     <section class="order-of-service-section" id="next">
