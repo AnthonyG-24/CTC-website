@@ -118,23 +118,19 @@
         <div class="hero-content">
           <div class="video-container">
             <video
-              id="heroVideo"
+              id="video-background"
               class="ctc-video"
               autoplay
               muted
               loop
               playsinline
               preload="auto"
-              poster="assets/CTChurch_PFP.jpg"
+              poster="images/poster.jpg"
             >
               <source
-                src="assets/videos/CTC-largeScreens-homeBG.mp4"
+                src="videos/large-screen.mp4"
                 type="video/mp4"
                 id="videoSource"
-              />
-              <source
-                src="assets/videos/CTC-largeScreens-homeBG.webm"
-                type="video/webm"
               />
               Your browser does not support the video tag.
             </video>
@@ -160,78 +156,37 @@
       </div>
     </section>
     <script>
-      let currentVideoSource = localStorage.getItem("currentVideoSource") || "";
-
       function updateVideoSource() {
-        const videoElement = document.getElementById("heroVideo");
+        const videoElement = document.getElementById("video-background");
         const videoSource = document.getElementById("videoSource");
-        let newSource;
 
-        // Determine which video to use based on screen width
+        // Use different video sources based on screen size
         if (window.innerWidth <= 480) {
-          newSource = "assets/videos/CTC-Mobile-optimized.mp4"; // Mobile video
+          videoSource.src = "videos/small-screen.mp4"; // Mobile video
         } else {
-          newSource = "assets/videos/CTC-largeScreens-homeBG.mp4"; // Desktop video
+          videoSource.src = "videos/large-screen.mp4"; // Desktop video
         }
 
-        // Only update if the source is different to avoid unnecessary reloads
-        if (currentVideoSource !== newSource) {
-          videoSource.src = newSource;
-          videoElement.load(); // Load the new video source
-          videoElement.play().catch(() => {
-            console.log(
-              "Autoplay failed, attempting to play the video programmatically."
-            );
-          });
-          currentVideoSource = newSource;
-          localStorage.setItem("currentVideoSource", newSource); // Save the source in localStorage
-        }
-      }
-
-      // Use IntersectionObserver to only play the video when it's in view
-      function handleVisibility() {
-        const videoElement = document.getElementById("heroVideo");
-        const observer = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                if (videoElement.paused) {
-                  videoElement.play(); // Play video if in view
-                }
-              } else {
-                videoElement.pause(); // Pause video if out of view
-              }
-            });
-          },
-          { threshold: 0.5 }
-        ); // Adjust the threshold as needed
-
-        observer.observe(videoElement);
+        videoElement.load(); // Reload the video source
       }
 
       window.addEventListener("load", () => {
-        const videoElement = document.getElementById("heroVideo");
-        videoElement.muted = true; // Ensure the video is muted
+        const videoElement = document.getElementById("video-background");
 
-        // Try to autoplay the video programmatically, with fallback if necessary
+        videoElement.muted = true; // Ensure the video is muted for autoplay
+        videoElement.playsinline = true; // Ensure inline playback on iOS
+
+        // Try to autoplay the video
         videoElement.play().catch((error) => {
-          console.log("Autoplay failed: ", error);
-          // If autoplay fails, add a small delay and retry
-          setTimeout(() => {
-            videoElement.play().catch((error) => {
-              console.log("Autoplay still blocked: ", error);
-            });
-          }, 500); // Add a small delay before retrying
+          console.log("Autoplay blocked: ", error);
         });
 
-        updateVideoSource();
-        handleVisibility();
+        updateVideoSource(); // Set the correct video source based on screen size
       });
 
       window.addEventListener("resize", () => {
-        // Add a debounce to prevent constant firing on minor window adjustments
         clearTimeout(window.resizeTimeout);
-        window.resizeTimeout = setTimeout(updateVideoSource, 200); // Adjust delay as necessary
+        window.resizeTimeout = setTimeout(updateVideoSource, 200);
       });
     </script>
 
