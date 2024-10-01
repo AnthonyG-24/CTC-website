@@ -2,135 +2,236 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 10px;
-  height: 60%;
-  justify-content: center; /* Center elements vertically */
+  padding: 20px;
+  height: 100%;
   background-color: white;
 }
 
 .contact-info-container {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  text-align: center;
-  margin-bottom: 5px; /* Reduce space */
+  transition: transform 0.3s ease-in-out;
+}
+
+.contact-info-container:hover {
+  transform: scale(1.05);
 }
 
 .contact-shannon-photo img {
-  width: 140px;
-  height: 140px;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
-  border: 2px solid #3aafa9;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border: 3px solid #3aafa9;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out;
+}
+
+.contact-shannon-photo img:hover {
+  transform: rotate(10deg) scale(1.1);
 }
 
 .contact-shannon-info {
-  margin-top: 10px;
+  margin-left: 20px;
   font-family: "Roboto", sans-serif;
   color: #17252a;
 }
 
 .contact-shannon-info span {
-  font-size: 18px;
+  display: block;
+  font-size: 24px;
   font-weight: bold;
-  line-height: 1.2;
+  margin-bottom: 5px;
 }
 
 .contact-shannon-info p {
-  font-size: 16px;
+  font-size: 22px;
   color: #3aafa9;
 }
 
 .social-media-contact {
-  margin-top: 10px;
+  margin-top: 50px;
+  width: 500px;
   text-align: center;
 }
 
 .social-media-contact p {
-  font-size: 14px;
+  font-size: 22px;
   color: #17252a;
-  margin-bottom: 10px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  animation: fadeIn 1s ease-in-out;
 }
 
 .social-media {
   display: flex;
   justify-content: center;
-  gap: 10px;
+  gap: 20px;
+}
+
+.social-link {
+  transition: transform 0.3s ease-in-out;
+}
+
+.social-link:hover {
+  transform: scale(1.2);
 }
 
 .social-media-icons {
-  width: 50px;
-  height: 50px;
+  width: 100px;
+  height: 100px;
   filter: grayscale(100%);
+  transition: filter 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
-@media (min-width: 768px) and (max-width: 1024px) {
+.social-link:hover .social-media-icons {
+  filter: grayscale(0);
+  transform: rotate(-10deg);
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 1024px) {
   .contact-info-section {
     height: auto;
-    width: 100%;
-    padding: 10px;
-  }
-
-  .contact-info-container {
-    margin-bottom: 5px;
   }
 
   .contact-shannon-photo img {
-    width: 130px;
-    height: 130px;
-  }
-
-  .contact-shannon-info span {
-    font-size: 16px;
+    width: 300px;
+    height: 300px;
   }
 
   .contact-shannon-info p {
-    font-size: 14px;
+    font-size: 36px;
+    color: #3aafa9;
+  }
+
+  .contact-shannon-info span {
+    font-size: 32px;
+  }
+
+  .social-media-contact p {
+    font-size: 48px;
+  }
+
+  .social-media-icons {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+@media (max-width: 820px) {
+  .contact-info-section {
+    height: auto;
+  }
+
+  .contact-shannon-photo img {
+    width: 300px;
+    height: 300px;
+  }
+
+  .contact-shannon-info p {
+    font-size: 30px;
+    color: #3aafa9;
+  }
+
+  .contact-shannon-info span {
+    font-size: 34px;
+  }
+
+  .social-media-contact p {
+    font-size: 32px;
+  }
+
+  .social-media-icons {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-info-container {
+    flex-direction: column;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .contact-info-section {
+    height: auto;
+    margin-top: 100px;
+  }
+
+  .contact-shannon-photo img {
+    width: 150px;
+    height: 150px;
+  }
+
+  .contact-shannon-info {
+    margin-top: 15px;
+    margin-left: 0;
+  }
+
+  .contact-shannon-info span {
+    font-size: 20px;
+  }
+
+  .contact-shannon-info p {
+    font-size: 18px;
   }
 
   .social-media-contact {
-    margin-top: 5px;
+    width: 100%;
   }
 
   .social-media-contact p {
-    font-size: 14px;
+    margin-top: -50px;
+    font-size: 18px;
   }
 
   .social-media-icons {
-    width: 45px;
-    height: 45px;
-  }
-
-  .social-media {
-    gap: 8px;
+    width: 80px;
+    height: 80px;
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 480px) {
   .contact-info-section {
+    padding: 15px;
     height: auto;
-    padding: 5px;
   }
 
   .contact-shannon-photo img {
-    width: 110px;
-    height: 110px;
+    width: 120px;
+    height: 120px;
   }
 
   .contact-shannon-info span {
-    font-size: 14px;
+    font-size: 18px;
   }
 
   .contact-shannon-info p {
-    font-size: 13px;
+    font-size: 16px;
   }
 
   .social-media-contact p {
-    font-size: 13px;
+    margin-top: -50px;
+    font-size: 16px;
   }
 
   .social-media-icons {
-    width: 40px;
-    height: 40px;
+    width: 60px;
+    height: 60px;
+  }
+
+  .social-media {
+    gap: 15px;
   }
 }
