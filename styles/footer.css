@@ -1,9 +1,21 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Full viewport height */
+}
+
 .footer-container {
   background-color: royalblue;
   padding: 30px 20px;
   text-align: center;
   border-top: 8px solid gold;
-  min-height: 20vh;
+  margin-top: auto; /* Push footer to the bottom */
 }
 
 .footer-content {
@@ -26,4 +38,11 @@
   color: wheat;
   font-size: 18px;
   margin: 5px 0;
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .footer-container {
+    height: auto;
+    padding: 20px 15px; /* Adjust padding for tablets */
+  }
 }
