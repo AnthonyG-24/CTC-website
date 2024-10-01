@@ -117,6 +117,7 @@
       <div class="hero-section">
         <div class="hero-content">
           <div class="video-container">
+            <!-- Video element -->
             <video
               id="video-background"
               class="ctc-video"
@@ -125,11 +126,24 @@
               loop
               playsinline
               preload="auto"
-              poster="assets/CTChurch_PFP.jpg"
             >
-              <source src="videos/" type="video/mp4" id="videoSource" />
+              <!-- Video sources, dynamically updated -->
+              <source
+                src="assets/videos/CTC-largeScreens-homeBG.mp4"
+                type="video/mp4"
+                id="videoSource"
+              />
               Your browser does not support the video tag.
             </video>
+
+            <!-- Fallback image (poster) -->
+            <div id="videoFallback" style="display: none">
+              <img
+                src="assets/CTChurch_PFP.jpg"
+                alt="Fallback image"
+                style="width: 100%; height: auto"
+              />
+            </div>
           </div>
 
           <div class="church-title">
@@ -156,30 +170,39 @@
         const videoElement = document.getElementById("video-background");
         const videoSource = document.getElementById("videoSource");
 
-        // Use different video sources based on screen size
+        // Dynamically choose the video source based on screen width
         if (window.innerWidth <= 480) {
-          videoSource.src = "assets/videos/CTC-Mobile-optimized.mp4"; // Mobile video
+          videoSource.src = "assets/videos/CTC-Mobile-optimized.mp4"; // Mobile optimized video
         } else {
           videoSource.src = "assets/videos/CTC-largeScreens-homeBG.mp4"; // Desktop video
         }
 
-        videoElement.load(); // Reload the video source
+        // Reload the video source to update the new source
+        videoElement.load();
       }
 
       window.addEventListener("load", () => {
         const videoElement = document.getElementById("video-background");
+        const fallbackImage = document.getElementById("videoFallback");
 
-        videoElement.muted = true; // Ensure the video is muted for autoplay
-        videoElement.playsinline = true; // Ensure inline playback on iOS
+        // Set autoplay attributes programmatically
+        videoElement.muted = true;
+        videoElement.playsinline = true;
 
-        // Try to autoplay the video
+        // Attempt to autoplay the video
         videoElement.play().catch((error) => {
-          console.log("Autoplay blocked: ", error);
+          console.log("Autoplay blocked, showing fallback image:", error);
+
+          // If autoplay fails, hide the video and show the fallback image
+          videoElement.style.display = "none";
+          fallbackImage.style.display = "block";
         });
 
-        updateVideoSource(); // Set the correct video source based on screen size
+        // Set the correct video source based on screen size
+        updateVideoSource();
       });
 
+      // Update video source when the window is resized
       window.addEventListener("resize", () => {
         clearTimeout(window.resizeTimeout);
         window.resizeTimeout = setTimeout(updateVideoSource, 200);
