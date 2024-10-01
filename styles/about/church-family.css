@@ -93,9 +93,17 @@
 }
 
 @media only screen and (min-device-width: 390px) and (max-device-width: 430px) and (orientation: portrait) {
+  .img-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+    gap: 10px;
+    overflow-x: auto;
+  }
+
   .images img {
-    max-width: 300px;
-    height: 200px;
+    max-width: 100px;
+    height: 180px;
   }
 
   .images img:active {
