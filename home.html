@@ -123,8 +123,17 @@
               muted
               loop
               playsinline
-              id="heroVideo"
+              preload="auto"
+              <!--
+              This
+              helps
+              load
+              the
+              video
+              early
+              --
             >
+              id="heroVideo" >
               <source
                 id="videoSource"
                 src="assets/videos/CTC-largeScreens-homeBG.mp4"
@@ -157,10 +166,14 @@
         </div>
       </div>
     </section>
+
     <script>
       function updateVideoSource() {
         const videoElement = document.getElementById("heroVideo");
         const videoSource = document.getElementById("videoSource");
+
+        // Pause the video while we change the source
+        videoElement.pause();
 
         if (window.innerWidth <= 480) {
           videoSource.src = "assets/videos/CTC-Mobile-optimized.mp4"; // Mobile video
@@ -168,8 +181,16 @@
           videoSource.src = "assets/videos/CTC-largeScreens-homeBG.mp4"; // Desktop video
         }
 
-        // Reload the video after source change
+        // Remove and re-add the source to ensure iOS properly reloads the video
+        videoElement.innerHTML = ""; // Clear current source
+        const newSource = document.createElement("source");
+        newSource.src = videoSource.src;
+        newSource.type = "video/mp4";
+        videoElement.appendChild(newSource);
+
+        // Reload and play the video
         videoElement.load();
+        videoElement.play();
       }
 
       // Call the function on page load and when the window is resized
