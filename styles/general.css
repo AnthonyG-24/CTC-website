@@ -16,4 +16,5 @@ body {
 html {
   scroll-behavior: smooth;
   width: auto;
+  height: 100vh;
 }
