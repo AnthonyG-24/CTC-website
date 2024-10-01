@@ -127,6 +127,10 @@ a button:active {
     margin-bottom: 20px;
   }
 
+  .live-chat {
+    display: none;
+  }
+
   .youtube-live-section h1 {
     font-size: 40px;
   }
