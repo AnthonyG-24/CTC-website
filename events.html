@@ -248,7 +248,7 @@
             />
             Your browser does not support the video tag.
           </video>
-          <video controls class="dynamic-video">
+          <video controls class="dynamic-video" preload="metadata">
             <source
               src="assets/event-assets/pentecost-may-2024/pt-2.mp4"
               type="video/mp4"
@@ -271,50 +271,35 @@
           </p>
         </div>
         <div class="event-media">
-          <video controls class="dynamic-video">
+          <video controls class="dynamic-video" preload="metadata">
             <source
               src="assets/event-assets/pastor-bithday-bash-2024/bp-2.mp4"
               type="video/mp4"
             />
             Your browser does not support the video tag.
           </video>
-          <video controls class="dynamic-video">
+          <video controls class="dynamic-video" preload="metadata">
             <source
               src="assets/event-assets/pastor-bithday-bash-2024/bp-3.mp4"
               type="video/mp4"
             />
             Your browser does not support the video tag.
           </video>
-          <video controls class="dynamic-video">
+          <video controls class="dynamic-video" preload="metadata">
             <source
               src="assets/event-assets/pastor-bithday-bash-2024/bp-5.mp4"
               type="video/mp4"
             />
             Your browser does not support the video tag.
           </video>
-          <video controls class="dynamic-video">
+          <video controls class="dynamic-video" preload="metadata">
             <source
               src="assets/event-assets/pastor-bithday-bash-2024/bp-4.mp4"
               type="video/mp4"
             />
             Your browser does not support the video tag.
           </video>
-
-          <video controls class="dynamic-video">
-            <source
-              src="assets/event-assets/pastor-bithday-bash-2024/bp-6.mp4"
-              type="video/mp4"
-            />
-            Your browser does not support the video tag.
-          </video>
-
-          <video controls class="dynamic-video">
-            <source
-              src="assets/event-assets/pastor-bithday-bash-2024/bp-7.mp4"
-              type="video/mp4"
-            />
-            Your browser does not support the video tag.
-          </video>
+          <!-- More videos here -->
         </div>
       </div>
 
@@ -330,11 +315,7 @@
           </p>
         </div>
         <div class="event-media">
-          <img
-            src="assets/event-assets/resurrection_play_2023/res_1.jpg"
-            alt="Jesus Carrying The Cross - Resurrection Play 2023"
-          />
-          <video controls class="dynamic-video">
+          <video controls class="dynamic-video" preload="metadata">
             <source
               src="assets/event-assets/resurrection_play_2023/res_play_2023.mp4"
               type="video/mp4"
@@ -344,33 +325,37 @@
         </div>
       </div>
     </div>
+
+    <!-- JavaScript to auto-generate thumbnails for all videos -->
     <script>
       document.addEventListener("DOMContentLoaded", function () {
-        var videos = document.querySelectorAll(".dynamic-video"); // Select all video elements
+        const videos = document.querySelectorAll(".dynamic-video"); // Select all video elements
 
         videos.forEach(function (video) {
-          var canvas = document.createElement("canvas");
-          var context = canvas.getContext("2d");
+          const canvas = document.createElement("canvas");
+          const context = canvas.getContext("2d");
 
           video.addEventListener("loadeddata", function () {
-            video.currentTime = 1; // Capture at 1 second mark
+            video.currentTime = 0.1; // Set time to capture the first frame (small to avoid black frame)
 
             video.addEventListener("timeupdate", function captureFrame() {
-              if (video.currentTime >= 1) {
-                // Set canvas dimensions to match the video
+              if (video.currentTime >= 0.1) {
+                // Set canvas size to match the video
                 canvas.width = video.videoWidth;
                 canvas.height = video.videoHeight;
 
-                // Draw the video frame on the canvas
+                // Draw the current frame of the video onto the canvas
                 context.drawImage(video, 0, 0, canvas.width, canvas.height);
 
-                // Convert canvas to a thumbnail and set it as poster
-                var thumbnail = canvas.toDataURL("image/jpeg");
+                // Convert the canvas to a data URL (image) and set it as the poster
+                const thumbnail = canvas.toDataURL("image/jpeg");
                 video.setAttribute("poster", thumbnail);
 
-                // Stop capturing further frames
+                // Remove the event listener once the thumbnail is captured
                 video.removeEventListener("timeupdate", captureFrame);
-                video.currentTime = 0; // Reset the video to the beginning
+
+                // Reset the video to the start and pause it
+                video.currentTime = 0;
                 video.pause();
               }
             });
