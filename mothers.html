@@ -29,16 +29,31 @@
   </head>
   <body>
     <div class="background-vid">
-      <!-- Video for larger screens -->
-      <video class="background-video" autoplay muted loop playsinline>
+      <video
+        class="background-video"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="none"
+        id="cloudVideo"
+      >
+        <!-- For larger screens (768px and above, tablets and desktops) -->
         <source
-          src="/assets/videos/Cloud Heaven Copyrights Free Video.mp4"
+          src="/assets/videos/Cloud-Heaven-HD.mp4"
           type="video/mp4"
+          media="(min-width: 768px)"
         />
+
+        <!-- For smaller screens (480px and below, mobile devices) -->
+        <source
+          src="/assets/videos/Clouds-Bg-Mobile-optimized.mp4"
+          type="video/mp4"
+          media="(max-width: 480px)"
+        />
+
         Your browser does not support the video tag.
       </video>
-      <!-- Image for small screens (hidden by default) -->
-      <div class="background-image"></div>
     </div>
 
     <!-- Mothers navbar section -->

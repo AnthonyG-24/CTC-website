@@ -83,76 +83,63 @@
     </div>
 
     <script>
-      // Function to preload video resources
+      // Function to preload only the video that matches the screen size
       function preloadVideoAssets() {
         return new Promise((resolve, reject) => {
-          let loaded = 0; // Counter for loaded items
-          const totalVideos = 2; // Two videos to preload
+          let videoToPreload;
+          const isMobile = window.innerWidth <= 480; // Detect if the screen width is mobile-sized
 
-          // Preload desktop video
-          const desktopVideo = document.createElement("video");
-          desktopVideo.src = "assets/videos/CTC-largeScreens-homeBG.mp4";
-          desktopVideo.preload = "auto"; // Preload the entire video
-          desktopVideo.muted = true;
-          desktopVideo.playsinline = true; // iOS Safari compatibility
-          desktopVideo.oncanplaythrough = () => {
-            loaded++;
-            checkIfAllLoaded();
-          };
-          desktopVideo.onerror = () => {
-            console.error("Failed to preload desktop video");
-            checkIfAllLoaded(); // Proceed even if one video fails to load
-          };
-
-          // Preload mobile video
-          const mobileVideo = document.createElement("video");
-          mobileVideo.src = "assets/videos/CTC-mobile.mp4";
-          mobileVideo.preload = "auto"; // Preload the entire video
-          mobileVideo.muted = true;
-          mobileVideo.playsinline = true; // iOS Safari compatibility
-          mobileVideo.oncanplaythrough = () => {
-            loaded++;
-            checkIfAllLoaded();
-          };
-          mobileVideo.onerror = () => {
-            console.error("Failed to preload mobile video");
-            checkIfAllLoaded(); // Proceed even if one video fails to load
-          };
-
-          // Check if all videos are loaded
-          function checkIfAllLoaded() {
-            if (loaded === totalVideos) {
-              resolve(); // All videos are loaded
-            }
+          if (isMobile) {
+            // Preload mobile video for screens 480px and below
+            videoToPreload = "assets/videos/CTC-Mobile-optimized.mp4";
+          } else {
+            // Preload desktop video for larger screens
+            videoToPreload = "assets/videos/CTC-largeScreens-homeBG.mp4";
           }
 
-          // Add a timeout in case of network issues
+          // Create video element and set attributes
+          const video = document.createElement("video");
+          video.src = videoToPreload;
+          video.preload = "auto"; // Preload the video
+          video.muted = true;
+          video.playsinline = true; // For iOS Safari compatibility
+
+          // Event listener for when the video is fully buffered and can play
+          video.oncanplaythrough = () => {
+            resolve(); // Video has been preloaded
+          };
+
+          video.onerror = () => {
+            console.error("Failed to preload video", videoToPreload);
+            resolve(); // Proceed even if video fails to load
+          };
+
+          // Add a timeout to prevent long waiting times
           setTimeout(() => {
-            if (loaded < totalVideos) {
-              console.warn(
-                "Proceeding even though not all videos are fully preloaded"
-              );
-              resolve(); // Proceed even if not all are fully loaded
-            }
-          }, 5000); // 5-second timeout for slow networks
+            console.warn(
+              "Proceeding even though video may not be fully preloaded"
+            );
+            resolve(); // Proceed regardless of preloading status after timeout
+          }, 3000); // Shorter 3-second timeout for network issues
         });
       }
 
-      // Function to wait for at least 5 seconds
-      function waitFiveSeconds() {
+      // Optional function to add a delay (e.g., for showing a loader for a set period)
+      function waitForDelay(delay) {
         return new Promise((resolve) => {
-          setTimeout(resolve, 5000); // Wait for 5 seconds
+          setTimeout(resolve, delay); // Wait for the specified time in milliseconds
         });
       }
 
-      // Wait for both the assets to preload and 5 seconds to pass
+      // Function to preload videos and ensure a minimum wait time before hiding the loader
       window.addEventListener("load", function () {
-        Promise.all([preloadVideoAssets(), waitFiveSeconds()]).then(() => {
-          // Hide the loader after both the 5 seconds and videos are preloaded
+        // Wait for both the video to preload and a minimum of 5 seconds
+        Promise.all([preloadVideoAssets(), waitForDelay(5000)]).then(() => {
+          // Hide the loader after preloading and delay
           document.getElementById("loader").classList.add("hidden");
 
-          // Redirect to the home page
-          window.location.href = "home.html"; // Replace with actual home page URL
+          // Redirect or perform other actions (if necessary)
+          // window.location.href = "home.html"; // Replace with actual URL if needed
         });
       });
     </script>

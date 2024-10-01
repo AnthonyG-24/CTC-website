@@ -117,16 +117,18 @@
       <div class="hero-section">
         <div class="hero-content">
           <div class="video-container">
-            <video class="ctc-video" autoplay muted loop playsinline>
+            <video
+              class="ctc-video"
+              autoplay
+              muted
+              loop
+              playsinline
+              id="heroVideo"
+            >
               <source
+                id="videoSource"
                 src="assets/videos/CTC-largeScreens-homeBG.mp4"
                 type="video/mp4"
-                media="(min-width: 768px)"
-              />
-              <source
-                src="assets/videos/CTC-mobile.mp4"
-                type="video/mp4"
-                media="(max-width: 480px)"
               />
               <img
                 src="assets/CTChurch_PFP.jpg"
@@ -155,6 +157,25 @@
         </div>
       </div>
     </section>
+    <script>
+      function updateVideoSource() {
+        const videoElement = document.getElementById("heroVideo");
+        const videoSource = document.getElementById("videoSource");
+
+        if (window.innerWidth <= 480) {
+          videoSource.src = "assets/videos/CTC-Mobile-optimized.mp4"; // Mobile video
+        } else {
+          videoSource.src = "assets/videos/CTC-largeScreens-homeBG.mp4"; // Desktop video
+        }
+
+        // Reload the video after source change
+        videoElement.load();
+      }
+
+      // Call the function on page load and when the window is resized
+      window.addEventListener("load", updateVideoSource);
+      window.addEventListener("resize", updateVideoSource);
+    </script>
 
     <!-- Order of service section -->
     <section class="order-of-service-section" id="next">
