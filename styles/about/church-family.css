@@ -94,7 +94,7 @@
 
 @media only screen and (min-device-width: 390px) and (max-device-width: 430px) and (orientation: portrait) {
   .images img {
-    max-width: 350px;
+    max-width: 300px;
     height: 200px;
   }
 
