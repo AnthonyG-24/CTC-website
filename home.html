@@ -127,7 +127,7 @@
               preload="auto"
               poster="assets/CTChurch_PFP.jpg"
             >
-              <!-- Mobile video as the default fallback -->
+              <!-- Default video -->
               <source
                 src="assets/videos/CTC-Mobile-optimized.mp4"
                 type="video/mp4"
@@ -157,6 +157,8 @@
       </div>
     </section>
     <script>
+      let videoInitialized = false;
+
       function updateVideoSource() {
         const videoElement = document.getElementById("heroVideo");
         const videoSource = document.getElementById("videoSource");
@@ -169,22 +171,22 @@
           newSource = "assets/videos/CTC-largeScreens-homeBG.mp4"; // Desktop video
         }
 
-        // Only update if the source is different to avoid unnecessary reloads
-        if (videoSource.src !== newSource) {
+        // Only update the video source once to prevent constant reloading
+        if (!videoInitialized && videoSource.src !== newSource) {
           videoSource.src = newSource;
           videoElement.load(); // Load the new video source
           videoElement.play(); // Ensure video plays immediately after load
+          videoInitialized = true; // Mark the video as initialized
         }
-
-        // Handle video load errors
-        videoElement.onerror = () => {
-          videoElement.poster = "assets/CTChurch_PFP.jpg"; // Fallback to the poster image if video fails to load
-        };
       }
 
-      // Update video source on page load and when the window is resized
+      // Set the video source once on page load
       window.addEventListener("load", updateVideoSource);
-      window.addEventListener("resize", updateVideoSource);
+      // Allow resizing to change video source only when resizing the window
+      window.addEventListener("resize", function () {
+        videoInitialized = false; // Allow the video source to change again only on resize
+        updateVideoSource();
+      });
     </script>
 
     <!-- Order of service section -->
