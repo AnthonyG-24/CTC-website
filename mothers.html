@@ -32,7 +32,7 @@
     <div class="background-vid">
       <!-- Video for larger screens -->
       <video
-        class="background-video"
+        class="background-video desktop-video"
         autoplay
         muted
         loop
@@ -42,27 +42,56 @@
         <source
           src="/assets/videos/Cloud Heaven Copyrights Free Video.mp4"
           type="video/mp4"
-          media="(min-width: 768px)"
         />
         Your browser does not support the video tag.
       </video>
 
+      <!-- Video for mobile screens -->
       <video
-        class="background-video"
+        class="background-video mobile-video"
         autoplay
         muted
         loop
         playsinline
         preload="auto"
       >
-        <source
-          src="/assets/videos/clouds-bg-mobile.mp4"
-          type="video/mp4"
-          media="(max-width: 480px)"
-        />
+        <source src="/assets/videos/clouds-bg-mobile.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
     </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var videoElement = document.getElementById("backgroundVideo");
+        var videoSource = document.getElementById("videoSource");
+
+        if (window.innerWidth <= 768) {
+          // Load mobile video
+          videoSource.src = "/assets/videos/clouds-bg-mobile.mp4";
+        } else {
+          // Load desktop video
+          videoSource.src =
+            "/assets/videos/Cloud Heaven Copyrights Free Video.mp4";
+        }
+
+        // Load the video after changing the source
+        videoElement.load();
+      });
+
+      // Optional: Add a resize event listener to dynamically change the video on window resize
+      window.addEventListener("resize", function () {
+        var videoElement = document.getElementById("backgroundVideo");
+        var videoSource = document.getElementById("videoSource");
+
+        if (window.innerWidth <= 768) {
+          videoSource.src = "/assets/videos/clouds-bg-mobile.mp4";
+        } else {
+          videoSource.src =
+            "/assets/videos/Cloud Heaven Copyrights Free Video.mp4";
+        }
+
+        videoElement.load();
+      });
+    </script>
 
     <!-- Mothers navbar section -->
     <header class="mothers-navbar-section">
