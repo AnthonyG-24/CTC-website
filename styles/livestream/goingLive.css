@@ -214,6 +214,10 @@ body {
     width: 350px;
     margin-left: -25px;
   }
+
+  body {
+    background-image: url(../live-section-bg-mobile.jpg); /* Mobile optimized image */
+  }
 }
 
 @media (max-width: 320px) {
