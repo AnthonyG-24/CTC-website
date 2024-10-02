@@ -39,34 +39,26 @@
         id="cloudVideo"
         poster="/assets/images/fallback-poster.jpg"
       >
+        <!-- Default large screen video -->
         <source
           src="/assets/videos/Cloud-Large-Optimized.mp4"
           type="video/mp4"
           media="(min-width: 481px)"
         />
+
+        <!-- Mobile-optimized video for smaller screens -->
         <source
           src="/assets/videos/Clouds-Bg-Mobile-optimized.mp4"
           type="video/mp4"
           media="(max-width: 480px)"
         />
+
         Your browser does not support the video tag.
       </video>
     </div>
-    <style>
-      /* Fallback for when the video is not loaded */
-      .no-video .background-vid {
-        background-color: white; /* White fallback background */
-      }
-    </style>
     <script>
-      // JavaScript to handle fallbacks and video source updates
       document.addEventListener("DOMContentLoaded", function () {
         const videoElement = document.getElementById("cloudVideo");
-
-        // Fallback for video load failure
-        videoElement.onerror = function () {
-          document.body.classList.add("no-video");
-        };
 
         // Video source update based on screen width
         function updateVideoSource() {
@@ -86,9 +78,9 @@
             }
           }
 
-          // Reload video if source was updated
+          // Reload video if the source was updated
           if (needsUpdate) {
-            videoElement.load(); // Reload video with new source
+            videoElement.load();
           }
         }
 
