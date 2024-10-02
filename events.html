@@ -355,30 +355,27 @@
         </div>
       </div>
     </div>
+
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         const lazyIframes = document.querySelectorAll("iframe.lazy-iframe");
 
+        // Fallback for Safari or browsers without lazy-loading support
+        const observer = new IntersectionObserver((entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.setAttribute(
+                "src",
+                entry.target.getAttribute("data-src")
+              );
+              observer.unobserve(entry.target);
+            }
+          });
+        });
+
         lazyIframes.forEach((iframe) => {
-          // Native lazy loading support
-          if ("loading" in iframe) {
-            iframe.setAttribute("loading", "lazy");
-            iframe.setAttribute("src", iframe.getAttribute("data-src"));
-          } else {
-            // Fallback for browsers without native lazy-loading
-            const observer = new IntersectionObserver((entries, observer) => {
-              entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                  entry.target.setAttribute(
-                    "src",
-                    entry.target.getAttribute("data-src")
-                  );
-                  observer.unobserve(entry.target);
-                }
-              });
-            });
-            observer.observe(iframe);
-          }
+          // Force using IntersectionObserver for all browsers to ensure compatibility with Safari
+          observer.observe(iframe);
         });
       });
     </script>
