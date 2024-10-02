@@ -172,32 +172,29 @@
         const videoElement = document.getElementById("video-background");
         const videoSource = document.getElementById("videoSource");
 
+        // Choose the correct video source based on the screen width
         if (window.innerWidth <= 480) {
-          videoSource.src = "assets/videos/CTC-Mobile-optimized.mp4"; // Mobile optimized video
+          videoSource.src = "assets/videos/CTC-Mobile-optimized.mp4"; // Mobile video
         } else {
           videoSource.src = "assets/videos/CTC-largeScreens-homeBG.mp4"; // Desktop video
         }
 
-        videoElement.load();
+        videoElement.load(); // Load the updated video source
       }
 
       window.addEventListener("load", () => {
         const videoElement = document.getElementById("video-background");
         const fallbackImage = document.getElementById("videoFallback");
 
-        // Reset visibility: Ensure the video is visible and fallback hidden on page load
+        // Reset video and fallback visibility on page load
         videoElement.style.display = "block";
         fallbackImage.style.display = "none";
-
-        // Set autoplay attributes programmatically
-        videoElement.muted = true;
-        videoElement.playsinline = true;
 
         // Try to autoplay the video
         videoElement
           .play()
           .then(() => {
-            // Video plays successfully, ensure fallback is hidden
+            // Video successfully plays, hide the fallback
             fallbackImage.style.display = "none";
           })
           .catch((error) => {
@@ -208,7 +205,7 @@
             fallbackImage.style.display = "block";
           });
 
-        // Set the correct video source based on screen size
+        // Update the video source based on the screen size
         updateVideoSource();
       });
 
