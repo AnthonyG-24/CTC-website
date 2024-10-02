@@ -233,7 +233,7 @@
 
       <div class="event-card">
         <div class="event-header">
-          <h3>Pentecost Celebrtation</h3>
+          <h3>Pentecost Celebration</h3>
           <span class="event-date">May 18, 2024</span>
           <p>
             The Pentecost Celebration, held on May 18, 2024, was a day filled
@@ -244,9 +244,8 @@
         </div>
         <div class="event-media">
           <iframe
-            width="560"
-            height="315"
-            src="https://www.youtube.com/embed/J4kAX38dACs?si=vd3wv13ykkyRXY6m"
+            class="lazy-iframe"
+            data-src="https://www.youtube-nocookie.com/embed/J4kAX38dACs?si=vd3wv13ykkyRXY6m"
             title="YouTube video player"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -255,9 +254,8 @@
           ></iframe>
 
           <iframe
-            width="560"
-            height="315"
-            src="https://www.youtube.com/embed/sRqBKN9zhTw?si=blY_x8vHaW-ig3cC"
+            class="lazy-iframe"
+            data-src="https://www.youtube-nocookie.com/embed/sRqBKN9zhTw?si=blY_x8vHaW-ig3cC"
             title="YouTube video player"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -280,9 +278,8 @@
         </div>
         <div class="event-media">
           <iframe
-            width="560"
-            height="315"
-            src="https://www.youtube.com/embed/Z_0a1Xe-TxA?si=dKOhwaM7el58iQ7E"
+            class="lazy-iframe"
+            data-src="https://www.youtube-nocookie.com/embed/Z_0a1Xe-TxA?si=dKOhwaM7el58iQ7E"
             title="YouTube video player"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -291,9 +288,8 @@
           ></iframe>
 
           <iframe
-            width="560"
-            height="315"
-            src="https://www.youtube.com/embed/8y9ODt9Ia9k?si=gFLJyjo-e9PAQ-jV"
+            class="lazy-iframe"
+            data-src="https://www.youtube-nocookie.com/embed/8y9ODt9Ia9k?si=gFLJyjo-e9PAQ-jV"
             title="YouTube video player"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -302,9 +298,8 @@
           ></iframe>
 
           <iframe
-            width="560"
-            height="315"
-            src="https://www.youtube.com/embed/GA6XJbrqx3U?si=YxMUgdB-GVJXUdai"
+            class="lazy-iframe"
+            data-src="https://www.youtube-nocookie.com/embed/GA6XJbrqx3U?si=YxMUgdB-GVJXUdai"
             title="YouTube video player"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -313,9 +308,8 @@
           ></iframe>
 
           <iframe
-            width="560"
-            height="315"
-            src="https://www.youtube.com/embed/m7W9suQ20qg?si=rTV2xaV9qPhpIbAG"
+            class="lazy-iframe"
+            data-src="https://www.youtube-nocookie.com/embed/m7W9suQ20qg?si=rTV2xaV9qPhpIbAG"
             title="YouTube video player"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -324,9 +318,8 @@
           ></iframe>
 
           <iframe
-            width="560"
-            height="315"
-            src="https://www.youtube.com/embed/9rkCrI-tyqA?si=fjbOdAg7Hgor0_eH"
+            class="lazy-iframe"
+            data-src="https://www.youtube-nocookie.com/embed/9rkCrI-tyqA?si=fjbOdAg7Hgor0_eH"
             title="YouTube video player"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -362,6 +355,33 @@
         </div>
       </div>
     </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const lazyIframes = document.querySelectorAll("iframe.lazy-iframe");
+
+        lazyIframes.forEach((iframe) => {
+          // Native lazy loading support
+          if ("loading" in iframe) {
+            iframe.setAttribute("loading", "lazy");
+            iframe.setAttribute("src", iframe.getAttribute("data-src"));
+          } else {
+            // Fallback for browsers without native lazy-loading
+            const observer = new IntersectionObserver((entries, observer) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  entry.target.setAttribute(
+                    "src",
+                    entry.target.getAttribute("data-src")
+                  );
+                  observer.unobserve(entry.target);
+                }
+              });
+            });
+            observer.observe(iframe);
+          }
+        });
+      });
+    </script>
 
     <!--Footer section-->
     <footer>

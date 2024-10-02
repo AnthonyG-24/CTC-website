@@ -193,8 +193,8 @@
           <h2>Church Services</h2>
           <p class="church-service-date">9-29-24</p>
           <iframe
-            class="vid"
-            src="https://www.youtube.com/embed/sZp04neZDXM?si=8vz9wXvcUEQUbgdM"
+            class="vid lazy-iframe"
+            data-src="https://www.youtube-nocookie.com/embed/sZp04neZDXM?si=8vz9wXvcUEQUbgdM"
             title="YouTube video player"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -207,8 +207,8 @@
         <div class="video-category-content video-grid" id="funerals">
           <h2>Funerals</h2>
           <iframe
-            class="vid"
-            src="https://www.youtube.com/embed/2F989wJ5wnM?si=hHNRJmFc1UvDc2I_"
+            class="vid lazy-iframe"
+            data-src="https://www.youtube-nocookie.com/embed/2F989wJ5wnM?si=hHNRJmFc1UvDc2I_"
             title="YouTube video player"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -217,11 +217,12 @@
           ></iframe>
 
           <iframe
-            class="vid"
-            src="https://www.youtube.com/embed/8a4rLjrGpmk?si=sTyyJfAPFf_qsX6G"
+            class="vid lazy-iframe"
+            data-src="https://www.youtube-nocookie.com/embed/8a4rLjrGpmk?si=sTyyJfAPFf_qsX6G"
             title="YouTube video player"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
             allowfullscreen
           ></iframe>
         </div>
@@ -230,11 +231,12 @@
         <div class="video-category-content video-grid" id="bible-study">
           <h2>Bible Study</h2>
           <iframe
-            class="vid"
-            src="https://www.youtube.com/embed/VqPn2qMhVqg?si=s5GgBlkBpTK24Qch"
+            class="vid lazy-iframe"
+            data-src="https://www.youtube-nocookie.com/embed/VqPn2qMhVqg?si=s5GgBlkBpTK24Qch"
             title="YouTube video player"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
             allowfullscreen
           ></iframe>
         </div>
@@ -243,47 +245,57 @@
         <div class="video-category-content video-grid" id="events">
           <h2>Events</h2>
           <iframe
-            class="vid"
-            src="https://www.youtube.com/embed/o5kTw3h7Qqo?si=d0ATEO2jsBvhl9vn"
+            class="vid lazy-iframe"
+            data-src="https://www.youtube-nocookie.com/embed/o5kTw3h7Qqo?si=d0ATEO2jsBvhl9vn"
             title="YouTube video player"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
             allowfullscreen
           ></iframe>
+
           <iframe
-            class="vid"
-            src="https://www.youtube.com/embed/vXTuLb3US8E?si=JT9eZaEwtVDzdpre"
+            class="vid lazy-iframe"
+            data-src="https://www.youtube-nocookie.com/embed/vXTuLb3US8E?si=JT9eZaEwtVDzdpre"
             title="YouTube video player"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
             allowfullscreen
           ></iframe>
+
           <iframe
-            class="vid"
-            src="https://www.youtube.com/embed/XIpe6p3adxo?si=-gb6HdlrwOLQdFwR"
+            class="vid lazy-iframe"
+            data-src="https://www.youtube-nocookie.com/embed/XIpe6p3adxo?si=-gb6HdlrwOLQdFwR"
             title="YouTube video player"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
             allowfullscreen
           ></iframe>
+
           <iframe
-            class="vid"
-            src="https://www.youtube.com/embed/o_yfjngI3C0?si=d9d1Rv0YBoSYanNp"
+            class="vid lazy-iframe"
+            data-src="https://www.youtube-nocookie.com/embed/o_yfjngI3C0?si=d9d1Rv0YBoSYanNp"
             title="YouTube video player"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
             allowfullscreen
           ></iframe>
+
           <iframe
-            class="vid"
-            src="https://www.youtube.com/embed/dyn88VVQ4xw?si=tJ1WkIyY7upSijWD"
+            class="vid lazy-iframe"
+            data-src="https://www.youtube-nocookie.com/embed/dyn88VVQ4xw?si=tJ1WkIyY7upSijWD"
             title="YouTube video player"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
             allowfullscreen
           ></iframe>
         </div>
       </div>
+
       <footer class="streaming-footer">
         <a
           href="https://www.youtube.com/watch?v=v7ixHcXt46Q&list=PLKI4ojWoZlTfVLfDOjpcJPukiesXCLP13"
@@ -295,7 +307,32 @@
       </footer>
     </section>
     <script>
-      document.addEventListener("DOMContentLoaded", () => {
+      document.addEventListener("DOMContentLoaded", function () {
+        const lazyIframes = document.querySelectorAll("iframe.lazy-iframe");
+
+        lazyIframes.forEach((iframe) => {
+          // Native lazy loading support
+          if ("loading" in iframe) {
+            iframe.setAttribute("loading", "lazy");
+            iframe.setAttribute("src", iframe.getAttribute("data-src"));
+          } else {
+            // Fallback for browsers without native lazy-loading
+            const observer = new IntersectionObserver((entries, observer) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  entry.target.setAttribute(
+                    "src",
+                    entry.target.getAttribute("data-src")
+                  );
+                  observer.unobserve(entry.target);
+                }
+              });
+            });
+            observer.observe(iframe);
+          }
+        });
+
+        // Tab functionality for switching between categories
         const tabs = document.querySelectorAll(".category-tab");
         const categories = document.querySelectorAll(".video-category-content");
 
@@ -410,7 +447,7 @@
       <div class="media-container">
         <div class="photo-box">
           <img
-            src="/assets//live-assets/teri-drums-enhanced.jpg"
+            src="/assets/live-assets/teri-drums-enhanced.jpg"
             alt="A set of church drums"
           />
         </div>
@@ -418,7 +455,7 @@
           <iframe
             width="560"
             height="315"
-            data-src="https://www.youtube.com/embed/OfkdrY8QSsE?si=DQUPYwby2KT1hwPe"
+            data-src="https://www.youtube-nocookie.com/embed/OfkdrY8QSsE?si=DQUPYwby2KT1hwPe"
             title="YouTube video player"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -430,7 +467,7 @@
           <iframe
             width="560"
             height="315"
-            data-src="https://www.youtube.com/embed/0A0rfU9kSVs?si=H8OCsx0DQ9M8o_PZ"
+            data-src="https://www.youtube-nocookie.com/embed/0A0rfU9kSVs?si=H8OCsx0DQ9M8o_PZ"
             title="YouTube video player"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -442,7 +479,7 @@
           <iframe
             width="560"
             height="315"
-            data-src="https://www.youtube.com/embed/VlXrCsHjKyc?si=qBiz1U94UvEaPs1S"
+            data-src="https://www.youtube-nocookie.com/embed/VlXrCsHjKyc?si=qBiz1U94UvEaPs1S"
             title="YouTube video player"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -454,7 +491,7 @@
           <iframe
             width="560"
             height="315"
-            data-src="https://www.youtube.com/embed/1V-6JqDE8Jw?si=RmUxRLlw6GinzAvL"
+            data-src="https://www.youtube-nocookie.com/embed/1V-6JqDE8Jw?si=RmUxRLlw6GinzAvL"
             title="YouTube video player"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -466,7 +503,7 @@
           <iframe
             width="560"
             height="315"
-            data-src="https://www.youtube.com/embed/xYlBVXMpDQg?si=i9BOUXygYqDNsoAn"
+            data-src="https://www.youtube-nocookie.com/embed/xYlBVXMpDQg?si=i9BOUXygYqDNsoAn"
             title="YouTube video player"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -478,7 +515,7 @@
           <iframe
             width="560"
             height="315"
-            data-src="https://www.youtube.com/embed/Td-uQtUTnyA?si=aQ2cv_U9U-YrAw_r"
+            data-src="https://www.youtube-nocookie.com/embed/Td-uQtUTnyA?si=aQ2cv_U9U-YrAw_r"
             title="YouTube video player"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -490,7 +527,7 @@
           <iframe
             width="560"
             height="315"
-            data-src="https://www.youtube.com/embed/qXkik8oNXzQ?si=CDeV2LThcOHWQafp"
+            data-src="https://www.youtube-nocookie.com/embed/qXkik8oNXzQ?si=CDeV2LThcOHWQafp"
             title="YouTube video player"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -502,7 +539,7 @@
           <iframe
             width="560"
             height="315"
-            data-src="https://www.youtube.com/embed/SK1uhC8Coq0?si=n4IikowehkYWJTA4"
+            data-src="https://www.youtube-nocookie.com/embed/SK1uhC8Coq0?si=n4IikowehkYWJTA4"
             title="YouTube video player"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -514,7 +551,7 @@
           <iframe
             width="560"
             height="315"
-            data-src="https://www.youtube.com/embed/l_xxqrWyfNA?si=ozx3WKSRGWyO7gq_"
+            data-src="https://www.youtube-nocookie.com/embed/l_xxqrWyfNA?si=ozx3WKSRGWyO7gq_"
             title="YouTube video player"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -526,7 +563,7 @@
           <iframe
             width="560"
             height="315"
-            data-src="https://www.youtube.com/embed/4eTtLG6INeg?si=2WUpByuHthemT8rW"
+            data-src="https://www.youtube-nocookie.com/embed/4eTtLG6INeg?si=2WUpByuHthemT8rW"
             title="YouTube video player"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -538,7 +575,7 @@
           <iframe
             width="560"
             height="315"
-            data-src="https://www.youtube.com/embed/JDOjRJ1TomI?si=lC56CL53cqKU3doV"
+            data-src="https://www.youtube-nocookie.com/embed/JDOjRJ1TomI?si=lC56CL53cqKU3doV"
             title="YouTube video player"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -550,7 +587,7 @@
           <iframe
             width="560"
             height="315"
-            data-src="https://www.youtube.com/embed/GA6XJbrqx3U?si=sE4VaQ9zSkmR_eZ_"
+            data-src="https://www.youtube-nocookie.com/embed/GA6XJbrqx3U?si=sE4VaQ9zSkmR_eZ_"
             title="YouTube video player"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -562,7 +599,7 @@
           <iframe
             width="560"
             height="315"
-            data-src="https://www.youtube.com/embed/5DNNwE7r3tU?si=0pTdYfxQGBJPavMo"
+            data-src="https://www.youtube-nocookie.com/embed/5DNNwE7r3tU?si=0pTdYfxQGBJPavMo"
             title="YouTube video player"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -574,7 +611,7 @@
           <iframe
             width="560"
             height="315"
-            data-src="https://www.youtube.com/embed/K9VTLOlPHIM?si=I5GuknaRqQ1z9zEX"
+            data-src="https://www.youtube-nocookie.com/embed/K9VTLOlPHIM?si=I5GuknaRqQ1z9zEX"
             title="YouTube video player"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -586,7 +623,7 @@
           <iframe
             width="560"
             height="315"
-            data-src="https://www.youtube.com/embed/JLbzbqykfEE?si=awhbuwcD-uYj3_w5"
+            data-src="https://www.youtube-nocookie.com/embed/JLbzbqykfEE?si=awhbuwcD-uYj3_w5"
             title="YouTube video player"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -594,38 +631,36 @@
             allowfullscreen
             class="lazy-iframe"
           ></iframe>
-
-          <script>
-            document.addEventListener("DOMContentLoaded", function () {
-              const lazyIframes =
-                document.querySelectorAll("iframe.lazy-iframe");
-
-              lazyIframes.forEach((iframe) => {
-                if ("loading" in iframe) {
-                  iframe.setAttribute("loading", "lazy");
-                  iframe.setAttribute("src", iframe.getAttribute("data-src"));
-                } else {
-                  const observer = new IntersectionObserver(
-                    (entries, observer) => {
-                      entries.forEach((entry) => {
-                        if (entry.isIntersecting) {
-                          iframe.setAttribute(
-                            "src",
-                            iframe.getAttribute("data-src")
-                          );
-                          observer.unobserve(entry.target);
-                        }
-                      });
-                    }
-                  );
-                  observer.observe(iframe);
-                }
-              });
-            });
-          </script>
         </div>
       </div>
     </section>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const lazyIframes = document.querySelectorAll("iframe.lazy-iframe");
+
+        lazyIframes.forEach((iframe) => {
+          // Native lazy loading support
+          if ("loading" in iframe) {
+            iframe.setAttribute("loading", "lazy");
+            iframe.setAttribute("src", iframe.getAttribute("data-src"));
+          } else {
+            // Fallback for browsers without native lazy-loading
+            const observer = new IntersectionObserver((entries, observer) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  entry.target.setAttribute(
+                    "src",
+                    entry.target.getAttribute("data-src")
+                  );
+                  observer.unobserve(entry.target);
+                }
+              });
+            });
+            observer.observe(iframe);
+          }
+        });
+      });
+    </script>
 
     <!--Footer section-->
     <footer>
