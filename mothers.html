@@ -37,34 +37,93 @@
         playsinline
         preload="auto"
         id="cloudVideo"
+        poster="/assets/images/fallback-poster.jpg"
+        <!--
+        Optional
+        fallback
+        poster
+        image
+        --
       >
+        >
+        <!-- Video sources for mobile and desktop -->
+        <source
+          src="/assets/videos/Cloud-Large-Optimized.mp4"
+          type="video/mp4"
+          media="(min-width: 481px)"
+        />
+        <source
+          src="/assets/videos/Clouds-Bg-Mobile-optimized.mp4"
+          type="video/mp4"
+          media="(max-width: 480px)"
+        />
         Your browser does not support the video tag.
       </video>
     </div>
 
-    <script>
-      function updateVideoSource() {
-        const videoElement = document.getElementById("cloudVideo");
-        let videoSource;
-
-        // Check screen width to determine the appropriate video source
-        if (window.innerWidth <= 480) {
-          videoSource = "/assets/videos/Clouds-Bg-Mobile-optimized.mp4"; // Mobile video
-        } else {
-          videoSource = "/assets/videos/Cloud Heaven Copyrights Free Video.mp4"; // Desktop video
-        }
-
-        // Check if the source needs to be updated to prevent redundant loading
-        if (videoElement.getAttribute("src") !== videoSource) {
-          videoElement.setAttribute("src", videoSource);
-          videoElement.load(); // Reload the video with the new source
-          videoElement.play(); // Autoplay the video
-        }
+    <!-- Styles for fallback in case video fails to load -->
+    <style>
+      .background-vid {
+        position: relative;
+        width: 100%;
+        height: 100vh; /* Full-screen video */
+        background-color: white; /* Fallback background color */
       }
 
-      // Call the function on page load and when the window is resized
-      window.addEventListener("load", updateVideoSource);
-      window.addEventListener("resize", updateVideoSource);
+      .background-video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+      }
+
+      /* Fallback for when the video is not loaded */
+      .no-video .background-vid {
+        background-color: white; /* White fallback background */
+      }
+    </style>
+
+    <script>
+      // JavaScript to handle fallbacks and video source updates
+      document.addEventListener("DOMContentLoaded", function () {
+        const videoElement = document.getElementById("cloudVideo");
+
+        // Fallback for video load failure
+        videoElement.onerror = function () {
+          document.body.classList.add("no-video");
+        };
+
+        // Video source update based on screen width
+        function updateVideoSource() {
+          const videoSources = videoElement.getElementsByTagName("source");
+          let needsUpdate = false;
+
+          for (let i = 0; i < videoSources.length; i++) {
+            const mediaCondition = videoSources[i].media;
+            const matchesMedia = window.matchMedia(mediaCondition).matches;
+
+            if (matchesMedia) {
+              if (videoElement.getAttribute("src") !== videoSources[i].src) {
+                videoElement.setAttribute("src", videoSources[i].src);
+                needsUpdate = true;
+              }
+              break;
+            }
+          }
+
+          // Reload video if source was updated
+          if (needsUpdate) {
+            videoElement.load(); // Reload video with new source
+          }
+        }
+
+        // Call the function on page load and window resize
+        updateVideoSource();
+        window.addEventListener("resize", updateVideoSource);
+      });
     </script>
 
     <!-- Mothers navbar section -->
@@ -86,7 +145,7 @@
           <ul>
             <li><a href="home.html">Home</a></li>
             <li><a href="about.html">About</a></li>
-            <li><a href="live.html">Services</a></li>
+            <li><a href="services.html">Services</a></li>
             <li><a href="events.html">Events</a></li>
             <li><a href="contact.html">Contact</a></li>
             <li><a href="donation.html">Donate</a></li>
@@ -108,7 +167,7 @@
           <ul>
             <li><a href="home.html">Home</a></li>
             <li><a href="about.html">About</a></li>
-            <li><a href="live.html">Services</a></li>
+            <li><a href="services.html">Services</a></li>
             <li><a href="events.html">Events</a></li>
             <li><a href="contact.html">Contact</a></li>
             <li><a href="donation.html">Donate</a></li>
