@@ -208,8 +208,4 @@ body {
       )
       translateZ(180px);
   }
-
-  .slider-item img {
-    pointer-events: none;
-  }
 }
