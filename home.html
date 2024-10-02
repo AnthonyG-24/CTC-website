@@ -126,24 +126,24 @@
               playsinline
               preload="auto"
             >
-              <!-- Video sources, dynamically updated with cache busting -->
-              <source
-                src="assets/videos/CTC-largeScreens-homeBG.mp4?v=1"
-                type="video/mp4"
-                id="videoSource"
-              />
-              Your browser does not support the video tag.
+              <!-- The video source will be dynamically updated -->
             </video>
 
             <!-- Fallback image (poster) -->
             <div
               id="videoFallback"
-              style="display: none; width: 100%; height: 100vh"
+              style="
+                display: none;
+                width: 100%;
+                height: 100vh;
+                background-color: white;
+              "
             >
               <img
                 src="assets/CTChurch_PFP.jpg"
                 alt="Fallback image"
                 class="fallback-img"
+                style="width: 100%; height: auto"
               />
             </div>
           </div>
@@ -167,53 +167,44 @@
         </div>
       </div>
     </section>
-
     <script>
       function updateVideoSource() {
         const videoElement = document.getElementById("video-background");
-        const videoSource = document.getElementById("videoSource");
-
-        // Get timestamp for cache busting
-        const cacheBuster = `?v=${new Date().getTime()}`;
-
-        // Determine appropriate video source based on screen size
-        if (window.innerWidth <= 480) {
-          videoSource.src = `assets/videos/CTC-Mobile-optimized.mp4${cacheBuster}`; // Mobile video
-        } else {
-          videoSource.src = `assets/videos/CTC-largeScreens-homeBG.mp4${cacheBuster}`; // Desktop video
-        }
-
-        // Load the new video source
-        videoElement.load();
-      }
-
-      window.addEventListener("load", () => {
-        const videoElement = document.getElementById("video-background");
         const fallbackImage = document.getElementById("videoFallback");
 
-        // Reset visibility: show the video, hide the fallback on page load
-        videoElement.style.display = "block";
-        fallbackImage.style.display = "none";
+        // Determine the correct video source based on screen width
+        let videoSource;
+        if (window.innerWidth <= 480) {
+          videoSource =
+            "assets/videos/CTC-Mobile-optimized.mp4?v=" + new Date().getTime(); // Mobile optimized video
+        } else {
+          videoSource =
+            "assets/videos/CTC-largeScreens-homeBG.mp4?v=" +
+            new Date().getTime(); // Desktop video
+        }
 
-        // Try to autoplay the video
-        videoElement
-          .play()
-          .then(() => {
-            // Video successfully plays, hide fallback
-            fallbackImage.style.display = "none";
-          })
-          .catch((error) => {
-            console.log("Autoplay blocked, showing fallback image:", error);
+        // Only update if the source has changed to avoid reloading unnecessarily
+        if (videoElement.src !== videoSource) {
+          videoElement.src = videoSource;
+          videoElement.load();
+          videoElement
+            .play()
+            .then(() => {
+              // Video successfully plays, hide the fallback
+              videoElement.style.display = "block";
+              fallbackImage.style.display = "none";
+            })
+            .catch((error) => {
+              console.log("Autoplay blocked, showing fallback image:", error);
 
-            // If autoplay fails, show the fallback image
-            videoElement.style.display = "none";
-            fallbackImage.style.display = "block";
-          });
+              // If autoplay fails, hide the video and show the fallback image
+              videoElement.style.display = "none";
+              fallbackImage.style.display = "block";
+            });
+        }
+      }
 
-        // Ensure the correct video source is loaded based on screen size
-        updateVideoSource();
-      });
-
+      window.addEventListener("load", updateVideoSource);
       window.addEventListener("resize", () => {
         clearTimeout(window.resizeTimeout);
         window.resizeTimeout = setTimeout(updateVideoSource, 200);
