@@ -86,25 +86,36 @@
   }
 }
 
-@media (max-width: 1024px) {
-  .cal {
-    height: 550px;
-    width: 100%;
+@media (min-width: 769px) and (max-width: 1024px) {
+  .full-calendar-container {
+    display: block;
   }
 
-  .event-item {
-    font-size: 24px;
+  .cal {
+    height: 600px;
+    width: 100%;
   }
 }
 
 @media (max-width: 768px) {
+  .full-calendar-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+  }
+
+  .cal {
+    height: 500px;
+    flex: 1;
+  }
+
   .calendar-section {
     padding: 15px;
   }
 
-  .cal {
-    height: 300px;
-    width: 100%;
+  .full-calendar-container {
+    width: 600px;
   }
 
   .upcoming-events-calendar h2 {
@@ -128,7 +139,8 @@
   }
 
   .full-calendar-container {
-    padding: 5px;
+    padding: 3px;
+    width: 400px;
   }
 
   .cal {
@@ -157,5 +169,16 @@
 
   .event-time {
     margin-top: 2px;
+  }
+}
+
+@media (max-width: 480px) {
+  .full-calendar-container {
+    padding: 3px;
+    width: 300px;
+  }
+
+  .cal {
+    width: 100%;
   }
 }
