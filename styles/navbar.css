@@ -1,0 +1,111 @@
+/* General Navbar Styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 40px;
+}
+
+.img-area img {
+  width: 100px;
+  object-fit: contain;
+  margin-top: 20px;
+}
+
+.main-nav {
+  list-style-type: none;
+  display: flex;
+  gap: 10px;
+}
+
+.nav-item {
+  position: relative;
+}
+
+.nav-item a {
+  color: black;
+  text-decoration: none;
+  padding: 10px 20px;
+  font-family: "Arial", sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+  letter-spacing: 0.05em;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.nav-item a:hover {
+  background-color: #444444;
+  border-radius: 5px;
+}
+
+/* Dropdown Styles */
+.nav-item .dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #444444;
+  list-style: none;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  border-radius: 5px;
+}
+
+.nav-item:hover .dropdown {
+  display: block;
+}
+
+.dropdown.active {
+  display: block;
+}
+
+.dropdown li {
+  margin: 5px 0;
+}
+
+.dropdown li a {
+  color: #f5f5f5;
+  padding: 5px 15px;
+  display: block;
+  font-size: 14px;
+  text-align: left;
+  transition: background-color 0.3s ease;
+}
+
+.dropdown li a:hover {
+  background-color: royalblue;
+  color: #ffffff;
+  border-radius: 3px;
+}
+
+/* Hamburger Menu for Mobile */
+.hamburger {
+  display: none;
+}
+
+/* Media Query for screens up to 1024px (mobile and tablets) */
+@media (max-width: 1024px) {
+  .hamburger {
+    display: block;
+  }
+
+  .menu.active {
+    display: block;
+  }
+
+  .menu ul {
+    list-style: none;
+    padding: 0;
+    background-color: #333333;
+  }
+
+  .menu ul li {
+    padding: 10px;
+  }
+
+  .menu ul li a {
+    color: white;
+    text-decoration: none;
+  }
+}

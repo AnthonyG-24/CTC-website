@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CTC Forum</title>
+    <link rel="icon" type="image/jpg" href="assets/ctcooljc-noBG.png" />
+    <style>
+      .faq-container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto; /* Center the container */
+      }
+
+      .faq {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .question {
+        cursor: pointer;
+        padding: 15px;
+        background-color: #f1f1f1;
+        border: 1px solid #ccc;
+        margin-bottom: 5px;
+        font-size: 18px;
+        border-radius: 5px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .question::after {
+        content: "+";
+        font-weight: bold;
+      }
+
+      .active-question::after {
+        content: "-";
+      }
+
+      .answer {
+        padding: 15px;
+        background-color: #e7e7e7;
+        border-left: 4px solid #ccc;
+        display: none; /* Initially hidden */
+        margin-bottom: 10px;
+        font-size: 16px;
+        border-radius: 5px;
+      }
+
+      .active {
+        display: block; /* Display the answer when active */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="faq-container">
+      <h1>CTC Forum</h1>
+
+      <div class="faq">
+        <!-- First question -->
+        <div class="question">Is wearing pants a sin?</div>
+        <div class="answer">
+          The answer is yes... and because... (Provide the detailed answer
+          here).
+        </div>
+
+        <!-- Second question -->
+        <div class="question">Can I eat pork?</div>
+        <div class="answer">
+          The answer is no... and because... (Provide the detailed answer here).
+        </div>
+
+        <!-- Third question -->
+        <div class="question">Is dancing allowed in church?</div>
+        <div class="answer">
+          The answer is yes... and because... (Provide the detailed answer
+          here).
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // JavaScript to handle the collapsible behavior
+      const questions = document.querySelectorAll(".question");
+
+      questions.forEach((question) => {
+        question.addEventListener("click", () => {
+          const answer = question.nextElementSibling;
+
+          // Toggle the 'active' class for the answer
+          answer.classList.toggle("active");
+
+          // Toggle the 'active-question' class for the question
+          question.classList.toggle("active-question");
+        });
+      });
+    </script>
+  </body>
+</html>

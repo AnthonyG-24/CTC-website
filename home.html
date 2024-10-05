@@ -8,7 +8,6 @@
     <link rel="icon" type="image/jpg" href="assets/ctcooljc-noBG.png" />
 
     <link rel="stylesheet" href="styles/general.css" />
-    <link rel="stylesheet" href="styles/home/header.css" />
     <link rel="stylesheet" href="styles/home/hero.css" />
     <link rel="stylesheet" href="styles/home/orderOfService.css" />
     <link rel="stylesheet" href="styles/footer.css" />
@@ -40,75 +39,12 @@
   </head>
   <body>
     <!-- Navbar section -->
-    <header class="header-section">
-      <nav class="navbar">
-        <div class="left-nav">
-          <div class="img-area">
-            <a href="index.html">
-              <img
-                class="church-logo"
-                src="/assets/ctcooljc-noBG.png"
-                alt="church-logo"
-              />
-            </a>
-          </div>
-        </div>
-
-        <div class="right-nav">
-          <ul>
-            <li><a href="about.html">About</a></li>
-            <li><a href="mothers.html">Mothers</a></li>
-            <li><a href="live.html">Services</a></li>
-            <li><a href="events.html">Events</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="donation.html">Donate</a></li>
-          </ul>
-        </div>
-
-        <div class="hamburger">
-          <button id="bTn">
-            <img
-              class="hamburger-icon"
-              src="/assets/icons/hamburger.png"
-              alt="hamburger-icon"
-            />
-          </button>
-        </div>
-
-        <div id="menu" class="menu">
-          <button id="closeMenu" class="close-menu">&times;</button>
-          <ul>
-            <li><a href="about.html">About</a></li>
-            <li><a href="mothers.html">Mothers</a></li>
-            <li><a href="live.html">Services</a></li>
-            <li><a href="events.html">Events</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="donation.html">Donate</a></li>
-          </ul>
-        </div>
-      </nav>
-    </header>
+    <div id="navbar-container"></div>
     <script>
-      document.getElementById("bTn").addEventListener("click", function () {
-        document.getElementById("menu").classList.toggle("active");
-      });
-
-      document.addEventListener("click", function (event) {
-        const menu = document.getElementById("menu");
-        const menuButton = document.getElementById("bTn");
-
-        if (
-          !menu.contains(event.target) &&
-          !menuButton.contains(event.target)
-        ) {
-          menu.classList.remove("active");
-        }
-      });
-
-      document
-        .getElementById("closeMenu")
-        .addEventListener("click", function () {
-          document.getElementById("menu").classList.remove("active");
+      fetch("navbar.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("navbar-container").innerHTML = data;
         });
     </script>
 

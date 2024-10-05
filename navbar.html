@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/navbar.css" />
+  </head>
+  <body>
+    <!-- navbar.html -->
+    <header class="header-section">
+      <nav class="navbar">
+        <div class="left-nav">
+          <div class="img-area">
+            <a href="home.html">
+              <img
+                class="church-logo"
+                src="/assets/ctcooljc-noBG.png"
+                alt="church-logo"
+              />
+            </a>
+          </div>
+        </div>
+
+        <div class="right-nav">
+          <ul class="main-nav">
+            <li class="nav-item">
+              <a href="index.html">Home</a>
+            </li>
+            <li class="nav-item no-click" id="about-item">
+              <a href="about.html" id="about-link">About</a>
+              <ul class="dropdown" id="about-dropdown">
+                <li><a href="our-story.html">Our Story</a></li>
+                <li><a href="church-family.html">Church Family</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="live.html">Services</a>
+              <ul class="dropdown">
+                <li><a href="baptisms.html">Baptisms</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="mothers.html">Mothers</a>
+            </li>
+            <li class="nav-item">
+              <a href="events.html">Events</a>
+            </li>
+            <li class="nav-item">
+              <a href="contact.html">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a href="donation.html">Donate</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="hamburger">
+          <button id="bTn">
+            <img
+              class="hamburger-icon"
+              src="/assets/icons/hamburger.png"
+              alt="hamburger-icon"
+            />
+          </button>
+        </div>
+
+        <div id="menu" class="menu">
+          <button id="closeMenu" class="close-menu">&times;</button>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="mothers.html">Mothers</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="donation.html">Donate</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <!-- JavaScript to handle the dropdown for mobile and tablets (1024px and lower) -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var aboutItem = document.getElementById("about-item");
+        var aboutLink = document.getElementById("about-link");
+        var aboutDropdown = document.getElementById("about-dropdown");
+        var isDropdownOpen = false;
+
+        aboutLink.addEventListener("click", function (event) {
+          // Check screen width for 1024px and lower
+          if (window.innerWidth <= 1024) {
+            event.preventDefault(); // Prevent default navigation
+
+            if (!isDropdownOpen) {
+              // First tap - show dropdown
+              aboutDropdown.classList.add("active");
+              isDropdownOpen = true;
+            } else {
+              // Second tap - navigate to about.html
+              window.location.href = aboutLink.getAttribute("href");
+            }
+          }
+        });
+
+        // Close dropdown if clicked outside (optional feature)
+        document.addEventListener("click", function (event) {
+          if (!aboutItem.contains(event.target) && isDropdownOpen) {
+            aboutDropdown.classList.remove("active");
+            isDropdownOpen = false;
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
