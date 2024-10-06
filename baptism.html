@@ -191,7 +191,12 @@
 
         <!-- Email field (not required initially) -->
         <label for="email">Email:</label>
-        <input type="email" id="email" name="email" />
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Enter your email"
+        />
 
         <!-- Phone field (not required initially) -->
         <label for="phone">Phone Number:</label>
@@ -205,27 +210,6 @@
         <!-- Preferred Baptism Date field -->
         <label for="baptism_date">Preferred Baptism Date:</label>
         <input type="date" id="baptism_date" name="baptism_date" required />
-
-        <!-- Preferred Contact Method field -->
-        <label>Preferred Contact Method:</label>
-        <div class="radio-group">
-          <input
-            type="radio"
-            id="contact-email"
-            name="contact_preference"
-            value="email"
-            checked
-          />
-          <label for="contact-email">Email</label>
-
-          <input
-            type="radio"
-            id="contact-phone"
-            name="contact_preference"
-            value="phone"
-          />
-          <label for="contact-phone">Phone</label>
-        </div>
 
         <!-- Submit button -->
         <button type="submit">Submit</button>
@@ -243,14 +227,13 @@
       >
         Thank you! Your baptism sign-up has been received.
         <br />
-        We will contact you via your preferred method:
-        <span id="contactMethod"></span>.
+        We will contact you via the details you provided.
       </p>
 
       <!-- Reassurance Note -->
       <p style="margin-top: 20px; color: #333; font-size: 14px">
-        Your information is secure, and we will contact you via your preferred
-        method (email or phone). Thank you for taking this important step.
+        Your information is secure, and we will contact you via the contact
+        details provided. Thank you for taking this important step.
       </p>
 
       <script>
@@ -262,9 +245,6 @@
 
             const emailInput = document.getElementById("email");
             const phoneInput = document.getElementById("phone");
-            const contactPreference = document.querySelector(
-              'input[name="contact_preference"]:checked'
-            ).value;
 
             const emailValue = emailInput.value.trim();
             const phoneValue = phoneInput.value.trim();
@@ -285,17 +265,15 @@
               return;
             }
 
-            // Prepare FormData and remove the unchosen method
+            // Prepare FormData and remove the empty field (email or phone)
             const formData = new FormData(this);
 
-            if (contactPreference === "email") {
-              // Remove phone data if email is preferred
-              formData.delete("phone");
-              phoneInput.value = ""; // Clear phone input field
-            } else if (contactPreference === "phone") {
-              // Remove email data if phone is preferred
-              formData.delete("email");
-              emailInput.value = ""; // Clear email input field
+            if (!emailValue) {
+              formData.delete("email"); // If email is empty, don't submit it
+            }
+
+            if (!phoneValue) {
+              formData.delete("phone"); // If phone is empty, don't submit it
             }
 
             // Show the loading spinner
@@ -315,9 +293,6 @@
                   // Show the confirmation message
                   document.getElementById("confirmationMessage").style.display =
                     "block";
-                  document.getElementById("contactMethod").textContent =
-                    contactPreference.charAt(0).toUpperCase() +
-                    contactPreference.slice(1);
                 } else {
                   alert(
                     "There was a problem submitting the form. Please try again."
