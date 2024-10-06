@@ -193,26 +193,47 @@
       ></script>
 
       <script type="text/javascript">
-        // Initialize EmailJS with your private key
+        // Initialize EmailJS with your Public Key (formerly called User ID)
         (function () {
-          emailjs.init("F7owXpTZp5XubD5pT_Z45"); // Replace with your actual private key from EmailJS dashboard
+          emailjs.init("Ie8rIluNC_9-VCw4e"); // Replace with your actual EmailJS Public Key
         })();
 
-        // Handle the form submission
+        // Handle form submission
         document
           .getElementById("baptismForm")
-          .addEventListener("submit", function (event) {
+          .addEventListener("submit", async function (event) {
             event.preventDefault(); // Prevent default form submission
 
-            // Send form data via EmailJS
-            emailjs.sendForm("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", this).then(
-              function (response) {
+            // Gather form data
+            const formData = {
+              name: document.getElementById("name").value,
+              email: document.getElementById("email").value,
+              baptism_date: document.getElementById("date").value,
+            };
+
+            try {
+              // Send form data via EmailJS
+              const response = await emailjs.send(
+                "service_egccooj", // Your EmailJS service ID
+                "template_99ux85i", // Your EmailJS template ID
+                {
+                  name: formData.name,
+                  email: formData.email,
+                  baptism_date: formData.baptism_date,
+                }
+              );
+
+              // Check for successful response
+              console.log("EmailJS response:", response);
+              if (response.status === 200) {
                 alert("Form submitted successfully!");
-              },
-              function (error) {
+              } else {
                 alert("Failed to send form. Please try again.");
               }
-            );
+            } catch (error) {
+              alert("Error submitting the form. Please try again.");
+              console.error("Error details:", error);
+            }
           });
       </script>
     </section>
@@ -236,4 +257,5 @@
       </div>
     </footer>
   </body>
+  <script src="js/server.js" type="module"></script>
 </html>
