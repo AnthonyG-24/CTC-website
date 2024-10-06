@@ -2,18 +2,26 @@ const emailjs = require("emailjs-com");
 
 exports.handler = async function (event) {
   try {
-    // Log the incoming request body to inspect the data
-    console.log("Request body:", event.body);
-
     const { name, email, baptism_date } = JSON.parse(event.body || "{}");
 
-    // If any of the required fields are missing, return an error
+    // Log the incoming data to verify it's correct
+    console.log("Form Data:", { name, email, baptism_date });
+
+    // Check if the form data was received, if not, return an error
     if (!name || !email || !baptism_date) {
       return {
         statusCode: 400,
+        headers: {
+          "Access-Control-Allow-Origin": "*", // CORS header
+          "Access-Control-Allow-Headers": "Content-Type",
+          "Access-Control-Allow-Methods": "POST, OPTIONS", // Allow POST requests
+        },
         body: JSON.stringify({ error: "Missing form data." }),
       };
     }
+
+    // Optionally initialize EmailJS if required
+    // emailjs.init(process.env.EMAILJS_PUBLIC_KEY); // Uncomment if needed
 
     // Send email via EmailJS
     const response = await emailjs.send(
@@ -26,8 +34,9 @@ exports.handler = async function (event) {
     return {
       statusCode: 200,
       headers: {
-        "Access-Control-Allow-Origin": "*", // Allow all origins
+        "Access-Control-Allow-Origin": "*", // CORS header
         "Access-Control-Allow-Headers": "Content-Type",
+        "Access-Control-Allow-Methods": "POST, OPTIONS",
       },
       body: JSON.stringify({ message: "Email sent successfully!" }),
     };
@@ -35,8 +44,15 @@ exports.handler = async function (event) {
     console.error("Error sending email via EmailJS:", error);
     return {
       statusCode: 500,
-
-      body: JSON.stringify({ error: "Failed to send email." }),
+      headers: {
+        "Access-Control-Allow-Origin": "*", // CORS header
+        "Access-Control-Allow-Headers": "Content-Type",
+        "Access-Control-Allow-Methods": "POST, OPTIONS",
+      },
+      body: JSON.stringify({
+        error: "Failed to send email.",
+        details: error.message, // Include the detailed error
+      }),
     };
   }
 };
