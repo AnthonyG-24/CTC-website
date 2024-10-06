@@ -173,7 +173,7 @@
       </div>
     </section>
 
-    <!--Signup section-->
+    <!-- Signup section -->
     <section class="signup-section">
       <h1>
         If you wish to be baptized and take this meaningful step in your
@@ -189,13 +189,18 @@
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" required />
 
-        <!-- Email field -->
+        <!-- Email field (not required initially) -->
         <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required />
+        <input type="email" id="email" name="email" />
 
-        <!-- Phone field -->
+        <!-- Phone field (not required initially) -->
         <label for="phone">Phone Number:</label>
-        <input type="tel" id="phone" name="phone" required />
+        <input
+          type="tel"
+          id="phone"
+          name="phone"
+          placeholder="123-456-7890 or 1234567890"
+        />
 
         <!-- Preferred Baptism Date field -->
         <label for="baptism_date">Preferred Baptism Date:</label>
@@ -249,48 +254,50 @@
       </p>
 
       <script>
-        // Real-time Validation
-        document
-          .getElementById("baptismForm")
-          .addEventListener("input", function (event) {
-            const emailInput = document.getElementById("email");
-            const phoneInput = document.getElementById("phone");
-
-            // Validate Email
-            if (emailInput.validity.typeMismatch) {
-              emailInput.setCustomValidity(
-                "Please enter a valid email address."
-              );
-            } else {
-              emailInput.setCustomValidity("");
-            }
-
-            // Validate Phone Number
-            if (!phoneInput.value.match(/[0-9]{3}-[0-9]{3}-[0-9]{4}/)) {
-              phoneInput.setCustomValidity(
-                "Phone number must be in the format: 123-456-7890."
-              );
-            } else {
-              phoneInput.setCustomValidity("");
-            }
-          });
-
-        // Form Submission
+        // Form Submission with custom handling
         document
           .getElementById("baptismForm")
           .addEventListener("submit", function (event) {
             event.preventDefault(); // Prevent page reload
 
-            // Show the loading spinner
-            document.getElementById("loadingSpinner").style.display = "block";
-
-            // Get the preferred contact method
+            const emailInput = document.getElementById("email");
+            const phoneInput = document.getElementById("phone");
             const contactPreference = document.querySelector(
               'input[name="contact_preference"]:checked'
             ).value;
 
-            // Gather form data
+            const emailValue = emailInput.value.trim();
+            const phoneValue = phoneInput.value.trim();
+            const phonePattern = /^(\d{3}-\d{3}-\d{4}|\d{10})$/;
+
+            // Ensure at least one field is filled (email or phone)
+            if (!emailValue && !phoneValue) {
+              alert("Please enter either an email or phone number.");
+              return;
+            }
+
+            // Validate phone format (with or without dashes)
+            if (phoneValue && !phonePattern.test(phoneValue)) {
+              phoneInput.setCustomValidity(
+                "Phone number must be 10 digits, with or without dashes."
+              );
+              phoneInput.reportValidity();
+              return;
+            }
+
+            // Prepare FormData and remove the unchosen method
             const formData = new FormData(this);
+
+            if (contactPreference === "email") {
+              // Remove phone data if email is preferred
+              formData.delete("phone");
+            } else if (contactPreference === "phone") {
+              // Remove email data if phone is preferred
+              formData.delete("email");
+            }
+
+            // Show the loading spinner
+            document.getElementById("loadingSpinner").style.display = "block";
 
             // Simulate form submission using Netlify
             fetch("/", {
@@ -303,20 +310,12 @@
                 if (response.ok) {
                   // Hide the form
                   document.getElementById("baptismForm").style.display = "none";
-                  // Show the confirmation message with animation
+                  // Show the confirmation message
                   document.getElementById("confirmationMessage").style.display =
                     "block";
-                  document.getElementById(
-                    "confirmationMessage"
-                  ).style.opacity = 0;
                   document.getElementById("contactMethod").textContent =
                     contactPreference.charAt(0).toUpperCase() +
                     contactPreference.slice(1);
-                  setTimeout(() => {
-                    document.getElementById(
-                      "confirmationMessage"
-                    ).style.opacity = 1;
-                  }, 0);
                 } else {
                   alert(
                     "There was a problem submitting the form. Please try again."
