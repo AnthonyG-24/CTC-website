@@ -207,7 +207,7 @@
             };
 
             // Send form data to the serverless function
-            fetch("/.netlify/functions/send-email.js", {
+            fetch("/netlify/functions/send-email", {
               method: "POST",
               headers: {
                 "Content-Type": "application/json",
