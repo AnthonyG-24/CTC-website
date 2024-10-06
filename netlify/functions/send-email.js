@@ -2,16 +2,15 @@ const emailjs = require("emailjs-com");
 
 exports.handler = async function (event) {
   try {
+    // Log the incoming request body to inspect the data
+    console.log("Request body:", event.body);
+
     const { name, email, baptism_date } = JSON.parse(event.body || "{}");
 
-    // Check if the form data was received, if not, return an error
+    // If any of the required fields are missing, return an error
     if (!name || !email || !baptism_date) {
       return {
         statusCode: 400,
-        headers: {
-          "Access-Control-Allow-Origin": "*", // CORS header
-          "Access-Control-Allow-Headers": "Content-Type",
-        },
         body: JSON.stringify({ error: "Missing form data." }),
       };
     }
@@ -27,7 +26,7 @@ exports.handler = async function (event) {
     return {
       statusCode: 200,
       headers: {
-        "Access-Control-Allow-Origin": "*", // CORS header
+        "Access-Control-Allow-Origin": "*", // Allow all origins
         "Access-Control-Allow-Headers": "Content-Type",
       },
       body: JSON.stringify({ message: "Email sent successfully!" }),
@@ -36,10 +35,7 @@ exports.handler = async function (event) {
     console.error("Error sending email via EmailJS:", error);
     return {
       statusCode: 500,
-      headers: {
-        "Access-Control-Allow-Origin": "*", // CORS header
-        "Access-Control-Allow-Headers": "Content-Type",
-      },
+
       body: JSON.stringify({ error: "Failed to send email." }),
     };
   }
