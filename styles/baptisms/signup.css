@@ -19,7 +19,7 @@ body {
 
 /* Main Heading */
 h1 {
-  font-size: 28px;
+  font-size: 22px;
   background: linear-gradient(90deg, #ff9a9e, #fad0c4);
   color: transparent;
   background-clip: text;
@@ -102,6 +102,14 @@ button[type="submit"] {
 button[type="submit"]:hover {
   background: linear-gradient(90deg, #ff512f, #dd2476);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+h3 {
+  font-size: 24px;
+  margin-bottom: 30px;
+  color: royalblue;
+  text-transform: uppercase;
+  text-decoration: underline;
 }
 
 /* Responsive Styles */
