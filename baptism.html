@@ -204,30 +204,31 @@
             console.log("Form Data:", formData);
 
             // Send form data to the serverless function
-            fetch(
-              "https://ctcooljc.netlify.app/.netlify/functions/send-email",
-              {
-                method: "POST",
-                headers: {
-                  "Content-Type": "application/json",
-                },
-                body: JSON.stringify(formData),
-              }
-            )
+            fetch("/.netlify/functions/send-email", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(formData),
+            })
               .then((response) => {
                 if (!response.ok) {
-                  // Handle HTTP errors
-                  throw new Error(`HTTP error! Status: ${response.status}`);
+                  // Handle HTTP errors with detailed message
+                  return response.text().then((errorMessage) => {
+                    throw new Error(
+                      `HTTP error! Status: ${response.status}. Message: ${errorMessage}`
+                    );
+                  });
                 }
-                return response.json();
+                return response.json(); // Continue if response is OK
               })
               .then((data) => {
                 console.log("SUCCESS!", data);
                 alert("Form submitted successfully!");
               })
               .catch((error) => {
-                console.error("FAILED...", error);
-                alert("Failed to send form. Please try again.");
+                console.error("FAILED...", error.message || error);
+                alert(`Failed to send form. Error: ${error.message}`);
               });
           });
       </script>
