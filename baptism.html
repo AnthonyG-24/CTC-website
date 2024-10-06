@@ -184,66 +184,24 @@
       <h3 class="signup-section-title">Sign Up for Baptism</h3>
 
       <!-- Form Section -->
-      <form
-        id="baptismForm"
-        name="baptism"
-        method="POST"
-        data-netlify="true"
-        netlify-honeypot="bot-field"
-      >
-        <!-- Honeypot field for spam protection -->
-        <input type="hidden" name="bot-field" />
-        <input type="hidden" name="form-name" value="baptism" />
-
+      <form id="baptismForm" name="baptism" method="POST" data-netlify="true">
         <!-- Name field -->
-        <label for="name" aria-label="Enter your full name">Name:</label>
-        <input
-          type="text"
-          id="name"
-          name="name"
-          required
-          aria-required="true"
-        />
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required />
 
         <!-- Email field -->
-        <label for="email" aria-label="Enter your email address">Email:</label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          required
-          aria-required="true"
-        />
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required />
 
         <!-- Phone field -->
-        <label for="phone" aria-label="Enter your phone number"
-          >Phone Number:</label
-        >
-        <input
-          type="tel"
-          id="phone"
-          name="phone"
-          required
-          pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-          placeholder="123-456-7890"
-        />
-        <small style="display: block; margin-top: 5px; color: #555">
-          Please enter your phone number in the format: 123-456-7890
-        </small>
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" required />
 
         <!-- Preferred Baptism Date field -->
-        <label for="date" aria-label="Choose your preferred baptism date"
-          >Preferred Baptism Date:</label
-        >
-        <input
-          type="date"
-          id="date"
-          name="baptism_date"
-          required
-          aria-required="true"
-        />
+        <label for="baptism_date">Preferred Baptism Date:</label>
+        <input type="date" id="baptism_date" name="baptism_date" required />
 
-        <!-- Contact Preference field -->
+        <!-- Preferred Contact Method field -->
         <label>Preferred Contact Method:</label>
         <div class="radio-group">
           <input
