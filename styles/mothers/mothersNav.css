@@ -81,7 +81,7 @@
 
 .menu li {
   margin: 15px 0;
-  margin-right: 20px;
+  margin-right: 100px;
 }
 
 .menu a {
@@ -91,9 +91,9 @@
 }
 
 .menu .close-menu {
-  font-size: 26px;
-  margin-right: 50px;
+  font-size: 24px;
   border: none;
+  margin-right: 100px;
   background: none;
   color: #fff;
   cursor: pointer;
@@ -138,5 +138,17 @@
 
   .menu ul {
     margin-left: -70px;
+  }
+
+  .menu .close-menu {
+    font-size: 26px;
+    margin-right: 50px;
+    border: none;
+    background: none;
+    color: #fff;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 50px;
   }
 }
