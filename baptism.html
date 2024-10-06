@@ -248,7 +248,7 @@
 
             const emailValue = emailInput.value.trim();
             const phoneValue = phoneInput.value.trim();
-            const phonePattern = /^(\d{3}-\d{3}-\d{4}|\d{10})$/;
+            const phonePattern = /^[0-9]{3}[- ]?[0-9]{3}[- ]?[0-9]{4}$/;
 
             // Ensure at least one field is filled (email or phone)
             if (!emailValue && !phoneValue) {
@@ -256,57 +256,22 @@
               return;
             }
 
-            // Validate phone format (with or without dashes)
+            // Validate phone format (with or without dashes or spaces)
             if (phoneValue && !phonePattern.test(phoneValue)) {
               phoneInput.setCustomValidity(
-                "Phone number must be 10 digits, with or without dashes."
+                "Phone number must be in the format: 123-456-7890 or 1234567890."
               );
               phoneInput.reportValidity();
               return;
-            }
-
-            // Prepare FormData and remove the empty field (email or phone)
-            const formData = new FormData(this);
-
-            if (!emailValue) {
-              formData.delete("email"); // If email is empty, don't submit it
-            }
-
-            if (!phoneValue) {
-              formData.delete("phone"); // If phone is empty, don't submit it
+            } else {
+              phoneInput.setCustomValidity(""); // Clear custom error if valid
             }
 
             // Show the loading spinner
             document.getElementById("loadingSpinner").style.display = "block";
 
-            // Simulate form submission using Netlify
-            fetch("/", {
-              method: "POST",
-              body: formData,
-            })
-              .then((response) => {
-                document.getElementById("loadingSpinner").style.display =
-                  "none"; // Hide spinner
-                if (response.ok) {
-                  // Hide the form
-                  document.getElementById("baptismForm").style.display = "none";
-                  // Show the confirmation message
-                  document.getElementById("confirmationMessage").style.display =
-                    "block";
-                } else {
-                  alert(
-                    "There was a problem submitting the form. Please try again."
-                  );
-                }
-              })
-              .catch((error) => {
-                document.getElementById("loadingSpinner").style.display =
-                  "none"; // Hide spinner
-                console.error("Form submission error:", error);
-                alert(
-                  "There was a problem submitting the form. Please try again."
-                );
-              });
+            // Submit the form using Netlify's default form submission
+            event.target.submit();
           });
       </script>
     </section>
