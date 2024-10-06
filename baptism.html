@@ -176,7 +176,17 @@
       <h3 class="section-title">Sign Up for Baptism</h3>
 
       <!-- Form Section -->
-      <form id="baptismForm" name="baptism" method="POST" data-netlify="true">
+      <form
+        id="baptismForm"
+        name="baptism"
+        method="POST"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+      >
+        <!-- Honeypot field for spam protection -->
+        <input type="hidden" name="bot-field" />
+
+        <!-- Form fields -->
         <input type="hidden" name="form-name" value="baptism" />
 
         <label for="name">Name:</label>
@@ -208,13 +218,11 @@
 
             // Gather form data
             const formData = new FormData(this);
-            const data = new URLSearchParams(formData); // Convert to URL-encoded format
 
-            // Send form data to Netlify (using the action URL)
+            // Send form data directly to Netlify Forms using the form's action attribute
             fetch("/", {
               method: "POST",
-              headers: { "Content-Type": "application/x-www-form-urlencoded" },
-              body: data,
+              body: formData,
             })
               .then((response) => {
                 if (response.ok) {
