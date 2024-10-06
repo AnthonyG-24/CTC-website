@@ -8,6 +8,7 @@
 
     <link rel="stylesheet" href="/styles/general.css" />
     <link rel="stylesheet" href="/styles/baptisms/baptismsNav.css" />
+    <link rel="stylesheet" href="/styles/baptisms/signup.css" />
     <link rel="stylesheet" href="/styles/baptisms/baptisms.css" />
     <link rel="stylesheet" href="/styles/footer.css" />
 
@@ -171,8 +172,15 @@
       </div>
     </section>
 
+    <!--Signup-->
     <section class="signup-section">
-      <h3 class="section-title">Sign Up for Baptism</h3>
+      <h1>
+        If you wish to be baptized and take this meaningful step in your
+        spiritual journey, enter your details below or contact Secretary Sister
+        Shannon Singletary at 843-372-5839
+      </h1>
+
+      <h3 class="signup-section-title">Sign Up for Baptism</h3>
       <form id="baptismForm">
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" required />
@@ -185,23 +193,11 @@
 
         <button type="submit">Submit</button>
       </form>
-
-      <!-- Include the EmailJS SDK -->
-      <script
-        type="text/javascript"
-        src="https://cdn.emailjs.com/dist/email.min.js"
-      ></script>
-
-      <script type="text/javascript">
-        // Initialize EmailJS with your Public Key (formerly called User ID)
-        (function () {
-          emailjs.init("Ie8rIluNC_9-VCw4e"); // Replace with your actual EmailJS Public Key
-        })();
-
-        // Handle form submission
+      <script>
+        // Listen to the form submission
         document
           .getElementById("baptismForm")
-          .addEventListener("submit", async function (event) {
+          .addEventListener("submit", function (event) {
             event.preventDefault(); // Prevent default form submission
 
             // Gather form data
@@ -211,29 +207,23 @@
               baptism_date: document.getElementById("date").value,
             };
 
-            try {
-              // Send form data via EmailJS
-              const response = await emailjs.send(
-                "service_egccooj", // Your EmailJS service ID
-                "template_99ux85i", // Your EmailJS template ID
-                {
-                  name: formData.name,
-                  email: formData.email,
-                  baptism_date: formData.baptism_date,
-                }
-              );
-
-              // Check for successful response
-              console.log("EmailJS response:", response);
-              if (response.status === 200) {
+            // Send form data to Netlify's serverless function
+            fetch("/.netlify/functions/send-email", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(formData),
+            })
+              .then((response) => response.json())
+              .then((data) => {
+                console.log("SUCCESS!", data);
                 alert("Form submitted successfully!");
-              } else {
+              })
+              .catch((error) => {
+                console.error("FAILED...", error);
                 alert("Failed to send form. Please try again.");
-              }
-            } catch (error) {
-              alert("Error submitting the form. Please try again.");
-              console.error("Error details:", error);
-            }
+              });
           });
       </script>
     </section>
@@ -256,6 +246,7 @@
         </div>
       </div>
     </footer>
+
+    <script src="js/script.js" type="module"></script>
   </body>
-  <script src="js/server.js" type="module"></script>
 </html>

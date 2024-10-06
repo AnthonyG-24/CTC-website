@@ -7,6 +7,7 @@ body {
   background-color: white;
   text-align: center;
   width: 100%;
+  border-bottom: 40px solid royalblue;
 }
 
 .baptism-section img {
@@ -347,91 +348,5 @@ body {
   #card-4 img,
   #card-5 img {
     width: 200px;
-  }
-}
-
-.signup-section {
-  background: linear-gradient(135deg, #e2ebf0, #b2c9d9);
-  padding: 2em;
-  border-radius: 10px;
-  max-width: 600px;
-  margin: 2em auto;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-}
-
-.signup-section h3 {
-  text-align: center;
-  font-family: "Alegreya SC", serif;
-  font-size: 2rem;
-  margin-bottom: 1.5em;
-  color: #333;
-}
-
-.signup-section form {
-  display: flex;
-  flex-direction: column;
-}
-
-.signup-section label {
-  font-family: "Alegreya SC", serif;
-  font-size: 1.2rem;
-  margin-bottom: 0.5em;
-  color: #555;
-}
-
-.signup-section input[type="text"],
-.signup-section input[type="email"],
-.signup-section input[type="date"] {
-  padding: 10px;
-  font-size: 1rem;
-  border: 2px solid #b2c9d9;
-  border-radius: 5px;
-  outline: none;
-  transition: border-color 0.3s ease;
-}
-
-.signup-section input[type="text"]:focus,
-.signup-section input[type="email"]:focus,
-.signup-section input[type="date"]:focus {
-  border-color: #005f99;
-}
-
-.signup-section button {
-  margin-top: 1.5em;
-  padding: 12px;
-  background-color: #005f99;
-  color: #fff;
-  font-family: "Anton SC", sans-serif;
-  font-size: 1.2rem;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.signup-section button:hover {
-  background-color: #00487a;
-}
-
-/* Add hover effect for inputs */
-.signup-section input[type="text"]:hover,
-.signup-section input[type="email"]:hover,
-.signup-section input[type="date"]:hover {
-  background-color: #f7f9fa;
-}
-
-/* Animation for the form */
-.signup-section form {
-  animation: fadeInUp 0.6s ease-in-out;
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
   }
 }

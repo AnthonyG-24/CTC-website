@@ -3,6 +3,7 @@
   margin-bottom: 100px;
   position: relative;
   padding: 10px;
+  background: linear-gradient(135deg, #f3f4f6, #e0e7ff);
 }
 
 .bibliography-container {
