@@ -174,7 +174,11 @@
 
     <section class="signup-section">
       <h3 class="section-title">Sign Up for Baptism</h3>
-      <form id="baptismForm">
+
+      <!-- Form Section -->
+      <form id="baptismForm" name="baptism" method="POST" data-netlify="true">
+        <input type="hidden" name="form-name" value="baptism" />
+
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" required />
 
@@ -187,48 +191,49 @@
         <button type="submit">Submit</button>
       </form>
 
+      <!-- Message Section (Initially hidden) -->
+      <p
+        id="confirmationMessage"
+        style="display: none; color: green; font-weight: bold"
+      >
+        Thank you! Your baptism sign-up has been received.
+      </p>
+
       <script>
+        // Listen for the form submission
         document
           .getElementById("baptismForm")
           .addEventListener("submit", function (event) {
-            event.preventDefault(); // Prevent default form submission
+            event.preventDefault(); // Prevent page reload
 
             // Gather form data
-            const formData = {
-              name: document.getElementById("name").value,
-              email: document.getElementById("email").value,
-              baptism_date: document.getElementById("date").value,
-            };
+            const formData = new FormData(this);
+            const data = new URLSearchParams(formData); // Convert to URL-encoded format
 
-            // Log formData to ensure it's being gathered correctly
-            console.log("Form Data:", formData);
-
-            // Send form data to the serverless function
-            fetch("/.netlify/functions/send-email", {
+            // Send form data to Netlify (using the action URL)
+            fetch("/", {
               method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify(formData),
+              headers: { "Content-Type": "application/x-www-form-urlencoded" },
+              body: data,
             })
               .then((response) => {
-                if (!response.ok) {
-                  // Handle HTTP errors with detailed message
-                  return response.text().then((errorMessage) => {
-                    throw new Error(
-                      `HTTP error! Status: ${response.status}. Message: ${errorMessage}`
-                    );
-                  });
+                if (response.ok) {
+                  // Hide the form
+                  document.getElementById("baptismForm").style.display = "none";
+                  // Show the confirmation message
+                  document.getElementById("confirmationMessage").style.display =
+                    "block";
+                } else {
+                  alert(
+                    "There was a problem submitting the form. Please try again."
+                  );
                 }
-                return response.json(); // Continue if response is OK
-              })
-              .then((data) => {
-                console.log("SUCCESS!", data);
-                alert("Form submitted successfully!");
               })
               .catch((error) => {
-                console.error("FAILED...", error.message || error);
-                alert(`Failed to send form. Error: ${error.message}`);
+                console.error("Form submission error:", error);
+                alert(
+                  "There was a problem submitting the form. Please try again."
+                );
               });
           });
       </script>
