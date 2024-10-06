@@ -173,11 +173,6 @@
     </section>
 
     <section class="signup-section">
-      <h1>
-        If you wish to be baptized and take this meaningful step in your
-        spiritual journey, enter your details below or contact Secretary Sister
-        Shannon Singletary at 843-372-5839
-      </h1>
       <h3 class="section-title">Sign Up for Baptism</h3>
       <form id="baptismForm">
         <label for="name">Name:</label>
@@ -193,7 +188,6 @@
       </form>
 
       <script>
-        // Listen to the form submission
         document
           .getElementById("baptismForm")
           .addEventListener("submit", function (event) {
@@ -206,15 +200,27 @@
               baptism_date: document.getElementById("date").value,
             };
 
+            // Log formData to ensure it's being gathered correctly
+            console.log("Form Data:", formData);
+
             // Send form data to the serverless function
-            fetch("/.netlify/functions/send-email.js", {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify(formData), // Send form data to the serverless function
-            })
-              .then((response) => response.json())
+            fetch(
+              "https://ctcooljc.netlify.app/.netlify/functions/send-email",
+              {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify(formData),
+              }
+            )
+              .then((response) => {
+                if (!response.ok) {
+                  // Handle HTTP errors
+                  throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.json();
+              })
               .then((data) => {
                 console.log("SUCCESS!", data);
                 alert("Form submitted successfully!");
@@ -245,7 +251,5 @@
         </div>
       </div>
     </footer>
-
-    <script src="js/script.js" type="module"></script>
   </body>
 </html>
