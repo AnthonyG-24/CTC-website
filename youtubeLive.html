@@ -105,40 +105,55 @@
       <a href="live.html">
         <button>Back to Services</button>
       </a>
-      <h1>Live Now On Youtube!</h1>
+      <h1>Live Now On YouTube!</h1>
       <div class="youtube-live-container">
+        <!-- YouTube Live Video Embed -->
         <div class="youtube-live">
-          <iframe
-            src="https://www.youtube.com/embed/nkxPGwXBjH4"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          ></iframe>
+          <div id="youtubeVideo"></div>
+          <!-- The live video iframe will be dynamically inserted here -->
         </div>
 
+        <!-- YouTube Live Chat Embed -->
         <div class="live-chat">
-          <iframe
-            src="https://www.youtube.com/live_chat?v=cd1jnSkummo&embed_domain=ctcooljc.netlify.app"
-            frameborder="0"
-            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          ></iframe>
+          <div id="youtubeChat"></div>
+          <!-- The live chat iframe will be dynamically inserted here -->
         </div>
-      </div>
-
-      <!-- Circular Button to Toggle Bible -->
-      <button class="bible-toggle-btn" onclick="toggleBible()">📖</button>
-
-      <!-- Hidden Bible Container -->
-      <div class="full-bible" id="fullBible">
-        <iframe
-          src="https://www.bible.com/en-GB/embed/verse_of_the_day?version_id=1&v=kjv"
-          width="300"
-          height="400"
-          frameborder="0"
-        ></iframe>
       </div>
     </section>
+
+    <!-- Add Script for Fetching YouTube Live Video ID -->
+    <script>
+      async function fetchLiveVideoId() {
+        try {
+          // Fetch the live video ID using Netlify serverless function
+          const response = await fetch("/.netlify/functions/youtube-live");
+          const data = await response.json();
+
+          if (data.videoId) {
+            embedYouTubeContent(data.videoId); // Call the function to embed video and chat
+          } else {
+            document.getElementById("youtubeVideo").innerHTML =
+              "<p>No live stream is currently active.</p>";
+          }
+        } catch (error) {
+          console.error("Error fetching live video ID:", error);
+        }
+      }
+
+      // Function to dynamically embed YouTube live video and chat
+      function embedYouTubeContent(videoId) {
+        // Embed YouTube Live Stream
+        const videoEmbed = `<iframe src="https://www.youtube.com/embed/${videoId}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+        document.getElementById("youtubeVideo").innerHTML = videoEmbed;
+
+        // Embed YouTube Live Chat
+        const chatEmbed = `<iframe src="https://www.youtube.com/live_chat?v=${videoId}&embed_domain=ctcooljc.netlify.app" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+        document.getElementById("youtubeChat").innerHTML = chatEmbed;
+      }
+
+      // Fetch the live video ID on page load
+      fetchLiveVideoId();
+    </script>
 
     <script>
       function toggleBible() {
