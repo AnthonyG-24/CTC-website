@@ -2,6 +2,7 @@ body {
   background: linear-gradient(135deg, #f3f4f6, #e0e7ff);
 }
 
+/* Form Section */
 .signup-section {
   max-width: 700px;
   margin: 40px auto;
@@ -67,6 +68,7 @@ label {
 /* Input Fields */
 input[type="text"],
 input[type="email"],
+input[type="tel"],
 input[type="date"] {
   padding: 14px;
   font-size: 16px;
@@ -80,10 +82,30 @@ input[type="date"] {
 
 input[type="text"]:focus,
 input[type="email"]:focus,
+input[type="tel"]:focus,
 input[type="date"]:focus {
   background-color: #fff;
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
   outline: none;
+}
+
+/* Radio Buttons */
+input[type="radio"] {
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.radio-group label {
+  font-size: 16px;
+  font-weight: 500;
+  margin-right: 20px;
+}
+
+.radio-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
 /* Submit Button */
@@ -104,12 +126,33 @@ button[type="submit"]:hover {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
-h3 {
-  font-size: 24px;
-  margin-bottom: 30px;
-  color: royalblue;
-  text-transform: uppercase;
-  text-decoration: underline;
+/* Loading Spinner */
+#loadingSpinner {
+  margin-top: 20px;
+  display: none;
+}
+
+/* Success Message Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+#confirmationMessage {
+  animation: fadeIn 1s ease-in-out;
+  color: green;
+  font-weight: bold;
+  display: none;
+}
+
+/* Reassurance Note */
+p {
+  color: #333;
+  font-size: 14px;
 }
 
 /* Responsive Styles */
@@ -128,6 +171,7 @@ h3 {
 
   input[type="text"],
   input[type="email"],
+  input[type="tel"],
   input[type="date"] {
     padding: 12px;
     font-size: 16px;
@@ -136,6 +180,15 @@ h3 {
   button[type="submit"] {
     padding: 12px;
     font-size: 18px;
+  }
+
+  .radio-group {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .radio-group label {
+    margin-bottom: 10px;
   }
 }
 
@@ -155,6 +208,7 @@ h3 {
 
   input[type="text"],
   input[type="email"],
+  input[type="tel"],
   input[type="date"] {
     padding: 10px;
     font-size: 15px;
@@ -173,6 +227,7 @@ h3 {
 
   input[type="text"],
   input[type="email"],
+  input[type="tel"],
   input[type="date"] {
     padding: 8px;
     font-size: 14px;
@@ -181,5 +236,14 @@ h3 {
   button[type="submit"] {
     padding: 10px;
     font-size: 16px;
+  }
+
+  .radio-group {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .radio-group label {
+    margin-bottom: 10px;
   }
 }

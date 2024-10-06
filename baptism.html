@@ -48,7 +48,7 @@
             <li><a href="mothers.html">Mothers</a></li>
             <li><a href="live.html">Services</a></li>
             <li><a href="events.html">Events</a></li>
-            <li><a href="events.html">Contact</a></li>
+            <li><a href="contact.html">Contact</a></li>
             <li><a href="donation.html">Donate</a></li>
           </ul>
         </div>
@@ -71,6 +71,7 @@
             <li><a href="mothers.html">Mothers</a></li>
             <li><a href="live.html">Services</a></li>
             <li><a href="events.html">Events</a></li>
+            <li><a href="contact.html">Contact</a></li>
             <li><a href="donation.html">Donate</a></li>
           </ul>
         </div>
@@ -172,14 +173,15 @@
       </div>
     </section>
 
+    <!--Signup section-->
     <section class="signup-section">
       <h1>
         If you wish to be baptized and take this meaningful step in your
         spiritual journey, enter your details below or contact Secretary Sister
-        Shannon Singletary at 843-372-5839
+        Shannon Singletary at 843-372-5839.
       </h1>
 
-      <h3 class="sign-upsection-title">Sign Up for Baptism</h3>
+      <h3 class="signup-section-title">Sign Up for Baptism</h3>
 
       <!-- Form Section -->
       <form
@@ -191,52 +193,162 @@
       >
         <!-- Honeypot field for spam protection -->
         <input type="hidden" name="bot-field" />
-
-        <!-- Form fields -->
         <input type="hidden" name="form-name" value="baptism" />
 
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required />
+        <!-- Name field -->
+        <label for="name" aria-label="Enter your full name">Name:</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          required
+          aria-required="true"
+        />
 
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required />
+        <!-- Email field -->
+        <label for="email" aria-label="Enter your email address">Email:</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          required
+          aria-required="true"
+        />
 
-        <label for="date">Preferred Baptism Date:</label>
-        <input type="date" id="date" name="baptism_date" required />
+        <!-- Phone field -->
+        <label for="phone" aria-label="Enter your phone number"
+          >Phone Number:</label
+        >
+        <input
+          type="tel"
+          id="phone"
+          name="phone"
+          required
+          pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+          placeholder="123-456-7890"
+        />
+        <small style="display: block; margin-top: 5px; color: #555">
+          Please enter your phone number in the format: 123-456-7890
+        </small>
 
+        <!-- Preferred Baptism Date field -->
+        <label for="date" aria-label="Choose your preferred baptism date"
+          >Preferred Baptism Date:</label
+        >
+        <input
+          type="date"
+          id="date"
+          name="baptism_date"
+          required
+          aria-required="true"
+        />
+
+        <!-- Contact Preference field -->
+        <label>Preferred Contact Method:</label>
+        <div class="radio-group">
+          <input
+            type="radio"
+            id="contact-email"
+            name="contact_preference"
+            value="email"
+            checked
+          />
+          <label for="contact-email">Email</label>
+
+          <input
+            type="radio"
+            id="contact-phone"
+            name="contact_preference"
+            value="phone"
+          />
+          <label for="contact-phone">Phone</label>
+        </div>
+
+        <!-- Submit button -->
         <button type="submit">Submit</button>
+
+        <!-- Loading Spinner -->
+        <div id="loadingSpinner" style="display: none; margin-top: 20px">
+          <img src="/path-to-your-spinner.gif" alt="Loading..." />
+        </div>
       </form>
 
-      <!-- Message Section (Initially hidden) -->
+      <!-- Success Message -->
       <p
         id="confirmationMessage"
         style="display: none; color: green; font-weight: bold"
       >
-        Thank you! Your baptism sign-up has been received.
+        Thank you! Your baptism sign-up has been received. We will contact you
+        soon.
+      </p>
+
+      <!-- Reassurance Note -->
+      <p style="margin-top: 20px; color: #333; font-size: 14px">
+        Your information is secure, and we will contact you via your preferred
+        method (email or phone). Thank you for taking this important step.
       </p>
 
       <script>
-        // Listen for the form submission
+        // Real-time Validation
+        document
+          .getElementById("baptismForm")
+          .addEventListener("input", function (event) {
+            const emailInput = document.getElementById("email");
+            const phoneInput = document.getElementById("phone");
+
+            // Validate Email
+            if (emailInput.validity.typeMismatch) {
+              emailInput.setCustomValidity(
+                "Please enter a valid email address."
+              );
+            } else {
+              emailInput.setCustomValidity("");
+            }
+
+            // Validate Phone Number
+            if (!phoneInput.value.match(/[0-9]{3}-[0-9]{3}-[0-9]{4}/)) {
+              phoneInput.setCustomValidity(
+                "Phone number must be in the format: 123-456-7890."
+              );
+            } else {
+              phoneInput.setCustomValidity("");
+            }
+          });
+
+        // Form Submission
         document
           .getElementById("baptismForm")
           .addEventListener("submit", function (event) {
             event.preventDefault(); // Prevent page reload
 
+            // Show the loading spinner
+            document.getElementById("loadingSpinner").style.display = "block";
+
             // Gather form data
             const formData = new FormData(this);
 
-            // Send form data directly to Netlify Forms using the form's action attribute
+            // Simulate form submission using Netlify
             fetch("/", {
               method: "POST",
               body: formData,
             })
               .then((response) => {
+                document.getElementById("loadingSpinner").style.display =
+                  "none"; // Hide spinner
                 if (response.ok) {
                   // Hide the form
                   document.getElementById("baptismForm").style.display = "none";
-                  // Show the confirmation message
+                  // Show the confirmation message with animation
                   document.getElementById("confirmationMessage").style.display =
                     "block";
+                  document.getElementById(
+                    "confirmationMessage"
+                  ).style.opacity = 0;
+                  setTimeout(() => {
+                    document.getElementById(
+                      "confirmationMessage"
+                    ).style.opacity = 1;
+                  }, 0);
                 } else {
                   alert(
                     "There was a problem submitting the form. Please try again."
@@ -244,6 +356,8 @@
                 }
               })
               .catch((error) => {
+                document.getElementById("loadingSpinner").style.display =
+                  "none"; // Hide spinner
                 console.error("Form submission error:", error);
                 alert(
                   "There was a problem submitting the form. Please try again."
