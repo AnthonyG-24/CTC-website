@@ -269,7 +269,7 @@
 
         <!-- Loading Spinner -->
         <div id="loadingSpinner" style="display: none; margin-top: 20px">
-          <img src="assets/baptism/spinner.gif" alt="Loading..." />
+          <img src="/path-to-your-spinner.gif" alt="Loading..." />
         </div>
       </form>
 
@@ -278,8 +278,10 @@
         id="confirmationMessage"
         style="display: none; color: green; font-weight: bold"
       >
-        Thank you! Your baptism sign-up has been received. We will contact you
-        soon.
+        Thank you! Your baptism sign-up has been received.
+        <br />
+        We will contact you via your preferred method:
+        <span id="contactMethod"></span>.
       </p>
 
       <!-- Reassurance Note -->
@@ -324,6 +326,11 @@
             // Show the loading spinner
             document.getElementById("loadingSpinner").style.display = "block";
 
+            // Get the preferred contact method
+            const contactPreference = document.querySelector(
+              'input[name="contact_preference"]:checked'
+            ).value;
+
             // Gather form data
             const formData = new FormData(this);
 
@@ -344,6 +351,9 @@
                   document.getElementById(
                     "confirmationMessage"
                   ).style.opacity = 0;
+                  document.getElementById("contactMethod").textContent =
+                    contactPreference.charAt(0).toUpperCase() +
+                    contactPreference.slice(1);
                   setTimeout(() => {
                     document.getElementById(
                       "confirmationMessage"
