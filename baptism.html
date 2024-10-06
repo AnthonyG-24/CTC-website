@@ -291,9 +291,11 @@
             if (contactPreference === "email") {
               // Remove phone data if email is preferred
               formData.delete("phone");
+              phoneInput.value = ""; // Clear phone input field
             } else if (contactPreference === "phone") {
               // Remove email data if phone is preferred
               formData.delete("email");
+              emailInput.value = ""; // Clear email input field
             }
 
             // Show the loading spinner
