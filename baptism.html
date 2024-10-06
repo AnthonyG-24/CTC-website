@@ -185,27 +185,32 @@
 
         <button type="submit">Submit</button>
       </form>
+
+      <!-- Include the EmailJS SDK -->
       <script
         type="text/javascript"
         src="https://cdn.emailjs.com/dist/email.min.js"
       ></script>
+
       <script type="text/javascript">
+        // Initialize EmailJS with your private key
         (function () {
-          emailjs.init("service_egccooj"); // Replace YOUR_USER_ID with your actual EmailJS user ID
+          emailjs.init("F7owXpTZp5XubD5pT_Z45"); // Replace with your actual private key from EmailJS dashboard
         })();
 
+        // Handle the form submission
         document
           .getElementById("baptismForm")
           .addEventListener("submit", function (event) {
-            event.preventDefault(); // Prevent the default form submission behavior
+            event.preventDefault(); // Prevent default form submission
 
-            // Send the form data via EmailJS
+            // Send form data via EmailJS
             emailjs.sendForm("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", this).then(
               function (response) {
-                alert("Form submitted successfully!"); // Show success message
+                alert("Form submitted successfully!");
               },
               function (error) {
-                alert("Failed to send form. Please try again."); // Show error message
+                alert("Failed to send form. Please try again.");
               }
             );
           });

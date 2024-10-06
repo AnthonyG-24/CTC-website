@@ -1,0 +1,59 @@
+body {
+  background: linear-gradient(135deg, #f3f4f6, #e0e7ff);
+}
+
+.forum-title {
+  color: royalblue;
+  margin-bottom: 20px;
+}
+
+.faq-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 600px;
+  padding: 50px 30px;
+  margin: 0 auto;
+}
+
+.faq {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.question {
+  cursor: pointer;
+  padding: 15px;
+  background: linear-gradient(135deg, #f3f4f6, #e0e7ff);
+  border: 1px solid #ccc;
+  margin-bottom: 5px;
+  font-size: 18px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.question::after {
+  content: "+";
+  font-weight: bold;
+}
+
+.active-question::after {
+  content: "-";
+}
+
+.answer {
+  padding: 15px;
+  background-color: yellow;
+  border-left: 4px solid #ccc;
+  display: none; /* Initially hidden */
+  margin-bottom: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+.active {
+  display: block; /* Display the answer when active */
+}
