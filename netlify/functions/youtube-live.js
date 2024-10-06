@@ -1,7 +1,8 @@
+// Import node-fetch
 const fetch = require("node-fetch");
 
 exports.handler = async function (event, context) {
-  const apiKey = process.env.YOUTUBE_API_KEY; // Fetch the API key from environment variables
+  const apiKey = process.env.YOUTUBE_API_KEY;
   const channelId = "UCc6508gRYgLCAFpzK3C6gzg"; // Replace with your YouTube Channel ID
 
   const apiUrl = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&eventType=live&type=video&key=${apiKey}`;
