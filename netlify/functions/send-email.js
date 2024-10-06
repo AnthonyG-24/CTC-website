@@ -24,6 +24,10 @@ exports.handler = async function (event) {
       process.env.EMAILJS_PUBLIC_KEY // Public key from environment variables
     );
 
+    console.log("Service ID:", process.env.EMAILJS_SERVICE_ID);
+    console.log("Template ID:", process.env.EMAILJS_TEMPLATE_ID);
+    console.log("Public Key:", process.env.EMAILJS_PUBLIC_KEY);
+
     return {
       statusCode: 200,
       headers: {

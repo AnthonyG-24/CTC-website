@@ -172,15 +172,8 @@
       </div>
     </section>
 
-    <!--Signup-->
     <section class="signup-section">
-      <h1>
-        If you wish to be baptized and take this meaningful step in your
-        spiritual journey, enter your details below or contact Secretary Sister
-        Shannon Singletary at 843-372-5839
-      </h1>
-
-      <h3 class="signup-section-title">Sign Up for Baptism</h3>
+      <h3 class="section-title">Sign Up for Baptism</h3>
       <form id="baptismForm">
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" required />
@@ -193,12 +186,13 @@
 
         <button type="submit">Submit</button>
       </form>
+
       <script>
         // Listen to the form submission
         document
           .getElementById("baptismForm")
           .addEventListener("submit", function (event) {
-            event.preventDefault();
+            event.preventDefault(); // Prevent default form submission
 
             // Gather form data
             const formData = {
@@ -207,13 +201,13 @@
               baptism_date: document.getElementById("date").value,
             };
 
-            // Send form data to Netlify's serverless function
+            // Send form data to the serverless function
             fetch("/.netlify/functions/send-email", {
               method: "POST",
               headers: {
                 "Content-Type": "application/json",
               },
-              body: JSON.stringify(formData), // Convert form data to JSON
+              body: JSON.stringify(formData), // Send form data to the serverless function
             })
               .then((response) => response.json())
               .then((data) => {
