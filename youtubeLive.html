@@ -105,64 +105,39 @@
       <a href="live.html">
         <button>Back to Services</button>
       </a>
-      <h1>Live Now On YouTube!</h1>
-      <div class="youtube-live-container">
-        <!-- YouTube Live Video Embed -->
-        <div class="youtube-live">
-          <div id="youtubeVideo"></div>
-          <!-- The live video iframe will be dynamically inserted here -->
-        </div>
+      <h1>Live Now On Youtube!</h1>
+      <div class="youtube-live">
+        <iframe
+          src="https://www.youtube.com/embed/RZr9T6ygHew"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
 
-        <!-- YouTube Live Chat Embed -->
-        <div class="live-chat">
-          <div id="youtubeChat"></div>
-          <!-- The live chat iframe will be dynamically inserted here -->
-        </div>
+      <!-- YouTube Live Chat Embed -->
+      <div class="live-chat">
+        <iframe
+          src="https://www.youtube.com/live_chat?v=RZr9T6ygHew&embed_domain=ctcooljc.netlify.app"
+          frameborder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+
+      <!-- Circular Button to Toggle Bible -->
+      <button class="bible-toggle-btn" onclick="toggleBible()">📖</button>
+
+      <!-- Hidden Bible Container -->
+      <div class="full-bible" id="fullBible">
+        <iframe
+          src="https://www.bible.com/en-GB/embed/verse_of_the_day?version_id=1&v=kjv"
+          width="300"
+          height="400"
+          frameborder="0"
+        ></iframe>
       </div>
     </section>
-    <!-- Add Script for Fetching YouTube Live Video ID -->
-    <script>
-      // Replace with your actual API Key and YouTube Channel ID
-      const apiKey = "AIzaSyC3SXtbsbtVSqNRgZtySNneDj1FiAcDJBs"; // Your Google API Key
-      const channelId = "UCc6508gRYgLCAFpzK3C6gzg"; // Your YouTube Channel ID
-
-      // YouTube API URL to fetch live video details
-      const apiUrl = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&eventType=live&type=video&key=${apiKey}`;
-
-      // Function to fetch the live video ID from YouTube Data API
-      async function fetchLiveVideoId() {
-        try {
-          const response = await fetch(apiUrl);
-          const data = await response.json();
-
-          console.log("YouTube API Response:", data); // Log the API response
-
-          if (data.items && data.items.length > 0) {
-            const videoId = data.items[0].id.videoId; // Extract the live video ID
-            embedYouTubeContent(videoId); // Call the function to embed video and chat
-          } else {
-            document.getElementById("youtubeVideo").innerHTML =
-              "<p>No live stream is currently active.</p>";
-          }
-        } catch (error) {
-          console.error("Error fetching live video ID:", error);
-        }
-      }
-
-      // Function to dynamically embed YouTube live video and chat
-      function embedYouTubeContent(videoId) {
-        // Embed YouTube Live Stream
-        const videoEmbed = `<iframe src="https://www.youtube.com/embed/${videoId}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
-        document.getElementById("youtubeVideo").innerHTML = videoEmbed;
-
-        // Embed YouTube Live Chat (only if chat is enabled)
-        const chatEmbed = `<iframe src="https://www.youtube.com/live_chat?v=${videoId}&embed_domain=yourwebsite.com" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
-        document.getElementById("youtubeChat").innerHTML = chatEmbed;
-      }
-
-      // Fetch the live video ID on page load
-      fetchLiveVideoId();
-    </script>
 
     <script>
       function toggleBible() {
