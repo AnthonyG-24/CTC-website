@@ -198,7 +198,7 @@
         document
           .getElementById("baptismForm")
           .addEventListener("submit", function (event) {
-            event.preventDefault(); // Prevent default form submission
+            event.preventDefault();
 
             // Gather form data
             const formData = {
@@ -213,7 +213,7 @@
               headers: {
                 "Content-Type": "application/json",
               },
-              body: JSON.stringify(formData),
+              body: JSON.stringify(formData), // Convert form data to JSON
             })
               .then((response) => response.json())
               .then((data) => {
