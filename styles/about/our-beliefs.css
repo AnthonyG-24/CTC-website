@@ -1,3 +1,7 @@
+body {
+  background: linear-gradient(135deg, #f3f4f6, #e0e7ff);
+}
+
 .our-beliefs-section {
   padding: 40px;
   background: linear-gradient(135deg, #f3f4f6, #e0e7ff);
