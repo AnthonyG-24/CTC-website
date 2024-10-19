@@ -24,10 +24,6 @@
   object-fit: contain;
 }
 
-.hamburger {
-  visibility: hidden;
-}
-
 .right-nav ul {
   list-style: none;
   display: flex;
@@ -52,87 +48,107 @@
   color: hsl(196, 100%, 50%);
 }
 
+.hamburger {
+  visibility: hidden;
+}
+
 .menu {
   display: none;
   position: fixed;
   top: 0;
-  left: 0;
+  right: 0;
   width: 100%;
-  background-color: #333;
-  color: #fff;
-  padding: 20px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-  z-index: 1000;
-  transition: transform 0.3s ease, opacity 0.3s ease;
-  transform: translateY(-100%);
-  opacity: 0;
-}
-
-.menu.active {
-  display: block;
-  transform: translateY(0);
-  opacity: 1;
-}
-
-.menu ul {
-  list-style-type: none;
-  display: flex;
-  flex-direction: column;
   height: 100%;
-  justify-content: center;
-  text-align: center;
+  background-color: rgba(0, 0, 0, 0.95);
+  z-index: 999;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  transition: opacity 0.3s ease;
 }
 
-.menu li {
-  margin: 15px 0;
+.menu ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
 }
 
-.menu a {
-  color: #fff;
+.menu ul li a {
   text-decoration: none;
-  font-size: 18px;
+  color: #f0f0f0;
+  font-size: 24px;
+  font-weight: bold;
 }
 
-.menu .close-menu {
-  font-size: 24px;
-  border: none;
+.close-menu {
   background: none;
-  color: #fff;
-  cursor: pointer;
+  border: none;
+  color: #f0f0f0;
+  font-size: 36px;
   position: absolute;
   top: 20px;
   right: 20px;
+  cursor: pointer;
+}
+
+.menu.active {
+  display: flex;
 }
 
 @media (max-width: 1024px) {
   .right-nav {
-    position: fixed;
-    top: 70px;
+    display: none;
   }
 
   .left-nav {
-    flex: 0.96;
-  }
-
-  .right-nav ul {
-    visibility: hidden;
-  }
-
-  .img-area {
-    max-width: 80px;
+    flex: 0.95;
   }
 
   .hamburger {
     visibility: visible;
   }
 
+  .church-logo {
+    margin-bottom: 10px;
+  }
+
   .hamburger-icon {
-    max-width: 30px;
+    width: 24px;
+    height: 24px;
     background-color: black;
     cursor: pointer;
+  }
+
+  .menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    z-index: 999;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+
+  .menu.active {
+    display: flex;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .menu ul li a {
+    font-size: 20px;
+  }
+
+  .close-menu {
+    font-size: 30px;
   }
 }
 
@@ -141,12 +157,32 @@
     flex: 0.9;
   }
 
-  .church-logo {
-    margin-top: -10px;
+  .hamburger-icon {
+    width: 24px;
+    height: 24px;
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 481px) {
+  .left-nav {
+    flex: 0.85;
+  }
+
+  .img-area {
+    margin-right: 20px;
+  }
+
+  .hamburger-icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .menu ul li a {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 320px) {
   .left-nav {
     flex: 0.8;
   }

@@ -192,8 +192,8 @@
       <div class="video-display">
         <!-- Church Service Category -->
         <div class="video-category-content video-grid" id="church-services">
-          <h2>Church Services</h2>
-          <p class="church-service-date">9-29-24</p>
+          <h2>Recent Church Service</h2>
+          <p class="church-service-date">10-20-24</p>
           <iframe
             class="vid lazy-iframe"
             data-src="https://www.youtube-nocookie.com/embed/sZp04neZDXM?si=8vz9wXvcUEQUbgdM"
@@ -374,6 +374,7 @@
             activeCategory.style.display = "block";
             activeCategory.classList.add("active");
             tab.classList.add("active");
+            localStorage.setItem("lastCategory", categoryId); // Store last category
           });
         });
 
@@ -420,6 +421,30 @@
             width="560"
             height="315"
             data-src="https://www.youtube-nocookie.com/embed/VlXrCsHjKyc?si=qBiz1U94UvEaPs1S"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+            class="lazy-iframe"
+          ></iframe>
+
+          <iframe
+            width="560"
+            height="315"
+            data-src="https://www.youtube.com/embed/TtVMTn7hczg?si=9bqyX23KWgTHaXZ3"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+            class="lazy-iframe"
+          ></iframe>
+
+          <iframe
+            width="560"
+            height="315"
+            data-src="https://www.youtube.com/embed/3xrcN5bE3rU?si=W38sZvoQLNyH29Kd"
             title="YouTube video player"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -540,6 +565,18 @@
             width="560"
             height="315"
             data-src="https://www.youtube-nocookie.com/embed/5DNNwE7r3tU?si=0pTdYfxQGBJPavMo"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+            class="lazy-iframe"
+          ></iframe>
+
+          <iframe
+            width="560"
+            height="315"
+            data-src="https://www.youtube.com/embed/2YNNQ_kOPhc?si=9Beoho3JmB-DzAea"
             title="YouTube video player"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

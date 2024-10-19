@@ -27,8 +27,8 @@
   </head>
   <body>
     <!-- Baptisms navbar section -->
-    <header class="baptisms-navbar-section">
-      <nav class="baptisms-navbar">
+    <header class="baptism-navbar-section">
+      <nav class="baptism-navbar">
         <div class="left-nav">
           <div class="img-area">
             <a href="home.html">
@@ -93,7 +93,6 @@
           menu.classList.remove("active");
         }
       });
-
       document
         .getElementById("closeMenu")
         .addEventListener("click", function () {
@@ -104,14 +103,16 @@
     <!-- Baptism section -->
     <section class="baptism-section">
       <img
+        class="cross-on-water-image"
         src="assets/live-assets/baptisms/cross-on-water.png"
         alt="cross floating on water"
       />
       <h3 class="section-title">Community Temple Church Baptisms</h3>
 
       <div class="baptism-scripture-card">
-        <div class="baptism-scripture-img">
+        <div class="baptism-scripture-img-container">
           <img
+            class="bible-baptism-img"
             src="assets/live-assets/baptisms/bible-baptism.jpg"
             alt="Open Bible image"
           />
@@ -126,7 +127,7 @@
       </div>
 
       <div class="baptism-container">
-        <div class="baptism-card" id="card-1">
+        <div class="baptism-card">
           <h1>Baptism Of Michael (TJ)</h1>
           <p>May 19, 2024</p>
           <img
@@ -135,7 +136,7 @@
           />
         </div>
 
-        <div class="baptism-card" id="card-2">
+        <div class="baptism-card">
           <h1>Baptism Of Collet Brown</h1>
           <p>May 26, 2024</p>
           <img
@@ -144,7 +145,7 @@
           />
         </div>
 
-        <div class="baptism-card" id="card-3">
+        <div class="baptism-card">
           <h1>Baptism Of Kylie Brown and Eric Brand</h1>
           <p>June 2, 2024</p>
           <img
@@ -153,7 +154,7 @@
           />
         </div>
 
-        <div class="baptism-card" id="card-4">
+        <div class="baptism-card">
           <h1>Baptism Of Lorenza Miller</h1>
           <p>June 16, 2024</p>
           <img
@@ -162,7 +163,16 @@
           />
         </div>
 
-        <div class="baptism-card" id="card-5">
+        <div class="baptism-card">
+          <h1>Baptism Of Juelz Antiwan Gillard</h1>
+          <p>July 10, 2024</p>
+          <img
+            src="assets/about-assets/churchfamily/church-fam-juju-grad.jpg"
+            alt="Baptism of Juelz Gillard"
+          />
+        </div>
+
+        <div class="baptism-card">
           <h1>Baptism Of Jerome Gunn</h1>
           <p>September 15, 2024</p>
           <img
@@ -170,11 +180,36 @@
             alt="Baptism of Jerome Gunn"
           />
         </div>
+
+        <div class="baptism-card">
+          <h1>Baptism Of Mary Miller</h1>
+          <p>October 9th, 2024</p>
+          <img
+            src="assets/live-assets/baptisms/MM-Baptism.jpg"
+            alt="Baptism of Mary Miller"
+          />
+        </div>
       </div>
     </section>
 
+    <!-- Question Section -->
+    <section class="question-section">
+      <h2>Please Answer the Following Questions</h2>
+
+      <!-- Step 1: Question 1 -->
+      <div class="question-step" id="step1">
+        <h3>Do you wish to be baptized?</h3>
+        <button class="next-btn" onclick="showNextStep(2)">Next</button>
+      </div>
+
+      <!-- Step 2: Question 2 -->
+      <div class="question-step" id="step2" style="display: none">
+        <h3>Do you believe in Jesus?</h3>
+        <button class="next-btn" onclick="showNextStep(4)">Next</button>
+      </div>
+    </section>
     <!-- Signup section -->
-    <section class="signup-section">
+    <section class="signup-section" id="signupSection" style="display: none">
       <h1>
         If you wish to be baptized and take this meaningful step in your
         spiritual journey, enter your details below or contact Secretary Sister
@@ -212,11 +247,11 @@
         <input type="date" id="baptism_date" name="baptism_date" required />
 
         <!-- Submit button -->
-        <button type="submit">Submit</button>
+        <button class="submit-button" type="submit">Submit</button>
 
         <!-- Loading Spinner -->
         <div id="loadingSpinner" style="display: none; margin-top: 20px">
-          <img src="/path-to-your-spinner.gif" alt="Loading..." />
+          <img src="assets/baptism/spinner.gif" alt="Loading..." />
         </div>
       </form>
 
@@ -235,46 +270,28 @@
         Your information is secure, and we will contact you via the contact
         details provided. Thank you for taking this important step.
       </p>
-
-      <script>
-        // Form Submission with custom handling
-        document
-          .getElementById("baptismForm")
-          .addEventListener("submit", function (event) {
-            event.preventDefault(); // Prevent page reload
-
-            const emailInput = document.getElementById("email");
-            const phoneInput = document.getElementById("phone");
-
-            const emailValue = emailInput.value.trim();
-            const phoneValue = phoneInput.value.trim();
-            const phonePattern = /^[0-9]{3}[- ]?[0-9]{3}[- ]?[0-9]{4}$/;
-
-            // Ensure at least one field is filled (email or phone)
-            if (!emailValue && !phoneValue) {
-              alert("Please enter either an email or phone number.");
-              return;
-            }
-
-            // Validate phone format (with or without dashes or spaces)
-            if (phoneValue && !phonePattern.test(phoneValue)) {
-              phoneInput.setCustomValidity(
-                "Phone number must be in the format: 123-456-7890 or 1234567890."
-              );
-              phoneInput.reportValidity();
-              return;
-            } else {
-              phoneInput.setCustomValidity(""); // Clear custom error if valid
-            }
-
-            // Show the loading spinner
-            document.getElementById("loadingSpinner").style.display = "block";
-
-            // Submit the form using Netlify's default form submission
-            event.target.submit();
-          });
-      </script>
     </section>
+    <script>
+      function showNextStep(step) {
+        // Hide all steps
+        const steps = document.querySelectorAll(".question-step");
+        steps.forEach(function (stepDiv) {
+          stepDiv.style.display = "none";
+        });
+
+        // Show the next step
+        const nextStep = document.getElementById("step" + step);
+        if (nextStep) {
+          nextStep.style.display = "block";
+        }
+
+        // Show the signup section if it's the final step
+        if (step === 4) {
+          document.querySelector(".question-section").style.display = "none";
+          document.getElementById("signupSection").style.display = "block";
+        }
+      }
+    </script>
 
     <!--Footer section-->
     <footer>
