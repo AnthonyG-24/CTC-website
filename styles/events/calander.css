@@ -3,7 +3,6 @@
   flex-direction: column;
   gap: 20px;
   padding: 20px;
-  background: linear-gradient(135deg, #f5f5f5, #e0e0e0);
   border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -30,7 +29,7 @@
 }
 
 .upcoming-events-calendar {
-  background: #fff;
+  background: linear-gradient(135deg, #f3f4f6, #e0e7ff);
   padding: 20px;
   border-radius: 12px;
   width: 100%;
@@ -130,6 +129,45 @@
 
   .event-time {
     margin-top: 3px;
+  }
+}
+
+@media (max-width: 540px) {
+  .calendar-section {
+    padding: 10px;
+  }
+
+  .full-calendar-container {
+    padding: 3px;
+    width: 400px;
+  }
+
+  .cal {
+    height: 250px;
+    width: 100%;
+  }
+
+  .upcoming-events-calendar {
+    padding: 10px;
+    text-align: center;
+  }
+
+  .upcoming-events-calendar h2 {
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+
+  .events-list {
+    text-align: left;
+  }
+
+  .event-item {
+    font-size: 12px;
+    padding: 6px 0;
+  }
+
+  .event-time {
+    margin-top: 2px;
   }
 }
 

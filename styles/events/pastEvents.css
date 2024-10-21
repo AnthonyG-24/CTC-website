@@ -1,9 +1,13 @@
+body {
+  background: linear-gradient(135deg, #f3f4f6, #e0e7ff);
+}
+
 .past-events-section {
   width: 80%;
   margin: 50px auto;
   text-align: center;
   padding: 20px;
-  background-color: #fafafa;
+  background: linear-gradient(135deg, #f3f4f6, #e0e7ff);
   border-radius: 15px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }

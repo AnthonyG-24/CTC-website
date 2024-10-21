@@ -74,7 +74,6 @@ a button:active {
   border: none;
   font-size: 24px;
   cursor: pointer;
-  z-index: 1000;
 }
 
 .full-bible {
@@ -82,7 +81,6 @@ a button:active {
   position: fixed;
   bottom: 100px;
   right: 20px;
-  z-index: 999;
 }
 
 /* For screens 1440px and up */
@@ -104,10 +102,12 @@ a button:active {
 @media (max-width: 1439px) and (min-width: 1024px) {
   .youtube-live {
     height: 500px;
+    flex: 1 1 50%;
   }
 
   .live-chat {
     height: 500px;
+    flex: 1 1 40%;
   }
 
   .youtube-live-section h1 {
@@ -123,6 +123,7 @@ a button:active {
 
   .live-chat {
     height: 450px;
+    flex: 1 1 40%;
   }
 
   .youtube-live-section h1 {
@@ -175,11 +176,12 @@ a button:active {
   }
 
   .youtube-live iframe {
-    height: 250px;
+    height: 350px;
   }
 
   .live-chat iframe {
-    height: 250px;
+    height: 350px;
+    flex: 1 1 40%;
   }
 
   .youtube-live-section h1 {

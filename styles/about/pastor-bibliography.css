@@ -66,12 +66,11 @@
 
 .ending {
   text-align: right;
-  font-size: 1.3rem;
+  font-size: 2rem;
   color: #800020;
   margin-top: 40px;
 }
 
-/* Responsive adjustments for 1024px */
 @media (max-width: 1024px) {
   .bibliography-container {
     flex-direction: column;
@@ -80,6 +79,12 @@
 
   .scrollable-book {
     max-height: 500px;
+  }
+
+  .pastor-image {
+    max-width: 50%;
+    width: 300px;
+    margin-bottom: -20px;
   }
 
   .title {
@@ -106,7 +111,6 @@
   }
 }
 
-/* Responsive adjustments for 768px */
 @media (max-width: 768px) {
   .bibliography-container {
     flex-direction: column;
@@ -114,8 +118,9 @@
   }
 
   .pastor-image {
-    max-width: 90%;
-    margin-bottom: 20px;
+    max-width: 50%;
+    width: 300px;
+    margin-bottom: -20px;
   }
 
   .title {
@@ -145,7 +150,6 @@
   }
 }
 
-/* Responsive adjustments for 480px */
 @media (max-width: 480px) {
   .pastor-bibliography-section {
     padding: 20px;
@@ -156,8 +160,12 @@
     gap: 20px;
   }
 
+  .bib-left-side {
+    margin-bottom: -50px;
+  }
+
   .pastor-image {
-    max-width: 100%;
+    max-width: 60%;
   }
 
   .title {
@@ -183,11 +191,10 @@
   }
 
   .ending {
-    font-size: 1rem;
+    font-size: 1.5rem;
   }
 }
 
-/* Responsive adjustments for 320px */
 @media (max-width: 320px) {
   .pastor-bibliography-section {
     padding: 15px;
