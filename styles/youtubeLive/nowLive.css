@@ -122,6 +122,8 @@ a button:active {
 
   .youtube-live-container {
     gap: 10px;
+    flex-direction: column;
+    align-items: center;
   }
 }
 
@@ -136,7 +138,7 @@ a button:active {
   }
 
   .live-chat iframe {
-    height: 300px;
+    height: 200px;
   }
 
   h1 {
