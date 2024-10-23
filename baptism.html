@@ -8,6 +8,7 @@
 
     <link rel="stylesheet" href="/styles/general.css" />
     <link rel="stylesheet" href="/styles/baptisms/baptismsNav.css" />
+    <link rel="stylesheet" href="/styles/baptisms/baptismsVideo.css" />
     <link rel="stylesheet" href="/styles/baptisms/baptismsBeliefs.css" />
     <link rel="stylesheet" href="/styles/baptisms/signup.css" />
     <link rel="stylesheet" href="/styles/baptisms/baptisms.css" />
@@ -99,6 +100,67 @@
         .addEventListener("click", function () {
           document.getElementById("menu").classList.remove("active");
         });
+    </script>
+
+    <!--Baptism video section-->
+    <section class="baptism-video-section">
+      <div class="baptism-video-container">
+        <!-- Set width and height to ensure visibility -->
+        <video
+          id="baptism-video-background"
+          width="100%"
+          height="auto"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="auto"
+        ></video>
+      </div>
+    </section>
+    <script>
+      function updateVideoSource() {
+        const videoElement = document.getElementById(
+          "baptism-video-background"
+        );
+
+        // Determine the correct video source based on screen width
+        let videoSource;
+        if (window.innerWidth <= 480) {
+          videoSource = "assets/videos/...mp4?v=" + new Date().getTime(); // Mobile optimized video
+        } else {
+          videoSource = "assets/videos/....mp4?v=" + new Date().getTime(); // Desktop video
+        }
+
+        // Log the chosen video source
+        console.log("Chosen video source:", videoSource);
+
+        // Only update if the source has changed to avoid reloading unnecessarily
+        if (videoElement.src !== videoSource) {
+          videoElement.src = videoSource;
+          videoElement.load();
+
+          // Attempt to play the video
+          videoElement
+            .play()
+            .then(() => {
+              // Video successfully plays, ensure it's visible
+              videoElement.style.display = "block";
+            })
+            .catch((error) => {
+              console.log("Autoplay blocked or failed, hiding video:", error);
+
+              // If autoplay fails or is blocked, hide the video
+              videoElement.style.display = "none";
+            });
+        }
+      }
+
+      window.addEventListener("load", updateVideoSource);
+      window.addEventListener("resize", () => {
+        clearTimeout(window.resizeTimeout);
+        window.resizeTimeout = setTimeout(updateVideoSource, 200);
+      });
     </script>
 
     <!--Our Baptism section-->
@@ -213,20 +275,20 @@
         </div>
 
         <div class="baptism-card">
-          <h1>Baptism Of Lorenza Miller</h1>
-          <p>June 16, 2024</p>
-          <img
-            src="assets/live-assets/baptisms/LM-Baptism.jpg"
-            alt="Baptism of Lorenza Miller"
-          />
-        </div>
-
-        <div class="baptism-card">
           <h1>Baptism Of Juelz Antiwan Gillard</h1>
           <p>July 10, 2024</p>
           <img
             src="assets/about-assets/churchfamily/church-fam-juju-grad.jpg"
             alt="Baptism of Juelz Gillard"
+          />
+        </div>
+
+        <div class="baptism-card">
+          <h1>Baptism Of Lorenza Miller</h1>
+          <p>July 16, 2024</p>
+          <img
+            src="assets/live-assets/baptisms/LM-Baptism.jpg"
+            alt="Baptism of Lorenza Miller"
           />
         </div>
 
