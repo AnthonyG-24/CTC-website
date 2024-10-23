@@ -114,56 +114,11 @@
           muted
           loop
           playsinline
+          src="assets/videos/Baptism-Vid-Optimized.mp4"
           preload="auto"
         ></video>
       </div>
     </section>
-    <script>
-      function updateVideoSource() {
-        const videoElement = document.getElementById(
-          "baptism-video-background"
-        );
-
-        // Determine the correct video source based on screen width
-        let videoSource;
-        if (window.innerWidth <= 480) {
-          videoSource =
-            "assets/videos/Baptism-Vid-Optimized.mp4?v=" + new Date().getTime(); // Mobile optimized video
-        } else {
-          videoSource =
-            "assets/videos/Baptism-Vid-Optimized.mp4?v=" + new Date().getTime(); // Desktop video
-        }
-
-        // Log the chosen video source
-        console.log("Chosen video source:", videoSource);
-
-        // Only update if the source has changed to avoid reloading unnecessarily
-        if (videoElement.src !== videoSource) {
-          videoElement.src = videoSource;
-          videoElement.load();
-
-          // Attempt to play the video
-          videoElement
-            .play()
-            .then(() => {
-              // Video successfully plays, ensure it's visible
-              videoElement.style.display = "block";
-            })
-            .catch((error) => {
-              console.log("Autoplay blocked or failed, hiding video:", error);
-
-              // If autoplay fails or is blocked, hide the video
-              videoElement.style.display = "none";
-            });
-        }
-      }
-
-      window.addEventListener("load", updateVideoSource);
-      window.addEventListener("resize", () => {
-        clearTimeout(window.resizeTimeout);
-        window.resizeTimeout = setTimeout(updateVideoSource, 200);
-      });
-    </script>
 
     <!--Our Baptism section-->
     <section class="our-baptism-section">
