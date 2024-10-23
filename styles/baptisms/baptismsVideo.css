@@ -39,11 +39,67 @@
   animation: fadeIn 1s ease-in-out forwards;
 }
 
+.down-arrow {
+  position: absolute;
+  left: 53%;
+  top: 80%;
+  z-index: 100;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: auto;
+  cursor: pointer;
+  filter: brightness(0) invert(1);
+  transition: transform 0.3s ease, filter 0.3s ease;
+  animation: bounce 2s infinite;
+}
+
 @keyframes fadeIn {
   0% {
     opacity: 0;
   }
   100% {
     opacity: 1;
+  }
+}
+
+@media (max-width: 1024px) {
+  .baptism-video-section {
+    height: 100vh;
+  }
+
+  .down-arrow {
+    width: 50px;
+  }
+}
+
+@media (max-width: 768px) {
+  .baptism-video-section {
+    height: 80vh;
+  }
+
+  .down-arrow {
+    width: 45px;
+  }
+
+  .down-arrow {
+    visibility: hidden;
+  }
+}
+
+@media (max-width: 540px) {
+  .baptism-video-section {
+    height: 70vh;
+  }
+}
+
+@media (max-width: 480px) {
+  .baptism-video-section {
+    height: 60vh;
+  }
+}
+
+@media (max-width: 320px) {
+  .baptism-video-section {
+    height: 50vh;
   }
 }

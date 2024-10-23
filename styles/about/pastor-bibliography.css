@@ -27,14 +27,14 @@
 }
 
 .title {
-  font-size: 2.5rem;
+  font-size: 40px;
   color: #800020;
   text-align: center;
   margin-bottom: 20px;
 }
 
 .subtitle {
-  font-size: 1.8rem;
+  font-size: 28px;
   color: #333;
   margin-top: 30px;
 }
@@ -52,13 +52,13 @@
 }
 
 .quote-scripture {
-  font-size: 1.2rem;
+  font-size: 19px;
 }
 
 .intro,
 .vision-body,
 .vision-body p {
-  font-size: 1.1rem;
+  font-size: 17px;
   line-height: 1.8;
   color: #555;
   margin-bottom: 20px;
@@ -66,7 +66,7 @@
 
 .ending {
   text-align: right;
-  font-size: 2rem;
+  font-size: 32px;
   color: #800020;
   margin-top: 40px;
 }
@@ -88,26 +88,26 @@
   }
 
   .title {
-    font-size: 2.2rem;
+    font-size: 35px;
   }
 
   .subtitle {
-    font-size: 1.7rem;
+    font-size: 27px;
   }
 
   .intro,
   .vision-body,
   .vision-body p {
-    font-size: 1rem;
+    font-size: 16px;
     line-height: 1.6;
   }
 
   .quote-scripture {
-    font-size: 1.1rem;
+    font-size: 18px;
   }
 
   .ending {
-    font-size: 1.2rem;
+    font-size: 19px;
   }
 }
 
@@ -124,21 +124,21 @@
   }
 
   .title {
-    font-size: 2rem;
+    font-size: 32px;
   }
 
   .subtitle {
-    font-size: 1.5rem;
+    font-size: 24px;
   }
 
   .intro,
   .vision-body,
   .vision-body p {
-    font-size: 1rem;
+    font-size: 16px;
   }
 
   .quote-scripture {
-    font-size: 1rem;
+    font-size: 16px;
   }
 
   .scrollable-book {
@@ -146,7 +146,48 @@
   }
 
   .ending {
-    font-size: 1.1rem;
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 540px) {
+  .pastor-bibliography-section {
+    padding: 20px;
+  }
+
+  .bibliography-container {
+    padding: 15px;
+    gap: 20px;
+  }
+
+  .pastor-image {
+    max-width: 60%;
+  }
+
+  .title {
+    font-size: 30px;
+  }
+
+  .subtitle {
+    font-size: 22px;
+  }
+
+  .intro,
+  .vision-body,
+  .vision-body p {
+    font-size: 15px;
+  }
+
+  .quote-scripture {
+    font-size: 15px;
+  }
+
+  .scrollable-book {
+    max-height: 400px;
+  }
+
+  .ending {
+    font-size: 24px;
   }
 }
 
@@ -160,38 +201,34 @@
     gap: 20px;
   }
 
-  .bib-left-side {
-    margin-bottom: -50px;
-  }
-
   .pastor-image {
     max-width: 60%;
   }
 
   .title {
-    font-size: 1.8rem;
+    font-size: 28px;
   }
 
   .subtitle {
-    font-size: 1.4rem;
+    font-size: 21px;
   }
 
   .intro,
   .vision-body,
   .vision-body p {
-    font-size: 0.95rem;
+    font-size: 14px;
   }
 
   .quote-scripture {
-    font-size: 0.95rem;
+    font-size: 14px;
   }
 
   .scrollable-book {
-    max-height: 400px;
+    max-height: 350px;
   }
 
   .ending {
-    font-size: 1.5rem;
+    font-size: 22px;
   }
 }
 
@@ -206,29 +243,29 @@
   }
 
   .title {
-    font-size: 1.6rem;
+    font-size: 26px;
   }
 
   .subtitle {
-    font-size: 1.3rem;
+    font-size: 20px;
   }
 
   .intro,
   .vision-body,
   .vision-body p {
-    font-size: 0.85rem;
+    font-size: 13px;
     line-height: 1.5;
   }
 
   .quote-scripture {
-    font-size: 0.85rem;
+    font-size: 13px;
   }
 
   .scrollable-book {
-    max-height: 350px;
+    max-height: 300px;
   }
 
   .ending {
-    font-size: 0.9rem;
+    font-size: 18px;
   }
 }

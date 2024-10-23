@@ -26,6 +26,13 @@
       href="https://fonts.googleapis.com/css2?family=Alegreya+SC:ital,wght@0,400;0,500;0,700;0,800;0,900;1,400;1,500;1,700;1,800;1,900&display=swap"
       rel="stylesheet"
     />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <!-- Baptisms navbar section -->
@@ -105,11 +112,8 @@
     <!--Baptism video section-->
     <section class="baptism-video-section">
       <div class="baptism-video-container">
-        <!-- Set width and height to ensure visibility -->
         <video
           id="baptism-video-background"
-          width="100%"
-          height="auto"
           autoplay
           muted
           loop
@@ -118,10 +122,20 @@
           preload="auto"
         ></video>
       </div>
+      <div class="next-section">
+        <a href="#next">
+          <img
+            class="down-arrow"
+            src="/assets/icons/down-arrow.svg"
+            alt="down arrow to move down to next section"
+          />
+        </a>
+      </div>
     </section>
 
     <!--Our Baptism section-->
-    <section class="our-baptism-section">
+    <section class="our-baptism-section" id="next">
+      <div class="our-beliefs-left-side-content"></div>
       <div class="ourBelief-baptism-details">
         <h1 class="ourBelief-baptism-title">Our Beliefs on Baptism</h1>
 
@@ -175,6 +189,21 @@
           resurrection of Jesus Christ, symbolizing a spiritual renewal and a
           new beginning in the life of the believer.
         </p>
+      </div>
+
+      <div class="our-beliefs-video-right-side"></div>
+      <div class="baptism-video-section-2">
+        <div class="baptism-video-container-2">
+          <video
+            id="baptism-video-background-2"
+            autoplay
+            muted
+            loop
+            playsinline
+            src="assets/videos/Baptism-Video-Largescreens.mp4"
+            preload="auto"
+          ></video>
+        </div>
       </div>
     </section>
 
