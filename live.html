@@ -78,29 +78,6 @@
         </div>
       </nav>
     </header>
-    <script>
-      document.getElementById("bTn").addEventListener("click", function () {
-        document.getElementById("menu").classList.toggle("active");
-      });
-
-      document.addEventListener("click", function (event) {
-        const menu = document.getElementById("menu");
-        const menuButton = document.getElementById("bTn");
-
-        if (
-          !menu.contains(event.target) &&
-          !menuButton.contains(event.target)
-        ) {
-          menu.classList.remove("active");
-        }
-      });
-
-      document
-        .getElementById("closeMenu")
-        .addEventListener("click", function () {
-          document.getElementById("menu").classList.remove("active");
-        });
-    </script>
 
     <!--Going live section-->
     <section class="going-live-section">
@@ -131,46 +108,6 @@
         </div>
       </div>
     </section>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        var liveSection = document.querySelector(".going-live-section");
-        var liveImage = document.querySelector(".going-live-image");
-        var liveContentP = document.querySelector(".going-live-content p");
-        var liveButton = document.querySelector(".going-live-content button");
-
-        liveSection.addEventListener("touchstart", function () {
-          liveSection.classList.add("touch-active");
-        });
-
-        liveImage.addEventListener("touchstart", function () {
-          liveImage.classList.add("touch-active");
-        });
-
-        liveContentP.addEventListener("touchstart", function () {
-          liveContentP.classList.add("touch-active");
-        });
-
-        liveButton.addEventListener("touchstart", function () {
-          liveButton.classList.add("touch-active");
-        });
-
-        liveSection.addEventListener("touchend", function () {
-          liveSection.classList.remove("touch-active");
-        });
-
-        liveImage.addEventListener("touchend", function () {
-          liveImage.classList.remove("touch-active");
-        });
-
-        liveContentP.addEventListener("touchend", function () {
-          liveContentP.classList.remove("touch-active");
-        });
-
-        liveButton.addEventListener("touchend", function () {
-          liveButton.classList.remove("touch-active");
-        });
-      });
-    </script>
 
     <!--Recent Live video(s) section-->
     <section class="video-section">
@@ -319,69 +256,6 @@
         >
       </footer>
     </section>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const lazyIframes = document.querySelectorAll("iframe.lazy-iframe");
-
-        lazyIframes.forEach((iframe) => {
-          // Native lazy loading support
-          if ("loading" in iframe) {
-            iframe.setAttribute("loading", "lazy");
-            iframe.setAttribute("src", iframe.getAttribute("data-src"));
-          } else {
-            // Fallback for browsers without native lazy-loading
-            const observer = new IntersectionObserver((entries, observer) => {
-              entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                  entry.target.setAttribute(
-                    "src",
-                    entry.target.getAttribute("data-src")
-                  );
-                  observer.unobserve(entry.target);
-                }
-              });
-            });
-            observer.observe(iframe);
-          }
-        });
-
-        // Tab functionality for switching between categories
-        const tabs = document.querySelectorAll(".category-tab");
-        const categories = document.querySelectorAll(".video-category-content");
-
-        function hideAllCategories() {
-          categories.forEach((category) => {
-            category.classList.remove("active");
-            category.style.display = "none";
-          });
-          tabs.forEach((tab) => {
-            tab.classList.remove("active");
-          });
-        }
-
-        function showDefaultCategory() {
-          hideAllCategories();
-          const defaultCategory = document.getElementById("church-services");
-          defaultCategory.style.display = "block";
-          defaultCategory.classList.add("active");
-          tabs[0].classList.add("active");
-        }
-
-        tabs.forEach((tab) => {
-          tab.addEventListener("click", () => {
-            hideAllCategories();
-            const categoryId = tab.getAttribute("data-category");
-            const activeCategory = document.getElementById(categoryId);
-            activeCategory.style.display = "block";
-            activeCategory.classList.add("active");
-            tab.classList.add("active");
-            localStorage.setItem("lastCategory", categoryId); // Store last category
-          });
-        });
-
-        showDefaultCategory();
-      });
-    </script>
 
     <!--Church highlights section-->
     <section class="church-highlights">
@@ -612,33 +486,6 @@
         </div>
       </div>
     </section>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const lazyIframes = document.querySelectorAll("iframe.lazy-iframe");
-
-        lazyIframes.forEach((iframe) => {
-          // Native lazy loading support
-          if ("loading" in iframe) {
-            iframe.setAttribute("loading", "lazy");
-            iframe.setAttribute("src", iframe.getAttribute("data-src"));
-          } else {
-            // Fallback for browsers without native lazy-loading
-            const observer = new IntersectionObserver((entries, observer) => {
-              entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                  entry.target.setAttribute(
-                    "src",
-                    entry.target.getAttribute("data-src")
-                  );
-                  observer.unobserve(entry.target);
-                }
-              });
-            });
-            observer.observe(iframe);
-          }
-        });
-      });
-    </script>
 
     <!--Footer section-->
     <footer>
@@ -660,5 +507,6 @@
     </footer>
 
     <script src="js/script.js" type="module"></script>
+    <script src="js/live.js" type="module"></script>
   </body>
 </html>
