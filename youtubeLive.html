@@ -109,7 +109,7 @@
       <div class="youtube-live-container">
         <div class="youtube-live">
           <iframe
-            src="https://www.youtube.com/embed/RZr9T6ygHew"
+            src=""
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen
@@ -118,7 +118,7 @@
 
         <div class="live-chat">
           <iframe
-            src="https://www.youtube.com/live_chat?v=RZr9T6ygHew&embed_domain=communitytemplechurch.com"
+            src=""
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
           ></iframe>
@@ -151,6 +151,32 @@
           bibleContainer.style.display = "none";
         }
       }
+    </script>
+    <script>
+      src = chatUrl;
+      document.addEventListener("DOMContentLoaded", function () {
+        const videoIframe = document.querySelector(".youtube-live iframe");
+        const chatIframe = document.querySelector(".live-chat iframe");
+
+        fetch("/.netlify/functions/get-youtube-live")
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.liveVideoId) {
+              const liveVideoId = data.liveVideoId;
+
+              // Update video iframe
+              videoIframe.src = `https://www.youtube.com/embed/${liveVideoId}`;
+
+              // Update live chat iframe
+              chatIframe.src = `https://www.youtube.com/live_chat?v=${liveVideoId}&embed_domain=communitytemplechurch.com`;
+            } else {
+              console.log("No live stream found");
+            }
+          })
+          .catch((error) =>
+            console.error("Error fetching the live video:", error)
+          );
+      });
     </script>
 
     <!--Footer section-->

@@ -36,6 +36,17 @@
   font-size: 20px;
   margin-bottom: 20px;
   color: #777;
+  padding-left: 20px;
+  position: relative;
+}
+
+.baptism-scripture-quote::before {
+  content: ""; /* Necessary to display the pseudo-element */
+  border-left: 10px solid wheat;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
 }
 
 /* Right Video Area */
@@ -72,58 +83,86 @@
     margin-left: 0;
     margin-top: 20px;
   }
+
+  .ourBelief-baptism-title {
+    font-size: 34px;
+  }
+
+  .baptism-paragraph {
+    font-size: 28px;
+  }
+
+  .baptism-scripture-title {
+    font-size: 34px;
+  }
+
+  .baptism-scripture-quote {
+    font-size: 28px;
+  }
 }
 
 @media (max-width: 768px) {
+  .ourBelief-baptism-details {
+    padding: 20px;
+  }
+
   .ourBelief-baptism-title {
     font-size: 30px;
   }
 
   .baptism-paragraph {
-    font-size: 16px;
+    font-size: 24px;
   }
 
   .baptism-scripture-title {
-    font-size: 20px;
+    font-size: 30px;
   }
 
   .baptism-scripture-quote {
-    font-size: 18px;
+    font-size: 24px;
   }
 }
 
 @media (max-width: 480px) {
+  .ourBelief-baptism-details {
+    padding: 15px;
+  }
+
   .ourBelief-baptism-title {
-    font-size: 24px;
+    font-size: 32px;
   }
 
   .baptism-paragraph {
-    font-size: 14px;
+    font-size: 24px;
   }
 
   .baptism-scripture-title {
-    font-size: 18px;
+    font-size: 32px;
   }
 
   .baptism-scripture-quote {
-    font-size: 16px;
+    font-size: 24px;
   }
 }
 
 @media (max-width: 320px) {
+  .ourBelief-baptism-details {
+    padding: 3px;
+  }
+
   .ourBelief-baptism-title {
-    font-size: 22px;
+    font-size: 32px;
   }
 
   .baptism-paragraph {
-    font-size: 12px;
+    font-size: 28px;
   }
 
   .baptism-scripture-title {
-    font-size: 14px;
+    font-size: 32px;
   }
 
   .baptism-scripture-quote {
-    font-size: 12px;
+    font-size: 28px;
   }
 }
