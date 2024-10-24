@@ -86,6 +86,31 @@
         </div>
       </nav>
     </header>
+    <script>
+      document.getElementById("bTn").addEventListener("click", function () {
+        document.getElementById("menu").classList.toggle("active");
+      });
+
+      // Close the menu when clicking outside of it
+      document.addEventListener("click", function (event) {
+        const menu = document.getElementById("menu");
+        const menuButton = document.getElementById("bTn");
+
+        if (
+          !menu.contains(event.target) &&
+          !menuButton.contains(event.target)
+        ) {
+          menu.classList.remove("active");
+        }
+      });
+
+      // Close the menu when the close button is clicked
+      document
+        .getElementById("closeMenu")
+        .addEventListener("click", function () {
+          document.getElementById("menu").classList.remove("active");
+        });
+    </script>
 
     <!--Baptism video section-->
     <section class="baptism-video-section">
@@ -290,6 +315,27 @@
         <button class="next-btn" onclick="showNextStep(4)">Next</button>
       </div>
     </section>
+    <script>
+      function showNextStep(step) {
+        // Hide all steps
+        const steps = document.querySelectorAll(".question-step");
+        steps.forEach(function (stepDiv) {
+          stepDiv.style.display = "none";
+        });
+
+        // Show the next step
+        const nextStep = document.getElementById("step" + step);
+        if (nextStep) {
+          nextStep.style.display = "block";
+        }
+
+        // Show the signup section if it's the final step
+        if (step === 4) {
+          document.querySelector(".question-section").style.display = "none";
+          document.getElementById("signupSection").style.display = "block";
+        }
+      }
+    </script>
 
     <!-- Signup section -->
     <section class="signup-section" id="signupSection" style="display: none">
