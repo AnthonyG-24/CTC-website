@@ -138,7 +138,6 @@
         ></iframe>
       </div>
     </section>
-
     <script>
       function toggleBible() {
         const bibleContainer = document.getElementById("fullBible");
@@ -153,7 +152,6 @@
       }
     </script>
     <script>
-      src = chatUrl;
       document.addEventListener("DOMContentLoaded", function () {
         const videoIframe = document.querySelector(".youtube-live iframe");
         const chatIframe = document.querySelector(".live-chat iframe");
@@ -164,10 +162,10 @@
             if (data.liveVideoId) {
               const liveVideoId = data.liveVideoId;
 
-              // Update video iframe
+              // Update video iframe with the live video ID
               videoIframe.src = `https://www.youtube.com/embed/${liveVideoId}`;
 
-              // Update live chat iframe
+              // Update live chat iframe with the live video ID
               chatIframe.src = `https://www.youtube.com/live_chat?v=${liveVideoId}&embed_domain=communitytemplechurch.com`;
             } else {
               console.log("No live stream found");

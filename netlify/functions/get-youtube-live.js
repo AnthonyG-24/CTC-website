@@ -11,21 +11,21 @@ exports.handler = async function (event, context) {
     const data = await response.json();
 
     if (data.items && data.items.length > 0) {
-      const liveVideoId = data.items[0].id.videoId;
+      const liveVideoId = data.items[0].id.videoId; // Extract video ID from response
       return {
         statusCode: 200,
-        body: JSON.stringify({ liveVideoId }),
+        body: JSON.stringify({ liveVideoId }), // Send video ID back to the client
       };
     } else {
       return {
         statusCode: 404,
-        body: JSON.stringify({ message: "No live stream found" }),
+        body: JSON.stringify({ message: "No live stream found" }), // No live stream available
       };
     }
   } catch (error) {
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: "Error fetching live video" }),
+      body: JSON.stringify({ error: "Error fetching live video" }), // Handle errors
     };
   }
 };
