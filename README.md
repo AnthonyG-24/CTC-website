@@ -1,18 +1,46 @@
-﻿# About
+﻿# Community Temple Church (CTC) Website
 
-The **CTC (Community Temple Church) Website** is designed to serve as a digital hub for both our congregation and visitors. The website provides easy access to live YouTube streaming of services, tributes, contact information, and other resources. Its goal is to create a welcoming and informative space where users can learn about our church, stay connected, and access important information in one place.
+The **Community Temple Church (CTC) Website** serves as a central digital platform for both our congregation and visitors. The website provides live streaming, event updates, church information, and much more. Our goal is to keep everyone informed and connected with the church community, no matter where they are.
 
-# Features
+## Features
 
-- **Live YouTube Streaming**: Seamlessly integrates live YouTube streams and chat directly on the website, allowing visitors to watch services in real-time.
-- **Tributes Section**: Dedicated space for remembering and honoring members of the church.
-- **Contact Information**: Provides easy access to the church’s contact details, including address, phone number, and email, with an embedded map for directions.
-- **Responsive Design**: Fully optimized for various devices, from desktops to mobile phones, ensuring a smooth user experience across all platforms.
+- **Home Page with Background Video**:  
+  A visually engaging home page featuring a background video, setting the tone for the visitor's experience on the website.
 
-# Technologies Used
+- **About Section**:  
+  Learn about the history, mission, and core values of Community Temple Church. This section provides insights into who we are, our beliefs, and the journey that brought us here.
 
-- **HTML**: For structuring the website content.
-- **CSS**: For styling the website with a focus on responsiveness and modern design principles.
-- **JavaScript**: For adding interactivity, such as image slideshows and dynamic content toggling.
-- **YouTube API**: For embedding live streams and chat features.
-- **Netlify**: Used for deployment and serverless functions to handle dynamic YouTube video fetching.
+- **Baptism Information**:  
+  Dedicated section with information about baptism, including steps for those interested in getting baptized.
+
+- **Mothers’ Ministry**:  
+  A section dedicated to mothers and their contributions to the church.
+
+- **Services Section**:  
+  Stay informed about our regular church services, including sermons, bible studies, and special services.
+
+- **Events Section**:  
+  A calendar and listing of upcoming church events, from community outreach programs to church celebrations. This section ensures that the congregation stays updated on important dates and activities.
+
+- **Contact Information**:  
+  Easily find our contact details.
+
+- **Donate Section**:  
+  Visitors can contribute to the church using the secure online donation system. This section offers a convenient way to give to support the church’s mission and activities.
+
+## Technologies Used
+
+- **HTML**:  
+  Used for structuring the content and providing a semantic layout for the website.
+
+- **CSS**:  
+  Custom CSS ensures responsive design and a modern, visually appealing interface, adaptable to both desktop and mobile devices.
+
+- **JavaScript**:  
+  Enhances interactivity across the website, such as dynamic content toggling, image carousels, and form validations for contact and donation forms.
+
+- **YouTube API**:  
+  Integrates live streaming and live chat directly into the website, enabling visitors to participate in services remotely.
+
+- **Netlify**:  
+  Deployed and hosted on Netlify, using serverless functions to dynamically retrieve YouTube live streams and manage secure backend processes.
