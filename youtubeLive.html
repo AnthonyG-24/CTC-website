@@ -106,6 +106,13 @@
         <button class="back-to-serv-btn">Back to Services</button>
       </a>
       <h1>Live Now On Youtube!</h1>
+
+      <h2 id="no-stream-message" style="display: none">
+        No Live Stream Currently Available. Join us for our live services every
+        Sunday at 11:35 a.m. right here on our website or on Facebook at
+        CTChurch.
+      </h2>
+
       <div class="youtube-live-container">
         <div class="youtube-live">
           <iframe
@@ -122,26 +129,6 @@
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
           ></iframe>
-        </div>
-
-        <!-- Message When No Live Stream is Available -->
-        <div id="no-live-message" style="display: none">
-          <h2>
-            No Live Stream Currently Available. Join us for our live services
-            every Sunday at 11:35 a.m. right here on our website or on Facebook
-            at CTChurch.
-          </h2>
-          <p>
-            Please check back later for our next live service or visit our
-            <a
-              href="https://www.youtube.com/watch?v=v7ixHcXt46Q&list=PLKI4ojWoZlTfVLfDOjpcJPukiesXCLP13"
-              class="all-streams-link"
-              target="_blank"
-              rel="noopener"
-              >Recorded Services</a
-            >
-            to watch past events.
-          </p>
         </div>
       </div>
 
@@ -175,36 +162,48 @@
       document.addEventListener("DOMContentLoaded", function () {
         const videoIframe = document.querySelector(".youtube-live iframe");
         const chatIframe = document.querySelector(".live-chat iframe");
-        const noLiveMessage = document.getElementById("no-live-message");
-        const youtubeLiveContainer = document.querySelector(
-          ".youtube-live-container"
+        const noStreamMessage = document.getElementById("no-stream-message");
+        const noStreamParagraph = document.getElementById(
+          "no-stream-paragraph"
         );
 
-        // Fetch live video ID from Netlify function
         fetch("/.netlify/functions/get-youtube-live")
           .then((response) => response.json())
           .then((data) => {
             if (data.liveVideoId) {
               const liveVideoId = data.liveVideoId;
 
-              // Show the live video and chat if a live stream is active
+              // Update video iframe with the live video ID
               videoIframe.src = `https://www.youtube.com/embed/${liveVideoId}`;
+
+              // Update live chat iframe with the live video ID
               chatIframe.src = `https://www.youtube.com/live_chat?v=${liveVideoId}&embed_domain=communitytemplechurch.com`;
 
-              // Show the video container and hide the "no live" message
-              youtubeLiveContainer.style.display = "block";
-              noLiveMessage.style.display = "none";
+              // Ensure the live stream elements are visible
+              videoIframe.style.display = "block";
+              chatIframe.style.display = "block";
+
+              // Hide the "No Live Stream" message
+              noStreamMessage.style.display = "none";
+              noStreamParagraph.style.display = "none";
             } else {
-              // No live stream available, hide video and show "no live" message
-              youtubeLiveContainer.style.display = "none";
-              noLiveMessage.style.display = "block";
+              // If no live stream, hide iframes and show "No Live Stream" message
+              videoIframe.style.display = "none";
+              chatIframe.style.display = "none";
+
+              noStreamMessage.style.display = "block";
+              noStreamParagraph.style.display = "block";
             }
           })
           .catch((error) => {
             console.error("Error fetching the live video:", error);
-            // In case of error, hide live video and show "no live" message
-            youtubeLiveContainer.style.display = "none";
-            noLiveMessage.style.display = "block";
+
+            // On error, assume no live stream and show the "No Live Stream" message
+            videoIframe.style.display = "none";
+            chatIframe.style.display = "none";
+
+            noStreamMessage.style.display = "block";
+            noStreamParagraph.style.display = "block";
           });
       });
     </script>
