@@ -175,25 +175,37 @@
       document.addEventListener("DOMContentLoaded", function () {
         const videoIframe = document.querySelector(".youtube-live iframe");
         const chatIframe = document.querySelector(".live-chat iframe");
+        const noLiveMessage = document.getElementById("no-live-message");
+        const youtubeLiveContainer = document.querySelector(
+          ".youtube-live-container"
+        );
 
+        // Fetch live video ID from Netlify function
         fetch("/.netlify/functions/get-youtube-live")
           .then((response) => response.json())
           .then((data) => {
             if (data.liveVideoId) {
               const liveVideoId = data.liveVideoId;
 
-              // Update video iframe with the live video ID
+              // Show the live video and chat if a live stream is active
               videoIframe.src = `https://www.youtube.com/embed/${liveVideoId}`;
-
-              // Update live chat iframe with the live video ID
               chatIframe.src = `https://www.youtube.com/live_chat?v=${liveVideoId}&embed_domain=communitytemplechurch.com`;
+
+              // Show the video container and hide the "no live" message
+              youtubeLiveContainer.style.display = "block";
+              noLiveMessage.style.display = "none";
             } else {
-              console.log("No live stream found");
+              // No live stream available, hide video and show "no live" message
+              youtubeLiveContainer.style.display = "none";
+              noLiveMessage.style.display = "block";
             }
           })
-          .catch((error) =>
-            console.error("Error fetching the live video:", error)
-          );
+          .catch((error) => {
+            console.error("Error fetching the live video:", error);
+            // In case of error, hide live video and show "no live" message
+            youtubeLiveContainer.style.display = "none";
+            noLiveMessage.style.display = "block";
+          });
       });
     </script>
 
