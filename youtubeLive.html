@@ -83,13 +83,6 @@
         <button class="back-to-serv-btn">Back to Services</button>
       </a>
       <h1>Live Now On Youtube!</h1>
-
-      <h2 id="no-stream-message" style="display: none">
-        No Live Stream Currently Available. Join us for our live services every
-        Sunday at 11:35 a.m. right here on our website or on Facebook at
-        CTChurch.
-      </h2>
-
       <div class="youtube-live-container">
         <div class="youtube-live">
           <iframe
@@ -136,6 +129,7 @@
       }
     </script>
     <script>
+      src = chatUrl;
       document.addEventListener("DOMContentLoaded", function () {
         const videoIframe = document.querySelector(".youtube-live iframe");
         const chatIframe = document.querySelector(".live-chat iframe");
@@ -146,10 +140,10 @@
             if (data.liveVideoId) {
               const liveVideoId = data.liveVideoId;
 
-              // Update video iframe with the live video ID
+              // Update video iframe
               videoIframe.src = `https://www.youtube.com/embed/${liveVideoId}`;
 
-              // Update live chat iframe with the live video ID
+              // Update live chat iframe
               chatIframe.src = `https://www.youtube.com/live_chat?v=${liveVideoId}&embed_domain=communitytemplechurch.com`;
             } else {
               console.log("No live stream found");
