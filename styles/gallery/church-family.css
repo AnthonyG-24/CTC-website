@@ -1,7 +1,7 @@
 .church-family-section {
   padding: 50px 20px;
   text-align: center;
-  background-color: #50a2a7;
+  background-color: var(--burgundy);
 }
 
 .church-family-section h1 {
