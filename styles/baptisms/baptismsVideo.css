@@ -34,11 +34,6 @@
   z-index: 2;
 }
 
-.baptism-video-section {
-  opacity: 0;
-  animation: fadeIn 1s ease-in-out forwards;
-}
-
 .down-arrow {
   position: absolute;
   left: 53%;
@@ -51,15 +46,6 @@
   filter: brightness(0) invert(1);
   transition: transform 0.3s ease, filter 0.3s ease;
   animation: bounce 2s infinite;
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
 }
 
 @media (max-width: 1024px) {
