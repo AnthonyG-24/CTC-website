@@ -25,38 +25,58 @@ function updateVideoSource() {
   // Determine the correct video source based on screen width
   let videoSource;
   if (window.innerWidth <= 480) {
-    videoSource =
-      "assets/videos/Baptism-Vid-Mobile-Optimized.mp4?v=" +
-      new Date().getTime(); // Mobile optimized video
+    videoSource = "assets/videos/Baptism-Vid-Mobile-Optimized.mp4"; // Mobile optimized video
   } else {
-    videoSource =
-      "assets/videos/Baptism-Vid-Optimized.mp4?v=" + new Date().getTime(); // Desktop video
+    videoSource = "assets/videos/Baptism-Vid-Optimized.mp4"; // Desktop video
   }
 
   // Only update if the source has changed to avoid reloading unnecessarily
   if (videoElement.src !== videoSource) {
-    videoElement.src = videoSource;
-    videoElement.load(); // Reload the video with the new source
-    videoElement
-      .play()
-      .then(() => {
-        // Video successfully plays, keep it visible
-        videoElement.style.display = "block";
-      })
-      .catch((error) => {
-        console.log("Autoplay blocked or video failed to load:", error);
+    const videoToPreload = document.createElement("video");
+    videoToPreload.src = videoSource;
 
-        // If autoplay or loading fails, hide the video
-        videoElement.style.display = "none";
-      });
+    // Preload the video in the background
+    videoToPreload.load();
+    videoToPreload.oncanplaythrough = function () {
+      // Once preloading is complete, update the actual video source
+      videoElement.src = videoSource;
+      videoElement.load(); // Reload the video with the new source
+      videoElement
+        .play()
+        .then(() => {
+          // Video successfully plays, keep it visible
+          videoElement.style.display = "block";
+        })
+        .catch((error) => {
+          console.log("Autoplay blocked or video failed to load:", error);
+
+          // If autoplay or loading fails, hide the video
+          videoElement.style.display = "none";
+        });
+    };
   }
 }
 
-// Update video on page load and window resize
+// Throttle the video source update based on significant changes (resize threshold or orientation)
+function handleResize() {
+  const currentWidth = window.innerWidth;
+
+  if (
+    (currentWidth > 480 && previousWidth <= 480) ||
+    (currentWidth <= 480 && previousWidth > 480)
+  ) {
+    updateVideoSource();
+  }
+  previousWidth = currentWidth;
+}
+
+let previousWidth = window.innerWidth;
+
+// Update video on page load and only on significant resize changes
 window.addEventListener("load", updateVideoSource);
 window.addEventListener("resize", () => {
   clearTimeout(window.resizeTimeout);
-  window.resizeTimeout = setTimeout(updateVideoSource, 200);
+  window.resizeTimeout = setTimeout(handleResize, 150); // Throttled resizing
 });
 
 // ================== Show Next Step Functionality ==================

@@ -1,3 +1,23 @@
+// ================== Toggle Menu Functionality ==================
+document.getElementById("bTn").addEventListener("click", function () {
+  document.getElementById("menu").classList.toggle("active");
+});
+
+// Close the menu when clicking outside of it
+document.addEventListener("click", function (event) {
+  const menu = document.getElementById("menu");
+  const menuButton = document.getElementById("bTn");
+
+  if (!menu.contains(event.target) && !menuButton.contains(event.target)) {
+    menu.classList.remove("active");
+  }
+});
+
+// Close the menu when the close button is clicked
+document.getElementById("closeMenu").addEventListener("click", function () {
+  document.getElementById("menu").classList.remove("active");
+});
+
 // ================== Video Source Update on Page Load and Resize ==================
 document.addEventListener("DOMContentLoaded", function () {
   const videoElement = document.getElementById("cloudVideo");
