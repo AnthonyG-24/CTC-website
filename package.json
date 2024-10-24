@@ -1,0 +1,15 @@
+{
+  "name": "church-website-remodel",
+  "version": "1.0.0",
+  "description": "The CTC website is designed to serve the needs of our congregation and visitors. It includes sections for live YouTube streaming, tributes, contact information, and other resources. The goal is to create a central hub where people can learn about our church, access important information, and stay connected.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "node-fetch": "^3.3.2"
+  }
+}
