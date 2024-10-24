@@ -76,29 +76,6 @@
         </div>
       </nav>
     </header>
-    <script>
-      document.getElementById("bTn").addEventListener("click", function () {
-        document.getElementById("menu").classList.toggle("active");
-      });
-
-      document.addEventListener("click", function (event) {
-        const menu = document.getElementById("menu");
-        const menuButton = document.getElementById("bTn");
-
-        if (
-          !menu.contains(event.target) &&
-          !menuButton.contains(event.target)
-        ) {
-          menu.classList.remove("active");
-        }
-      });
-
-      document
-        .getElementById("closeMenu")
-        .addEventListener("click", function () {
-          document.getElementById("menu").classList.remove("active");
-        });
-    </script>
 
     <!--Live youtube section-->
     <section class="youtube-live-section">
