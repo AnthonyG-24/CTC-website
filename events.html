@@ -8,6 +8,7 @@
 
     <link rel="stylesheet" href="/styles/general.css" />
     <link rel="stylesheet" href="/styles/events/eventsNav.css" />
+    <link rel="stylesheet" href="/styles/events/flyers.css" />
     <link rel="stylesheet" href="/styles/events/calander.css" />
     <link rel="stylesheet" href="/styles/events/pastEvents.css" />
     <link rel="stylesheet" href="/styles/events/countdown.css" />
@@ -234,6 +235,23 @@
     <div class="past-events-section">
       <h2>Past Events</h2>
 
+      <section class="flyer-section">
+        <div class="flyer-container">
+          <button class="nav-arrow left-arrow" onclick="previousImage()">
+            &lt;
+          </button>
+          <img
+            id="flyer-image"
+            src="assets/event-assets/past-event-flyers/healingService.jpg"
+            alt="Flyer Image"
+            class="flyer-image"
+          />
+          <button class="nav-arrow right-arrow" onclick="nextImage()">
+            &gt;
+          </button>
+        </div>
+      </section>
+
       <div class="event-card">
         <div class="event-header">
           <h3>Pentecost Celebration</h3>
@@ -267,6 +285,26 @@
           ></iframe>
         </div>
       </div>
+      <script>
+        const images = [
+          "assets/event-assets/past-event-flyers/joyNightService.jpg",
+          "assets/event-assets/past-event-flyers/singingProgram.jpg",
+          "assets/event-assets/past-event-flyers/healingService.jpg",
+        ];
+        let currentIndex = 0;
+
+        // Function to show the next image
+        function nextImage() {
+          currentIndex = (currentIndex + 1) % images.length;
+          document.getElementById("flyer-image").src = images[currentIndex];
+        }
+
+        // Function to show the previous image
+        function previousImage() {
+          currentIndex = (currentIndex - 1 + images.length) % images.length;
+          document.getElementById("flyer-image").src = images[currentIndex];
+        }
+      </script>
 
       <div class="event-card">
         <div class="event-header">
