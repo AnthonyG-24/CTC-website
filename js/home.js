@@ -25,13 +25,24 @@ function updateVideoSource() {
 
   // Determine the correct video source based on screen width
   let videoSource;
-  if (window.innerWidth <= 480) {
+  if (window.innerWidth <= 768) {
     videoSource =
       "assets/videos/CTC-remake-Mobile-Optimized.mp4?v=" + new Date().getTime(); // Mobile optimized video
+  } else if (window.innerWidth >= 768 && window.innerWidth <= 1024) {
+    videoSource =
+      "assets/videos/CTC-Tablet-Optimized.mp4?v=" + new Date().getTime(); // Tablet optimized video
   } else {
     videoSource =
       "assets/videos/CTC-remake-Largescreens-Optimized.mp4?v=" +
       new Date().getTime(); // Desktop video
+  }
+
+  // Set the video source and handle fallback for non-video support
+  if (videoElement) {
+    videoElement.src = videoSource;
+    videoElement.load();
+  } else if (fallbackImage) {
+    fallbackImage.src = "assets/images/video-fallback.jpg";
   }
 
   // Only update if the source has changed to avoid reloading unnecessarily
