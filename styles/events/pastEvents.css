@@ -92,9 +92,10 @@ body {
 
 /* Style for images */
 .event-media img {
-  width: calc(100% - 50px); /* Set image width separately */
+  width: calc(100% - 0px); /* Set image width separately */
+  max-height: 300px;
   height: auto;
-  object-fit: contain;
+  object-fit: cover;
   border-radius: 12px;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
