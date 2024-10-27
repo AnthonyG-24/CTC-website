@@ -28,9 +28,12 @@
 
 .random-image-container {
   width: 100%;
-  max-width: 500px;
   margin: 20px auto;
   text-align: center;
+  padding: 50px;
+  background-image: url("/styles/flower-border.png");
+  background-position: center; /* Center the image */
+  background-size: cover; /* Scale image to cover the container */
 }
 
 .random-image-shower {
@@ -180,21 +183,29 @@
   }
 
   .random-image-container {
-    max-width: 800px;
+    max-width: 100%;
+    margin-right: 100px;
+    background-position: 100px center;
+    background-position: center;
+    background-size: cover;
   }
   .random-image-shower {
-    width: 350px;
-    height: 300px;
+    width: 300px;
+    height: 450px;
   }
 }
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 429px) and (orientation: portrait) {
   .random-image-container {
-    max-width: 800px;
+    max-width: 100%;
+    margin-right: 100px;
+    background-position: 100px center;
+    background-position: center;
+    background-size: cover;
   }
 
   .random-image-shower {
-    width: 300px;
-    height: 200px;
+    width: 220px;
+    height: 300px;
   }
 }
