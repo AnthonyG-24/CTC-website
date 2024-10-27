@@ -102,10 +102,12 @@ body {
 
 .going-live-content button {
   padding: 15px 30px;
+  max-width: 400px;
   background-color: #fff;
   color: #4169e1;
   border: none;
   margin-right: 10px;
+  margin-bottom: 10px;
   border-radius: 50px;
   cursor: pointer;
   font-size: 18px;

@@ -94,6 +94,15 @@
   transform: translateY(1px);
 }
 
+.fb-embeded-vid {
+  width: 450px;
+  height: 250px;
+}
+
+.recent-msg {
+  margin-bottom: 10px;
+}
+
 @media (max-width: 1440px) {
   .video-section h1 {
     font-size: 34px;
@@ -209,8 +218,12 @@
     font-size: 20px;
   }
 
-  .video-category-content p.church-service-date {
+  .video-category-content {
     font-size: 14px;
+  }
+
+  p.church-service-date {
+    font-size: 18px;
   }
 
   .all-streams-link {
@@ -237,5 +250,10 @@
   .all-streams-link {
     font-size: 16px;
     padding: 8px 20px;
+  }
+
+  .fb-embeded-vid {
+    width: 350px;
+    height: 300px;
   }
 }
