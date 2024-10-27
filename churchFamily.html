@@ -92,6 +92,9 @@
     <!--Church family photos-->
     <section class="church-family-section" id="church-family-section">
       <h1>Church Family</h1>
+      <div class="random-image-container">
+        <div class="random-image-shower"></div>
+      </div>
       <p>Press the image to make it larger</p>
       <div class="img-container">
         <div class="images">
@@ -256,6 +259,14 @@
             />
           </a>
           <a
+            href="assets/church-family-assets/churchfamily/church-family-mothers2.jpg"
+          >
+            <img
+              src="assets/church-family-assets/churchfamily/church-family-mothers2.jpg"
+              alt="Church Family Mother Joe"
+            />
+          </a>
+          <a
             href="assets/church-family-assets/churchfamily/church-family-pastor-gillard-family1.jpg"
           >
             <img
@@ -293,6 +304,14 @@
             <img
               src="assets/church-family-assets/churchfamily/church-family-school-graduation2.jpg"
               alt="Church Family School Graduation 2"
+            />
+          </a>
+          <a
+            href="assets/church-family-assets/churchfamily/church-family-school-graduation3.jpg"
+          >
+            <img
+              src="assets/church-family-assets/churchfamily/church-family-school-graduation3.jpg"
+              alt="Church Family Photo"
             />
           </a>
           <a
@@ -354,6 +373,38 @@
         </div>
       </div>
     </section>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const images = document.querySelectorAll(".img-container .images img");
+        const imageShower = document.querySelector(".random-image-shower");
+        let currentIndex = 0;
+
+        function showNextImage() {
+          // Get the next image in the list
+          const nextImage = images[currentIndex];
+
+          // Create a new image element for display in the random-image-shower div
+          const imgElement = document.createElement("img");
+          imgElement.src = nextImage.src;
+
+          // Clear previous image and append the new one
+          imageShower.innerHTML = "";
+          imageShower.appendChild(imgElement);
+
+          // Update the index to the next image
+          currentIndex = (currentIndex + 1) % images.length; // Loops back to 0 after the last image
+        }
+
+        // Show the first image immediately, then update every 3 seconds
+        showNextImage();
+        setInterval(showNextImage, 3000);
+
+        // Optional: Enlarge image on click
+        imageShower.addEventListener("click", () => {
+          imageShower.classList.toggle("enlarged");
+        });
+      });
+    </script>
 
     <!--Footer section-->
     <footer>
