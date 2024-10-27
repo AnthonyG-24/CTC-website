@@ -251,6 +251,32 @@
             community.
           </p>
         </div>
+
+        <div class="hall-of-faith-2024-image-slider">
+          <div class="h-o-f-img-container">
+            <img
+              src="assets/event-assets/hall-of-faith-2024/hall-of-faith-slider1.jpg"
+              alt="Slide 1"
+            />
+            <img
+              src="assets/event-assets/hall-of-faith-2024/hall-of-faith-slider2.jpg"
+              alt="Slide 2"
+            />
+            <img
+              src="assets/event-assets/hall-of-faith-2024/hall-of-faith-slider3.jpg"
+              alt="Slide 3"
+            />
+            <img
+              src="assets/event-assets/hall-of-faith-2024/hall-of-faith-slider4.jpg"
+              alt="Slide 4"
+            />
+            <img
+              src="assets/event-assets/hall-of-faith-2024/hall-of-faith-slider5.webp"
+              alt="Slide 5"
+            />
+          </div>
+        </div>
+
         <div class="event-media">
           <img
             src="assets/event-assets/hall-of-faith-2024/hall-of-faith-breakfast1.jpg"
@@ -302,6 +328,21 @@
           />
         </div>
       </div>
+      <script>
+        document.addEventListener("DOMContentLoaded", () => {
+          const images = document.querySelectorAll(".h-o-f-img-container img");
+          let currentIndex = 0;
+
+          function showNextImage() {
+            images[currentIndex].classList.remove("active");
+            currentIndex = (currentIndex + 1) % images.length;
+            images[currentIndex].classList.add("active");
+          }
+
+          images[currentIndex].classList.add("active");
+          setInterval(showNextImage, 3000); // Change every 3 seconds
+        });
+      </script>
 
       <div class="event-card">
         <div class="event-header">
