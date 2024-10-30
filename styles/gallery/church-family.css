@@ -67,8 +67,8 @@
 
 .images img {
   width: 100%;
-  max-width: 300px;
-  height: 200px;
+  max-width: 320px;
+  height: 350px;
   object-fit: cover;
   transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease,
     z-index 0.3s ease;
