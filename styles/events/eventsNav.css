@@ -95,6 +95,11 @@
   display: flex;
 }
 
+.event-poster {
+  width: 200px;
+  height: 300px;
+}
+
 @media (max-width: 1024px) {
   .right-nav {
     display: none;
