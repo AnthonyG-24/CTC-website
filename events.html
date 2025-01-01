@@ -161,11 +161,10 @@
         const events = [
           {
             title: "Countdown to the New Year!",
-            date: "December 31, 2024 9:00 PM",
+            date: "January 1, 2025 00:00:00",
           },
         ];
 
-        // Track the current event index
         let currentEventIndex = 0;
 
         const countdown = () => {
@@ -173,45 +172,41 @@
           const now = new Date().getTime();
           const gap = countDate - now;
 
-          // Time calculations for days, hours, minutes, and seconds
+          // Time calculations
           const second = 1000;
           const minute = second * 60;
           const hour = minute * 60;
           const day = hour * 24;
 
-          const days = Math.floor(gap / day);
-          const hours = Math.floor((gap % day) / hour);
-          const minutes = Math.floor((gap % hour) / minute);
-          const seconds = Math.floor((gap % minute) / second);
+          if (gap > 0) {
+            const days = Math.floor(gap / day);
+            const hours = Math.floor((gap % day) / hour);
+            const minutes = Math.floor((gap % hour) / minute);
+            const seconds = Math.floor((gap % minute) / second);
 
-          // Update the countdown display
-          document.getElementById("days").innerText = days;
-          document.getElementById("hours").innerText = hours;
-          document.getElementById("minutes").innerText = minutes;
-          document.getElementById("seconds").innerText = seconds;
-
-          // Check if the countdown reached zero
-          if ((gap = 0)) {
-            // Move to the next event if available
+            document.getElementById("days").innerText = days;
+            document.getElementById("hours").innerText = hours;
+            document.getElementById("minutes").innerText = minutes;
+            document.getElementById("seconds").innerText = seconds;
+          } else {
+            // Handle countdown expiration
             currentEventIndex++;
             if (currentEventIndex < events.length) {
-              // Update the event title and reset countdown
               document.getElementById("event-title").innerText =
                 events[currentEventIndex].title;
             } else {
-              // If no more events, stop the countdown
               clearInterval(countdownInterval);
               document.getElementById("event-title").innerText =
-                "All events have concluded! Check back again";
+                "All events have concluded! Check back again.";
             }
           }
         };
 
-        // Initial update and start the countdown interval
+        // Initial update and start the countdown
         document.getElementById("event-title").innerText =
           events[currentEventIndex].title;
         const countdownInterval = setInterval(countdown, 1000);
-        countdown(); // Initial call to populate the countdown immediately
+        countdown();
       });
     </script>
 
