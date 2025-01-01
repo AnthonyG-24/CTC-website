@@ -113,13 +113,29 @@
 
     <!--Countdown clock background-->
     <div class="event-image-container">
-      <img
+      <!-- <img
         src="assets/event-assets/worship-event.jpg"
         alt="join our church evnts photo"
-      />
+      /> -->
+
+      <video autoplay muted loop id="background-video">
+        <source
+          src="assets/videos/fireworks-new-years-vid.mp4"
+          type="video/mp4"
+        />
+        Your browser does not support the video tag.
+      </video>
+      <style>
+        #background-video {
+          opacity: 0.2; /* Makes the video slightly transparent */
+
+          object-fit: cover; /* Ensures the video covers the whole background */
+          z-index: -1; /* Keeps the video in the background */
+        }
+      </style>
 
       <div class="countdown-container">
-        <h2 id="event-title">Watch Night Service (Tuesday, Dec 31st):</h2>
+        <h2 id="event-title">Countdown To New year:</h2>
         <div class="countdown-clock">
           <div class="time-box">
             <span id="days" class="time">00</span>
@@ -144,7 +160,7 @@
       document.addEventListener("DOMContentLoaded", function () {
         const events = [
           {
-            title: "Watch Night Service (Tuesday, Dec 31st):",
+            title: "Countdown to the New Year!",
             date: "December 31, 2024 9:00 PM",
           },
         ];

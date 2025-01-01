@@ -1,3 +1,7 @@
+body {
+  background: linear-gradient(45deg, #1a237e, #880e4f);
+}
+
 .event-image-container {
   position: relative;
   text-align: center;
@@ -15,7 +19,6 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: rgba(0, 0, 0, 0.5);
   padding: 30px;
   border-radius: 10px;
 }
@@ -59,6 +62,30 @@ h2 {
   text-transform: uppercase;
   font-family: "Helvetica Neue", sans-serif;
   color: white;
+}
+
+@media (max-width: 2000px) {
+  .countdown-container {
+    padding: 15px;
+  }
+
+  .time-box {
+    width: 320px;
+    height: 320px;
+  }
+
+  h2 {
+    margin-bottom: 40px;
+    font-size: 40px;
+  }
+
+  .label {
+    font-size: 32px;
+  }
+
+  .time {
+    font-size: 52px;
+  }
 }
 
 @media (max-width: 768px) {
