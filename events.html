@@ -113,29 +113,13 @@
 
     <!--Countdown clock background-->
     <div class="event-image-container">
-      <!-- <img
+      <img
         src="assets/event-assets/worship-event.jpg"
         alt="join our church evnts photo"
-      /> -->
-
-      <video autoplay muted loop id="background-video">
-        <source
-          src="assets/videos/fireworks-new-years-vid.mp4"
-          type="video/mp4"
-        />
-        Your browser does not support the video tag.
-      </video>
-      <style>
-        #background-video {
-          opacity: 0.2; /* Makes the video slightly transparent */
-
-          object-fit: cover; /* Ensures the video covers the whole background */
-          z-index: -1; /* Keeps the video in the background */
-        }
-      </style>
+      />
 
       <div class="countdown-container">
-        <h2 id="event-title">Countdown To New year:</h2>
+        <h2 id="event-title">Watch Night Service (Tuesday, Dec 31st):</h2>
         <div class="countdown-clock">
           <div class="time-box">
             <span id="days" class="time">00</span>
@@ -160,92 +144,82 @@
       document.addEventListener("DOMContentLoaded", function () {
         const events = [
           {
-            title: "Countdown to the New Year!",
-            date: "January 1, 2025 00:00:00",
+            title: "",
+            date: "",
           },
         ];
 
+        // Track the current event index
         let currentEventIndex = 0;
 
         const countdown = () => {
+          if (currentEventIndex >= events.length) return;
+
+          const currentEvent = events[currentEventIndex];
+
+          // Handle missing title or date
+          if (!currentEvent.title || !currentEvent.date) {
+            clearInterval(countdownInterval);
+            document.getElementById("event-title").innerText =
+              "All events have concluded! Check back again.";
+            document.getElementById("days").innerText = "00";
+            document.getElementById("hours").innerText = "00";
+            document.getElementById("minutes").innerText = "00";
+            document.getElementById("seconds").innerText = "00";
+            return;
+          }
+
           const countDate = new Date(events[currentEventIndex].date).getTime();
           const now = new Date().getTime();
           const gap = countDate - now;
 
-          // Time calculations
+          // Time calculations for days, hours, minutes, and seconds
           const second = 1000;
           const minute = second * 60;
           const hour = minute * 60;
           const day = hour * 24;
 
-          if (gap > 0) {
-            const days = Math.floor(gap / day);
-            const hours = Math.floor((gap % day) / hour);
-            const minutes = Math.floor((gap % hour) / minute);
-            const seconds = Math.floor((gap % minute) / second);
+          const days = Math.floor(gap / day);
+          const hours = Math.floor((gap % day) / hour);
+          const minutes = Math.floor((gap % hour) / minute);
+          const seconds = Math.floor((gap % minute) / second);
 
-            document.getElementById("days").innerText = days;
-            document.getElementById("hours").innerText = hours;
-            document.getElementById("minutes").innerText = minutes;
-            document.getElementById("seconds").innerText = seconds;
-          } else {
-            // Handle countdown expiration
+          // Update the countdown display
+          document.getElementById("days").innerText = days;
+          document.getElementById("hours").innerText = hours;
+          document.getElementById("minutes").innerText = minutes;
+          document.getElementById("seconds").innerText = seconds;
+
+          // Check if the countdown reached zero
+          if (gap == 0) {
+            // Move to the next event if available
             currentEventIndex++;
             if (currentEventIndex < events.length) {
+              // Update the event title and reset countdown
               document.getElementById("event-title").innerText =
                 events[currentEventIndex].title;
             } else {
+              // If no more events, stop the countdown
               clearInterval(countdownInterval);
-              document.getElementById("event-title").innerText =
-                "All events have concluded! Check back again.";
+              document.getElementById("event-title").innerText ==
+                "All events have concluded! Check back again";
             }
           }
         };
 
-        // Initial update and start the countdown
+        // Initial update and start the countdown interval
         document.getElementById("event-title").innerText =
           events[currentEventIndex].title;
         const countdownInterval = setInterval(countdown, 1000);
-        countdown();
+        countdown(); // Initial call to populate the countdown immediately
       });
     </script>
-
-    <!-- Calendar/Event/section -->
-    <section class="calendar-section">
-      <div class="full-calendar-container">
-        <div class="full-calendar-container">
-          <iframe
-            class="cal"
-            src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FNew_York&bgcolor=%23039BE5&showCalendars=0&showTabs=0&showTitle=0&src=NmJiY2RhYTJjNDk4MDFhOGY2ZGM5NThmZjdlZWQ5ZGQ1MzFjMjFlYjE1ZTcyZjJhZTE2OWU1Zjc0MjQ5MThjZUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%238E24AA"
-            style="border: solid 1px #777"
-            frameborder="0"
-            scrolling="yes"
-            loading="lazy"
-          ></iframe>
-        </div>
-      </div>
-      <div class="all-event-content">
-        <div class="upcoming-events-calendar">
-          <h2>Upcoming Events</h2>
-          <ul class="events-list">
-            <li class="event-item">
-              <!--  <strong>Watch Night Service:</strong>
-              <p>
-                Tue, Dec 31st, 2024<br />
-                Bringing in the New Year!
-              </p>
-              <span class="event-time">9:00 PM</span> -->
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section>
 
     <!-- Past events section -->
     <div class="past-events-section">
       <h2>Past Events</h2>
 
-      <section class="flyer-section">
+      <!--   <section class="flyer-section">
         <div class="flyer-container">
           <button class="nav-arrow left-arrow" onclick="previousImage()">
             &lt;
@@ -261,7 +235,7 @@
           </button>
         </div>
       </section>
-
+ -->
       <div class="event-card">
         <div class="event-header">
           <h3>Pastor Appreciation</h3>
