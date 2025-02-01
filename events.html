@@ -119,7 +119,7 @@
       />
 
       <div class="countdown-container">
-        <h2 id="event-title">Watch Night Service (Tuesday, Dec 31st):</h2>
+        <h2 id="event-title"></h2>
         <div class="countdown-clock">
           <div class="time-box">
             <span id="days" class="time">00</span>
@@ -139,81 +139,178 @@
           </div>
         </div>
       </div>
-    </div>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const events = [
-          {
-            title: "",
-            date: "",
-          },
-        ];
 
-        // Track the current event index
-        let currentEventIndex = 0;
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          const events = [
+            {
+              title: "Black History Program",
+              date: "February 16, 2025 11:45:00", // Added time
+            },
+            {
+              title: "Palm Sunday",
+              date: "April 13, 2025 11:45:00", // Added time
+            },
+            {
+              title: "Resurrection Sunday",
+              date: "April 20, 2025 11:45:00", // Added time
+            },
+            {
+              title: "Family And Friends Program",
+              date: "May 4, 2025 11:45:00", // Added time
+            },
+            {
+              title: "Pentecost",
+              date: "June 6, 2025 11:45:00", // Added time (start date)
+            },
+            {
+              title: "Usher Program (And Fathers Day)",
+              date: "June 15, 2025 11:45:00", // Added time
+            },
+          ];
 
-        const countdown = () => {
-          if (currentEventIndex >= events.length) return;
+          // Track the current event index
+          let currentEventIndex = 0;
 
-          const currentEvent = events[currentEventIndex];
+          const countdown = () => {
+            if (currentEventIndex >= events.length) return;
 
-          // Handle missing title or date
-          if (!currentEvent.title || !currentEvent.date) {
-            clearInterval(countdownInterval);
-            document.getElementById("event-title").innerText =
-              "All events have concluded! Check back again.";
-            document.getElementById("days").innerText = "00";
-            document.getElementById("hours").innerText = "00";
-            document.getElementById("minutes").innerText = "00";
-            document.getElementById("seconds").innerText = "00";
-            return;
-          }
+            const currentEvent = events[currentEventIndex];
 
-          const countDate = new Date(events[currentEventIndex].date).getTime();
-          const now = new Date().getTime();
-          const gap = countDate - now;
-
-          // Time calculations for days, hours, minutes, and seconds
-          const second = 1000;
-          const minute = second * 60;
-          const hour = minute * 60;
-          const day = hour * 24;
-
-          const days = Math.floor(gap / day);
-          const hours = Math.floor((gap % day) / hour);
-          const minutes = Math.floor((gap % hour) / minute);
-          const seconds = Math.floor((gap % minute) / second);
-
-          // Update the countdown display
-          document.getElementById("days").innerText = days;
-          document.getElementById("hours").innerText = hours;
-          document.getElementById("minutes").innerText = minutes;
-          document.getElementById("seconds").innerText = seconds;
-
-          // Check if the countdown reached zero
-          if (gap == 0) {
-            // Move to the next event if available
-            currentEventIndex++;
-            if (currentEventIndex < events.length) {
-              // Update the event title and reset countdown
-              document.getElementById("event-title").innerText =
-                events[currentEventIndex].title;
-            } else {
-              // If no more events, stop the countdown
+            // Handle missing title or date
+            if (!currentEvent.title || !currentEvent.date) {
               clearInterval(countdownInterval);
-              document.getElementById("event-title").innerText ==
-                "All events have concluded! Check back again";
+              document.getElementById("event-title").innerText =
+                "All events have concluded! Check back again.";
+              document.getElementById("days").innerText = "00";
+              document.getElementById("hours").innerText = "00";
+              document.getElementById("minutes").innerText = "00";
+              document.getElementById("seconds").innerText = "00";
+              return;
             }
-          }
-        };
 
-        // Initial update and start the countdown interval
-        document.getElementById("event-title").innerText =
-          events[currentEventIndex].title;
-        const countdownInterval = setInterval(countdown, 1000);
-        countdown(); // Initial call to populate the countdown immediately
-      });
-    </script>
+            const countDate = new Date(
+              events[currentEventIndex].date
+            ).getTime();
+            const now = new Date().getTime();
+            const gap = countDate - now;
+
+            // Time calculations for days, hours, minutes, and seconds
+            const second = 1000;
+            const minute = second * 60;
+            const hour = minute * 60;
+            const day = hour * 24;
+
+            const days = Math.floor(gap / day);
+            const hours = Math.floor((gap % day) / hour);
+            const minutes = Math.floor((gap % hour) / minute);
+            const seconds = Math.floor((gap % minute) / second);
+
+            // Update the countdown display
+            document.getElementById("days").innerText = days;
+            document.getElementById("hours").innerText = hours;
+            document.getElementById("minutes").innerText = minutes;
+            document.getElementById("seconds").innerText = seconds;
+
+            // Check if the countdown reached zero
+            if (gap <= 0) {
+              // Move to the next event if available
+              currentEventIndex++;
+              if (currentEventIndex < events.length) {
+                // Update the event title and reset countdown
+                document.getElementById("event-title").innerText =
+                  events[currentEventIndex].title;
+              } else {
+                // If no more events, stop the countdown
+                clearInterval(countdownInterval);
+                document.getElementById("event-title").innerText =
+                  "All events have concluded! Check back again.";
+              }
+            }
+          };
+
+          // Initial update and start the countdown interval
+          document.getElementById("event-title").innerText =
+            events[currentEventIndex].title;
+          const countdownInterval = setInterval(countdown, 1000);
+          countdown(); // Initial call to populate the countdown immediately
+        });
+      </script>
+    </div>
+
+    <!-- Calendar/Event/section -->
+    <section class="calendar-section">
+      <div class="full-calendar-container">
+        <div class="full-calendar-container">
+          <iframe
+            class="cal"
+            src="https://calendar.google.com/calendar/embed?src=75362e522ce030374df5e5865ca7d03cd6349655b5a768abc360e2188554140c%40group.calendar.google.com&ctz=America%2FNew_York"
+            style="border: solid 1px #777"
+            frameborder="0"
+            scrolling="yes"
+            loading="lazy"
+          ></iframe>
+        </div>
+      </div>
+      <div class="all-event-content">
+        <div class="upcoming-events-calendar">
+          <h2>Upcoming Events</h2>
+          <ul class="events-list">
+            <li class="event-item">
+              <strong>Black History:</strong>
+              <p>
+                Sun, February 16th, 2025<br />
+                Celebrating Black History
+              </p>
+              <span class="event-time">11:45 AM</span>
+            </li>
+
+            <li class="event-item">
+              <strong>Palm Sunday:</strong>
+              <p>
+                Sun, April 13th, 2025<br />
+                Celebrating Palm Sunday
+              </p>
+              <span class="event-time">11:45 AM</span>
+            </li>
+
+            <li class="event-item">
+              <strong>Resurrection Sunday:</strong>
+              <p>
+                Sun, April 20th, 2025<br />
+                Celebrating Resurrection Sunday
+              </p>
+              <span class="event-time">11:45 AM</span>
+            </li>
+
+            <li class="event-item">
+              <strong>Family And Friends Program:</strong>
+              <p>Sun, May 4th, 2025</p>
+              <p>Celebrating Family and Friends</p>
+              <span class="event-time">TBA</span>
+            </li>
+
+            <li class="event-item">
+              <strong>Pentecost:</strong>
+              <p>
+                Fri, June 6th - Sun, June 8th, 2025<br />
+                Celebrating Pentecost
+              </p>
+              <span class="event-time">TBA</span>
+            </li>
+
+            <li class="event-item">
+              <strong>Usher Program (And Fathers Day):</strong>
+              <p>
+                Sun, June 15th, 2025<br />
+                Celebrating Ushers and Fathers
+              </p>
+              <span class="event-time">TBA</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
     <!-- Past events section -->
     <div class="past-events-section">
