@@ -52,7 +52,7 @@ body {
 }
 
 .event-date {
-  font-size: 16px;
+  font-size: 18px;
   color: #ffffff;
   background-color: #4a3f35;
   padding: 8px 12px;
@@ -64,7 +64,7 @@ body {
 .event-header p {
   color: #666666;
   line-height: 1.7;
-  font-size: 16px;
+  font-size: 20px;
 }
 
 .event-media {
@@ -141,6 +141,26 @@ body {
 
 .h-o-f-img-container img.active {
   display: block;
+}
+
+#more-button {
+  background-color: #d4af37;
+  color: #4a3f35;
+  border: none;
+  padding: 12px 24px;
+  font-size: 18px;
+  font-family: "Alegreya SC", serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  margin: 20px 0;
+}
+
+#more-button:hover {
+  background-color: #b5942e;
+  transform: translateY(-2px);
 }
 
 @media screen and (min-width: 768px) and (max-width: 1024px) {
