@@ -28,113 +28,159 @@
   transform: scale(1.02);
 }
 
-.upcoming-events-calendar {
-  background: linear-gradient(135deg, #f3f4f6, #e0e7ff);
-  padding: 20px;
-  border-radius: 12px;
-  width: 100%;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.all-event-content {
+  background-color: #800020;
+  padding: 30px;
+  border-radius: 20px;
 }
 
 .upcoming-events-calendar h2 {
-  margin-bottom: 15px;
-  font-size: 24px;
-  color: #333;
-  font-family: "Roboto", sans-serif;
-  border-bottom: 2px solid #3366cc;
-  padding-bottom: 8px;
+  font-size: 32px;
+  color: white;
+  text-align: center;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  position: relative;
+}
+
+.upcoming-events-calendar h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: #ff6f61;
+  margin: 10px auto 0;
+  border-radius: 2px;
 }
 
 .events-list {
-  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 20px;
 }
 
 .event-item {
-  padding: 10px 0;
-  border-bottom: 1px solid #eee;
-  font-size: 16px;
-  color: #444;
-  font-family: "Roboto", sans-serif;
-  transition: background-color 0.3s ease;
+  background: #2a2a2a;
+  padding: 20px;
+  border-radius: 12px;
+  border-left: 6px solid #ff6f61;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.event-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 111, 97, 0.2),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.event-item:hover::before {
+  left: 100%;
 }
 
 .event-item:hover {
-  background-color: #f0f8ff;
+  transform: translateY(-6px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
 }
 
 .event-item strong {
-  color: #3366cc;
-  font-weight: 600;
+  font-size: 22px;
+  color: #ff6f61;
+  display: block;
+  margin-bottom: 12px;
+  position: relative;
+  z-index: 1;
 }
 
-.event-time {
-  font-style: italic;
+.event-item p {
+  font-size: 16px;
+  color: #e0e0e0;
+  margin: 0;
+  line-height: 1.6;
+  position: relative;
+  z-index: 1;
+}
+
+.event-item .event-time {
+  font-size: 14px;
   color: #888;
   display: block;
-  margin-top: 4px;
+  margin-top: 10px;
+  font-style: italic;
+  position: relative;
+  z-index: 1;
 }
 
 @media (max-width: 1440px) {
   .full-calendar-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 90%;
     margin: 0 auto;
   }
 
   .cal {
-    height: 600px;
+    height: 500px;
     width: 100%;
   }
 
-  .full-calendar-container {
-    width: 1000px;
-  }
-
   .event-item {
-    font-size: 26px;
+    padding: 16px;
   }
 }
 
 @media (min-width: 769px) and (max-width: 1023px) {
   .full-calendar-container {
-    width: 700px;
+    width: 90%;
   }
 
   .cal {
     height: 400px;
   }
+
+  .event-item {
+    padding: 14px;
+  }
 }
 
 @media (max-width: 768px) {
   .full-calendar-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
+    width: 90%;
   }
 
   .cal {
-    width: 800px;
-    height: 500px;
-  }
-
-  .full-calendar-container {
-    width: 700px;
+    height: 400px;
   }
 
   .upcoming-events-calendar h2 {
-    font-size: 20px;
-    margin-bottom: 10px;
+    font-size: 24px;
+    margin-bottom: 20px;
   }
 
   .event-item {
-    font-size: 14px;
-    padding: 8px 0;
+    padding: 12px;
   }
 
-  .event-time {
-    margin-top: 3px;
+  .event-item strong {
+    font-size: 20px;
+  }
+
+  .event-item p {
+    font-size: 14px;
+  }
+
+  .event-item .event-time {
+    font-size: 12px;
   }
 }
 
@@ -144,58 +190,94 @@
   }
 
   .full-calendar-container {
-    padding: 3px;
-    width: 500px;
+    padding: 5px;
+    width: 95%;
   }
 
   .cal {
-    height: 400px;
-    width: 100%;
-  }
-
-  .upcoming-events-calendar {
-    padding: 10px;
-    text-align: center;
+    height: 300px;
   }
 
   .upcoming-events-calendar h2 {
-    font-size: 18px;
-    margin-bottom: 8px;
-  }
-
-  .events-list {
-    text-align: left;
+    font-size: 20px;
+    margin-bottom: 15px;
   }
 
   .event-item {
-    font-size: 12px;
-    padding: 6px 0;
+    padding: 10px;
   }
 
-  .event-time {
-    margin-top: 2px;
+  .event-item strong {
+    font-size: 18px;
+  }
+
+  .event-item p {
+    font-size: 12px;
+  }
+
+  .event-item .event-time {
+    font-size: 10px;
   }
 }
 
 @media (max-width: 480px) {
   .full-calendar-container {
-    width: 350px;
+    width: 100%;
   }
 
   .cal {
+    height: 250px;
     width: 100%;
-    height: 300px;
+  }
+
+  .upcoming-events-calendar h2 {
+    font-size: 18px;
+  }
+
+  .event-item {
+    padding: 8px;
+  }
+
+  .event-item strong {
+    font-size: 16px;
+  }
+
+  .event-item p {
+    font-size: 10px;
+  }
+
+  .event-item .event-time {
+    font-size: 9px;
   }
 }
 
 @media (max-width: 380px) {
   .full-calendar-container {
-    padding: 1px;
-    width: 300px;
+    padding: 2px;
+    width: 100%;
   }
 
   .cal {
-    width: 300px;
-    height: 300px;
+    height: 200px;
+  }
+
+  .upcoming-events-calendar h2 {
+    font-size: 16px;
+  }
+
+  .event-item {
+    padding: 6px;
+  }
+
+  .event-item strong {
+    font-size: 14px;
+  }
+
+  .event-item p {
+    font-size: 9px;
+  }
+
+  .event-item .event-time {
+    font-size: 8px;
   }
 }
