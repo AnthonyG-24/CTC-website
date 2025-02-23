@@ -18,8 +18,7 @@
 }
 
 .cal {
-  width: 100%;
-  max-width: 800px;
+  width: 800px;
   height: 400px;
   border-radius: 8px;
   transition: transform 0.3s ease;
