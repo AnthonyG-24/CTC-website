@@ -1,11 +1,10 @@
 .header-section {
   width: 100%;
-  /* position: absolute;
-  background: rgba(0, 0, 0, 0.1); */
-  background-color: #800020;
-  border-bottom: 1px solid #ffffff24;
+  position: static;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 10); /* Fully transparent */
   padding: 10px 0;
-  z-index: 1;
 }
 
 .navbar {
