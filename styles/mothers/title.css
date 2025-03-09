@@ -10,6 +10,7 @@
 .title-container {
   text-align: center;
   padding: 20px;
+  background-color: rgba(255, 217, 0, 0.418);
   border-radius: 12px;
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
 }
@@ -31,7 +32,6 @@
   padding: 20px;
   border-radius: 10px;
   text-align: center;
-  background-color: rgba(255, 217, 0, 0.418);
 }
 
 .more-details p {

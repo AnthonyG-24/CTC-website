@@ -107,7 +107,7 @@
 }
 
 .event-item p {
-  font-size: 16px;
+  font-size: 19px;
   color: #e0e0e0;
   margin: 0;
   line-height: 1.6;
@@ -116,7 +116,7 @@
 }
 
 .event-item .event-time {
-  font-size: 14px;
+  font-size: 22px;
   color: #888;
   display: block;
   margin-top: 10px;
