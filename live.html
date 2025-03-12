@@ -139,6 +139,8 @@
         <button
           class="category-tab active"
           data-category="church-services"
+          data-playlist="https://www.youtube.com/@Community_Temple_Church/playlists"
+          data-category-name="Church Services"
           role="tab"
           aria-selected="true"
         >
@@ -147,6 +149,8 @@
         <button
           class="category-tab"
           data-category="funerals"
+          data-playlist="https://www.youtube.com/playlist?list=PLKI4ojWoZlTcfwS92tEvK6keJ8ZykGYo7"
+          data-category-name="Funerals"
           role="tab"
           aria-selected="false"
         >
@@ -155,6 +159,8 @@
         <button
           class="category-tab"
           data-category="bible-study"
+          data-playlist="https://www.youtube.com/playlist?list=PLKI4ojWoZlTfKfnsPDPL8d_WpG4Ih0sW8"
+          data-category-name="Bible Study"
           role="tab"
           aria-selected="false"
         >
@@ -163,6 +169,8 @@
         <button
           class="category-tab"
           data-category="events"
+          data-playlist="https://www.youtube.com/playlist?list=PLKI4ojWoZlTcXy559u3uCKaf4c4GPC5hJ"
+          data-category-name="Events"
           role="tab"
           aria-selected="false"
         >
@@ -171,6 +179,8 @@
         <button
           class="category-tab"
           data-category="worship-practice"
+          data-playlist="https://www.youtube.com/playlist?list=PLKI4ojWoZlTdgjPQNHogkEqU-I-IBkFVb"
+          data-category-name="Worship Practice"
           role="tab"
           aria-selected="false"
         >
@@ -194,9 +204,8 @@
             style="border: none; overflow: hidden"
             scrolling="no"
             frameborder="0"
-            allowfullscreen="true"
             allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-            allowfullscreen="true"
+            allowfullscreen
           ></iframe>
         </div>
 
@@ -231,7 +240,7 @@
           <iframe
             class="vid lazy-iframe"
             data-src="https://www.youtube.com/embed/videoseries?list=PLKI4ojWoZlTfKfnsPDPL8d_WpG4Ih0sW8"
-            title="Funerals Playlist"
+            title="Bible Study Playlist"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowfullscreen
@@ -250,7 +259,7 @@
           <iframe
             class="vid lazy-iframe"
             data-src="https://www.youtube.com/embed/videoseries?list=PLKI4ojWoZlTcXy559u3uCKaf4c4GPC5hJ"
-            title="Funerals Playlist"
+            title="Events Playlist"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowfullscreen
@@ -269,7 +278,7 @@
           <iframe
             class="vid lazy-iframe"
             data-src="https://www.youtube.com/embed/videoseries?list=PLKI4ojWoZlTdgjPQNHogkEqU-I-IBkFVb"
-            title="Funerals Playlist"
+            title="Worship Practice Playlist"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowfullscreen
@@ -278,16 +287,46 @@
       </div>
 
       <!-- Footer with Link to Past Videos -->
-      <!-- <footer class="streaming-footer">
+      <footer class="streaming-footer">
         <a
+          id="footer-playlist-link"
           href="https://www.youtube.com/@Community_Temple_Church/playlists"
           class="all-streams-link"
           target="_blank"
           rel="noopener noreferrer"
         >
-          View All Past Videos.
+          View All Past Videos
         </a>
-      </footer> -->
+      </footer>
+
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          const tabs = document.querySelectorAll(".category-tab");
+          const footerLink = document.getElementById("footer-playlist-link");
+
+          tabs.forEach((tab) => {
+            tab.addEventListener("click", function () {
+              // Get the playlist URL and category name from the clicked tab's data attributes
+              const playlistUrl = tab.getAttribute("data-playlist");
+              const categoryName = tab.getAttribute("data-category-name");
+
+              // Update the footer link's href and text
+              footerLink.setAttribute("href", playlistUrl);
+              footerLink.textContent = `View ${categoryName} Playlist`;
+            });
+          });
+
+          // Initialize the first tab as active
+          const firstTab = document.querySelector(".category-tab.active");
+          if (firstTab) {
+            const firstPlaylistUrl = firstTab.getAttribute("data-playlist");
+            const firstCategoryName =
+              firstTab.getAttribute("data-category-name");
+            footerLink.setAttribute("href", firstPlaylistUrl);
+            footerLink.textContent = `View ${firstCategoryName} Playlist`;
+          }
+        });
+      </script>
     </section>
 
     <!--Church highlights section-->
