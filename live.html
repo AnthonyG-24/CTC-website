@@ -122,39 +122,72 @@
       </div>
     </section>
 
-    <!--Recent Live video(s) section-->
-    <section class="video-section">
-      <h1>Church Video Archive: Services, Funerals, Bible Study & Events</h1>
+    <!-- Recent Live Video(s) Section -->
+    <section class="video-section" aria-labelledby="video-section-heading">
+      <h1 id="video-section-heading">
+        Church Video Archive: Services, Funerals, Bible Study, Events, &
+        Wosrship Practice
+      </h1>
       <h2 class="recent-msg">Recent Church Service (Updated Every Sunday)</h2>
 
       <!-- Category Tabs -->
-      <div class="video-categories">
-        <button class="category-tab active" data-category="church-services">
+      <div
+        class="video-categories"
+        role="tablist"
+        aria-label="Video Categories"
+      >
+        <button
+          class="category-tab active"
+          data-category="church-services"
+          role="tab"
+          aria-selected="true"
+        >
           Church Services
         </button>
-        <button class="category-tab" data-category="funerals">Funerals</button>
-        <button class="category-tab" data-category="bible-study">
+        <button
+          class="category-tab"
+          data-category="funerals"
+          role="tab"
+          aria-selected="false"
+        >
+          Funerals
+        </button>
+        <button
+          class="category-tab"
+          data-category="bible-study"
+          role="tab"
+          aria-selected="false"
+        >
           Bible Study
         </button>
-        <button class="category-tab" data-category="events">Events</button>
+        <button
+          class="category-tab"
+          data-category="events"
+          role="tab"
+          aria-selected="false"
+        >
+          Events
+        </button>
+        <button
+          class="category-tab"
+          data-category="worship-practice"
+          role="tab"
+          aria-selected="false"
+        >
+          Worship Practice
+        </button>
       </div>
 
       <!-- Video Display Area -->
       <div class="video-display">
         <!-- Church Service Category -->
-        <div class="video-category-content video-grid" id="church-services">
-          <h1>Church Service 3-9-25</h1>
-
-          <!--  <iframe
-            class="vid lazy-iframe"
-            data-src="https://www.youtube.com/embed/43Iwmyo9jDI?si=24379fR89HaJaPSX"
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen
-          ></iframe> -->
-
+        <div
+          class="video-category-content video-grid"
+          id="church-services"
+          role="tabpanel"
+          aria-labelledby="church-services-tab"
+        >
+          <h2>Church Service - March 9, 2025</h2>
           <iframe
             src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2F100092501479032%2Fvideos%2F1340240477218383%2F&show_text=false&width=560&t=0"
             class="fb-embeded-vid"
@@ -168,108 +201,93 @@
         </div>
 
         <!-- Funerals Category -->
-        <div class="video-category-content video-grid" id="funerals">
+        <div
+          class="video-category-content video-grid"
+          id="funerals"
+          role="tabpanel"
+          aria-labelledby="funerals-tab"
+          hidden
+        >
           <h2>Funerals</h2>
           <iframe
             class="vid lazy-iframe"
-            data-src="https://www.youtube.com/embed/2F989wJ5wnM"
-            title="YouTube video player"
+            data-src="https://www.youtube.com/embed/videoseries?list=PLKI4ojWoZlTcfwS92tEvK6keJ8ZykGYo7"
+            title="Funerals Playlist"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen
-          ></iframe>
-
-          <iframe
-            class="vid lazy-iframe"
-            data-src="https://www.youtube.com/embed/8a4rLjrGpmk"
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin"
             allowfullscreen
           ></iframe>
         </div>
 
         <!-- Bible Study Category -->
-        <div class="video-category-content video-grid" id="bible-study">
+        <div
+          class="video-category-content video-grid"
+          id="bible-study"
+          role="tabpanel"
+          aria-labelledby="bible-study-tab"
+          hidden
+        >
           <h2>Bible Study</h2>
           <iframe
             class="vid lazy-iframe"
-            data-src="https://www.youtube.com/embed/eIlc-_8sb0M"
-            title="YouTube video player"
+            data-src="https://www.youtube.com/embed/videoseries?list=PLKI4ojWoZlTfKfnsPDPL8d_WpG4Ih0sW8"
+            title="Funerals Playlist"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen
-          ></iframe>
-
-          <iframe
-            class="vid lazy-iframe"
-            data-src="https://www.youtube.com/embed/VqPn2qMhVqg"
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin"
             allowfullscreen
           ></iframe>
         </div>
 
         <!-- Events Category -->
-        <div class="video-category-content video-grid" id="events">
+        <div
+          class="video-category-content video-grid"
+          id="events"
+          role="tabpanel"
+          aria-labelledby="events-tab"
+          hidden
+        >
           <h2>Events</h2>
-
           <iframe
             class="vid lazy-iframe"
-            data-src="https://www.youtube.com/embed/4ZRxqtB-jhI?si=EvNe75vM7HCL2aLw"
-            title="YouTube video player"
+            data-src="https://www.youtube.com/embed/videoseries?list=PLKI4ojWoZlTcXy559u3uCKaf4c4GPC5hJ"
+            title="Funerals Playlist"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin"
             allowfullscreen
           ></iframe>
+        </div>
 
+        <!-- Worship Practice Category -->
+        <div
+          class="video-category-content video-grid"
+          id="worship-practice"
+          role="tabpanel"
+          aria-labelledby="worship-practice-tab"
+          hidden
+        >
+          <h2>Worship Practice</h2>
           <iframe
             class="vid lazy-iframe"
-            data-src="https://www.youtube.com/embed/M1zvRt_JshE?si=IONd6gfpvC7ZIlPQ"
-            title="YouTube video player"
+            data-src="https://www.youtube.com/embed/videoseries?list=PLKI4ojWoZlTdgjPQNHogkEqU-I-IBkFVb"
+            title="Funerals Playlist"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen
-          ></iframe>
-
-          <iframe
-            class="vid lazy-iframe"
-            data-src="https://www.youtube.com/embed/43Iwmyo9jDI?si=24379fR89HaJaPSX"
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen
-          ></iframe>
-
-          <iframe
-            class="vid lazy-iframe"
-            data-src="https://www.youtube.com/embed/DVlT2NCcHPg?si=UElD0hJavWn0Yaq7"
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin"
             allowfullscreen
           ></iframe>
         </div>
       </div>
 
-      <footer class="streaming-footer">
+      <!-- Footer with Link to Past Videos -->
+      <!-- <footer class="streaming-footer">
         <a
           href="https://www.youtube.com/@Community_Temple_Church/playlists"
           class="all-streams-link"
           target="_blank"
-          rel="noopener"
-          >Press Here To View Our Past Videos</a
+          rel="noopener noreferrer"
         >
-      </footer>
+          View All Past Videos.
+        </a>
+      </footer> -->
     </section>
 
     <!--Church highlights section-->
