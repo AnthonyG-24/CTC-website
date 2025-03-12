@@ -111,11 +111,11 @@
         });
     </script>
 
-    <!--Countdown clock background-->
+    <!-- Countdown clock background -->
     <div class="event-image-container">
       <img
         src="assets/event-assets/worship-event.jpg"
-        alt="join our church evnts photo"
+        alt="Join our church events photo"
       />
 
       <div class="countdown-container">
@@ -141,65 +141,66 @@
       </div>
 
       <script>
-        document.addEventListener("DOMContentLoaded", function () {
+        document.addEventListener("DOMContentLoaded", () => {
           const events = [
             {
               title: "Black History Program",
               date: "February 16, 2025 11:45:00",
             },
-            {
-              title: "Musican Program",
-              date: "March 30, 2025 3:30:00",
-            },
-            {
-              title: "Palm Sunday",
-              date: "April 13, 2025 11:45:00",
-            },
-            {
-              title: "Resurrection Sunday",
-              date: "April 20, 2025 11:45:00",
-            },
+            { title: "Musician Program", date: "March 30, 2025 3:30:00" },
+            { title: "Palm Sunday", date: "April 13, 2025 11:45:00" },
+            { title: "Resurrection Sunday", date: "April 20, 2025 11:45:00" },
             {
               title: "Family And Friends Program",
               date: "May 4, 2025 11:45:00",
             },
-            {
-              title: "Pentecost",
-              date: "June 6, 2025 11:45:00",
-            },
+            { title: "Pentecost", date: "June 6, 2025 11:45:00" },
             {
               title: "Usher Program (And Fathers Day)",
               date: "June 15, 2025 11:45:00",
             },
           ];
 
-          // Track the current event index
-          let currentEventIndex = 0;
+          const eventTitle = document.getElementById("event-title");
+          const daysElement = document.getElementById("days");
+          const hoursElement = document.getElementById("hours");
+          const minutesElement = document.getElementById("minutes");
+          const secondsElement = document.getElementById("seconds");
 
-          const countdown = () => {
-            if (currentEventIndex >= events.length) return;
+          // Find the next valid event
+          const now = new Date().getTime();
+          let currentEventIndex = events.findIndex(
+            (event) => new Date(event.date).getTime() > now
+          );
 
+          // If no future events are found, default to the last event
+          if (currentEventIndex === -1) {
+            currentEventIndex = events.length - 1;
+          }
+
+          const updateCountdown = () => {
             const currentEvent = events[currentEventIndex];
-
-            // Handle missing title or date
-            if (!currentEvent.title || !currentEvent.date) {
-              clearInterval(countdownInterval);
-              document.getElementById("event-title").innerText =
-                "All events have concluded! Check back again.";
-              document.getElementById("days").innerText = "00";
-              document.getElementById("hours").innerText = "00";
-              document.getElementById("minutes").innerText = "00";
-              document.getElementById("seconds").innerText = "00";
-              return;
-            }
-
-            const countDate = new Date(
-              events[currentEventIndex].date
-            ).getTime();
-            const now = new Date().getTime();
+            const countDate = new Date(currentEvent.date).getTime();
             const gap = countDate - now;
 
-            // Time calculations for days, hours, minutes, and seconds
+            if (gap <= 0) {
+              // Move to the next event if available
+              currentEventIndex++;
+              if (currentEventIndex < events.length) {
+                eventTitle.textContent = events[currentEventIndex].title;
+                updateCountdown(); // Recursively update for the next event
+              } else {
+                // If no more events, stop the countdown
+                eventTitle.textContent =
+                  "All events have concluded! Check back again.";
+                daysElement.textContent = "00";
+                hoursElement.textContent = "00";
+                minutesElement.textContent = "00";
+                secondsElement.textContent = "00";
+                return;
+              }
+            }
+
             const second = 1000;
             const minute = second * 60;
             const hour = minute * 60;
@@ -210,51 +211,32 @@
             const minutes = Math.floor((gap % hour) / minute);
             const seconds = Math.floor((gap % minute) / second);
 
-            // Update the countdown display
-            document.getElementById("days").innerText = days;
-            document.getElementById("hours").innerText = hours;
-            document.getElementById("minutes").innerText = minutes;
-            document.getElementById("seconds").innerText = seconds;
-
-            // Check if the countdown reached zero
-            if (gap <= 0) {
-              // Move to the next event if available
-              currentEventIndex++;
-              if (currentEventIndex < events.length) {
-                // Update the event title and reset countdown
-                document.getElementById("event-title").innerText =
-                  events[currentEventIndex].title;
-              } else {
-                // If no more events, stop the countdown
-                clearInterval(countdownInterval);
-                document.getElementById("event-title").innerText =
-                  "All events have concluded! Check back again.";
-              }
-            }
+            daysElement.textContent = days;
+            hoursElement.textContent = hours;
+            minutesElement.textContent = minutes;
+            secondsElement.textContent = seconds;
           };
 
-          // Initial update and start the countdown interval
-          document.getElementById("event-title").innerText =
-            events[currentEventIndex].title;
-          const countdownInterval = setInterval(countdown, 1000);
-          countdown(); // Initial call to populate the countdown immediately
+          // Set the initial event title and start the countdown
+          eventTitle.textContent = events[currentEventIndex].title;
+          setInterval(updateCountdown, 1000);
+          updateCountdown(); // Initial call to populate the countdown immediately
         });
       </script>
     </div>
 
-    <!-- Calendar/Event/section -->
+    <!-- Calendar/Event Section -->
     <section class="calendar-section">
       <div class="full-calendar-container">
-        <div class="full-calendar-container">
-          <iframe
-            class="cal"
-            src="https://calendar.google.com/calendar/embed?src=75362e522ce030374df5e5865ca7d03cd6349655b5a768abc360e2188554140c%40group.calendar.google.com&ctz=America%2FNew_York"
-            style="border: solid 1px #777"
-            frameborder="0"
-            scrolling="yes"
-            loading="lazy"
-          ></iframe>
-        </div>
+        <iframe
+          class="cal"
+          src="https://calendar.google.com/calendar/embed?src=75362e522ce030374df5e5865ca7d03cd6349655b5a768abc360e2188554140c%40group.calendar.google.com&ctz=America%2FNew_York"
+          style="border: solid 1px #777"
+          frameborder="0"
+          scrolling="yes"
+          loading="lazy"
+        >
+        </iframe>
       </div>
       <div class="all-event-content">
         <div class="upcoming-events-calendar">
@@ -272,7 +254,6 @@
               </p>
               <span class="event-time" style="color: #d9534f">3:30 PM</span>
             </li>
-
             <li class="event-item">
               <strong>Palm Sunday:</strong>
               <p>
@@ -284,7 +265,6 @@
               </p>
               <span class="event-time" style="color: #d9534f">11:45 AM</span>
             </li>
-
             <li class="event-item">
               <strong>Resurrection Sunday:</strong>
               <p>
@@ -296,22 +276,18 @@
               </p>
               <span class="event-time" style="color: #d9534f">11:45 AM</span>
             </li>
-
             <li class="event-item">
               <strong>Family And Friends Program:</strong>
               <p>
                 <span style="color: #ffc107; font-weight: bold"
                   >Sun, May 4th, 2025</span
-                >
-              </p>
-              <p>
+                ><br />
                 Celebrating Family and Friends with a joyful gathering, special
                 activities, and a message of love and unity in our faith
                 community.
               </p>
               <span class="event-time" style="color: #d9534f">TBA</span>
             </li>
-
             <li class="event-item">
               <strong>Pentecost:</strong>
               <p>
@@ -325,7 +301,6 @@
               </p>
               <span class="event-time" style="color: #d9534f">TBA</span>
             </li>
-
             <li class="event-item">
               <strong>Usher Program (And Fathers Day):</strong>
               <p>
@@ -342,28 +317,27 @@
         </div>
       </div>
     </section>
-
     <!-- Past events section -->
     <div class="past-events-section">
       <h2>Past Events</h2>
 
       <!--   <section class="flyer-section">
-        <div class="flyer-container">
-          <button class="nav-arrow left-arrow" onclick="previousImage()">
-            &lt;
-          </button>
-          <img
-            id="flyer-image"
-            src="assets/event-assets/past-event-flyers/healingService.jpg"
-            alt="Flyer Image"
-            class="flyer-image"
-          />
-          <button class="nav-arrow right-arrow" onclick="nextImage()">
-            &gt;
-          </button>
-        </div>
-      </section>
- -->
+      <div class="flyer-container">
+        <button class="nav-arrow left-arrow" onclick="previousImage()">
+          &lt;
+        </button>
+        <img
+          id="flyer-image"
+          src="assets/event-assets/past-event-flyers/healingService.jpg"
+          alt="Flyer Image"
+          class="flyer-image"
+        />
+        <button class="nav-arrow right-arrow" onclick="nextImage()">
+          &gt;
+        </button>
+      </div>
+    </section>
+-->
 
       <div
         class="event-card"
@@ -374,7 +348,7 @@
             Black History Program
           </h3>
           <span class="event-date" style="color: #ffffff; font-weight: bold"
-            >Feburay 16, 2025</span
+            >January 16, 2025</span
           >
           <p style="color: #4a5568; font-family: 'Arial', sans-serif">
             We celebrated Black history with songs of praise, and with teaching
@@ -505,15 +479,6 @@
             alt="Hall of faith, pastor and first lady"
           />
           <img
-            src="assets/event-assets/hall-of-faith-2024/hall-of-faith-pastor-and-first-lady2.jpg"
-            alt="Hall of faith, pastor and first lady"
-          />
-
-          <img
-            src="assets/event-assets/hall-of-faith-2024/hall-of-faith-church-family7.jpg"
-            alt="Hall of faith, first lady with nephews"
-          />
-          <img
             src="assets/event-assets/hall-of-faith-2024/hall-of-faith-family-photo.jpg"
             alt="Hall of faith, photo of church family after service"
           />
@@ -551,19 +516,15 @@
         });
       </script>
 
-      <!-- Add a "More" button -->
-      <button id="more-button">More</button>
-
-      <!-- Hidden Additional Event Cards -->
-      <div id="additional-events" style="display: none">
+      <div class="event-card">
         <div class="event-header">
           <h3>Pentecost Celebration</h3>
           <span class="event-date">May 18, 2024</span>
           <p>
-            The Pentecost Celebration was a day filled with great food,
-            heartfelt worship, and overall an amazing time for everyone
-            involved. It was a memorable celebration of faith, fellowship, and
-            good times.
+            The Pentecost Celebration, held on May 18, 2024, was a day filled
+            with great food, heartfelt worship, and overall an amazing time for
+            everyone involved. It was a memorable celebration of faith,
+            fellowship, and good times.
           </p>
         </div>
         <div class="event-media">
@@ -587,130 +548,115 @@
             allowfullscreen
           ></iframe>
         </div>
-        <script>
-          const images = [
-            "assets/event-assets/past-event-flyers/joyNightService.jpg",
-            "assets/event-assets/past-event-flyers/singingProgram.jpg",
-            "assets/event-assets/past-event-flyers/healingService.jpg",
-          ];
-          let currentIndex = 0;
+      </div>
+      <script>
+        const images = [
+          "assets/event-assets/past-event-flyers/joyNightService.jpg",
+          "assets/event-assets/past-event-flyers/singingProgram.jpg",
+          "assets/event-assets/past-event-flyers/healingService.jpg",
+        ];
+        let currentIndex = 0;
 
-          // Function to show the next image
-          function nextImage() {
-            currentIndex = (currentIndex + 1) % images.length;
-            document.getElementById("flyer-image").src = images[currentIndex];
-          }
+        // Function to show the next image
+        function nextImage() {
+          currentIndex = (currentIndex + 1) % images.length;
+          document.getElementById("flyer-image").src = images[currentIndex];
+        }
 
-          // Function to show the previous image
-          function previousImage() {
-            currentIndex = (currentIndex - 1 + images.length) % images.length;
-            document.getElementById("flyer-image").src = images[currentIndex];
-          }
-        </script>
+        // Function to show the previous image
+        function previousImage() {
+          currentIndex = (currentIndex - 1 + images.length) % images.length;
+          document.getElementById("flyer-image").src = images[currentIndex];
+        }
+      </script>
 
-        <div class="event-card">
-          <div class="event-header">
-            <h3>Pastor Gillard Birthday Bash</h3>
-            <span class="event-date">June 24, 2023</span>
-            <p>
-              The community came together to celebrate Pastor Gillard's Birthday
-              in 2023 with great joy. The event featured music, praise, and
-              heartfelt tributes, with good food, making it a memorable day for
-              everyone.
-            </p>
-          </div>
-          <div class="event-media">
-            <iframe
-              class="lazy-iframe"
-              data-src="https://www.youtube.com/embed/Z_0a1Xe-TxA"
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen
-            ></iframe>
-
-            <iframe
-              class="lazy-iframe"
-              data-src="https://www.youtube.com/embed/8y9ODt9Ia9k"
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen
-            ></iframe>
-
-            <iframe
-              class="lazy-iframe"
-              data-src="https://www.youtube.com/embed/GA6XJbrqx3U"
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen
-            ></iframe>
-
-            <iframe
-              class="lazy-iframe"
-              data-src="https://www.youtube.com/embed/m7W9suQ20qg"
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen
-            ></iframe>
-
-            <iframe
-              class="lazy-iframe"
-              data-src="https://www.youtube.com/embed/9rkCrI-tyqA"
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen
-            ></iframe>
-
-            <img
-              src="assets/event-assets/pastor-bithday-bash-2024/bp-8.jpg"
-              alt="Birthday bash decorations"
-            />
-          </div>
+      <div class="event-card">
+        <div class="event-header">
+          <h3>Pastor Gillard Birthday Bash</h3>
+          <span class="event-date">June 24, 2023</span>
+          <p>
+            The community came together to celebrate Pastor Gillard's Birthday
+            in 2023 with great joy. The event featured music, praise, and
+            heartfelt tributes, with good food, making it a memorable day for
+            everyone.
+          </p>
         </div>
+        <div class="event-media">
+          <iframe
+            class="lazy-iframe"
+            data-src="https://www.youtube.com/embed/Z_0a1Xe-TxA"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
 
-        <div class="event-card">
-          <div class="event-header">
-            <h3>Resurrection Play</h3>
-            <span class="event-date">April 9, 2023</span>
-            <p>
-              The Resurrection Play of 2023 was a profound showcasing of the
-              crucifixion and resurrection of Jesus Christ. The event was filled
-              with emotional performances that touched the hearts of many.
-            </p>
-          </div>
-          <div class="event-media">
-            <img
-              src="assets/event-assets/resurrection_play_2023/res_1.jpg"
-              alt="Jesus Carrying The Cross - Resurrection Play 2023"
-            />
-            <img
-              src="assets/event-assets/resurrection_play_2023/res_2.jpg"
-              alt="Jesus Nailed To The Cross - Resurrection Play 2023"
-            />
-            <img
-              src="assets/event-assets/resurrection_play_2023/res_3.jpg"
-              alt="Jesus On The Cross - Resurrection Play 2023"
-            />
+          <iframe
+            class="lazy-iframe"
+            data-src="https://www.youtube.com/embed/8y9ODt9Ia9k"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
 
-            <iframe
-              class="lazy-iframe"
-              data-src="https://www.youtube.com/embed/oZt9M2678_c"
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen
-            ></iframe>
-          </div>
+          <iframe
+            class="lazy-iframe"
+            data-src="https://www.youtube.com/embed/GA6XJbrqx3U"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
+
+          <iframe
+            class="lazy-iframe"
+            data-src="https://www.youtube.com/embed/m7W9suQ20qg"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+
+      <div class="event-card">
+        <div class="event-header">
+          <h3>Resurrection Play</h3>
+          <span class="event-date">April 9, 2023</span>
+          <p>
+            The Resurrection Play of 2023 was a profound showcasing of the
+            crucifixion and resurrection of Jesus Christ. The event was filled
+            with emotional performances that touched the hearts of many.
+          </p>
+        </div>
+        <div class="event-media">
+          <img
+            src="assets/event-assets/resurrection_play_2023/res_1.jpg"
+            alt="Jesus Carrying The Cross - Resurrection Play 2023"
+          />
+          <img
+            src="assets/event-assets/resurrection_play_2023/res_2.jpg"
+            alt="Jesus Nailed To The Cross - Resurrection Play 2023"
+          />
+          <img
+            src="assets/event-assets/resurrection_play_2023/res_3.jpg"
+            alt="Jesus On The Cross - Resurrection Play 2023"
+          />
+
+          <iframe
+            class="lazy-iframe"
+            data-src="https://www.youtube.com/embed/oZt9M2678_c"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
         </div>
       </div>
     </div>
