@@ -113,6 +113,33 @@ p {
   filter: brightness(1.2);
 }
 
+.donations_content {
+  margin-bottom: 50px;
+}
+
+.below_cashapp {
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: red;
+  font-size: 24px;
+}
+
+.cashapp_title {
+  font-size: 22px;
+}
+
+.cashapp_icon {
+  width: 100px;
+}
+
+.cashapp_text {
+  font-size: 24px;
+}
+
+.donations_button {
+  font-size: 22px;
+}
+
 @media (max-width: 1440px) {
   .scripture-section {
     flex-direction: column;
@@ -130,6 +157,38 @@ p {
 
   .donation-section h2 {
     font-size: 24px;
+  }
+
+  .donation-section p {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .scripture-section {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .scripture-text {
+    font-size: 34px;
+  }
+
+  .scripture-reference {
+    font-size: 32px;
+  }
+
+  .box-for-bible img {
+    margin-bottom: 20px;
+  }
+
+  .donation-section {
+    padding: 30px;
+  }
+
+  .donation-section h2 {
+    font-size: 36px;
   }
 
   .donation-section p {
