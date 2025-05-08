@@ -11,9 +11,8 @@
     <link rel="stylesheet" href="styles/home/header.css" />
     <!--     <link rel="stylesheet" href="styles/home/extraHeader.css" />
  -->
-    <link rel="stylesheet" href="styles/home/hero.css" />
-    <link rel="stylesheet" href="styles/home/orderOfService.css" />
-    <link rel="stylesheet" href="styles/footer.css" />
+
+    <link rel="stylesheet" href="styles/home/homeStyle.css" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -125,104 +124,286 @@
       </nav>
     </header>
 
-    <!-- Hero section -->
-    <section>
-      <div class="hero-section">
+    <section class="hero-section">
+      <div class="video-container">
+        <video
+          id="video-background"
+          class="ctc-video"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="auto"
+        >
+          <!-- The source will be set dynamically -->
+          <source src="your-video-url.mp4" type="video/mp4" />
+        </video>
+        <div
+          id="videoFallback"
+          style="
+            display: none;
+            width: 100%;
+            height: 100vh;
+            background-color: white;
+          "
+        >
+          <img
+            src="/api/placeholder/1920/1080"
+            alt="Fallback image"
+            class="fallback-img"
+          />
+        </div>
+      </div>
+      <div class="hero-overlay">
         <div class="hero-content">
-          <div class="video-container">
-            <video
-              id="video-background"
-              class="ctc-video"
-              autoplay
-              muted
-              loop
-              playsinline
-              preload="auto"
-            >
-              <!-- The video source will be dynamically updated -->
-            </video>
-
-            <!-- Fallback image (poster) -->
-            <div
-              id="videoFallback"
-              style="
-                display: none;
-                width: 100%;
-                height: 100vh;
-                background-color: white;
-              "
-            >
-              <img
-                src="assets/CTChurch_PFP.jpg"
-                alt="Fallback image"
-                class="fallback-img"
-              />
-            </div>
-          </div>
-
-          <div class="church-title">
+          <h1 class="church-title">
             <span class="ctc">C</span>ommunity <span class="ctc">T</span>emple
             <span class="ctc">C</span>hurch <span class="ctc">O</span>f
             <span class="ctc">O</span>ur <span class="ctc">L</span>ord
             <span class="ctc">J</span>esus <span class="ctc">C</span>hrist
-          </div>
-
-          <div class="next-section">
-            <a href="#next">
-              <img
-                class="down-arrow"
-                src="/assets/icons/down-arrow.svg"
-                alt="down arrow to move down to next section"
-              />
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Order of service section -->
-    <section class="order-of-service-section" id="next">
-      <div class="order-of-service">
-        <p>Order Of Service:</p>
-        <ul>
-          <li>- Monday night Prayer and Tarry at 7:00 p.m.</li>
-
-          <li>- Wednesday night Prayer/Bible Study at 6:30 p.m. - 8:00 p.m.</li>
-
-          <li>- Sunday School at 10:30 a.m.</li>
-
-          <li>- Sunday Morning Worship at 11:35 a.m.</li>
-        </ul>
-      </div>
-    </section>
-
-    <div class="location">
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3041.4953260560064!2d-79.89658462464821!3d33.73494797327808!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88ffbd61027013b7%3A0xf82b3435ec8503a3!2s385%20McClam%20Rd%2C%20Cades%2C%20SC%2029518!5e1!3m2!1sen!2sus!4v1727304482404!5m2!1sen!2sus"
-        class="map"
-        style="border: 0"
-        allowfullscreen=""
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-      ></iframe>
-    </div>
-
-    <!--Footer section-->
-    <footer>
-      <div class="footer-container">
-        <div class="footer-content">
-          <p>
-            C.T.C.O.O.L.J.C
-            <span class="footer-year" id="footer-year"></span>
+          </h1>
+          <p class="hero-subtitle">
+            A place of worship, fellowship, and spiritual growth
           </p>
-          <div class="contact-info">
-            <p>
-              Secretary Sister Shannon Singletary Contact Information:
-              843-372-5839
-            </p>
-            <p>385 McClam Rd, Cades, SC 29518</p>
+          <div class="hero-buttons">
+            <a href="#services" class="btn btn-primary">Sunday Service</a>
+            <a href="#connect" class="btn btn-outline">Connect With Us</a>
           </div>
         </div>
+      </div>
+      <div class="next-section">
+        <a href="#services">
+          <img
+            class="down-arrow"
+            src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWNoZXZyb24tZG93biI+PHBhdGggZD0ibTYgOSA2IDYgNi02Ii8+PC9zdmc+"
+            alt="down arrow to move down to next section"
+          />
+        </a>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section" id="services">
+      <div class="services-container">
+        <h2 class="section-title">Our Services</h2>
+        <p class="section-subtitle">
+          Join us in worship, prayer, and fellowship throughout the week
+        </p>
+
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-day">Monday</div>
+            <div class="service-content">
+              <div class="service-time">7:00 PM</div>
+              <p class="service-description">Prayer and Tarry Service</p>
+            </div>
+          </div>
+
+          <div class="service-card">
+            <div class="service-day">Wednesday</div>
+            <div class="service-content">
+              <div class="service-time">6:30 PM</div>
+              <p class="service-description">Prayer and Bible Study</p>
+            </div>
+          </div>
+
+          <div class="service-card">
+            <div class="service-day">Sunday</div>
+            <div class="service-content">
+              <div class="service-time">10:30 AM / 11:45 AM</div>
+              <p class="service-description">Sunday School & Morning Worship</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Location Section -->
+    <section class="location-section" id="location">
+      <div class="location-container">
+        <div class="location-info">
+          <h2>Visit Us</h2>
+          <p>
+            We welcome you to join us in person for worship and fellowship at
+            our church location in Cades, South Carolina.
+          </p>
+
+          <div class="location-address">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-map-pin"
+            >
+              <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+              <circle cx="12" cy="10" r="3" />
+            </svg>
+            <span>385 McClam Rd, Cades, SC 29518</span>
+          </div>
+
+          <div class="location-address">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-phone"
+            >
+              <path
+                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+              />
+            </svg>
+            <span>(843) 555-1234</span>
+          </div>
+
+          <div class="location-address">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-mail"
+            >
+              <rect width="20" height="16" x="2" y="4" rx="2" />
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+            </svg>
+            <span>info@communitytemplechurch.org</span>
+          </div>
+        </div>
+
+        <div class="map-container">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3041.4953260560064!2d-79.89658462464821!3d33.73494797327808!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88ffbd61027013b7%3A0xf82b3435ec8503a3!2s385%20McClam%20Rd%2C%20Cades%2C%20SC%2029518!5e1!3m2!1sen!2sus!4v1727304482404!5m2!1sen!2sus"
+            class="map"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="connect">
+      <div class="cta-container">
+        <h2 class="cta-title">Join Our Community</h2>
+        <p class="cta-text">
+          We invite you to be a part of our church family. Whether you're
+          seeking spiritual guidance, fellowship, or a place to worship, our
+          doors are open to all.
+        </p>
+
+        <a href="#" class="btn btn-primary">Contact Us</a>
+
+        <div class="social-links">
+          <a href="#" class="social-link">
+            <svg
+              class="social-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+              ></path>
+            </svg>
+          </a>
+          <a href="#" class="social-link">
+            <svg
+              class="social-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"
+              ></path>
+            </svg>
+          </a>
+          <a href="#" class="social-link">
+            <svg
+              class="social-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+            >
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+            </svg>
+          </a>
+          <a href="#" class="social-link">
+            <svg
+              class="social-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"
+              ></path>
+              <polygon
+                points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"
+              ></polygon>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-column">
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li class="footer-link"><a href="#">Home</a></li>
+            <li class="footer-link"><a href="#services">Services</a></li>
+            <li class="footer-link"><a href="#location">Visit Us</a></li>
+            <li class="footer-link"><a href="#connect">Connect</a></li>
+            <li class="footer-link"><a href="#">About</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h3>Ministries</h3>
+          <ul class="footer-links">
+            <li class="footer-link"><a href="#">Youth Ministry</a></li>
+            <li class="footer-link"><a href="#">Bible Study</a></li>
+            <li class="footer-link"><a href="#">Music Ministry</a></li>
+            <li class="footer-link"><a href="#">Outreach & Missions</a></li>
+            <li class="footer-link"><a href="#">Prayer Warriors</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h3>Contact</h3>
+          <ul class="footer-links">
+            <li class="footer-link">385 McClam Rd</li>
+            <li class="footer-link">Cades, SC 29518</li>
+            <li class="footer-link">(843) 555-1234</li>
+            <li class="footer-link">info@communitytemplechurch.org</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>
+          &copy; 2025 Community Temple Church Of Our Lord Jesus Christ. All
+          Rights Reserved.
+        </p>
       </div>
     </footer>
 

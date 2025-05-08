@@ -139,7 +139,6 @@
           </div>
         </div>
       </div>
-
       <script>
         document.addEventListener("DOMContentLoaded", () => {
           const events = [
@@ -167,6 +166,9 @@
           const minutesElement = document.getElementById("minutes");
           const secondsElement = document.getElementById("seconds");
 
+          // Add pulse animation to seconds
+          secondsElement.classList.add("pulse");
+
           // Find the next valid event
           const now = new Date().getTime();
           let currentEventIndex = events.findIndex(
@@ -178,8 +180,17 @@
             currentEventIndex = events.length - 1;
           }
 
+          // Add fade animation for changing numbers
+          function animateChange(element, newValue) {
+            element.style.opacity = 0;
+            setTimeout(() => {
+              element.textContent = newValue;
+              element.style.opacity = 1;
+            }, 300);
+          }
+
           const updateCountdown = () => {
-            const now = new Date().getTime(); // Get current time inside the function
+            const now = new Date().getTime();
             const currentEvent = events[currentEventIndex];
             const countDate = new Date(currentEvent.date).getTime();
             const gap = countDate - now;
@@ -188,8 +199,14 @@
               // Move to the next event if available
               currentEventIndex++;
               if (currentEventIndex < events.length) {
-                eventTitle.textContent = events[currentEventIndex].title;
-                updateCountdown(); // Recursively update for the next event
+                // Animate title change with fade effect
+                eventTitle.style.opacity = 0;
+                setTimeout(() => {
+                  eventTitle.textContent = events[currentEventIndex].title;
+                  eventTitle.style.opacity = 1;
+                }, 500);
+
+                setTimeout(updateCountdown, 600); // Recursively update for the next event
                 return;
               } else {
                 // If no more events, stop the countdown
@@ -213,16 +230,65 @@
             const minutes = Math.floor((gap % hour) / minute);
             const seconds = Math.floor((gap % minute) / second);
 
-            daysElement.textContent = days.toString().padStart(2, "0");
-            hoursElement.textContent = hours.toString().padStart(2, "0");
-            minutesElement.textContent = minutes.toString().padStart(2, "0");
-            secondsElement.textContent = seconds.toString().padStart(2, "0");
+            // Only animate changes
+            const daysStr = days.toString().padStart(2, "0");
+            const hoursStr = hours.toString().padStart(2, "0");
+            const minutesStr = minutes.toString().padStart(2, "0");
+            const secondsStr = seconds.toString().padStart(2, "0");
+
+            if (daysElement.textContent !== daysStr) {
+              daysElement.textContent = daysStr;
+            }
+
+            if (hoursElement.textContent !== hoursStr) {
+              hoursElement.textContent = hoursStr;
+            }
+
+            if (minutesElement.textContent !== minutesStr) {
+              minutesElement.textContent = minutesStr;
+            }
+
+            if (secondsElement.textContent !== secondsStr) {
+              secondsElement.textContent = secondsStr;
+            }
           };
 
-          // Set the initial event title and start the countdown
-          eventTitle.textContent = events[currentEventIndex].title;
-          setInterval(updateCountdown, 1000);
-          updateCountdown(); // Initial call to populate the countdown immediately
+          // Display a loading animation before showing the countdown
+          eventTitle.textContent = "Loading upcoming events...";
+
+          setTimeout(() => {
+            // Set the initial event title with a fade-in effect
+            eventTitle.style.opacity = 0;
+            eventTitle.textContent = events[currentEventIndex].title;
+
+            setTimeout(() => {
+              eventTitle.style.opacity = 1;
+            }, 300);
+
+            // Start the countdown
+            setInterval(updateCountdown, 1000);
+            updateCountdown(); // Initial call to populate the countdown immediately
+          }, 1000);
+
+          // Optional: Add ambient background animation
+          const eventImageContainer = document.querySelector(
+            ".event-image-container"
+          );
+          if (eventImageContainer) {
+            eventImageContainer.addEventListener("mouseenter", () => {
+              const img = eventImageContainer.querySelector("img");
+              if (img) {
+                img.style.transform = "scale(1.05)";
+              }
+            });
+
+            eventImageContainer.addEventListener("mouseleave", () => {
+              const img = eventImageContainer.querySelector("img");
+              if (img) {
+                img.style.transform = "scale(1)";
+              }
+            });
+          }
         });
       </script>
     </div>
