@@ -1,5 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=Alegreya+SC:wght@400;700&display=swap");
+
 body {
   background: linear-gradient(135deg, #f3f4f6, #e0e7ff);
+  font-family: Arial, sans-serif;
 }
 
 .past-events-heading {
@@ -182,16 +185,6 @@ body {
   display: block;
 }
 
-.arrow {
-  transition: transform 0.3s;
-  font-size: 24px;
-  color: #d4af37;
-}
-
-.year-tab.active .arrow {
-  transform: rotate(180deg);
-}
-
 @media screen and (min-width: 768px) and (max-width: 1024px) {
   .year-container {
     width: 90%;
@@ -206,11 +199,11 @@ body {
   }
 
   .event-header p {
-    font-size: 22px;
+    font-size: 18px;
   }
 
   .event-header h3 {
-    font-size: 28px;
+    font-size: 24px;
   }
 
   .event-media {
@@ -233,6 +226,7 @@ body {
 
   .year-tab {
     font-size: 22px;
+    padding: 12px 15px;
   }
 
   .event-card {
@@ -244,7 +238,11 @@ body {
   }
 
   .event-header p {
-    font-size: 15px;
+    font-size: 16px;
+  }
+
+  .event-date {
+    font-size: 16px;
   }
 
   .event-media {
@@ -262,7 +260,7 @@ body {
   }
 
   .event-header p {
-    font-size: 18px;
+    font-size: 16px;
   }
 }
 
@@ -280,10 +278,10 @@ body {
   }
 
   .event-header h3 {
-    font-size: 22px;
+    font-size: 20px;
   }
 
   .event-header p {
-    font-size: 18px;
+    font-size: 14px;
   }
 }
