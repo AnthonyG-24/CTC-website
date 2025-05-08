@@ -1,110 +1,167 @@
+body {
+  background-color: #f8f7f4;
+  color: #333;
+  line-height: 1.6;
+}
+
+.church-history-section {
+  padding: 5rem 2rem;
+  background: linear-gradient(to bottom, #f8f7f4, #eae7e0);
+}
+
 .church-history-container {
-  max-width: 1100px;
+  max-width: 1200px;
   margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 80px;
-  margin-top: 100px;
-  margin-bottom: 100px;
-  padding: 0 20px;
 }
 
 .church-history-title {
-  font-size: 38px;
   text-align: center;
-  color: var(--burgundy);
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: #47351d;
+  position: relative;
+  padding-bottom: 1rem;
 }
 
-.history-row-1,
-.history-row-2,
-.history-row-3 {
+.church-history-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background: linear-gradient(to right, transparent, #c4a14e, transparent);
+}
+
+.timeline {
+  position: relative;
+  margin: 4rem 0;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 100%;
+  background-color: #c4a14e;
+  border-radius: 2px;
+}
+
+.timeline-item {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  margin-bottom: 4rem;
+}
+
+.timeline-content {
+  width: 80%;
+  max-width: 800px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.timeline-date {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  height: 80px;
+  background-color: #47351d;
+  color: white;
+  border-radius: 50%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 30px;
-}
-
-.history-row-2 {
-  flex-direction: row-reverse;
-}
-
-.church-history-photo {
-  flex: 1 1 45%;
-}
-
-.church-history-img {
-  width: 100%;
-  height: auto;
-  border-radius: 12px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-}
-
-.church-history-description {
-  flex: 1 1 45%;
-  font-size: 16px;
-  line-height: 1.7;
-  color: #444;
-  text-align: left;
-  border-left: 5px solid var(--burgundy); /* Accent bar */
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-  border-radius: 8px;
-  padding: 20px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.church-history-description blockquote {
-  font-size: 18px;
-  font-style: italic;
-  color: royalblue;
-  border-left: 4px solid gold;
-  padding-left: 20px;
-  margin-bottom: 15px;
+  justify-content: center;
   font-weight: bold;
+  font-size: 1.2rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  z-index: 2;
 }
 
-@media (max-width: 1440px) {
-  .church-history-container {
-    gap: 60px;
-  }
-
-  .church-history-title {
-    font-size: 36px;
-  }
-
-  .church-history-description {
-    font-size: 22px;
-  }
+.timeline-image {
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
 }
 
-@media (max-width: 480px) {
-  .church-history-container {
-    padding: 10px;
-    gap: 30px;
-    margin-top: 60px;
-    margin-bottom: 60px;
+.timeline-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.timeline-content:hover .timeline-image img {
+  transform: scale(1.05);
+}
+
+.timeline-text {
+  padding: 2rem;
+}
+
+.timeline-text p {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.timeline-text blockquote {
+  font-style: italic;
+  border-left: 4px solid #c4a14e;
+  padding-left: 1rem;
+  margin: 1.5rem 0;
+  font-size: 1.2rem;
+  color: #47351d;
+}
+
+.church-mission {
+  background-color: #47351d;
+  color: white;
+  padding: 3rem 2rem;
+  text-align: center;
+  border-radius: 12px;
+  margin-top: 2rem;
+}
+
+.church-mission h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.church-mission p {
+  font-size: 1.2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .timeline::before {
+    left: 20px;
   }
 
-  .church-history-title {
-    font-size: 24px;
-    padding: 0 30px;
+  .timeline-item {
+    justify-content: flex-start;
+    padding-left: 40px;
   }
 
-  .church-history-img {
+  .timeline-date {
+    left: 20px;
+    top: 20px;
+    width: 60px;
+    height: 60px;
+    font-size: 1rem;
+  }
+
+  .timeline-content {
     width: 100%;
-    height: 150px;
-  }
-
-  .church-history-description {
-    font-size: 12px;
-    line-height: 1.5;
-  }
-
-  .church-history-description blockquote {
-    font-size: 11px;
-    font-style: italic;
-    color: royalblue;
-    border-left: 4px solid gold;
-    padding-left: 5px;
   }
 }
