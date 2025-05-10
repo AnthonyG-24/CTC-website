@@ -1,0 +1,161 @@
+.baptism-section {
+  padding: 50px 20px;
+  text-align: center;
+  width: 100%;
+}
+
+.cross-on-water-image {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  margin-bottom: 30px;
+}
+
+.section-title {
+  font-size: 36px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 50px;
+}
+
+.baptism-scripture-card {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 30px;
+  max-width: 900px;
+  margin: 0 auto 50px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.baptism-scripture-img-container {
+  width: 100%;
+  max-width: 150px;
+  margin: 0 auto 20px;
+}
+
+.bible-baptism-img {
+  width: 100%;
+  border-radius: 10px;
+  height: auto;
+}
+
+.baptism-scripture-title {
+  font-size: 28px;
+  color: #007bff;
+  margin-bottom: 20px;
+}
+
+.baptism-scripture-text {
+  font-size: 18px;
+  color: #555;
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+.baptism-scripture-reference {
+  font-size: 16px;
+  color: #888;
+  margin-top: 10px;
+}
+
+.baptism-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 0fr));
+  gap: 20px;
+  margin-top: 40px;
+  justify-content: center;
+}
+
+.baptism-container > .baptism-card:nth-child(odd):nth-last-child(1) {
+  grid-column: 1 / -1;
+}
+.baptism-card {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.baptism-card img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  object-fit: contain;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.baptism-card h1 {
+  font-size: 22px;
+  font-family: "Cedarville Cursive", cursive;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.baptism-card p {
+  font-size: 18px;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.baptism-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 1440px) {
+  .section-title {
+    font-size: 34px;
+  }
+  .baptism-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 1024px) {
+  .section-title {
+    font-size: 32px;
+  }
+  .baptism-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 30px;
+  }
+  .baptism-container {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .baptism-card img {
+    max-width: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 28px;
+  }
+  .baptism-card img {
+    max-width: 150px;
+  }
+}
+
+@media (max-width: 320px) {
+  .section-title {
+    font-size: 24px;
+  }
+  .baptism-card h1 {
+    font-size: 20px;
+  }
+  .baptism-card p {
+    font-size: 16px;
+  }
+  .baptism-card img {
+    max-width: 120px;
+  }
+}
