@@ -422,55 +422,6 @@ body {
   fill: white;
 }
 
-/* Footer */
-.footer {
-  background-color: #0f1d33;
-  color: #aaa;
-  padding: 4rem 0 2rem;
-}
-
-.footer-container {
-  width: 90%;
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 3rem;
-}
-
-.footer-column h3 {
-  color: white;
-  margin-bottom: 1.5rem;
-  font-family: "Cinzel", serif;
-  font-size: 1.3rem;
-}
-
-.footer-links {
-  list-style: none;
-}
-
-.footer-link {
-  margin-bottom: 0.8rem;
-}
-
-.footer-link a {
-  color: #aaa;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-
-.footer-link a:hover {
-  color: var(--secondary);
-}
-
-.footer-bottom {
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  margin-top: 3rem;
-  padding-top: 2rem;
-  text-align: center;
-  font-size: 0.9rem;
-}
-
 /* Animations */
 @keyframes fadeInUp {
   from {

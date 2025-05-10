@@ -1,191 +1,285 @@
 body {
-  background-image: url(../live-section-image.jpg);
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  overflow-x: hidden;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f9f9f9;
+  padding: 2rem;
 }
 
+/* Color Variables - Brand Colors */
+:root {
+  --royal-blue: #1e3a8a; /* Royal Blue */
+  --gold: #b59410; /* Gold */
+  --burgundy: #800020; /* Burgundy */
+  --light-brown: #d2b48c; /* Light Brown */
+  --light-gold: #f3e5ab; /* Lighter shade of gold for backgrounds */
+  --dark-burgundy: #50001a; /* Darker shade of burgundy for hover states */
+}
+
+/* Going Live Section Styles */
 .going-live-section {
-  padding: 80px 0;
-  color: #fff;
-  position: relative;
-  overflow: hidden;
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.going-live-section::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: -1;
-  opacity: 0;
-  transition: opacity 0.5s ease-in-out;
-}
-
-.going-live-section.touch-active::before,
-.going-live-section:hover::before {
-  opacity: 1;
-}
-
-.going-live-section h1 {
-  font-size: 48px;
-  font-weight: 700;
-  color: #fff;
-  text-transform: uppercase;
-  text-align: center;
-  margin-bottom: 20px;
-  line-height: 1.2;
-  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 0;
 }
 
 .going-live-container {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 20px;
-  z-index: 2;
+  background-color: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(50, 50, 93, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07);
+  position: relative;
+  border: 1px solid #e5e7eb;
+}
+
+.going-live-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(to right, var(--royal-blue), var(--burgundy));
+}
+
+.going-live-left-container {
+  flex: 1.2;
+  position: relative;
 }
 
 .going-live-image {
-  width: 100%;
-  max-width: 800px;
-  border-radius: 15px;
-  overflow: hidden;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-  transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
-  margin: 30px 0;
-  z-index: 2;
+  height: 100%;
+  position: relative;
 }
 
 .going-live-image img {
   width: 100%;
-  height: auto;
+  height: 100%;
   object-fit: cover;
-  filter: brightness(0.9) contrast(1.1) saturate(1.2);
-  transition: filter 0.5s ease-in-out;
+  display: block;
+  vertical-align: middle;
 }
 
-.going-live-image.touch-active,
-.going-live-image:hover {
-  transform: scale(1.05);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(128, 0, 32, 0.4) 0%,
+    rgba(30, 58, 138, 0.2) 100%
+  );
 }
 
-.going-live-image.touch-active img,
-.going-live-image:hover img {
-  filter: none;
+.live-badge {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background-color: var(--burgundy);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.live-badge .pulse {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #fff;
+  margin-right: 8px;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 6px rgba(255, 255, 255, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+  }
+}
+
+.going-live-right-container {
+  flex: 1;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #fff;
+  position: relative;
 }
 
 .going-live-content {
-  max-width: 800px;
-  text-align: center;
-  background: rgba(0, 0, 0, 0.6);
-  padding: 20px;
-  border-radius: 10px;
-  margin-bottom: 20px;
+  max-width: 500px;
+}
+
+.section-subtitle {
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--gold);
+  margin-bottom: 0.75rem;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--royal-blue);
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
 }
 
 .going-live-content p {
-  font-size: 20px;
-  line-height: 1.6;
-  margin-bottom: 20px;
-  color: #fff;
+  font-size: 1.1rem;
+  color: #4b5563;
+  margin-bottom: 2rem;
+  line-height: 1.7;
 }
 
-.going-live-content button {
-  padding: 15px 30px;
-  max-width: 400px;
-  background-color: #fff;
-  color: #4169e1;
+.facebook-button {
+  display: inline-flex;
+  align-items: center;
+  background: var(--royal-blue);
+  color: white;
   border: none;
-  margin-right: 10px;
-  margin-bottom: 10px;
-  border-radius: 50px;
+  padding: 14px 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
   cursor: pointer;
-  font-size: 18px;
-  font-weight: bold;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-  transition: background-color 0.3s, color 0.3s, transform 0.3s;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(30, 58, 138, 0.2);
+  position: relative;
+  overflow: hidden;
 }
 
-.going-live-content button:hover {
-  background-color: #4169e1;
-  color: #fff;
-  transform: translateY(-5px);
+.facebook-button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: 0.5s;
 }
 
-@media (max-width: 1024px) {
-  .going-live-section {
-    padding: 60px 20px;
+.facebook-button:hover::after {
+  left: 100%;
+}
+
+.facebook-button:hover {
+  background-color: #15317a;
+  transform: translateY(-2px);
+  box-shadow: 0 7px 14px rgba(30, 58, 138, 0.3);
+}
+
+.facebook-button i {
+  margin-right: 10px;
+  font-size: 1.1rem;
+}
+
+.service-time {
+  display: flex;
+  align-items: center;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e2e8f0;
+}
+
+.time-icon {
+  width: 44px;
+  height: 44px;
+  background-color: var(--light-gold);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 16px;
+  color: var(--gold);
+}
+
+.time-text {
+  font-size: 0.95rem;
+  color: var(--light-brown);
+}
+
+.time-text strong {
+  display: block;
+  color: var(--burgundy);
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+/* Decorative elements */
+.corner-accent {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(
+    circle at bottom right,
+    var(--light-gold) 0%,
+    transparent 70%
+  );
+  opacity: 0.4;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Responsive styles */
+@media (max-width: 992px) {
+  .going-live-container {
+    flex-direction: column;
   }
 
-  .going-live-section h1 {
-    font-size: 36px;
+  .going-live-left-container {
+    flex: none;
   }
 
   .going-live-image {
-    max-width: 700px;
+    height: 300px;
   }
 
-  .going-live-content p {
-    font-size: 18px;
-  }
-
-  .going-live-content button {
-    padding: 12px 25px;
-    font-size: 16px;
+  .going-live-right-container {
+    padding: 2rem;
   }
 }
 
-@media (max-width: 768px) {
-  .going-live-section {
-    padding: 50px 15px;
+@media (max-width: 576px) {
+  .going-live-right-container {
+    padding: 1.5rem;
   }
 
-  .going-live-section h1 {
-    font-size: 32px;
+  .section-title {
+    font-size: 1.5rem;
   }
 
-  .going-live-image {
-    max-width: 600px;
-  }
-
-  .going-live-content p {
-    font-size: 18px;
-  }
-
-  .going-live-content button {
+  .facebook-button {
     width: 100%;
-  }
-}
-
-@media (max-width: 480px) {
-  .going-live-section {
-    padding: 40px 10px;
-  }
-
-  .going-live-section h1 {
-    font-size: 28px;
-  }
-
-  .going-live-image {
-    max-width: 400px;
-  }
-
-  .going-live-content p {
-    font-size: 16px;
-  }
-
-  .going-live-content button {
-    font-size: 16px;
-    padding: 10px 20px;
+    justify-content: center;
   }
 }
