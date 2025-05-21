@@ -86,127 +86,55 @@
     </div>
 
     <script>
-      // 1. Define a delay function (since `waitForDelay` is missing)
-      function waitForDelay(ms) {
-        return new Promise((resolve) => setTimeout(resolve, ms));
-      }
-
-      // 2. Ensure consistent video paths
-      const TRANSITION_VIDEO = "assets/videos/CTC transition.mp4"; // Use the same everywhere
-
-      // 3. Modified preload function to ensure videos are REALLY ready
+      // Function to preload only the video that matches the screen size
       function preloadVideoAssets() {
-        return new Promise((resolve) => {
+        return new Promise((resolve, reject) => {
+          let videoToPreload;
           const isMobile = window.innerWidth <= 480;
-          const mainVideo = isMobile
+
+          // Select appropriate video for mobile or desktop
+          videoToPreload = isMobile
             ? "assets/videos/CTC-Mobile-optimized.mp4"
             : "assets/videos/CTC-largeScreens-homeBG.mp4";
 
-          // Preload main video
           const video = document.createElement("video");
-          video.src = mainVideo;
+          video.src = videoToPreload;
           video.preload = "auto";
           video.muted = true;
           video.playsinline = true;
 
-          // Preload transition video
-          const transition = document.createElement("video");
-          transition.src = TRANSITION_VIDEO;
-          transition.preload = "auto";
-          transition.muted = true;
-          transition.playsinline = true;
-
-          let loaded = 0;
-          const totalVideos = 2;
-
-          function checkLoaded() {
-            loaded++;
-            if (loaded >= totalVideos) resolve();
-          }
-
-          video.oncanplaythrough = checkLoaded;
-          transition.oncanplaythrough = checkLoaded;
+          // Preload video and resolve the promise when ready
+          video.oncanplaythrough = () => {
+            resolve(); // Video has preloaded successfully
+          };
 
           video.onerror = () => {
-            console.error("Main video failed to load");
-            checkLoaded(); // Continue anyway
-          };
-          transition.onerror = () => {
-            console.error("Transition video failed to load");
-            checkLoaded(); // Continue anyway
+            console.error("Failed to preload video:", videoToPreload);
+            resolve(); // Resolve even on error to avoid blocking
           };
 
-          // Fallback in case videos take too long
-          setTimeout(resolve, 5000);
+          // Fallback timeout for network delays
+          setTimeout(() => {
+            console.warn(
+              "Proceeding even though video may not be fully preloaded."
+            );
+            resolve();
+          }, 5000); // Proceed if video isn't ready after 3 seconds
         });
       }
 
-      // 4. Improved playTransition() with better error handling
-      function playTransition() {
-        return new Promise((resolve) => {
-          // Hide loader
-          document.getElementById("loader").classList.add("hidden");
-
-          // Create transition container
-          const container = document.createElement("div");
-          container.id = "transition-container";
-          container.style.position = "fixed";
-          container.style.top = "0";
-          container.style.left = "0";
-          container.style.width = "100%";
-          container.style.height = "100%";
-          container.style.zIndex = "1000";
-          container.style.backgroundColor = "#000";
-
-          const video = document.createElement("video");
-          video.src = TRANSITION_VIDEO;
-          video.style.width = "100%";
-          video.style.height = "100%";
-          video.style.objectFit = "cover";
-          video.muted = true;
-          video.playsinline = true;
-
-          container.appendChild(video);
-          document.body.appendChild(container);
-
-          // Try to play the video
-          const playPromise = video.play();
-
-          if (playPromise !== undefined) {
-            playPromise
-              .then(() => {
-                console.log("Transition video playing");
-                video.onended = resolve; // Resolve when video ends
-              })
-              .catch((err) => {
-                console.error("Autoplay failed:", err);
-                resolve(); // Skip transition if play fails
-              });
-          }
-
-          // Fallback in case video doesn't end
-          setTimeout(resolve, 3000); // Adjust to match video length
-        });
+      // Function to ensure minimum wait time (e.g., for loaders)
+      function waitForDelay(delay) {
+        return new Promise((resolve) => setTimeout(resolve, delay));
       }
 
-      // 5. Main flow: Wait for page load → Preload → Delay → Play transition → Redirect
+      // Preload videos and show loader for at least 2 seconds for smoother UX
       window.addEventListener("load", function () {
-        console.log("Page loaded, starting preload...");
-
-        // Preload videos AND wait 2 seconds (adjust as needed)
-        Promise.all([preloadVideoAssets(), waitForDelay(2000)])
-          .then(() => {
-            console.log("Preloading complete, playing transition...");
-            return playTransition();
-          })
-          .then(() => {
-            console.log("Transition complete, redirecting...");
-            window.location.href = "home.html";
-          })
-          .catch((err) => {
-            console.error("Error in transition flow:", err);
-            window.location.href = "/home"; // Fallback redirect
-          });
+        Promise.all([preloadVideoAssets(), waitForDelay(2000)]).then(() => {
+          document.getElementById("loader").classList.add("hidden"); // Hide loader
+          // Redirect to homepage or continue further actions
+          window.location.href = "/home";
+        });
       });
     </script>
   </body>
