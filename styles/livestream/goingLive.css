@@ -6,17 +6,15 @@ body {
   overflow-x: hidden;
 }
 
-/* Color Variables - Brand Colors */
 :root {
-  --royal-blue: #1e3a8a; /* Royal Blue */
-  --gold: #b59410; /* Gold */
-  --burgundy: #800020; /* Burgundy */
-  --light-brown: #d2b48c; /* Light Brown */
-  --light-gold: #f3e5ab; /* Lighter shade of gold for backgrounds */
-  --dark-burgundy: #50001a; /* Darker shade of burgundy for hover states */
+  --royal-blue: #1e3a8a;
+  --gold: #b59410;
+  --burgundy: #800020;
+  --light-brown: #d2b48c;
+  --light-gold: #f3e5ab;
+  --dark-burgundy: #50001a;
 }
 
-/* Going Live Section Styles */
 .going-live-section {
   max-width: 1200px;
   margin: 0 auto;
