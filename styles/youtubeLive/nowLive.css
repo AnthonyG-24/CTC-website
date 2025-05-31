@@ -1,205 +1,335 @@
-a button {
-  background-color: #2a2a72;
-  color: #fff;
-  font-size: 18px;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  margin-bottom: 50px;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.back-to-serv-btn {
-  width: 300px;
-  height: auto;
-}
-
-a button:hover {
-  background-color: #ff0047;
-  transform: scale(1.05);
-}
-
-a button:active {
-  background-color: #1a1a52;
-  transform: scale(0.98);
-}
-
+/* YouTube Live Section Styles */
 .youtube-live-section {
-  text-align: center;
-  background-color: white;
-  padding: 40px;
+  padding: 2rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  min-height: 100vh;
+  font-family: "Arial", sans-serif;
 }
 
+/* Back to Services Button */
+.back-to-serv-btn {
+  background: #4a90e2;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: 2rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3);
+}
+
+.back-to-serv-btn:hover {
+  background: #357abd;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(74, 144, 226, 0.4);
+}
+
+.back-to-serv-btn:active {
+  transform: translateY(0);
+}
+
+/* Main Heading */
 .youtube-live-section h1 {
-  font-size: 32px;
-  margin-bottom: 20px;
-  color: #333;
+  text-align: center;
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin-bottom: 2rem;
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+/* Container for YouTube content */
 .youtube-live-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
+  background: white;
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
 }
 
+/* YouTube Live Video */
 .youtube-live {
-  flex: 1 1 60%;
-  height: 450px;
-}
-
-.live-chat {
-  flex: 1 1 35%;
-  height: 450px;
-}
-
-.youtube-live iframe,
-.live-chat iframe {
+  position: relative;
   width: 100%;
-  height: 100%;
+  height: 0;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  margin-bottom: 1.5rem;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.youtube-live iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100% !important;
+  border: none;
   border-radius: 10px;
 }
 
+/* Live Chat Container */
+.live-chat {
+  margin-top: 1.5rem !important;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  background: white;
+}
+
+.live-chat iframe {
+  border: none;
+  border-radius: 10px;
+  width: 100%;
+  height: 400px;
+}
+
+/* Bible Toggle Button */
 .bible-toggle-btn {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
+  bottom: 30px;
+  right: 30px;
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  background-color: #f1c40f;
+  background: #e74c3c;
   color: white;
   border: none;
-  font-size: 24px;
+  font-size: 1.5rem;
   cursor: pointer;
+  box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
+  transition: all 0.3s ease;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+.bible-toggle-btn:hover {
+  background: #c0392b;
+  transform: scale(1.1);
+  box-shadow: 0 8px 25px rgba(231, 76, 60, 0.5);
+}
+
+.bible-toggle-btn:active {
+  transform: scale(0.95);
+}
+
+/* Bible Container */
 .full-bible {
   display: none;
   position: fixed;
-  bottom: 100px;
-  right: 20px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 1.5rem;
+  border-radius: 15px;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+  z-index: 1001;
+  max-width: 90vw;
+  max-height: 80vh;
+  overflow: auto;
 }
 
-/* For screens 1440px and up */
-@media (min-width: 1440px) {
-  .youtube-live {
-    height: 600px;
-  }
+.full-bible iframe {
+  border: none;
+  border-radius: 10px;
+  width: 100%;
+  min-height: 400px;
+}
 
-  .live-chat {
-    height: 600px;
+/* Responsive Design */
+
+/* Large tablets and small desktops */
+@media screen and (max-width: 1024px) {
+  .youtube-live-section {
+    padding: 1.5rem 1rem;
   }
 
   .youtube-live-section h1 {
-    font-size: 36px;
-  }
-}
-
-/* For screens 1024px to 1439px */
-@media (max-width: 1439px) and (min-width: 1024px) {
-  .youtube-live {
-    height: 500px;
-    flex: 1 1 50%;
+    font-size: 2.2rem;
   }
 
-  .live-chat {
-    height: 500px;
-    flex: 1 1 40%;
-  }
-
-  .youtube-live-section h1 {
-    font-size: 34px;
-  }
-}
-
-/* For screens 820px to 1023px */
-@media (max-width: 1023px) and (min-width: 820px) {
-  .youtube-live {
-    height: 450px;
-  }
-
-  .live-chat {
-    height: 450px;
-    flex: 1 1 40%;
-  }
-
-  .youtube-live-section h1 {
-    font-size: 32px;
-  }
-}
-
-/* For screens 768px to 819px */
-@media (max-width: 819px) and (min-width: 768px) {
   .youtube-live-container {
-    flex-direction: row;
-  }
-
-  .youtube-live,
-  .live-chat {
-    flex: 1 1 100%;
-    height: 400px;
-  }
-
-  .youtube-live-section h1 {
-    font-size: 30px;
+    padding: 1.5rem;
   }
 }
 
-/* For screens 480px to 767px */
-@media (max-width: 767px) and (min-width: 480px) {
-  .youtube-live-container {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .youtube-live iframe {
-    height: 300px;
-  }
-
-  .live-chat iframe {
-    height: 300px;
+/* Tablets */
+@media screen and (max-width: 768px) {
+  .youtube-live-section {
+    padding: 1rem 0.75rem;
   }
 
   .youtube-live-section h1 {
-    font-size: 28px;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
   }
-}
 
-/* For screens 320px to 479px */
-@media (max-width: 479px) and (min-width: 320px) {
   .youtube-live-container {
-    flex-direction: column;
-    align-items: center;
+    padding: 1.25rem;
+    margin-bottom: 1.5rem;
   }
 
-  .youtube-live iframe {
-    height: 350px;
+  .back-to-serv-btn {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
   }
 
   .live-chat iframe {
     height: 350px;
-    flex: 1 1 40%;
   }
 
-  .youtube-live-section h1 {
-    font-size: 24px;
+  .bible-toggle-btn {
+    width: 55px;
+    height: 55px;
+    bottom: 25px;
+    right: 25px;
+    font-size: 1.3rem;
+  }
+
+  .full-bible {
+    padding: 1.25rem;
+    max-width: 95vw;
   }
 }
 
-/* For screens smaller than 320px */
-@media (max-width: 319px) {
-  .youtube-live iframe {
-    height: 200px;
+/* Mobile phones */
+@media screen and (max-width: 480px) {
+  .youtube-live-section {
+    padding: 0.75rem 0.5rem;
+  }
+
+  .youtube-live-section h1 {
+    font-size: 1.8rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .youtube-live-container {
+    padding: 1rem;
+    border-radius: 10px;
+  }
+
+  .back-to-serv-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .live-chat {
+    margin-top: 1.25rem !important;
+  }
+
+  .live-chat iframe {
+    height: 300px;
+  }
+
+  .bible-toggle-btn {
+    width: 50px;
+    height: 50px;
+    bottom: 20px;
+    right: 20px;
+    font-size: 1.2rem;
+  }
+
+  .full-bible {
+    padding: 1rem;
+    max-width: 98vw;
+    max-height: 85vh;
+  }
+
+  .full-bible iframe {
+    min-height: 350px;
+  }
+}
+
+/* Extra small screens */
+@media screen and (max-width: 320px) {
+  .youtube-live-section h1 {
+    font-size: 1.6rem;
+  }
+
+  .youtube-live-container {
+    padding: 0.75rem;
+  }
+
+  .back-to-serv-btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+  }
+
+  .live-chat iframe {
+    height: 250px;
+  }
+
+  .bible-toggle-btn {
+    width: 45px;
+    height: 45px;
+    font-size: 1.1rem;
+  }
+
+  .full-bible iframe {
+    min-height: 300px;
+  }
+}
+
+/* Landscape orientation for mobile */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+  .youtube-live-section {
+    padding: 0.5rem;
+  }
+
+  .youtube-live-section h1 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .youtube-live-container {
+    padding: 0.75rem;
   }
 
   .live-chat iframe {
     height: 200px;
   }
 
-  .youtube-live-section h1 {
-    font-size: 20px;
+  .bible-toggle-btn {
+    bottom: 15px;
+    right: 15px;
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+
+  .full-bible {
+    max-height: 90vh;
+    padding: 0.75rem;
+  }
+}
+
+/* Print styles */
+@media print {
+  .bible-toggle-btn,
+  .full-bible {
+    display: none !important;
+  }
+
+  .youtube-live-section {
+    background: white;
+    box-shadow: none;
+  }
+
+  .youtube-live-container {
+    box-shadow: none;
+    border: 1px solid #ddd;
   }
 }
