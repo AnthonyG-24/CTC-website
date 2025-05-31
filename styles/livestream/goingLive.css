@@ -248,7 +248,129 @@ body {
   pointer-events: none;
 }
 
-/* Responsive styles */
+/* Add this to your existing :root variables */
+:root {
+  --royal-blue: #1e3a8a;
+  --gold: #b59410;
+  --burgundy: #800020;
+  --light-brown: #d2b48c;
+  --light-gold: #f3e5ab;
+  --dark-burgundy: #50001a;
+  --youtube-red: #ff0000; /* ADD THIS LINE */
+}
+
+/* Add this new button container for spacing */
+.button-container {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-direction: column;
+}
+
+/* Modify your existing .facebook-button to be shared with .youtube-button */
+.facebook-button,
+.youtube-button {
+  /* MODIFY THIS LINE - ADD .youtube-button */
+  display: inline-flex;
+  align-items: center;
+  border: none;
+  padding: 14px 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none; /* ADD THIS LINE */
+  color: white; /* ADD THIS LINE */
+}
+
+/* Keep your existing facebook-button specific styles */
+.facebook-button {
+  background: var(--royal-blue);
+  box-shadow: 0 4px 12px rgba(30, 58, 138, 0.2);
+}
+
+/* ADD THIS NEW YOUTUBE BUTTON STYLE */
+.youtube-button {
+  background: var(--youtube-red);
+  box-shadow: 0 4px 12px rgba(255, 0, 0, 0.2);
+}
+
+/* Modify your existing ::after pseudo-element to include youtube-button */
+.facebook-button::after,
+.youtube-button::after {
+  /* MODIFY THIS LINE - ADD .youtube-button::after */
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+/* Modify your existing hover::after to include youtube-button */
+.facebook-button:hover::after,
+.youtube-button:hover::after {
+  /* MODIFY THIS LINE - ADD .youtube-button:hover::after */
+  left: 100%;
+}
+
+/* Keep your existing facebook-button hover styles */
+.facebook-button:hover {
+  background-color: #15317a;
+  transform: translateY(-2px);
+  box-shadow: 0 7px 14px rgba(30, 58, 138, 0.3);
+}
+
+/* ADD THIS NEW YOUTUBE BUTTON HOVER STYLE */
+.youtube-button:hover {
+  background-color: #cc0000;
+  transform: translateY(-2px);
+  box-shadow: 0 7px 14px rgba(255, 0, 0, 0.3);
+}
+
+/* Modify your existing icon styles to include youtube-button */
+.facebook-button i,
+.youtube-button i {
+  /* MODIFY THIS LINE - ADD .youtube-button i */
+  margin-right: 10px;
+  font-size: 1.1rem;
+}
+
+/* ADD THIS TO YOUR EXISTING RESPONSIVE STYLES */
+@media (max-width: 768px) {
+  .button-container {
+    flex-direction: column;
+  }
+}
+
+/* Modify your existing 576px media query */
+@media (max-width: 576px) {
+  .going-live-right-container {
+    padding: 1.5rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .facebook-button,
+  .youtube-button {
+    /* MODIFY THIS LINE - ADD .youtube-button */
+    width: 100%;
+    justify-content: center;
+  }
+}
+
 @media (max-width: 992px) {
   .going-live-container {
     flex-direction: column;

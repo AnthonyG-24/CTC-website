@@ -114,23 +114,9 @@
       <h1>Live Now On Youtube!</h1>
       <div class="youtube-live-container">
         <h3>Check back again later</h3>
-        <div class="youtube-live">
-          <!--  <iframe
-          src="https://www.youtube.com/embed/vfqbQbfwkFo"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-        ></iframe> -->
-        </div>
+        <div class="youtube-live"></div>
 
-        <div class="live-chat">
-          <!--  <iframe
-            src="https://www.youtube.com/live_chat?v=vfqbQbfwkFo&embed_domain=communitytemplechurch.com"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          ></iframe> -->
-        </div>
+        <div class="live-chat"></div>
       </div>
 
       <!-- Circular Button to Toggle Bible -->
@@ -159,48 +145,40 @@
         }
       }
     </script>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const videoIframe = document.querySelector(".youtube-live iframe");
-        const chatIframe = document.querySelector(".live-chat iframe");
 
-        fetch("/.netlify/functions/get-youtube-live")
-          .then((response) => response.json())
-          .then((data) => {
-            if (data.liveVideoId) {
-              const liveVideoId = data.liveVideoId;
-
-              // Update video iframe with the live video ID
-              videoIframe.src = `https://www.youtube.com/embed/${liveVideoId}`;
-
-              // Update live chat iframe with the live video ID
-              chatIframe.src = `https://www.youtube.com/live_chat?v=${liveVideoId}&embed_domain=communitytemplechurch.com`;
-            } else {
-              console.log("No live stream found");
-            }
-          })
-          .catch((error) =>
-            console.error("Error fetching the live video:", error)
-          );
-      });
-    </script>
-
-    <!--Footer section-->
-    <footer>
+    <!-- Footer -->
+    <footer class="footer">
       <div class="footer-container">
-        <div class="footer-content">
-          <p>
-            C.T.C.O.O.L.J.C
-            <span class="footer-year" id="footer-year"></span>
-          </p>
-          <div class="contact-info">
-            <p>
-              Secretary Sister Shannon Singletary Contact Information:
-              843-372-5839
-            </p>
-            <p>Address: 385 McClam Rd, Cades, SC 29518</p>
-          </div>
+        <div class="footer-column">
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li class="footer-link"><a href="about.html">About</a></li>
+            <li class="footer-link"><a href="churchFamily.html">Gallery</a></li>
+            <li class="footer-link"><a href="mothers.html">Mothers</a></li>
+            <li class="footer-link"><a href="baptism.html">Baptisms</a></li>
+            <li class="footer-link"><a href="live.html">Services</a></li>
+            <li class="footer-link"><a href="events.html">Events</a></li>
+            <li class="footer-link"><a href="contact.html">Contact</a></li>
+            <li class="footer-link"><a href="donation.html">Donate</a></li>
+          </ul>
         </div>
+
+        <div class="footer-column">
+          <h3>Contact</h3>
+          <ul class="footer-links">
+            <li class="footer-link">385 McClam Rd</li>
+            <li class="footer-link">Cades, SC 29518</li>
+            <li class="footer-link">843-372-5839</li>
+            <li class="footer-link">ctcooljc1993@gmail.com</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>
+          &copy; 2025 Community Temple Church Of Our Lord Jesus Christ. All
+          Rights Reserved.
+        </p>
       </div>
     </footer>
   </body>
