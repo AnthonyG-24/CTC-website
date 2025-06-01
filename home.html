@@ -9,6 +9,7 @@
 
     <link rel="stylesheet" href="styles/general.css" />
     <link rel="stylesheet" href="styles/home/header.css" />
+    <link rel="stylesheet" href="styles/home/upcomingEvent.css" />
     <!--     <link rel="stylesheet" href="styles/home/extraHeader.css" />
  -->
     <link rel="stylesheet" href="styles/home/homeStyle.css" />
@@ -180,6 +181,46 @@
         </a>
       </div>
     </section>
+
+    <!-- Upcoming Event Banner -->
+    <div class="home-event-banner" id="home-eventBanner">
+      <div class="home-event-banner-content">
+        <div class="home-event-info">
+          <span class="home-event-label">UPCOMING EVENT</span>
+          <h3 class="home-event-title">2025 Pentecost Celebration</h3>
+          <p class="home-event-details">
+            <span class="home-event-time">June 6th 6:30 PM</span>
+            <span class="home-event-time">June 7th 12:00 PM</span>
+            <span class="home-event-time">June 8th: 11:45 AM</span>
+          </p>
+        </div>
+        <div class="home-event-actions">
+          <a href="events.html" class="home-event-btn">Learn More</a>
+          <button class="close-banner" onclick="closeBanner()">&times;</button>
+        </div>
+      </div>
+    </div>
+    <script>
+      // Function to close the event banner
+      function closeBanner() {
+        const banner = document.getElementById("home-eventBanner");
+        if (banner) {
+          banner.classList.add("banner-closed");
+          // Removed sessionStorage so banner always shows on page load
+        }
+      }
+
+      // Ensure banner is always visible on page load
+      document.addEventListener("DOMContentLoaded", function () {
+        const banner = document.getElementById("home-eventBanner");
+        if (banner) {
+          // Remove the banner-closed class to ensure it's always visible
+          banner.classList.remove("banner-closed");
+          // Clear any stored banner state
+          sessionStorage.removeItem("eventBannerClosed");
+        }
+      });
+    </script>
 
     <!-- Services Section -->
     <section class="services-section" id="services">

@@ -1,0 +1,194 @@
+/* Event Banner Styles */
+.home-event-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(135deg, #c8b273 0%, #9f8c5c 100%);
+  color: #212529;
+  z-index: 1001;
+  padding: 1rem 0;
+  box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.2);
+  animation: slideUp 0.8s ease forwards;
+}
+
+.home-event-banner-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  max-width: 1400px;
+  margin: 0 auto;
+  gap: 2rem;
+}
+
+.home-event-info {
+  flex: 1;
+}
+
+.home-event-label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #9f1239;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.home-event-title {
+  font-family: "Cinzel", serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin: 0;
+  margin-bottom: 0.5rem;
+  color: #212529;
+}
+
+.home-event-details {
+  font-size: 0.9rem;
+  margin: 0;
+  opacity: 0.9;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.home-event-time {
+  background-color: rgba(26, 54, 93, 0.1);
+  padding: 0.3rem 0.6rem;
+  border-radius: 15px;
+  font-weight: 600;
+  color: #1a365d;
+  white-space: nowrap;
+}
+
+.home-event-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.home-event-btn {
+  background-color: #1a365d;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.home-event-btn:hover {
+  background-color: #9f1239;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.close-banner {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #212529;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.close-banner:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.banner-closed {
+  display: none !important;
+}
+
+/* Animation */
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .home-event-banner-content {
+    gap: 1.5rem;
+  }
+
+  .home-event-title {
+    font-size: 1.1rem;
+  }
+
+  .home-event-details {
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .home-event-banner {
+    padding: 0.8rem 0;
+  }
+
+  .home-event-banner-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .home-event-title {
+    font-size: 1rem;
+  }
+
+  .home-event-details {
+    justify-content: center;
+    gap: 0.3rem;
+  }
+
+  .home-event-time {
+    font-size: 0.8rem;
+    padding: 0.2rem 0.5rem;
+  }
+
+  .home-event-actions {
+    flex-direction: row;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
+  }
+
+  .home-event-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-event-banner-content {
+    width: 95%;
+  }
+
+  .home-event-details {
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  .home-event-actions {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .home-event-btn {
+    width: 100%;
+    text-align: center;
+  }
+}

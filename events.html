@@ -352,6 +352,118 @@
       </div>
     </section>
 
+    <section>
+      <div class="event-flyer-section">
+        <div class="flyer-carousel" id="flyerCarousel">
+          <div class="flyer-container" id="flyerContainer">
+            <div class="flyer-slide">
+              <img
+                src="assets/event-assets/2025_events/pentecost/Pentecost_2025.png"
+                alt="Event Flyer"
+                class="event-flyer"
+              />
+            </div>
+          </div>
+
+          <button class="flyer-nav prev" id="prevBtn">‹</button>
+          <button class="flyer-nav next" id="nextBtn">›</button>
+        </div>
+
+        <div class="flyer-dots" id="flyerDots"></div>
+      </div>
+      <script>
+        class FlyerCarousel {
+          constructor() {
+            this.currentSlide = 0;
+            this.carousel = document.getElementById("flyerCarousel");
+            this.container = document.getElementById("flyerContainer");
+            this.slides = document.querySelectorAll(".flyer-slide");
+            this.dotsContainer = document.getElementById("flyerDots");
+            this.prevBtn = document.getElementById("prevBtn");
+            this.nextBtn = document.getElementById("nextBtn");
+
+            this.init();
+          }
+
+          init() {
+            this.createDots();
+            this.updateCarousel();
+            this.bindEvents();
+
+            // Set data attribute for single flyer detection
+            this.carousel.setAttribute("data-count", this.slides.length);
+          }
+
+          createDots() {
+            this.dotsContainer.innerHTML = "";
+            this.slides.forEach((_, index) => {
+              const dot = document.createElement("div");
+              dot.classList.add("flyer-dot");
+              if (index === 0) dot.classList.add("active");
+              dot.addEventListener("click", () => this.goToSlide(index));
+              this.dotsContainer.appendChild(dot);
+            });
+          }
+
+          updateCarousel() {
+            const offset = -this.currentSlide * 100;
+            this.container.style.transform = `translateX(${offset}%)`;
+
+            // Update dots
+            document.querySelectorAll(".flyer-dot").forEach((dot, index) => {
+              dot.classList.toggle("active", index === this.currentSlide);
+            });
+          }
+
+          nextSlide() {
+            this.currentSlide = (this.currentSlide + 1) % this.slides.length;
+            this.updateCarousel();
+          }
+
+          prevSlide() {
+            this.currentSlide =
+              (this.currentSlide - 1 + this.slides.length) % this.slides.length;
+            this.updateCarousel();
+          }
+
+          goToSlide(index) {
+            this.currentSlide = index;
+            this.updateCarousel();
+          }
+
+          bindEvents() {
+            this.nextBtn.addEventListener("click", () => this.nextSlide());
+            this.prevBtn.addEventListener("click", () => this.prevSlide());
+
+            // Keyboard navigation
+            document.addEventListener("keydown", (e) => {
+              if (e.key === "ArrowLeft") this.prevSlide();
+              if (e.key === "ArrowRight") this.nextSlide();
+            });
+
+            // Touch/swipe support
+            let startX = 0;
+            let endX = 0;
+
+            this.carousel.addEventListener("touchstart", (e) => {
+              startX = e.touches[0].clientX;
+            });
+
+            this.carousel.addEventListener("touchend", (e) => {
+              endX = e.changedTouches[0].clientX;
+              if (startX - endX > 50) this.nextSlide();
+              if (endX - startX > 50) this.prevSlide();
+            });
+          }
+        }
+
+        // Initialize carousel when page loads
+        document.addEventListener("DOMContentLoaded", () => {
+          new FlyerCarousel();
+        });
+      </script>
+    </section>
+
     <!-- Past events section with accordion style -->
     <div class="past-events-section">
       <div class="past-events-heading">
