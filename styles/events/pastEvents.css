@@ -133,7 +133,7 @@ body {
 
 .event-media img {
   width: calc(100% - 0px);
-  max-height: 350px;
+  max-height: 500px;
   height: auto;
   object-fit: cover;
   border-radius: 12px;
