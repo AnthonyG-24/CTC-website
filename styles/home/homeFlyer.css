@@ -1,0 +1,42 @@
+.home-event-banner-content {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.home-event-flyer {
+  flex-shrink: 0;
+}
+
+.banner-flyer-image {
+  width: 120px;
+  height: auto;
+  max-height: 140px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.home-event-info {
+  flex: 1;
+}
+
+@media (max-width: 768px) {
+  .home-event-banner-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+  }
+
+  .banner-flyer-image {
+    width: 100px;
+    max-height: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .banner-flyer-image {
+    width: 80px;
+    max-height: 100px;
+  }
+}

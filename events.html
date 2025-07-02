@@ -143,20 +143,8 @@
         document.addEventListener("DOMContentLoaded", () => {
           const events = [
             {
-              title: "Black History Program",
-              date: "February 16, 2025 11:45:00",
-            },
-            { title: "Musician Program", date: "March 30, 2025 3:30:00" },
-            { title: "Palm Sunday", date: "April 13, 2025 11:45:00" },
-            { title: "Resurrection Sunday", date: "April 20, 2025 11:45:00" },
-            {
-              title: "Family And Friends Program",
-              date: "May 4, 2025 11:45:00",
-            },
-            { title: "Pentecost", date: "June 7, 2025 12:00:00 PM" },
-            {
-              title: "Usher Program (And Fathers Day)",
-              date: "June 15, 2025 11:45:00 AM",
+              title: "",
+              date: "",
             },
           ];
 
@@ -316,35 +304,98 @@
             <h2>Upcoming Events</h2>
             <ul class="events-list">
               <li class="event-item">
-                <strong>Pentecost Celebration</strong>
-                <div class="event-date">June 6th - 8th, 2025</div>
+                <strong>Back to School Program</strong>
+                <div class="event-date">July 26</div>
+                <div class="event-flyer">
+                  <img
+                    src="assets/event-assets/2025_events/Flyers/Back to School English Syllabus Presentation in Colourful Pastel Doodle Style.jpg"
+                    alt="Back to School Program Flyer"
+                    class="flyer-image"
+                  />
+                </div>
                 <p>
-                  Celebrating Pentecost with a weekend of prayer, worship, and
-                  reflection on the Holy Spirit's presence in our lives,
-                  culminating in a special anointing service. There will be FREE
-                  food as well.
+                  Join us for our Back to School Program sponsored by Minister
+                  Campbell
                 </p>
-                <p>
-                  June 6: Prayer from 6:30–7:00 PM<br />
-                  June 7: Water baptism & cookout at 12:00 PM<br />
-                  June 8: Closing service with a powerful word from our pastor
-                </p>
-                <p>All are welcome!</p>
-
-                <span class="event-time">June 6th 6:30 PM</span>
-                <span class="event-time">June 7th 12:00 PM</span>
-                <span class="event-time">June 8th: 11:45 AM</span>
+                <span class="event-time">11:00 AM</span>
               </li>
 
               <li class="event-item">
-                <strong>Usher Program & Fathers Day</strong>
-                <div class="event-date">June 15th, 2025</div>
+                <strong>Men's Program</strong>
+                <div class="event-date">August 17</div>
+                <div class="event-flyer">
+                  <img
+                    src="assets/event-assets/2025_events/Flyers/Men’s Day Program.jpg"
+                    alt="Men's Program Flyer"
+                    class="flyer-image"
+                  />
+                </div>
                 <p>
-                  Celebrating our Ushers with a recognition ceremony, heartfelt
-                  testimonies, and a tribute to the pillars of our church and
-                  families.
+                  Special program for men featuring Minister Jacob Wilson from
+                  Bethlehem Missionary Baptist Church. Attire: Black suit, white
+                  shirt, and red tie.
                 </p>
-                <span class="event-time">June 15th: 11:45 AM</span>
+                <span class="event-time">3:30 PM</span>
+              </li>
+
+              <li class="event-item">
+                <strong>Summer Revival</strong>
+                <div class="event-date">August 20th - 22nd</div>
+                <div class="event-flyer">
+                  <img
+                    src="assets/event-assets/2025_events/Flyers/Summer revival front.jpg"
+                    alt="Summer Revival Flyer Front Page"
+                    class="flyer-image"
+                  />
+                  <img
+                    src="assets/event-assets/2025_events/Flyers/Summer revival back.jpg"
+                    alt="Summer Revival Flyer Back Page"
+                    class="flyer-image"
+                  />
+                </div>
+                <p>
+                  Join us for our Summer Revival featuring our beloved Pastor
+                  Donald Anthony Gillard. "The Harvest is Coming to an End" -
+                  Three nights of real talk, no pretense. Location: 385 McClam
+                  Rd, Cades, SC 29518
+                </p>
+                <span class="event-time"
+                  >Prayer: 6:30 PM | Service: 7:00 PM (All three nights)</span
+                >
+              </li>
+
+              <li class="event-item">
+                <strong>Church 8th Anniversary</strong>
+                <div class="event-date">September 21st</div>
+                <div class="event-flyer">
+                  <img
+                    src="assets/event-assets/2025_events/Flyers/CHURCH ANNIVERSARY.jpg"
+                    alt="Church 8th Anniversary Flyer"
+                    class="flyer-image"
+                  />
+                </div>
+                <p>
+                  Celebrating our 8th Church Anniversary - a special milestone
+                  for our congregation
+                </p>
+                <span class="event-time">3:00 PM</span>
+              </li>
+
+              <li class="event-item">
+                <strong>Pastor Appreciation</strong>
+                <div class="event-date">December 7th</div>
+                <div class="event-flyer">
+                  <img
+                    src="assets/event-assets/2025_events/Flyers/Pastor Appr.jpg"
+                    alt="Pastor Appreciation Flyer"
+                    class="flyer-image"
+                  />
+                </div>
+                <p>
+                  Join us as we honor and appreciate our pastor for his
+                  dedication and service to our church community
+                </p>
+                <span class="event-time">TBA</span>
               </li>
             </ul>
           </div>
@@ -352,126 +403,7 @@
       </div>
     </section>
 
-    <section>
-      <div class="event-flyer-section">
-        <div class="flyer-carousel" id="flyerCarousel">
-          <div class="flyer-container" id="flyerContainer">
-            <div class="flyer-slide">
-              <img
-                src="assets/event-assets/2025_events/usherAnn/USHER PROGRAM.jpg"
-                alt="Event Flyer"
-                class="event-flyer"
-              />
-            </div>
-            <div class="flyer-slide">
-              <img
-                src="assets/event-assets/2025_events/pentecost/Pentecost_2025.png"
-                alt="Event Flyer"
-                class="event-flyer"
-              />
-            </div>
-          </div>
-
-          <button class="flyer-nav prev" id="prevBtn">‹</button>
-          <button class="flyer-nav next" id="nextBtn">›</button>
-        </div>
-
-        <div class="flyer-dots" id="flyerDots"></div>
-      </div>
-      <script>
-        class FlyerCarousel {
-          constructor() {
-            this.currentSlide = 0;
-            this.carousel = document.getElementById("flyerCarousel");
-            this.container = document.getElementById("flyerContainer");
-            this.slides = document.querySelectorAll(".flyer-slide");
-            this.dotsContainer = document.getElementById("flyerDots");
-            this.prevBtn = document.getElementById("prevBtn");
-            this.nextBtn = document.getElementById("nextBtn");
-
-            this.init();
-          }
-
-          init() {
-            this.createDots();
-            this.updateCarousel();
-            this.bindEvents();
-
-            // Set data attribute for single flyer detection
-            this.carousel.setAttribute("data-count", this.slides.length);
-          }
-
-          createDots() {
-            this.dotsContainer.innerHTML = "";
-            this.slides.forEach((_, index) => {
-              const dot = document.createElement("div");
-              dot.classList.add("flyer-dot");
-              if (index === 0) dot.classList.add("active");
-              dot.addEventListener("click", () => this.goToSlide(index));
-              this.dotsContainer.appendChild(dot);
-            });
-          }
-
-          updateCarousel() {
-            const offset = -this.currentSlide * 100;
-            this.container.style.transform = `translateX(${offset}%)`;
-
-            // Update dots
-            document.querySelectorAll(".flyer-dot").forEach((dot, index) => {
-              dot.classList.toggle("active", index === this.currentSlide);
-            });
-          }
-
-          nextSlide() {
-            this.currentSlide = (this.currentSlide + 1) % this.slides.length;
-            this.updateCarousel();
-          }
-
-          prevSlide() {
-            this.currentSlide =
-              (this.currentSlide - 1 + this.slides.length) % this.slides.length;
-            this.updateCarousel();
-          }
-
-          goToSlide(index) {
-            this.currentSlide = index;
-            this.updateCarousel();
-          }
-
-          bindEvents() {
-            this.nextBtn.addEventListener("click", () => this.nextSlide());
-            this.prevBtn.addEventListener("click", () => this.prevSlide());
-
-            // Keyboard navigation
-            document.addEventListener("keydown", (e) => {
-              if (e.key === "ArrowLeft") this.prevSlide();
-              if (e.key === "ArrowRight") this.nextSlide();
-            });
-
-            // Touch/swipe support
-            let startX = 0;
-            let endX = 0;
-
-            this.carousel.addEventListener("touchstart", (e) => {
-              startX = e.touches[0].clientX;
-            });
-
-            this.carousel.addEventListener("touchend", (e) => {
-              endX = e.changedTouches[0].clientX;
-              if (startX - endX > 50) this.nextSlide();
-              if (endX - startX > 50) this.prevSlide();
-            });
-          }
-        }
-
-        // Initialize carousel when page loads
-        document.addEventListener("DOMContentLoaded", () => {
-          new FlyerCarousel();
-        });
-      </script>
-    </section>
-
-    <!-- Past events section with accordion style -->
+    <!-- Past events section -->
     <div class="past-events-section">
       <div class="past-events-heading">
         <h1>Past Events</h1>
