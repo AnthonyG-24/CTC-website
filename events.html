@@ -143,8 +143,29 @@
         document.addEventListener("DOMContentLoaded", () => {
           const events = [
             {
-              title: "",
-              date: "",
+              title: "Back to School Program",
+              date: "2025-07-26T11:00:00",
+              displayTime: "11:00 AM",
+            },
+            {
+              title: "Men's Program",
+              date: "2025-08-17T15:30:00",
+              displayTime: "3:30 PM",
+            },
+            {
+              title: "Summer Revival - Night 1",
+              date: "2025-08-20T19:00:00",
+              displayTime: "7:00 PM",
+            },
+            {
+              title: "Church 8th Anniversary",
+              date: "2025-09-21T15:00:00",
+              displayTime: "3:00 PM",
+            },
+            {
+              title: "Pastor Appreciation",
+              date: "2025-12-07T00:00:00",
+              displayTime: "TBA",
             },
           ];
 
@@ -168,36 +189,27 @@
             currentEventIndex = events.length - 1;
           }
 
-          // Add fade animation for changing numbers
-          function animateChange(element, newValue) {
-            element.style.opacity = 0;
-            setTimeout(() => {
-              element.textContent = newValue;
-              element.style.opacity = 1;
-            }, 300);
-          }
-
-          const updateCountdown = () => {
+          function updateCountdown() {
             const now = new Date().getTime();
             const currentEvent = events[currentEventIndex];
             const countDate = new Date(currentEvent.date).getTime();
             const gap = countDate - now;
 
             if (gap <= 0) {
-              // Move to the next event if available
+              // Move to next event if available
               currentEventIndex++;
               if (currentEventIndex < events.length) {
-                // Animate title change with fade effect
+                // Animate title change
                 eventTitle.style.opacity = 0;
                 setTimeout(() => {
-                  eventTitle.textContent = events[currentEventIndex].title;
+                  const nextEvent = events[currentEventIndex];
+                  eventTitle.textContent = `${nextEvent.title} (${nextEvent.displayTime})`;
                   eventTitle.style.opacity = 1;
                 }, 500);
-
-                setTimeout(updateCountdown, 600); // Recursively update for the next event
+                setTimeout(updateCountdown, 600);
                 return;
               } else {
-                // If no more events, stop the countdown
+                // No more events
                 eventTitle.textContent =
                   "All events have concluded! Check back again.";
                 daysElement.textContent = "00";
@@ -218,44 +230,27 @@
             const minutes = Math.floor((gap % hour) / minute);
             const seconds = Math.floor((gap % minute) / second);
 
-            // Only animate changes
-            const daysStr = days.toString().padStart(2, "0");
-            const hoursStr = hours.toString().padStart(2, "0");
-            const minutesStr = minutes.toString().padStart(2, "0");
-            const secondsStr = seconds.toString().padStart(2, "0");
-
-            if (daysElement.textContent !== daysStr) {
-              daysElement.textContent = daysStr;
-            }
-
-            if (hoursElement.textContent !== hoursStr) {
-              hoursElement.textContent = hoursStr;
-            }
-
-            if (minutesElement.textContent !== minutesStr) {
-              minutesElement.textContent = minutesStr;
-            }
-
-            if (secondsElement.textContent !== secondsStr) {
-              secondsElement.textContent = secondsStr;
-            }
-          };
+            daysElement.textContent = days.toString().padStart(2, "0");
+            hoursElement.textContent = hours.toString().padStart(2, "0");
+            minutesElement.textContent = minutes.toString().padStart(2, "0");
+            secondsElement.textContent = seconds.toString().padStart(2, "0");
+          }
 
           // Display a loading animation before showing the countdown
           eventTitle.textContent = "Loading upcoming events...";
 
           setTimeout(() => {
-            // Set the initial event title with a fade-in effect
+            const currentEvent = events[currentEventIndex];
+            // Set initial event title with fade-in
             eventTitle.style.opacity = 0;
-            eventTitle.textContent = events[currentEventIndex].title;
-
+            eventTitle.textContent = `${currentEvent.title} (${currentEvent.displayTime})`;
             setTimeout(() => {
               eventTitle.style.opacity = 1;
             }, 300);
 
-            // Start the countdown
+            // Start countdown
             setInterval(updateCountdown, 1000);
-            updateCountdown(); // Initial call to populate the countdown immediately
+            updateCountdown(); // Immediate first call
           }, 1000);
 
           // Optional: Add ambient background animation
@@ -405,641 +400,26 @@
 
     <!-- Past events section -->
     <div class="past-events-section">
-      <div class="past-events-heading">
-        <h1>Past Events</h1>
-        <div class="gold-underline"></div>
-      </div>
-
-      <div class="year-container">
-        <!-- 2025 Events -->
-        <div class="year-tab" onclick="toggleYear('events-2025')">
-          2025 Events
-          <span class="arrow">▼</span>
+      <div id="main-page" class="page active">
+        <div class="events-header">
+          <div class="gold-underline"></div>
         </div>
-        <div id="events-2025" class="year-content">
-          <!--Pentecost 2025-->
-          <div class="event-header">
-            <h3>2025 Pentecost Celebration</h3>
-            <span class="event-date">June 6th, 7th, 8th 2025</span>
-            <p style="margin-top: 15px">
-              <strong
-                >We celebrated Pentecost with a powerful three-day
-                gathering.</strong
-              >
-              On <strong>June 6th</strong>, we began with a night of
-              <strong>prayer and worship</strong>, seeking God’s presence
-              together. On <strong>June 7th</strong>, we held our
-              <strong>Great Water Baptism and Cookout</strong>, where we enjoyed
-              delicious food, vibrant worship, and witnessed
-              <strong
-                >8 souls publicly declare their faith through baptism</strong
-              >. Finally, on <strong>June 8th</strong>, we concluded with a
-              <strong>spirit-filled closing message by Pastor Gillard</strong>,
-              reminding us of the fire of Pentecost and encouraging us to walk
-              boldly in the Spirit.
-            </p>
-            <div class="event-media">
-              <img
-                src="assets/event-assets/2025_events/pentecost/pastor-and-first-lady.jpg"
-                alt="Pastor and elect lady in church"
-              />
 
-              <img
-                src="assets/event-assets/2025_events/pentecost/cookout_1.png"
-                alt="Pentecost cookout"
-              />
-
-              <iframe
-                width="560"
-                height="315"
-                src="https://www.youtube.com/embed/MdMuldaHbNg?si=h6x74jOTHaIIROzG"
-                title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin"
-                allowfullscreen
-              ></iframe>
-
-              <iframe
-                width="560"
-                height="315"
-                src="https://www.youtube.com/embed/f5GLoy-7foc?si=WvQ9yTTM2yutnxS2"
-                title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin"
-                allowfullscreen
-              ></iframe>
-
-              <iframe
-                width="560"
-                height="315"
-                src="https://www.youtube.com/embed/LplpyWb3Qqc?si=TUwaWaaI_2P_yT3d"
-                title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin"
-                allowfullscreen
-              ></iframe>
-
-              <iframe
-                width="560"
-                height="315"
-                src="https://www.youtube.com/embed/SMFjUwYd8hE?si=mPhzk1E0WnfGq4pG"
-                title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin"
-                allowfullscreen
-              ></iframe>
-            </div>
-          </div>
-
-          <!-- Family & Friends Day -->
-          <div class="event-header">
-            <h3>Family & Friends Day</h3>
-            <span class="event-date">May 4th, 2025 | 3:00 PM</span>
-            <p style="margin-top: 15px">
-              <strong
-                >We gathered for an unforgettable Family & Friends Day,</strong
-              >
-              celebrating the gift of loved ones and the bonds we share in
-              Christ. The afternoon was filled with joy, laughter, and heartfelt
-              moments.
-              <br /><br />
-              <strong
-                >Special thanks to our guest speaker, Pastor Lee Roy
-                Epps</strong
-              >
-              of Wilson Chapel Church, for delivering an inspiring word that
-              touched every heart. It was a day of unity, love, and spiritual
-              encouragement — a true blessing to all who attended.
-            </p>
-            <div class="event-media">
-              <iframe
-                width="560"
-                height="315"
-                src="https://www.youtube.com/embed/tEHX-R9whzA?si=fMsebkYZ7JcsfoNK&amp;start=24"
-                title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin"
-                allowfullscreen
-              ></iframe>
-
-              <img
-                src="assets/event-assets/2025_events/fanilyAndFriends/Family_And_Friends_Day_Crowd1.jpg"
-                alt=""
-              />
-              <img
-                src="assets/event-assets/2025_events/fanilyAndFriends/Family_And_Friends_Day_Crowd2.jpg"
-                alt=""
-              />
-              <img
-                src="assets/event-assets/2025_events/fanilyAndFriends/Family_And_Friends_Day_Crowd3.jpg"
-                alt=""
-              />
-              <img
-                src="assets/event-assets/2025_events/fanilyAndFriends/Family_And_Friends_Day_Crowd4.jpg"
-                alt=""
-              />
-
-              <iframe
-                width="560"
-                height="315"
-                src="https://www.youtube.com/embed/W24qW5TI8Q0?si=TU4Ry6f8-B24zEDI"
-                title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin"
-                allowfullscreen
-              ></iframe>
-            </div>
-          </div>
-
-          <!-- Palm Sunday & Resurrection Sunday -->
-          <div class="event-card">
-            <div class="event-header">
-              <h3>Palm Sunday & Resurrection Sunday</h3>
-              <span class="event-date"
-                >April 13th, 2025 & April 20th, 2025</span
-              >
-              <p style="margin-top: 15px">
-                <strong>Palm Sunday was a time of reflection</strong> as we
-                gathered for a meaningful service featuring scripture readings
-                and a powerful message honoring Jesus' journey. <br /><br />
-                <strong
-                  >The following week, we celebrated the Resurrection of
-                  Jesus</strong
-                >
-                — a joyous occasion marking His victory over death.
-              </p>
-            </div>
-            <div class="event-media">
-              <iframe
-                width="560"
-                height="315"
-                src="https://www.youtube.com/embed/9mzz3HwcpS0?si=-cIFQj436bmaHJ50"
-                title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin"
-                allowfullscreen
-              ></iframe>
-
-              <iframe
-                width="560"
-                height="315"
-                src="https://www.youtube.com/embed/1nfG6m8E4kE?si=b5KUQiq-SjDdHubT"
-                title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin"
-                allowfullscreen
-              ></iframe>
-            </div>
-          </div>
-
-          <!-- Men's Meeting & Teri Musician Program -->
-          <div class="event-card">
-            <div class="event-header">
-              <h3>Men's Meeting & Teri Musician Program</h3>
-              <span class="event-date">March 29-30th, 2025</span>
-              <p>
-                <strong>Saturday, March 29</strong> — The weekend began with the
-                Community Temple Men's Meeting and Breakfast. A time of
-                fellowship, encouragement, and spiritual growth brought the men
-                together, while a complimentary breakfast provided a warm start
-                to the day. <br /><br />
-                <strong>Sunday, March 30</strong> — The celebration continued
-                with a Musical Tribute to
-                <strong>Anthony A. Gillard (Teri)</strong>. Spirit-filled
-                performances by choirs and groups created an uplifting afternoon
-                of worship, gratitude, and joyful celebration.
-              </p>
-            </div>
-            <div class="event-media">
-              <img
-                src="assets/event-assets/2025_events/men's_meeting/mens's-meeting-1.jpg"
-                alt="Men's meeting"
-              />
-              <img
-                src="assets/event-assets/2025_events/men's_meeting/mens's-meeting-2.jpg"
-                alt="Men's meeting"
-              />
-              <img
-                src="assets/event-assets/2025_events/men's_meeting/mens's-meeting-3.jpg"
-                alt="Men's meeting"
-              />
-              <img
-                src="assets/event-assets/2025_events/men's_meeting/mens's-meeting-4.jpg"
-                alt="Men's meeting"
-              />
-              <img
-                src="assets/event-assets/2025_events/men's_meeting/mens's-meeting-5.jpg"
-                alt="Men's meeting"
-              />
-              <iframe
-                class="lazy-iframe"
-                src="https://www.youtube.com/embed/yO7m4IC1Rs8?si=_W2qJhJLrqhb3DK1"
-                title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin"
-                allowfullscreen
-              ></iframe>
-
-              <iframe
-                class="lazy-iframe"
-                src="https://www.youtube.com/embed/nXvhutzcGPA?si=CEIhSU6UeNMYch0i"
-                title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin"
-                allowfullscreen
-              ></iframe>
-
-              <iframe
-                class="lazy-iframe"
-                src="https://www.youtube.com/embed/MAgKnFyfk4A?si=laeijChGLGtb4ESb"
-                title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin"
-                allowfullscreen
-              ></iframe>
-            </div>
-          </div>
-
-          <!-- Black History Program -->
-          <div class="event-card">
-            <div class="event-header">
-              <h3>Black History Program</h3>
-              <span class="event-date">January 16, 2025</span>
-              <p>
-                We celebrated Black history with songs of praise, and with
-                teaching and preaching, honoring the legacy, resilience, and
-                contributions of African Americans throughout history. The event
-                also featured inspiring stories, cultural performances, and a
-                call to continue the fight for equality and justice.
-              </p>
-            </div>
-            <div class="event-media">
-              <img
-                src="assets/event-assets/2025_events/black_history_program/black_history_banner.jpg"
-                alt="Black History Banner"
-                style="border: 2px solid #e53e3e; border-radius: 5px"
-              />
-              <img
-                src="assets/event-assets/2025_events/black_history_program/black_history_MLK.jpg"
-                alt="Martin Luther King Jr."
-                style="border: 2px solid #2d3748; border-radius: 5px"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="year-container">
-        <!-- 2024 Events -->
-        <div class="year-tab" onclick="toggleYear('events-2024')">
-          2024 Events
-          <span class="arrow">▼</span>
-        </div>
-        <div id="events-2024" class="year-content">
-          <!-- Pastor Appreciation -->
-          <div class="event-card">
-            <div class="event-header">
-              <h3>Pastor Appreciation</h3>
-              <span class="event-date">December 1st, 2024</span>
-              <p>
-                Our congregation gathered to honor and celebrate Pastor Gillard
-                and Elect Lady Gillard for their unwavering dedication,
-                leadership, and service to our community. It was a joyous day
-                filled with warmth, unity, and heartfelt expressions of
-                appreciation for another year of faithful service.
-              </p>
-            </div>
-            <div class="event-media">
-              <img
-                src="assets/event-assets/pastor-apprecation-2024/pa-2.jpg"
-                alt=""
-              />
-              <img
-                src="assets/event-assets/pastor-apprecation-2024/pa-3.jpg"
-                alt=""
-              />
-              <img
-                src="assets/event-assets/pastor-apprecation-2024/pa-4.jpg"
-                alt=""
-              />
-              <img
-                src="assets/event-assets/pastor-apprecation-2024/pa-6.jpg"
-                alt=""
-              />
-            </div>
-          </div>
-
-          <!-- Hall of Faith Service -->
-          <div class="event-card">
-            <div class="event-header">
-              <h3>Hall of Faith Service</h3>
-              <span class="event-date">October 25-27, 2024</span>
-              <p>
-                The Hall of Faith service is a special ceremony honoring the
-                legacy of church members who have passed, particularly the
-                beloved church mothers who played vital roles in the ministry.
-                This service allows the congregation to come together in
-                gratitude, sharing memories and celebrating the enduring impact
-                of these women. Through stories, prayers, and song, we remember
-                their faith and dedication, knowing their legacy continues to
-                inspire and strengthen our church community.
-              </p>
-            </div>
-            <div class="hall-of-faith-2024-image-slider">
-              <div class="h-o-f-img-container">
-                <img
-                  src="assets/event-assets/hall-of-faith-2024/hall-of-faith-slider1.jpg"
-                  alt="Slide 1"
-                />
-                <img
-                  src="assets/event-assets/hall-of-faith-2024/hall-of-faith-slider2.jpg"
-                  alt="Slide 2"
-                />
-                <img
-                  src="assets/event-assets/hall-of-faith-2024/hall-of-faith-slider3.jpg"
-                  alt="Slide 3"
-                />
-                <img
-                  src="assets/event-assets/hall-of-faith-2024/hall-of-faith-slider4.jpg"
-                  alt="Slide 4"
-                />
-                <img
-                  src="assets/event-assets/hall-of-faith-2024/hall-of-faith-slider5.webp"
-                  alt="Slide 5"
-                />
-
-                <img
-                  src="assets/event-assets/hall-of-faith-2024/hall-of-faith-church-family5.jpg"
-                  alt="Slide 6"
-                />
-                <img
-                  src="assets/event-assets/hall-of-faith-2024/hall-of-faith-church-family6.jpg"
-                  alt="Slide 7"
-                />
-                <img
-                  src="assets/event-assets/hall-of-faith-2024/hall-of-faith-church-family7.jpg"
-                  alt="Slide 8"
-                />
-                <img
-                  src="assets/event-assets/hall-of-faith-2024/hall-of-faith-church-family8.jpg"
-                  alt="Slide 9"
-                />
-                <img
-                  src="assets/event-assets/hall-of-faith-2024/hall-of-faith-church-family9.jpg"
-                  alt="Slide 10"
-                />
-              </div>
-            </div>
-            <div class="event-media">
-              <img
-                src="assets/event-assets/hall-of-faith-2024/hall-of-faith-breakfast1.jpg"
-                alt="Hall of faith, everyone enjoying breakfast"
-              />
-              <img
-                src="assets/event-assets/hall-of-faith-2024/hall-of-faith-breakfast2.jpg"
-                alt="Hall of faith, cooks serving and everyone enjoying breakfast"
-              />
-              <img
-                src="assets/event-assets/hall-of-faith-2024/hall-of-faith-pastor-and-first-lady1.jpg"
-                alt="Hall of faith, pastor and first lady"
-              />
-              <img
-                src="assets/event-assets/hall-of-faith-2024/hall-of-faith-family-photo.jpg"
-                alt="Hall of faith, photo of church family after service"
-              />
-              <img
-                src="assets/event-assets/hall-of-faith-2024/hall-of-faith-church-family4.jpg"
-                alt="Hall of faith, photo of church family"
-              />
-              <img
-                src="assets/event-assets/hall-of-faith-2024/hall-of-faith-mothers-photos.jpg"
-                alt="Hall of faith, mothers picture frames lined up"
-              />
-              <img
-                src="assets/event-assets/hall-of-faith-2024/hall-of-faith-crowd.jpg"
-                alt="Hall of faith, crowd"
-              />
-              <img
-                src="assets/event-assets/hall-of-faith-2024/hall-of-faith-older-family.jpg"
-                alt="Hall of faith, photo of church family after service"
-              />
-            </div>
-          </div>
-          <script>
-            document.addEventListener("DOMContentLoaded", () => {
-              const images = document.querySelectorAll(
-                ".h-o-f-img-container img"
-              );
-              let currentIndex = 0;
-
-              function showNextImage() {
-                images[currentIndex].classList.remove("active");
-                currentIndex = (currentIndex + 1) % images.length;
-                images[currentIndex].classList.add("active");
-              }
-
-              images[currentIndex].classList.add("active");
-              setInterval(showNextImage, 2000);
-            });
-          </script>
-
-          <!-- Pentecost Celebration -->
-          <div class="event-card">
-            <div class="event-header">
-              <h3>Pentecost Celebration</h3>
-              <span class="event-date">May 18, 2024</span>
-              <p>
-                The Pentecost Celebration, held on May 18, 2024, was a day
-                filled with great food, heartfelt worship, and overall an
-                amazing time for everyone involved. It was a memorable
-                celebration of faith, fellowship, and good times.
-              </p>
-            </div>
-            <div class="event-media">
-              <iframe
-                class="lazy-iframe"
-                src="https://www.youtube.com/embed/rfoSjXE-kSM?si=ltWEe5c5RZdWvkPj"
-                title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin"
-                allowfullscreen
-              ></iframe>
-
-              <iframe
-                class="lazy-iframe"
-                src="https://www.youtube.com/embed/sRqBKN9zhTw"
-                title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin"
-                allowfullscreen
-              ></iframe>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="year-container">
-        <!-- 2023 Events -->
-        <div class="year-tab" onclick="toggleYear('events-2023')">
-          2023 Events
-          <span class="arrow">▼</span>
-        </div>
-        <div id="events-2023" class="year-content">
-          <!-- Pastor Gillard Birthday Bash -->
-          <div class="event-card">
-            <div class="event-header">
-              <h3>Pastor Gillard Birthday Bash</h3>
-              <span class="event-date">June 24, 2023</span>
-              <p>
-                The community came together to celebrate Pastor Gillard's
-                Birthday in 2023 with great joy. The event featured music,
-                praise, and heartfelt tributes, with good food, making it a
-                memorable day for everyone.
-              </p>
-            </div>
-            <div class="event-media">
-              <iframe
-                class="lazy-iframe"
-                src="https://www.youtube.com/embed/Z_0a1Xe-TxA"
-                title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin"
-                allowfullscreen
-              ></iframe>
-
-              <iframe
-                class="lazy-iframe"
-                src="https://www.youtube.com/embed/8y9ODt9Ia9k"
-                title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin"
-                allowfullscreen
-              ></iframe>
-
-              <iframe
-                class="lazy-iframe"
-                src="https://www.youtube.com/embed/GA6XJbrqx3U"
-                title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin"
-                allowfullscreen
-              ></iframe>
-
-              <iframe
-                class="lazy-iframe"
-                src="https://www.youtube.com/embed/m7W9suQ20qg"
-                title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin"
-                allowfullscreen
-              ></iframe>
-            </div>
-          </div>
-
-          <!-- Resurrection Play -->
-          <div class="event-card">
-            <div class="event-header">
-              <h3>Resurrection Play</h3>
-              <span class="event-date">April 9, 2023</span>
-              <p>
-                The Resurrection Play of 2023 was a profound showcasing of the
-                crucifixion and resurrection of Jesus Christ. The event was
-                filled with emotional performances that touched the hearts of
-                many.
-              </p>
-            </div>
-            <div class="event-media">
-              <img
-                src="assets/event-assets/resurrection_play_2023/res_1.jpg"
-                alt="Jesus Carrying The Cross - Resurrection Play 2023"
-              />
-              <img
-                src="assets/event-assets/resurrection_play_2023/res_2.jpg"
-                alt="Jesus Nailed To The Cross - Resurrection Play 2023"
-              />
-              <img
-                src="assets/event-assets/resurrection_play_2023/res_3.jpg"
-                alt="Jesus On The Cross - Resurrection Play 2023"
-              />
-
-              <iframe
-                class="lazy-iframe"
-                src="https://www.youtube.com/embed/oZt9M2678_c"
-                title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin"
-                allowfullscreen
-              ></iframe>
-            </div>
-          </div>
+        <div style="text-align: center; margin: 3rem 0">
+          <a
+            href="past-events.html"
+            class="past-events-btn"
+            style="
+              display: inline-block;
+              padding: 0.5em 1em;
+              text-decoration: none;
+            "
+          >
+            📅 View Past Events
+          </a>
         </div>
       </div>
     </div>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        // Hide all content sections initially
-        const yearContents = document.querySelectorAll(".year-content");
-        yearContents.forEach((content) => {
-          content.style.maxHeight = "0";
-          content.style.overflow = "hidden"; // Add this for better behavior
-          content.style.transition = "max-height 0.3s ease"; // Add smooth transition
-        });
-      });
-
-      function toggleYear(id) {
-        const content = document.getElementById(id);
-        const yearTab = content.previousElementSibling;
-        const arrow = yearTab.querySelector(".arrow");
-
-        if (!content.classList.contains("active")) {
-          // Close any open tabs first
-          const activeContents = document.querySelectorAll(
-            ".year-content.active"
-          );
-          const activeTabs = document.querySelectorAll(".year-tab.active");
-
-          activeContents.forEach((activeContent) => {
-            activeContent.style.maxHeight = "0";
-            activeContent.classList.remove("active");
-          });
-
-          activeTabs.forEach((activeTab) => {
-            activeTab.classList.remove("active");
-            activeTab.querySelector(".arrow").textContent = "▼";
-          });
-
-          // Open the clicked tab
-          content.style.maxHeight = content.scrollHeight + "px";
-          content.classList.add("active");
-          yearTab.classList.add("active");
-          arrow.textContent = "▲";
-        } else {
-          // Close the tab if it's already open
-          content.style.maxHeight = "0";
-          content.classList.remove("active");
-          yearTab.classList.remove("active");
-          arrow.textContent = "▼";
-        }
-      }
-    </script>
 
     <!-- Footer -->
     <footer class="footer">

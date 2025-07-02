@@ -20,21 +20,21 @@
 
 @media (max-width: 768px) {
   .event-flyer {
-    max-width: 150px;
+    max-width: 350px;
   }
 
   .flyer-image {
-    max-height: 180px;
+    max-height: 400px;
   }
 }
 
 @media (max-width: 480px) {
   .event-flyer {
-    max-width: 120px;
+    max-width: 300px;
   }
 
   .flyer-image {
-    max-height: 140px;
+    max-height: 350px;
   }
 }
 
