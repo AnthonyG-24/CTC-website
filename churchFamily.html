@@ -89,7 +89,11 @@
         });
     </script>
 
-    <section class="church-family-section" id="church-family-section">
+    <h3 style="text-align: center; font-size: 2rem">
+      Nothing here for now! In the works
+    </h3>
+
+    <!--  <section class="church-family-section" id="church-family-section">
       <div class="decorative-cross top-left">✝</div>
       <div class="decorative-cross bottom-right">✝</div>
 
@@ -102,32 +106,25 @@
       </div>
 
       <div class="gallery-container">
-        <!-- Featured Image Carousel -->
         <div class="featured-image-container">
-          <div class="featured-image-wrapper">
-            <!-- Images will be loaded here via JavaScript -->
-          </div>
+          <div class="featured-image-wrapper"></div>
           <div class="featured-caption">Our Church Family Moments</div>
         </div>
 
         <p>Click on any image to view it larger</p>
 
-        <!-- Gallery Grid -->
-        <div class="gallery-grid">
-          <!-- Images will be loaded here via JavaScript -->
-        </div>
+        <div class="gallery-grid"></div>
       </div>
 
-      <!-- Modal for enlarged images -->
       <div class="modal" id="imageModal">
         <span class="close-modal">&times;</span>
         <div class="modal-content">
           <img id="modalImage" src="" alt="Enlarged church family photo" />
         </div>
       </div>
-    </section>
+    </section> -->
 
-    <script>
+    <!--  <script>
       const imageSources = [
         {
           src: "assets/church-family-assets/churchfamily/aunt-joe-and-family.jpg",
@@ -500,13 +497,11 @@
       ];
 
       document.addEventListener("DOMContentLoaded", () => {
-        // Load images into featured carousel
         const featuredWrapper = document.querySelector(
           ".featured-image-wrapper"
         );
         const featuredCaption = document.querySelector(".featured-caption");
 
-        // Check if elements exist before proceeding
         if (!featuredWrapper || !featuredCaption) {
           console.error("Required DOM elements not found");
           return;
@@ -527,7 +522,6 @@
           featuredWrapper.appendChild(imgElement);
         });
 
-        // Load images into gallery grid
         const galleryGrid = document.querySelector(".gallery-grid");
 
         if (galleryGrid) {
@@ -544,7 +538,6 @@
           });
         }
 
-        // Carousel functionality
         let currentIndex = 0;
         const featuredImages = document.querySelectorAll(".featured-image");
 
@@ -563,7 +556,6 @@
           });
 
           featuredImages[currentIndex].classList.add("active");
-          // Keep the static caption text
         }
 
         function showPrevImage() {
@@ -580,10 +572,8 @@
           });
 
           featuredImages[currentIndex].classList.add("active");
-          // Keep the static caption text
         }
 
-        // Start the carousel only if there are images
         if (featuredImages.length > 1) {
           setInterval(showNextImage, 5000);
         }
@@ -608,7 +598,6 @@
             });
           });
 
-          // Featured image click handler
           featuredWrapper.addEventListener("click", function () {
             const activeImg = document.querySelector(".featured-image.active");
             if (activeImg) {
@@ -619,7 +608,6 @@
             }
           });
 
-          // Close modal handlers
           closeModal.addEventListener("click", function () {
             modal.classList.remove("active");
             document.body.style.overflow = "auto";
@@ -632,7 +620,6 @@
             }
           });
 
-          // Escape key to close modal
           document.addEventListener("keydown", function (e) {
             if (e.key === "Escape" && modal.classList.contains("active")) {
               modal.classList.remove("active");
@@ -641,7 +628,6 @@
           });
         }
 
-        // Add touch swipe capability for mobile
         let touchStartX = 0;
         let touchEndX = 0;
 
@@ -656,11 +642,9 @@
 
         function handleSwipe() {
           if (touchEndX < touchStartX) {
-            // Swipe left - next image
             showNextImage();
           }
           if (touchEndX > touchStartX) {
-            // Swipe right - previous image
             featuredImages[currentIndex].classList.remove("active");
             currentIndex =
               (currentIndex - 1 + featuredImages.length) %
@@ -674,7 +658,7 @@
           }
         }
       });
-    </script>
+    </script> -->
 
     <!-- Footer -->
     <footer class="footer">
