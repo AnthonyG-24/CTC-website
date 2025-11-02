@@ -5,9 +5,9 @@ const folderPath = path.join(
   __dirname,
   "assets",
   "church-family-assets",
-  "churchfamily"
+  "more_new_photos"
 );
-const webBasePath = "assets/church-family-assets/churchfamily/";
+const webBasePath = "assets/church-family-assets/more_new_photos/";
 
 const files = fs.readdirSync(folderPath);
 

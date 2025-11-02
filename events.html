@@ -143,25 +143,19 @@
         document.addEventListener("DOMContentLoaded", () => {
           const events = [
             {
-              title: "Hall Of Faith Day 1",
-              date: "2025-10-24T18:30:00",
-              displayTime: "6:30 PM",
-            },
-            {
-              title: "Hall Of Faith Day 2",
-              date: "2025-10-25T09:00:00",
-              displayTime: "9:00 AM",
-            },
-            {
-              title: "Hall Of Faith Day 3",
-              date: "2025-10-26T11:45:00",
-              displayTime: "11:45 AM",
-            },
-
-            {
               title: "Pastor Appreciation",
-              date: "2025-12-07T00:00:00",
-              displayTime: "TBA",
+              date: "2025-12-07T15:00:00",
+              displayTime: "3:00 PM",
+            },
+            {
+              title: "Foot Wash",
+              date: "2025-12-17T19:00:00",
+              displayTime: "7:00 PM",
+            },
+            {
+              title: "New Year's Eve Gathering",
+              date: "2025-12-31T21:00:00",
+              displayTime: "9:00 PM",
             },
           ];
 
@@ -294,59 +288,63 @@
           <div class="upcoming-events-calendar">
             <h2>Upcoming Events</h2>
             <ul class="events-list">
-              <li class="event-item">
-                <strong>Hall Of Faith</strong>
-                <div class="event-date">October 24th – October 26th</div>
+              <ul class="event-list">
+                <li class="event-item">
+                  <strong>Pastor Appreciation</strong>
+                  <div class="event-date">December 7th</div>
+                  <div class="event-flyer">
+                    <img
+                      src="assets/event-assets/2025_events/Flyers/Pastor Appreciation Flyer (TV).jpg"
+                      alt="Pastor Appreciation Flyer"
+                      class="flyer-image"
+                    />
+                  </div>
+                  <p>
+                    Join us as we honor and appreciate our pastor for his
+                    dedication and service to our church community.
+                  </p>
+                  <span class="event-time">@ 3:00 PM</span>
+                </li>
 
-                <div class="event-flyer">
-                  <img
-                    src="assets/event-assets/2025_events/Hall Of Faith/H.O.F-2025.jpg"
-                    alt="Hall Of Faith 2025"
-                    class="flyer-image"
-                  />
-                </div>
+                <li class="event-item">
+                  <strong>Foot Wash</strong>
+                  <div class="event-date">December 17th</div>
+                  <div class="event-flyer">
+                    <img
+                      src="assets/event-assets/2025_events/Flyers/Foot Wash Flyer (TV).jpg"
+                      alt="Foot Wash Flyer"
+                      class="flyer-image"
+                    />
+                  </div>
+                  <p>
+                    Experience a meaningful evening of humility and fellowship
+                    during our annual Foot Wash service.
+                  </p>
+                  <span class="event-time">@ 7:00 PM</span>
+                </li>
 
-                <p>
-                  Join us for a three-day celebration honoring the faithful
-                  mothers of Community Temple Church who have gone on before us.
-                  We are celebrating the life and legacy of:<br />
-                  Mother Pearlie Mae McCormick<br />
-                  Mother Lottie Dukes<br />
-                  Mother Jacqueline Gillard<br />
-                  Mother Ruth Brockington<br />
-                  Mother Mary Ann Brand<br />
-                  Mother Josephine Fulton Brand<br />
-                  Mother Carrie Mae<br /><br />
-                  This special event will be filled with prayer, worship,
-                  fellowship, and a heartfelt Hall of Faith Breakfast. Together,
-                  we will reflect on their legacy, be inspired by their example,
-                  and close with an uplifting message of hope and encouragement.
-                </p>
-
-                <span class="event-time">
-                  October 24 @ 6:30 PM – Prayer<br />
-                  October 24 @ 7:00 PM – Service<br />
-                  October 25 @ 9:00 AM – Hall of Faith Breakfast<br />
-                  October 26 @ 11:45 AM – Closing with Pastor Donald Gillard
-                </span>
-              </li>
-
-              <li class="event-item">
-                <strong>Pastor Appreciation</strong>
-                <div class="event-date">December 7th</div>
-                <div class="event-flyer">
-                  <img
-                    src="assets/event-assets/2025_events/Flyers/Pastor Appr.jpg"
-                    alt="Pastor Appreciation Flyer"
-                    class="flyer-image"
-                  />
-                </div>
-                <p>
-                  Join us as we honor and appreciate our pastor for his
-                  dedication and service to our church community
-                </p>
-                <span class="event-time">TBA</span>
-              </li>
+                <li class="event-item">
+                  <strong>New Year’s Eve Gathering</strong>
+                  <div class="event-date">December 31st</div>
+                  <div class="event-flyer">
+                    <video
+                      src="assets/event-assets/2025_events/Flyers/New year 2025.mp4"
+                      class="flyer-image"
+                      autoplay
+                      loop
+                      muted
+                      playsinline
+                    >
+                      Your browser does not support the video tag.
+                    </video>
+                  </div>
+                  <p>
+                    Ring in the new year with praise, reflection, and community
+                    as we gather to celebrate together.
+                  </p>
+                  <span class="event-time">@ 9:00 PM</span>
+                </li>
+              </ul>
             </ul>
           </div>
         </div>
